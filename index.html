@@ -4834,6 +4834,67 @@ const releases = {
     ],
     audience: 'Organisations using Hero Time Clock that have also enabled SSO. Particularly useful for enterprises and tech-forward clients who use SSO across their tools.',
     loomUrl: ''
+  },
+
+  'compliance-doc-purpose': {
+    title: 'Clarify Compliance Document Purpose',
+    tag: '🧑‍💼 HR', tagClass: 'tag-hr',
+    date: '23 April 2026', plan: 'All organisations', region: '🌐 Global', users: 'HR Admins',
+    problem: 'HR admins frequently uploaded the wrong type of content into the Compliance module — leading to policies missed for acknowledgement and gaps in audit trails.',
+    features: [
+      'Short descriptions displayed beneath each section heading across Company Policies, Certifications, Document Management and Template Library',
+      'Inline guidance shown inside create and upload dialogs, clarifying the purpose of that content type before action is taken'
+    ],
+    audience: 'Any organisation using the Compliance module. Reduces miscategorised uploads — particularly valuable for orgs running formal compliance audits.',
+    loomUrl: ''
+  },
+
+  'external-app-confirmation-email': {
+    title: 'External Job Board Application Confirmation Emails',
+    tag: '🎯 Recruitment', tagClass: 'tag-recruitment',
+    date: '23 April 2026', plan: 'All organisations', region: '🌐 Global', users: 'Candidates',
+    problem: 'Candidates applying via external job boards like Seek and Indeed received no acknowledgement after their data was ingested into Employment Hero — creating "application anxiety" and missed brand awareness.',
+    features: [
+      'Automated confirmation email sent immediately after successful ingestion from external sources',
+      'Email summary shows the data submitted by the candidate for transparency',
+      'Introduces Employment Hero as the platform powering the recruitment process',
+      'Includes a withdraw application link and "Powered by Employment Hero" footer',
+      'Account creation prompt consolidated into this confirmation email (excluding Seek and Indeed) — replaces the standalone "Confirm your email" notification'
+    ],
+    audience: 'All organisations posting jobs via external job boards. Reduces candidate confusion and increases EH brand recognition with applicants who go on to receive platform communications.',
+    loomUrl: 'https://www.loom.com/embed/0351201923fd46028988adb776c68270'
+  },
+
+  'mdm-jamf-intune': {
+    title: 'MDM Integration — Jamf Pro & Microsoft Intune',
+    tag: '🔒 Security', tagClass: 'tag-security',
+    date: '20 April 2026', plan: 'Elite · Unlimited (planned)', region: '🌐 Global', users: 'IT Admins',
+    problem: 'IT teams managed device assets manually in EH alongside their MDM platform — duplicating data entry and creating drift between the asset register and reality.',
+    features: [
+      'New Jamf Pro and Microsoft Intune add-ons',
+      'Serial number, device name and assigned user email are read from the MDM provider into the asset register',
+      'Devices deleted from the MDM provider automatically flip to "unavailable" status to maintain a clean historical trail',
+      'Future work: device make and model data from MDM'
+    ],
+    audience: 'IT Ops teams using Jamf Pro or Microsoft Intune. Initially internal-only — public release planned for Elite and Unlimited subplans once internal usage is established.',
+    loomUrl: ''
+  },
+
+  'workflow-api-action': {
+    title: 'API Call Action in Workflows',
+    tag: '⚡ Automations', tagClass: 'tag-automation',
+    date: '20 April 2026', plan: 'Elite · Unlimited (planned)', region: '🌐 Global', users: 'IT Admins · Workflow Builders',
+    problem: 'Workflows had no way to call third-party APIs — limiting integration flexibility and forcing teams to wire up external services through bespoke glue.',
+    features: [
+      'New API Call action with configurable URL, method (GET/POST/PUT/PATCH/DELETE), auth type & credentials, request body and headers',
+      'API Call success and failure triggers route the workflow based on the response code',
+      'Response field mappings save expected values as variables for use in later workflow steps',
+      'Configurable max retries and timeout for handling transient failures',
+      'SAP org workflow audit shows full request and response detail',
+      'Future work: webhook triggers, webhook wait states and centralised credential storage'
+    ],
+    audience: 'IT teams and workflow power users who need to integrate Employment Hero with third-party services. Initially internal-only — public release planned for Elite and Unlimited subplans.',
+    loomUrl: ''
   }
 };
 
@@ -5275,7 +5336,7 @@ const areaSubTabs = {
     { label: 'All HR',                  keys: null },
     { label: 'Employment Details',       keys: ['employment-details','contract-type','casual-conversion','contractors-as-managers','offer-multiple-signatories','offer-letter-reminders','legal-name-privacy','contractor-custom-fields-v2','vacant-positions-perms','employee-permissions-view','mandatory-fields-settings','wp-employee-profile','probation-end-date','contract-type-display','notice-periods-all','employee-contractor-codes'] },
     { label: 'Leave',                    keys: ['leave-time-precise','leave-cancel-termination','leave-calendar-filters','compliance-leave-filter','leave-overlap-prevention','leave-employee-disambiguation','public-holiday-indicator','leave-compliance-edit','leave-table-uplift','leave-table-standardize','public-holiday-auto'] },
-    { label: 'Documents & Policies',     keys: ['doc-notifications','compliance-doc-tagging','uk-policy-owner','uk-passport-visa-expiry','doc-template-visa-vars','doc-multiple-signatories','doc-image-upload','policy-due-dates','doc-editor-new','email-notifications-ui','email-notifs-docs','email-notifs-leave','cert-due-dates','cert-notification-improvements','probation-report'] },
+    { label: 'Documents & Policies',     keys: ['doc-notifications','compliance-doc-tagging','compliance-doc-purpose','uk-policy-owner','uk-passport-visa-expiry','doc-template-visa-vars','doc-multiple-signatories','doc-image-upload','policy-due-dates','doc-editor-new','email-notifications-ui','email-notifs-docs','email-notifs-leave','cert-due-dates','cert-notification-improvements','probation-report'] },
     { label: 'Platform & Engagement',    keys: ['positions-colour','settings-uplift','company-feed','eh-chat','banking-audit-trail','multi-owner-tasks','mgmt-note-enhancements','audit-trail-onboarding','compliance-report-filters','people-report-permissions','eh-work-mobile-public','manager-reassignment','multi-currency-expenses','bpay-aiop'] },
   ],
   payroll: [
@@ -5291,7 +5352,7 @@ const areaSubTabs = {
   recruitment: [
     { label: 'All Recruitment',      keys: null },
     { label: 'ATS & Integrations',   keys: ['indeed','career-page-widget','ats-assessments-codility','talent-search-refine','talent-saved-candidates','ats-advanced-filtering','indeed-direct','ats-applicant-mgmt','talent-search-ats'] },
-    { label: 'Jobseeker Experience', keys: ['jobseeker-flow','hero-foundation','job-board-emails','marketing-signup','eoi-jobs','smartmatch-ondemand','talent-digest-email'] },
+    { label: 'Jobseeker Experience', keys: ['jobseeker-flow','hero-foundation','job-board-emails','external-app-confirmation-email','marketing-signup','eoi-jobs','smartmatch-ondemand','talent-digest-email'] },
     { label: 'Job Creation',         keys: ['position-templates','offer-benefits','job-posting-improvements','job-posting-nlp'] },
     { label: 'Hiring Process',       keys: ['ref-check-fraud','hiring-funnel-report','recruiter-activity-report','eoi-confirmation-email','recruitment-agent-preview','talent-job-search','requisition-conditional-approvals'] },
   ],
@@ -5306,12 +5367,12 @@ const areaSubTabs = {
     { label: '2FA & Auth',            keys: ['2fa','recovery-codes','2fa-mobile','mandatory-2fa-forgot-pw','org-2fa-device-memory','forgot-pw-company-email','payroll-2fa-multi','payroll-login-refresh'] },
     { label: 'Account Recovery',      keys: ['acct-recovery'] },
     { label: 'Threat Detection',      keys: ['breached-pw','threat-hunting','email-security','app-block','sso-cert-expiry-notifs'] },
-    { label: 'IT & Integrations',     keys: ['asset-register-custom-fields','m365-reporting-sync','custom-webhook-headers','public-holiday-css','sso-dual-cert','sso-css-permission','jobs-unified-auth'] },
+    { label: 'IT & Integrations',     keys: ['asset-register-custom-fields','m365-reporting-sync','mdm-jamf-intune','custom-webhook-headers','public-holiday-css','sso-dual-cert','sso-css-permission','jobs-unified-auth'] },
   ],
   automation: [
     { label: 'All Automations',  keys: null },
     { label: 'Custom Forms',     keys: ['custom-forms-mobile','custom-forms-submissions','forms-bulk-delete','forms-approval-audit','forms-question-reorder','forms-assignment-status','proxy-form-submissions','forms-multi-layer-approvals','custom-forms-new-fields','forms-employee-file','forms-assign','forms-create-task'] },
-    { label: 'Workflows',        keys: ['workflow-triggers-personal','is-admin-reports','workflow-simplified-edit','workflow-survey-action','workflow-email-uplift','workflow-templates-hub3','compliance-workflow-cert-action','compliance-workflow-policy-s1','workflow-docs','workflow-induction','workflow-efc-dynamic-approvers'] },
+    { label: 'Workflows',        keys: ['workflow-triggers-personal','workflow-api-action','is-admin-reports','workflow-simplified-edit','workflow-survey-action','workflow-email-uplift','workflow-templates-hub3','compliance-workflow-cert-action','compliance-workflow-policy-s1','workflow-docs','workflow-induction','workflow-efc-dynamic-approvers'] },
     { label: 'Custom Reports',   keys: ['leave-reports-byor','custom-reports-my-reports','termination-fields-report','salary-custom-reports','wgea-workforce-reports','reports-saved-filters','wgea-workplace-report'] },
   ],
   benefits: [
