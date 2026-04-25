@@ -1,0 +1,3117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>employment hero — what's new</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
+  <!-- Initialise theme before first paint to avoid FOUC -->
+  <script>
+    (function(){
+      var t = localStorage.getItem('eh-theme');
+      if (t === 'dark') document.documentElement.setAttribute('data-theme','dark');
+      else document.documentElement.removeAttribute('data-theme');
+    })();
+  </script>
+
+  <style>
+    /* ─── TOKENS — Employment Hero Brand ─── */
+    :root {
+      /* Brand primaries */
+      --ink:       #121214;   /* Off Black */
+      --deep:      #2D0649;   /* Dark Violet */
+      --dark:      #460078;   /* Deep Violet */
+      --purple:    #7622D7;   /* Violet — primary CTA / interactive */
+      --violet:    #A569FF;   /* Light Violet — key brand accent */
+      --lavender:  #BB8EFF;   /* 75% tint */
+      --mist:      #D2B4FF;   /* 50% tint */
+      --fog:       #E9D9FF;   /* 25% tint */
+      --white:     #FDFBFF;   /* Off White */
+
+      /* Accents */
+      --lime:      #BAFC58;   /* Neon Green */
+      --amber:     #FFA000;   /* Orange */
+      --cyan:      #40D1FF;   /* Sky */
+
+      /* Surface */
+      --bg:        #F3EEF9;
+      --card:      #FDFBFF;
+      --border:    #DDD5F0;
+      --muted:     #52506A;
+      --subtle:    #8882A6;
+      --hover-bg:  #EDE7F6;
+      --chip-bg:   #E4D8F8;
+
+      --font-h: 'Lexend', -apple-system, sans-serif;
+      --font-b: 'DM Sans', -apple-system, sans-serif;
+      --r:  10px;
+      --rs: 6px;
+
+      --sidebar-w: 220px;
+    }
+
+    /* ─── DARK MODE ─── */
+    [data-theme="dark"] {
+      --ink:       #FDFBFF;
+      --deep:      #E9D9FF;
+      --dark:      #D2B4FF;
+      --purple:    #A569FF;
+      --violet:    #BB8EFF;
+      --lavender:  #D2B4FF;
+      --mist:      rgba(165,105,255,0.35);
+      --fog:       rgba(165,105,255,0.18);
+      --white:     #1C1430;
+
+      --bg:        #121214;
+      --card:      #1C1430;
+      --border:    #3A2A5C;
+      --muted:     #C4BEDC;
+      --subtle:    #7A7295;
+      --hover-bg:  #2A1F44;
+      --chip-bg:   #2A1F44;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: var(--font-b);
+      background: var(--bg);
+      color: var(--ink);
+      height: 100vh;
+      padding: 0;
+      font-size: 13px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* ─── HUB FRAME ─── */
+    .hub-frame {
+      background: var(--card);
+      border-radius: 0;
+      border: none;
+      overflow: hidden;
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ─── LAYOUT: sidebar + main ─── */
+    .layout {
+      display: flex;
+      flex: 1;
+      min-height: 0;
+    }
+
+    /* ─── NAV — sits above the hub frame as a top bar ─── */
+    nav {
+      background: var(--white);
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.25rem;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 300;
+      flex-shrink: 0;
+    }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; }
+    .nav-eh-logo {
+      height: 126px;
+      width: auto;
+      display: block;
+      color: #121214;
+      transition: opacity .15s;
+    }
+    .nav-logo:hover .nav-eh-logo { opacity: .75; }
+    [data-theme="dark"] .nav-eh-logo { color: #FDFBFF; }
+    .nav-right { display: flex; align-items: center; gap: 1rem; }
+    .nav-link { font-size: .78rem; font-weight: 500; color: var(--muted); text-decoration: none; transition: color .15s; }
+    .nav-link:hover { color: var(--purple); }
+    .nav-cta {
+      background: var(--purple);
+      color: #fff;
+      font-family: var(--font-h);
+      font-weight: 600;
+      font-size: .74rem;
+      padding: 5px 14px;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: opacity .15s;
+    }
+    .nav-cta:hover { opacity: .85; }
+
+    /* ─── SIDEBAR ─── */
+    .sidebar {
+      width: var(--sidebar-w);
+      flex-shrink: 0;
+      background: var(--bg);
+      border-right: 1px solid var(--border);
+      overflow-y: auto;
+      height: 100%;
+      scrollbar-width: thin;
+      scrollbar-color: var(--border) transparent;
+      display: flex;
+      flex-direction: column;
+    }
+    .sidebar-inner { padding: 14px 0 2rem; flex: 1; }
+
+    .sidebar-section {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--subtle);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 0 14px 8px;
+      margin-top: 12px;
+    }
+    .sidebar-section:first-child { margin-top: 0; }
+
+    .sidebar-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 8px 14px;
+    }
+
+    .snav-link {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      padding: 5px 14px;
+      font-family: var(--font-h);
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--muted);
+      cursor: pointer;
+      border-radius: 4px;
+      margin: 0 6px;
+      transition: background .15s, color .15s;
+      text-decoration: none;
+      user-select: none;
+    }
+    .snav-link:hover { background: var(--hover-bg); color: var(--ink); }
+    .snav-link.active { background: var(--fog); color: var(--purple); font-weight: 600; }
+
+    .snav-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .snav-count {
+      margin-left: auto;
+      font-size: .65rem;
+      font-weight: 600;
+      color: var(--subtle);
+      background: var(--chip-bg);
+      border-radius: 999px;
+      padding: 1px 7px;
+    }
+    .snav-link.active .snav-count {
+      background: rgba(118,34,215,.14);
+      color: var(--purple);
+    }
+
+
+    /* hamburger */
+    .sidebar-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      color: var(--muted);
+      margin-right: .5rem;
+    }
+    .sidebar-toggle svg { display: block; }
+    .sidebar-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(18,18,20,.45);
+      z-index: 199;
+    }
+
+    /* ─── MAIN CONTENT ─── */
+    .main-content {
+      flex: 1;
+      overflow-y: auto;
+      min-width: 0;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      background: linear-gradient(135deg, #2D0649 0%, #7622D7 60%, #A569FF 100%);
+      padding: 28px 28px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: -50px; right: -40px;
+      width: 200px; height: 200px; border-radius: 50%;
+      background: rgba(255,255,255,0.07);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute; bottom: 20px; left: 5%;
+      width: 160px; height: 160px; border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+      pointer-events: none;
+    }
+    .hero-inner { position: relative; z-index: 1; }
+    .hero-top { display: block; }
+    .hero-text { padding-bottom: 0; }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.18);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+    }
+    /* Remove the pulsing dot from hero-badge in this design */
+    .hero-badge::before { display: none; }
+
+    .hero h1 {
+      font-family: var(--font-h);
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+      letter-spacing: -.02em;
+      margin-bottom: 8px;
+    }
+    .hero h1 em { font-style: normal; color: rgba(255,255,255,0.85); }
+    .hero-sub { font-size: .84rem; color: rgba(255,255,255,0.78); line-height: 1.55; margin-bottom: 16px; max-width: 480px; }
+
+    .hero-stats { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 0; }
+    .hero-stat strong {
+      display: block;
+      font-family: var(--font-h);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -.02em;
+      line-height: 1;
+    }
+    .hero-stat span { font-size: .65rem; color: rgba(255,255,255,0.65); text-transform: uppercase; letter-spacing: .06em; font-weight: 500; margin-top: 2px; display: block; }
+    .hero-stat-divider { width: 1px; height: 2rem; background: rgba(255,255,255,.2); }
+
+    /* Hide hero-cards layout (not in Notion reference) */
+    .hero-cards { display: none; }
+
+    /* ─── NEW THIS WEEK ─── */
+    .ntw-wrap {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 18px 24px 14px;
+    }
+    .ntw-inner { }
+    .ntw-label {
+      display: flex; align-items: center; gap: 8px;
+      font-family: var(--font-h);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--subtle);
+      margin-bottom: 10px;
+    }
+    .ntw-label::before {
+      content: '';
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--purple);
+      flex-shrink: 0;
+    }
+    .ntw-daterange {
+      font-family: var(--font-b);
+      font-size: .68rem;
+      font-weight: 500;
+      color: var(--subtle);
+      text-transform: none;
+      letter-spacing: 0;
+    }
+    .ntw-chips { display: flex; flex-wrap: wrap; gap: .45rem; }
+    .ntw-chip {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 6px 12px;
+      font-size: .78rem;
+      font-weight: 500;
+      color: var(--ink);
+      cursor: pointer;
+      transition: border-color .15s, box-shadow .15s;
+    }
+    .ntw-chip:hover { border-color: var(--purple); box-shadow: 0 2px 8px rgba(118,34,215,.14); }
+    .ntw-chip .dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+
+    /* ─── GALLERY ─── */
+    .gallery-wrap { padding: 0 24px 32px; }
+
+    /* Tab bar */
+    .tabs-row {
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding-top: 18px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 16px;
+    }
+    .tabs-row::-webkit-scrollbar { display: none; }
+
+    .tab {
+      flex-shrink: 0;
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 7px 14px;
+      border-radius: 0;
+      border: none;
+      border-bottom: 2px solid transparent;
+      background: transparent;
+      font-family: var(--font-h);
+      font-size: .8rem;
+      font-weight: 500;
+      color: var(--subtle);
+      cursor: pointer;
+      transition: all .15s;
+      white-space: nowrap;
+      margin-bottom: -1px;
+    }
+    .tab:hover { color: var(--purple); }
+    .tab.active { color: var(--purple); border-bottom-color: var(--purple); font-weight: 600; }
+    .tab .tc {
+      font-size: .65rem;
+      padding: 1px 5px;
+      border-radius: 999px;
+      background: var(--hover-bg);
+      color: var(--muted);
+    }
+    .tab.active .tc { background: rgba(118,34,215,.14); color: var(--purple); }
+
+    /* Sub-tab row */
+    .subtabs-row {
+      display: none;
+      flex-wrap: wrap;
+      gap: .35rem;
+      margin-bottom: 14px;
+    }
+    .subtabs-row.show { display: flex; }
+    .subtab {
+      padding: 4px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--white);
+      font-size: .75rem;
+      font-weight: 600;
+      font-family: var(--font-h);
+      color: var(--muted);
+      cursor: pointer;
+      transition: all .15s;
+    }
+    .subtab:hover { border-color: var(--violet); color: var(--purple); }
+    .subtab.active { background: var(--fog); border-color: var(--violet); color: var(--purple); }
+
+    /* Grid header */
+    .grid-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+    .grid-header h2 {
+      font-family: var(--font-h);
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -.01em;
+      color: var(--ink);
+    }
+    .grid-count { font-size: .78rem; color: var(--subtle); }
+
+    /* Release card grid */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 12px;
+    }
+    .month-group {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      margin-top: 16px;
+      margin-bottom: 2px;
+    }
+    .month-group:first-child { margin-top: 0; }
+    .month-group h3 {
+      font-family: var(--font-h);
+      font-size: .72rem;
+      font-weight: 700;
+      color: var(--subtle);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      white-space: nowrap;
+    }
+    .month-group-line { flex: 1; height: 1px; background: var(--border); }
+    .month-group-count {
+      font-size: .68rem;
+      font-weight: 600;
+      color: var(--subtle);
+      background: var(--hover-bg);
+      border-radius: 999px;
+      padding: 2px 8px;
+    }
+
+    /* Release card */
+    .rcard {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      overflow: hidden;
+      cursor: pointer;
+      transition: box-shadow .15s, border-color .15s;
+      display: flex;
+      flex-direction: column;
+    }
+    .rcard:hover { box-shadow: 0 3px 12px rgba(118,34,215,.14); border-color: var(--purple); }
+    .rcard.hidden { display: none; }
+
+    .rcard-bar { height: 3px; }
+    .rcard-body { padding: 10px 12px 12px; flex: 1; display: flex; flex-direction: column; }
+
+    .rcard-tag {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: .65rem; font-weight: 700;
+      letter-spacing: .04em; text-transform: uppercase;
+      border-radius: 999px; padding: 2px 8px;
+      margin-bottom: .55rem;
+      font-family: var(--font-h);
+    }
+
+    .rcard-body h4 {
+      font-family: var(--font-h);
+      font-size: .87rem;
+      font-weight: 600;
+      line-height: 1.35;
+      letter-spacing: -.01em;
+      color: var(--ink);
+      margin-bottom: .35rem;
+    }
+    .rcard-body p {
+      font-size: .78rem;
+      color: var(--muted);
+      line-height: 1.55;
+      flex: 1;
+    }
+    .rcard-chips {
+      display: flex; flex-wrap: wrap; gap: .3rem;
+      margin-top: .7rem;
+      padding-top: .7rem;
+      border-top: 1px solid var(--border);
+    }
+    .chip {
+      display: inline-flex; align-items: center; gap: 3px;
+      font-size: .64rem; font-weight: 600;
+      border-radius: 999px; padding: 2px 7px;
+    }
+    .chip-date { background: var(--chip-bg); color: var(--muted); font-family: var(--font-h); }
+    .chip-plan { background: var(--fog); color: var(--purple); border: 1px solid var(--mist); }
+    .chip-region { background: rgba(64,209,255,.12); color: #006B9E; border: 1px solid rgba(64,209,255,.3); }
+    .chip-user { background: rgba(186,252,88,.12); color: #3A6B00; border: 1px solid rgba(186,252,88,.3); }
+
+    /* Colour system — bars */
+    .bar-security   { background: var(--amber); }
+    .bar-hr         { background: var(--cyan); }
+    .bar-payroll    { background: #ef4444; }
+    .bar-recruitment{ background: var(--violet); }
+    .bar-automation { background: var(--purple); }
+    .bar-time       { background: var(--amber); }
+    .bar-benefits   { background: var(--cyan); }
+    .bar-learning   { background: #ec4899; }
+    .bar-onboarding { background: var(--lime); }
+    .bar-heroai     { background: var(--purple); }
+    .bar-performance{ background: var(--violet); }
+
+    /* tags */
+    .tag-security    { background: rgba(255,160,0,.13); color: #7A4500; }
+    .tag-hr          { background: rgba(64,209,255,.12); color: #006B9E; }
+    .tag-payroll     { background: rgba(239,68,68,.12); color: #991b1b; }
+    .tag-recruitment { background: var(--fog); color: var(--dark); }
+    .tag-automation  { background: var(--fog); color: var(--dark); }
+    .tag-time        { background: rgba(255,160,0,.13); color: #7A4500; }
+    .tag-benefits    { background: rgba(64,209,255,.12); color: #006B9E; }
+    .tag-learning    { background: rgba(236,72,153,.12); color: #9d174d; }
+    .tag-onboarding  { background: rgba(186,252,88,.12); color: #3A6B00; }
+    .tag-heroai      { background: var(--fog); color: var(--purple); }
+    .tag-performance { background: var(--fog); color: var(--dark); }
+
+    /* Hero card accent colours (kept for JS compatibility) */
+    .acc-purple { background: linear-gradient(90deg, var(--purple), var(--violet)); }
+    .acc-lime   { background: linear-gradient(90deg, #16a34a, #4ade80); }
+    .acc-cyan   { background: linear-gradient(90deg, var(--cyan), #0369a1); }
+    .acc-amber  { background: linear-gradient(90deg, var(--amber), #ffcc00); }
+
+    /* ─── MODAL ─── */
+    .modal-bg {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(18,18,20,.5);
+      backdrop-filter: blur(3px);
+      z-index: 500;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .modal-bg.open { display: flex; }
+    .modal {
+      background: var(--card);
+      border-radius: var(--r);
+      max-width: 620px;
+      width: 100%;
+      max-height: 88vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 60px rgba(18,18,20,.25);
+      border: 1px solid var(--border);
+      animation: slideUp .2s ease;
+    }
+    @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+    .modal-head {
+      position: sticky; top: 0;
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      padding: 1.2rem 1.4rem .9rem;
+      z-index: 1;
+    }
+    .modal-head-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: .6rem; }
+    .modal-head h2 {
+      font-family: var(--font-h);
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.35;
+      letter-spacing: -.01em;
+      color: var(--ink);
+    }
+    .modal-close {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      font-size: .85rem;
+      color: var(--muted);
+      flex-shrink: 0;
+      transition: background .15s, color .15s;
+    }
+    .modal-close:hover { background: #fee2e2; color: #991b1b; }
+    .modal-head-chips { display: flex; flex-wrap: wrap; gap: .3rem; }
+    .modal-body { padding: 1.4rem; }
+
+    .modal-section { margin-bottom: 1.1rem; }
+    .modal-section:last-child { margin-bottom: 0; }
+    .modal-section h4 {
+      font-family: var(--font-h);
+      font-size: .65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--subtle);
+      margin-bottom: .5rem;
+    }
+    .modal-section p { font-size: .84rem; line-height: 1.6; color: var(--ink); }
+    .modal-section ul { list-style: none; display: flex; flex-direction: column; gap: .35rem; }
+    .modal-section ul li { font-size: .84rem; line-height: 1.5; display: flex; gap: 7px; align-items: flex-start; }
+    .modal-section ul li::before { content: '→'; color: var(--purple); font-weight: 700; flex-shrink: 0; }
+    .modal-divider { height: 1px; background: var(--border); margin: 1.1rem 0; }
+
+    .loom-embed { border-radius: var(--rs); overflow: hidden; aspect-ratio: 16/9; border: 1px solid var(--border); background: #f0ece8; }
+    .loom-embed iframe { width: 100%; height: 100%; border: none; display: block; }
+    .loom-caption { font-size: .7rem; color: var(--muted); margin-top: .35rem; }
+
+    .screenshot-wrap { border-radius: var(--rs); border: 1px solid var(--border); overflow: hidden; }
+    .screenshot-wrap img { width: 100%; height: auto; display: block; }
+    .screenshot-caption { font-size: .7rem; color: var(--muted); padding: .3rem .5rem; background: var(--bg); border-top: 1px solid var(--border); }
+
+    /* ─── PRODUCT AREA HEADER (sub-page mode) ─── */
+    .area-header {
+      display: none;
+      padding: 24px 28px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .area-header.show { display: block; }
+    .area-header-inner { position: relative; z-index: 1; }
+    .area-header-back {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-family: var(--font-h); font-size: .72rem; font-weight: 600;
+      color: rgba(255,255,255,.7);
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 999px;
+      padding: 4px 12px 4px 9px;
+      cursor: pointer; transition: all .15s; margin-bottom: 1.5rem; text-decoration: none;
+    }
+    .area-header-back:hover { color: #fff; background: rgba(255,255,255,.2); }
+    .area-header-main { display: grid; grid-template-columns: auto 1fr; gap: 1.25rem; align-items: start; padding-bottom: 2rem; }
+    .area-header-icon-wrap {
+      width: 64px; height: 64px;
+      background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.22);
+      border-radius: 16px; display: flex; align-items: center; justify-content: center;
+      font-size: 2rem; flex-shrink: 0;
+    }
+    .area-header-meta h1 { font-family: var(--font-h); font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 800; color: #fff; letter-spacing: -.03em; line-height: 1.1; margin-bottom: .45rem; }
+    .area-header-meta p { font-size: .86rem; color: rgba(255,255,255,.65); line-height: 1.6; max-width: 500px; margin-bottom: 1.2rem; }
+    .area-header-stats { display: flex; align-items: center; gap: 1.5rem; }
+    .area-header-stat strong { display: block; font-family: var(--font-h); font-size: 1.5rem; font-weight: 800; color: #fff; letter-spacing: -.025em; line-height: 1; }
+    .area-header-stat span { font-size: .62rem; color: rgba(255,255,255,.5); text-transform: uppercase; letter-spacing: .07em; font-weight: 500; }
+    .area-header-stat-div { width: 1px; height: 2rem; background: rgba(255,255,255,.15); }
+
+    /* Sub-page gallery tweaks */
+    body.subpage-mode .tabs-row { display: none; }
+    body.subpage-mode .gallery-wrap { padding-top: 14px; }
+    body.subpage-mode .lp-results-clear { display: none; }
+
+    /* ─── AREA SUBTAB ROW ─── */
+    .lp-subtabs-wrap {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 24px 14px;
+    }
+    .lp-subtabs-wrap .subtabs-row {
+      margin-bottom: 0;
+    }
+
+    /* ─── EXPLORE SECTION ─── */
+    .explore-wrap {
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      padding: 24px;
+    }
+    .explore-inner { }
+    .explore-label {
+      font-family: var(--font-h);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--subtle);
+      margin-bottom: 14px;
+    }
+    .area-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    @media (max-width: 900px) { .area-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 540px) { .area-grid { grid-template-columns: 1fr 1fr; } }
+
+    .area-tile {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      cursor: pointer;
+      transition: border-color .15s, box-shadow .15s;
+      background: var(--white);
+      display: flex;
+      flex-direction: column;
+      gap: .4rem;
+    }
+    .area-tile:hover { border-color: var(--purple); box-shadow: 0 2px 8px rgba(118,34,215,.12); }
+    .area-icon { font-size: 18px; line-height: 1; margin-bottom: 3px; }
+    .area-title { font-family: var(--font-h); font-size: .82rem; font-weight: 600; color: var(--ink); }
+    .area-tags { font-size: .7rem; color: var(--subtle); line-height: 1.45; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 18px 24px;
+      text-align: center;
+    }
+    .footer-inner { }
+    .footer-logo { font-family: var(--font-h); font-weight: 700; font-size: .9rem; color: var(--ink); margin-bottom: .35rem; }
+    footer p { font-size: .75rem; color: var(--subtle); }
+    footer a { color: var(--purple); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      body { padding: 0; }
+      .sidebar {
+        position: fixed; left: 0; top: 0; bottom: 0;
+        z-index: 400;
+        transform: translateX(-100%);
+        transition: transform .25s ease;
+        width: 240px;
+        box-shadow: 4px 0 24px rgba(18,18,20,.15);
+      }
+      .sidebar.open { transform: translateX(0); }
+      .sidebar-overlay.open { display: block; }
+      .sidebar-toggle { display: flex; align-items: center; justify-content: center; }
+    }
+    @media (max-width: 600px) {
+      .hero { padding: 20px 16px 16px; }
+      .gallery-wrap, .ntw-wrap, .explore-wrap { padding-left: 16px; padding-right: 16px; }
+      .area-grid { grid-template-columns: 1fr 1fr; }
+      .cards-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ─── LANDING PAGE — UNIQUE HERO ─── */
+    .lp-hero {
+      background: linear-gradient(135deg, #2D0649 0%, #7622D7 55%, #A569FF 100%);
+      padding: 40px 32px 36px;
+      position: relative;
+      overflow: hidden;
+    }
+    .lp-hero::before {
+      content: '';
+      position: absolute; top: -60px; right: -60px;
+      width: 280px; height: 280px; border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+      pointer-events: none;
+    }
+    .lp-hero::after {
+      content: '';
+      position: absolute; bottom: -40px; left: 10%;
+      width: 200px; height: 200px; border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+      pointer-events: none;
+    }
+    .lp-hero-inner { position: relative; z-index: 1; max-width: 680px; }
+
+    .lp-h1 {
+      font-family: var(--font-h);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.15;
+      letter-spacing: -.03em;
+      margin-bottom: 10px;
+    }
+    .lp-h1 span { color: rgba(255,255,255,0.75); font-weight: 700; }
+
+    .lp-sub {
+      font-size: .88rem;
+      color: rgba(255,255,255,0.68);
+      line-height: 1.6;
+      margin-bottom: 24px;
+      max-width: 520px;
+    }
+
+    /* Stats row */
+    .lp-stats {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .lp-stat-card {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 8px;
+      padding: 10px 16px;
+      min-width: 90px;
+      text-align: center;
+    }
+    .lp-stat-card strong {
+      display: block;
+      font-family: var(--font-h);
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -.025em;
+      line-height: 1;
+    }
+    .lp-stat-card span {
+      display: block;
+      font-size: 9px;
+      color: rgba(255,255,255,0.55);
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      font-weight: 500;
+      margin-top: 3px;
+    }
+    .lp-stat-areas strong { color: var(--lime); }
+
+    /* ─── LANDING SEARCH RESULTS ─── */
+    .lp-results-wrap {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 18px 24px 24px;
+    }
+    .lp-results-inner { }
+    .lp-results-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+.lp-results-clear {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 3px 10px;
+      font-size: .72rem;
+      font-weight: 600;
+      font-family: var(--font-h);
+      color: var(--muted);
+      cursor: pointer;
+      transition: border-color .15s, color .15s;
+    }
+    .lp-results-clear:hover { border-color: #ef4444; color: #ef4444; }
+
+    /* ─── EXPLORE SECTION — more prominent on landing ─── */
+    .explore-wrap {
+      padding: 24px 24px 32px;
+    }
+    .explore-label {
+      font-family: var(--font-h);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--subtle);
+      margin-bottom: 6px;
+    }
+    .lp-explore-heading {
+      font-family: var(--font-h);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -.01em;
+      margin-bottom: 16px;
+    }
+    .area-tile {
+      padding: 14px 14px 12px;
+    }
+    .area-icon { font-size: 22px; margin-bottom: 6px; }
+    .area-title { font-size: .85rem; }
+    .area-tags { font-size: .71rem; }
+
+    /* Hide the old hero and gallery sections on landing page
+       (they are replaced by lp-hero and lp-results-wrap) */
+    .hero { display: none; }
+    .gallery-wrap { display: none; }
+
+    /* ─── DARK MODE: gradient overrides ─── */
+    [data-theme="dark"] .hero,
+    [data-theme="dark"] .lp-hero {
+      background: linear-gradient(135deg, #0A0010 0%, #2D0649 55%, #460078 100%);
+    }
+    [data-theme="dark"] .area-header { filter: brightness(.92); }
+
+    /* Dark mode: tag color fixes for readability */
+    [data-theme="dark"] .tag-security    { background: rgba(255,160,0,.18); color: #FFB840; }
+    [data-theme="dark"] .tag-hr          { background: rgba(64,209,255,.15); color: #40D1FF; }
+    [data-theme="dark"] .tag-payroll     { background: rgba(239,68,68,.18); color: #FCA5A5; }
+    [data-theme="dark"] .tag-learning    { background: rgba(236,72,153,.15); color: #F9A8D4; }
+    [data-theme="dark"] .tag-onboarding  { background: rgba(186,252,88,.12); color: #BAFC58; }
+    [data-theme="dark"] .chip-region     { background: rgba(64,209,255,.15); color: #40D1FF; border-color: rgba(64,209,255,.25); }
+    [data-theme="dark"] .chip-user       { background: rgba(186,252,88,.12); color: #BAFC58; border-color: rgba(186,252,88,.25); }
+
+    /* Dark mode: misc surface fixes */
+    [data-theme="dark"] .modal-close:hover { background: rgba(239,68,68,.2); color: #FCA5A5; }
+    [data-theme="dark"] .loom-embed { background: var(--hover-bg); }
+[data-theme="dark"] .lp-results-clear:hover { border-color: #ef4444; color: #FCA5A5; }
+
+    /* ─── DARK MODE TOGGLE BUTTON ─── */
+    .theme-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      color: var(--muted);
+      transition: all .15s;
+      flex-shrink: 0;
+    }
+    .theme-toggle:hover {
+      background: var(--hover-bg);
+      color: var(--purple);
+      border-color: var(--violet);
+    }
+    .theme-icon-dark { display: none; }
+    [data-theme="dark"] .theme-icon-light { display: none; }
+    [data-theme="dark"] .theme-icon-dark  { display: block; }
+
+    /* ─── NAV SEARCH ─── */
+    .nav-search-box {
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--rs);
+      padding: .3rem .65rem;
+      width: 220px;
+      transition: border-color .15s, width .2s;
+    }
+    .nav-search-box:focus-within {
+      border-color: var(--violet);
+      width: 260px;
+    }
+    .nav-search-box svg { flex-shrink: 0; color: var(--subtle); }
+    .nav-search-box input {
+      flex: 1;
+      border: none;
+      background: none;
+      font-family: var(--font-b);
+      font-size: .78rem;
+      color: var(--ink);
+      outline: none;
+      min-width: 0;
+    }
+    .nav-search-box input::placeholder { color: var(--subtle); }
+    .nav-search-clear {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--subtle);
+      padding: 0;
+      font-size: .8rem;
+      line-height: 1;
+    }
+    .nav-search-clear.show { display: block; }
+    .nav-search-clear:hover { color: var(--ink); }
+    @media (max-width: 768px) { .nav-search-box { display: none; } }
+  </style>
+</head>
+<body>
+
+<!-- ═══ SIDEBAR OVERLAY ═══ -->
+<div class="sidebar-overlay" id="sidebar-overlay" onclick="closeSidebar()"></div>
+
+<nav>
+  <a href="#" class="nav-logo" onclick="exitSubPage(); return false;">
+    <svg class="nav-eh-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" fill="currentColor">
+      <path d="M108.11,259.66c3.71,0,6.15-1.79,7.42-3.79.16-.25.51-.28.7-.06l3.03,3.34c.15.16.16.42.02.58-2.19,2.58-5.95,4.66-11.36,4.66-8.24,0-12.44-5.48-12.44-12.58s4.72-12.68,12.4-12.68,11.33,4.8,11.28,13.64c0,.24-.2.44-.45.44h-16.96c-.28,0-.49.25-.44.53.67,3.91,3.35,5.93,6.8,5.93h0ZM101.94,249.36h10.94c.28,0,.48-.25.44-.52-.51-3.22-2.52-5-5.45-5-2.75,0-5.41,1.59-6.36,4.95-.08.28.13.57.43.57ZM155.17,250.53c0-4.4-1.73-6.5-5.15-6.5s-5.48,2.43-5.48,6.83v12.47c0,.25-.2.44-.44.44h-4.63c-.25,0-.44-.2-.44-.44v-12.38c0-4.86-1.4-6.93-4.91-6.93-4.12,0-5.71,3.74-5.71,7.72v11.58c0,.25-.2.44-.44.44h-4.63c-.25,0-.44-.2-.44-.44v-23.16c0-.25.2-.44.44-.44h4.32c.27,0,.48.24.44.51l-.49,3.31c-.07.49.59.72.83.29,1.49-2.69,3.89-4.71,7.69-4.71,3.06,0,5.96,1.43,7.42,4.79.15.34.62.35.8.03,1.51-2.72,3.97-4.82,7.69-4.82,4.91,0,8.65,3.41,8.65,10.67v13.54c0,.25-.2.44-.44.44h-4.63c-.25,0-.44-.2-.44-.44v-12.8h0ZM180.05,264.38c-3.51,0-6.06-1.4-7.67-3.58-.25-.34-.8-.16-.8.27v11.38c0,.25-.2.44-.44.44h-4.63c-.25,0-.44-.2-.44-.44v-32.28c0-.25.2-.44.44-.44h4.28c.27,0,.48.24.44.51l-.42,3.04c-.07.48.57.71.82.3,1.56-2.6,4.29-4.45,8.42-4.45,5.94,0,10.67,4.4,10.67,12.63s-4.72,12.63-10.67,12.63h0ZM171.58,251.8c0,5.38,2.81,7.86,6.69,7.86s6.6-2.43,6.6-7.86-2.67-7.91-6.6-7.91-6.69,2.48-6.69,7.91ZM194.64,229.38h4.63c.25,0,.44.2.44.44v33.5c0,.25-.2.44-.44.44h-4.63c-.25,0-.44-.2-.44-.44v-33.5c0-.25.2-.44.44-.44ZM215.81,264.38c-6.92,0-12.77-4.45-12.77-12.63s5.85-12.63,12.77-12.63,12.77,4.54,12.77,12.63-5.8,12.63-12.77,12.63ZM208.89,251.75c0,5.34,3.23,7.86,6.92,7.86s6.93-2.53,6.93-7.86-3.23-7.81-6.93-7.81-6.92,2.57-6.92,7.81ZM232.74,273.36c-2.03,0-3.9-.6-5.17-1.57-.18-.14-.24-.38-.13-.57l2.04-3.74c.14-.27.51-.31.72-.09.8.83,1.82,1.3,3.01,1.3,1.68,0,3.04-1.36,4.12-4.82l.05-.05-9.75-23.48c-.12-.29.09-.62.41-.62h4.97c.19,0,.35.11.42.28l6.21,16.26c.15.38.69.38.83,0l6.12-16.25c.06-.17.23-.29.42-.29h4.78c.32,0,.53.32.41.62l-10.41,25.12c-2.43,5.89-5.14,7.91-9.03,7.91h0ZM287.17,250.53c0-4.4-1.73-6.5-5.15-6.5s-5.48,2.43-5.48,6.83v12.47c0,.25-.2.44-.44.44h-4.63c-.25,0-.44-.2-.44-.44v-12.38c0-4.86-1.4-6.93-4.91-6.93-4.12,0-5.71,3.74-5.71,7.72v11.58c0,.25-.2.44-.44.44h-4.63c-.25,0-.44-.2-.44-.44v-23.16c0-.25.2-.44.44-.44h4.33c.27,0,.48.24.44.51l-.49,3.31c-.07.49.59.72.83.29,1.49-2.69,3.89-4.71,7.69-4.71,3.06,0,5.96,1.43,7.42,4.79.15.34.62.35.8.03,1.51-2.72,3.97-4.82,7.69-4.82,4.91,0,8.65,3.41,8.65,10.67v13.54c0,.25-.2.44-.44.44h-4.63c-.25,0-.44-.2-.44-.44v-12.8h0ZM308.3,259.66c3.71,0,6.15-1.79,7.42-3.79.16-.25.5-.28.7-.06l3.03,3.34c.15.16.16.42.01.58-2.19,2.58-5.95,4.66-11.36,4.66-8.24,0-12.44-5.48-12.44-12.58s4.73-12.68,12.4-12.68,11.33,4.8,11.28,13.64c0,.24-.2.44-.45.44h-16.96c-.28,0-.49.25-.44.53.67,3.91,3.35,5.93,6.8,5.93h0ZM302.13,249.36h10.94c.28,0,.48-.25.44-.52-.52-3.22-2.52-5-5.45-5-2.75,0-5.41,1.59-6.36,4.95-.08.28.13.57.43.57ZM340.16,250.77c0-4.96-1.87-6.79-5.57-6.79s-5.99,2.81-5.99,7.11v12.23c0,.25-.2.44-.44.44h-4.63c-.25,0-.44-.2-.44-.44v-23.16c0-.25.2-.44.44-.44h4.32c.27,0,.48.24.44.51l-.51,3.54c-.07.48.58.71.82.29,1.63-2.86,4.25-4.95,8.14-4.95,5.05,0,8.98,3.32,8.98,11.04v13.17c0,.25-.2.44-.44.44h-4.68c-.25,0-.44-.2-.44-.44v-12.56h0ZM352.21,254.7l-.05-9.94c0-.25-.2-.44-.44-.44h-3.93c-.25,0-.44-.2-.44-.44v-3.69c0-.25.2-.44.44-.44h3.93c.25,0,.44-.2.44-.44v-4.67c0-.16.09-.31.23-.39l5.34-3.01h.05v8.07c0,.25.2.44.44.44h8.05c.25,0,.44.2.44.44v3.69c0,.25-.2.44-.44.44h-8.05c-.25,0-.44.2-.44.44v9.47c0,3.88,1.21,5.34,3.55,5.34,1.87,0,3.38-.93,4.41-2.19.19-.23.54-.22.71.03l2.3,3.36c.12.18.1.42-.06.57-1.45,1.44-4.25,3.05-8.11,3.05-5.2,0-8.38-3.18-8.38-9.68h0ZM394.42,250.39c0-4.63-1.83-6.46-5.15-6.46-4.91,0-6.46,3.84-6.46,7.53v11.86c0,.25-.2.44-.44.44h-4.63c-.25,0-.44-.2-.44-.44v-33.5c0-.25.2-.44.44-.44h4.63c.25,0,.44.2.44.44v13.04c0,.43.56.62.81.26,1.63-2.4,4.07-4.01,7.47-4.01,4.68,0,8.84,3.09,8.84,11.09l.05,13.12c0,.25-.2.45-.44.45h-4.67c-.25,0-.44-.2-.44-.44v-12.94h0ZM415.58,259.66c3.71,0,6.15-1.79,7.42-3.79.16-.25.51-.28.7-.06l3.03,3.34c.15.16.16.42.02.58-2.19,2.58-5.95,4.66-11.36,4.66-8.24,0-12.44-5.48-12.44-12.58s4.73-12.68,12.4-12.68,11.33,4.8,11.28,13.64c0,.24-.2.44-.45.44h-16.96c-.28,0-.49.25-.44.53.67,3.91,3.35,5.93,6.8,5.93h0ZM409.41,249.36h10.94c.28,0,.48-.25.44-.52-.52-3.22-2.52-5-5.45-5-2.75,0-5.41,1.59-6.36,4.95-.08.28.13.57.43.57ZM430.37,263.33v-23.16c0-.25.2-.44.44-.44h4.32c.27,0,.48.24.44.51l-.39,2.48c-.08.49.59.72.83.28,1.34-2.42,3.27-3.88,5.86-3.88,1.65,0,3.26.49,4.53,1.42.17.13.22.36.13.55l-2.1,4.4c-.13.27-.47.33-.7.14-.92-.8-2.07-1.22-3.31-1.22-2.67,0-4.54,2.24-4.54,8.42v10.5c0,.25-.2.44-.44.44h-4.63c-.25,0-.44-.2-.44-.44h0ZM458.24,264.38c-6.92,0-12.77-4.45-12.77-12.63s5.85-12.63,12.77-12.63,12.77,4.54,12.77,12.63-5.8,12.63-12.77,12.63ZM451.32,251.75c0,5.34,3.23,7.86,6.92,7.86s6.93-2.53,6.93-7.86-3.23-7.81-6.93-7.81-6.92,2.57-6.92,7.81Z"/>
+      <path d="M70.11,257.33c.8,0,1.55.44,1.95,1.15.38.68.37,1.49-.03,2.16l-.02.03c-2.79,4.44-7.28,7.67-12.34,8.88-1.38.33-2.35,1.58-2.35,3.05,0,1.69,1.36,3.07,3.04,3.07.24,0,.47-.03.71-.08,5.65-1.35,10.78-4.6,14.43-9.17,3.77-4.7,5.76-10.37,5.76-16.4s-1.99-11.7-5.76-16.4c-3.65-4.58-8.78-7.84-14.43-9.18-.23-.06-.47-.08-.71-.08-1.67,0-3.04,1.37-3.04,3.07,0,1.46.96,2.71,2.35,3.05,5.05,1.21,9.55,4.44,12.33,8.86l.03.06c.4.66.41,1.47.03,2.15-.4.71-1.15,1.15-1.95,1.15-.33,0-.64-.07-.95-.21-1.1-.52-2.29-.78-3.52-.78-4.4,0-8.04,3.44-8.29,7.83v.05c-.01.13-.02.23-.02.33v.2c0,.1,0,.21.02.33v.05c.25,4.39,3.9,7.84,8.29,7.84,1.23,0,2.42-.27,3.52-.78.3-.14.62-.21.95-.21"/>
+      <path d="M49.88,224.36c-.24,0-.47.03-.71.08-5.65,1.34-10.78,4.6-14.43,9.17-3.77,4.71-5.76,10.37-5.76,16.4s1.99,11.7,5.76,16.4c3.66,4.57,8.78,7.83,14.43,9.17.24.06.47.08.71.08,1.67,0,3.04-1.37,3.04-3.07,0-1.46-.96-2.71-2.35-3.05-5.05-1.21-9.55-4.44-12.33-8.87l-.03-.05c-.41-.68-.42-1.48-.03-2.16.4-.71,1.15-1.15,1.95-1.15.33,0,.64.07.95.21,1.1.52,2.29.78,3.52.78,4.4,0,8.04-3.44,8.29-7.83v-.05c.01-.12.02-.22.02-.33v-.2c0-.1,0-.21-.02-.33v-.05c-.25-4.39-3.9-7.84-8.29-7.84-1.23,0-2.42.27-3.52.78-.3.14-.62.21-.95.21-.8,0-1.55-.44-1.95-1.15-.38-.68-.37-1.49.03-2.16v-.02l.02-.03c2.78-4.43,7.28-7.66,12.33-8.87,1.38-.33,2.35-1.58,2.35-3.05,0-1.69-1.36-3.07-3.04-3.07"/>
+    </svg>
+  </a>
+  <div class="nav-right">
+    <!-- Nav search -->
+    <div class="nav-search-box">
+      <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="5" stroke="currentColor" stroke-width="1.6"/><path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <input type="text" placeholder="Search releases…" oninput="onSearchInput(this.value); syncNavSearch(this.value)" id="nav-search-input" />
+      <button class="nav-search-clear" id="nav-search-clear" onclick="clearNavSearch()" title="Clear">✕</button>
+    </div>
+    <!-- Dark / light mode toggle -->
+    <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" title="Toggle light / dark mode">
+      <!-- Sun icon (light mode) -->
+      <svg class="theme-icon-light" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5"/>
+        <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+      <!-- Moon icon (dark mode) -->
+      <svg class="theme-icon-dark" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </button>
+    <button class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle menu">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <rect x="2" y="4" width="16" height="2" rx="1" fill="currentColor"/>
+        <rect x="2" y="9" width="16" height="2" rx="1" fill="currentColor"/>
+        <rect x="2" y="14" width="16" height="2" rx="1" fill="currentColor"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<div class="hub-frame">
+  <div class="layout">
+
+<!-- ═══ SIDEBAR ═══ -->
+<aside class="sidebar" id="sidebar">
+
+  <div class="sidebar-inner">
+
+    <a class="snav-link active" data-stab="all" onclick="sidebarNav(this,'all')">
+      <span class="snav-dot" style="background:var(--purple)"></span>
+      Home
+
+    </a>
+
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section">Product Areas</div>
+
+    <a class="snav-link" data-stab="all-updates" onclick="sidebarNav(this,'all-updates')">
+      <span class="snav-dot" style="background:linear-gradient(135deg,#7622D7,#A569FF)"></span>
+      All Releases
+
+    </a>
+
+    <a class="snav-link" data-stab="heroai" onclick="sidebarNav(this,'heroai')">
+      <span class="snav-dot" style="background:var(--purple)"></span>
+      HeroAI
+
+    </a>
+    <a class="snav-link" data-stab="hr" onclick="sidebarNav(this,'hr')">
+      <span class="snav-dot" style="background:var(--cyan)"></span>
+      HR
+
+    </a>
+    <a class="snav-link" data-stab="payroll" onclick="sidebarNav(this,'payroll')">
+      <span class="snav-dot" style="background:#ef4444"></span>
+      Payroll
+
+    </a>
+    <a class="snav-link" data-stab="recruitment" onclick="sidebarNav(this,'recruitment')">
+      <span class="snav-dot" style="background:var(--violet)"></span>
+      Recruitment
+
+    </a>
+    <a class="snav-link" data-stab="performance" onclick="sidebarNav(this,'performance')">
+      <span class="snav-dot" style="background:#8b5cf6"></span>
+      Performance
+
+    </a>
+    <a class="snav-link" data-stab="security" onclick="sidebarNav(this,'security')">
+      <span class="snav-dot" style="background:#f59e0b"></span>
+      Security
+
+    </a>
+    <a class="snav-link" data-stab="automation" onclick="sidebarNav(this,'automation')">
+      <span class="snav-dot" style="background:var(--purple)"></span>
+      Automations
+
+    </a>
+    <a class="snav-link" data-stab="time" onclick="sidebarNav(this,'time')">
+      <span class="snav-dot" style="background:var(--amber)"></span>
+      Time &amp; Attendance
+
+    </a>
+    <a class="snav-link" data-stab="benefits" onclick="sidebarNav(this,'benefits')">
+      <span class="snav-dot" style="background:#0891b2"></span>
+      Benefits &amp; Perks
+
+    </a>
+    <a class="snav-link" data-stab="learning" onclick="sidebarNav(this,'learning')">
+      <span class="snav-dot" style="background:#ec4899"></span>
+      Learning
+
+    </a>
+    <a class="snav-link" data-stab="onboarding" onclick="sidebarNav(this,'onboarding')">
+      <span class="snav-dot" style="background:#16a34a"></span>
+      Onboarding
+
+    </a>
+
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section">Resources</div>
+
+    <a class="snav-link" href="https://help.employmenthero.com/hc/en-au" target="_blank" rel="noopener">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;opacity:.7">
+        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+      </svg>
+      Help Centre
+      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left:auto;opacity:.4;flex-shrink:0">
+        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+      </svg>
+    </a>
+
+  </div>
+</aside>
+
+    <!-- ═══ MAIN CONTENT ═══ -->
+    <div class="main-content">
+<!-- ═══ PRODUCT AREA HEADER (sub-page mode) ═══ -->
+<div class="area-header" id="area-header">
+  <div class="area-header-inner">
+    <a class="area-header-back" onclick="exitSubPage()">← Back to all releases</a>
+    <div class="area-header-main">
+      <div class="area-header-icon-wrap"><span id="ah-icon"></span></div>
+      <div class="area-header-meta">
+        <h1 id="ah-name"></h1>
+        <p id="ah-desc"></p>
+        <div class="area-header-stats">
+          <div class="area-header-stat">
+            <strong id="ah-stat-month">—</strong>
+            <span>This month</span>
+          </div>
+          <div class="area-header-stat-div"></div>
+          <div class="area-header-stat">
+            <strong id="ah-stat-total">—</strong>
+            <span>Total releases</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ LANDING HERO ═══ -->
+<div class="lp-hero">
+  <div class="lp-hero-inner">
+    <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(186,252,88,0.15);border:1px solid rgba(186,252,88,0.35);border-radius:20px;padding:4px 12px;margin-bottom:14px;">
+      <span style="width:6px;height:6px;border-radius:50%;background:#BAFC58;flex-shrink:0;display:inline-block;"></span>
+      <span style="font-family:var(--font-h);font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#BAFC58;">Product changelog</span>
+    </div>
+
+    <h1 class="lp-h1">We never stop.<br><span>Here's the proof.</span></h1>
+    <p class="lp-sub">Every feature, fix and improvement — no fluff, no spin. Real changes that make employment easier for Australian businesses. Updated every week.</p>
+
+    <!-- Stats -->
+    <div class="lp-stats">
+      <div class="lp-stat-card lp-stat-areas">
+        <strong id="lp-stat-week">—</strong>
+        <span>This week</span>
+      </div>
+      <div class="lp-stat-card">
+        <strong id="lp-stat-month">—</strong>
+        <span>This month</span>
+      </div>
+      <div class="lp-stat-card">
+        <strong id="lp-stat-6months">—</strong>
+        <span>Last 6 months</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="ntw-wrap">
+  <div class="ntw-inner">
+    <div class="ntw-label">Hot off the press <span class="ntw-daterange" id="ntw-daterange"></span></div>
+    <div class="ntw-chips">
+      <div class="ntw-chip" onclick="openModal('heroai-work-app')"><span class="dot" style="background:var(--purple)"></span>Hero AI Enhancements — EH Work App</div>
+      <div class="ntw-chip" onclick="openModal('ref-check-fraud')"><span class="dot" style="background:var(--violet)"></span>Reference Check Fraud Detection</div>
+      <div class="ntw-chip" onclick="openModal('roster-overtime')"><span class="dot" style="background:var(--amber)"></span>Roster Shift Overtime Indicator</div>
+      <div class="ntw-chip" onclick="openModal('goals-bulk-archive')"><span class="dot" style="background:#8b5cf6"></span>Goals: Bulk Archive &amp; Delete</div>
+      <div class="ntw-chip" onclick="openModal('eh-chat')"><span class="dot" style="background:var(--cyan)"></span>Employment Hero Chat — Now Live</div>
+      <div class="ntw-chip" onclick="openModal('career-page-widget')"><span class="dot" style="background:var(--violet)"></span>Embeddable Career Page Widget</div>
+      <div class="ntw-chip" onclick="openModal('heroclear-approvals')"><span class="dot" style="background:#ef4444"></span>HeroClear Payment Approvals</div>
+      <div class="ntw-chip" onclick="openModal('hiring-criteria')"><span class="dot" style="background:var(--purple)"></span>AI Hiring Criteria</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ AREA SUBTAB ROW ═══ -->
+<div class="lp-subtabs-wrap" id="lp-subtabs-wrap" style="display:none;">
+  <div class="subtabs-row show" id="lp-subtabs-row"></div>
+</div>
+
+<!-- ═══ LANDING SEARCH RESULTS ═══ -->
+<div class="lp-results-wrap" id="lp-results-wrap" style="display:none;">
+  <div class="lp-results-inner">
+    <div class="lp-results-header">
+      <button class="lp-results-clear" onclick="clearLpSearch()">✕ Clear</button>
+    </div>
+    <div class="cards-grid" id="lp-cards-grid"></div>
+  </div>
+</div>
+
+<!-- ═══ EXPLORE BY PRODUCT AREA ═══ -->
+<div class="explore-wrap">
+  <div class="explore-inner">
+    <div class="explore-label">Explore by product area</div>
+    <div class="lp-explore-heading">Find what matters to you.</div>
+    <div class="area-grid">
+
+      <div class="area-tile" onclick="goToArea('heroai')">
+        <div class="area-icon">🤖</div>
+        <div class="area-title">HeroAI Hub</div>
+        <div class="area-tags">EH Work App · Leave intelligence · Recruitment AI</div>
+      </div>
+
+      <div class="area-tile" onclick="goToArea('hr')">
+        <div class="area-icon">👥</div>
+        <div class="area-title">HR Platform</div>
+        <div class="area-tags">Core HR · Leave · Documents · Performance</div>
+      </div>
+
+      <div class="area-tile" onclick="goToArea('payroll')">
+        <div class="area-icon">💰</div>
+        <div class="area-title">Payroll</div>
+        <div class="area-tags">AU · UK · CA · Bureau · eOS</div>
+      </div>
+
+      <div class="area-tile" onclick="goToArea('time')">
+        <div class="area-icon">🕐</div>
+        <div class="area-title">Rostering &amp; Timesheets</div>
+        <div class="area-tags">Auto-rostering · Overtime tracking · Bulk actions</div>
+      </div>
+
+      <div class="area-tile" onclick="goToArea('recruitment')">
+        <div class="area-icon">🔍</div>
+        <div class="area-title">Recruitment</div>
+        <div class="area-tags">ATS &amp; Integrations · HeroAI shortlisting · Jobseeker experience</div>
+      </div>
+
+      <div class="area-tile" onclick="goToArea('learning')">
+        <div class="area-icon">🎓</div>
+        <div class="area-title">Learning</div>
+        <div class="area-tags">Go1 · Certifications</div>
+      </div>
+
+      <div class="area-tile" onclick="goToArea('heroai','heroai-work')">
+        <div class="area-icon">📱</div>
+        <div class="area-title">EH Work App</div>
+        <div class="area-tags">iOS &amp; Android releases · Mobile features · HeroAI on mobile</div>
+      </div>
+
+      <div class="area-tile" onclick="goToArea('performance')">
+        <div class="area-icon">🎯</div>
+        <div class="area-title">Performance Management</div>
+        <div class="area-tags">Goals · Disciplinary reporting</div>
+      </div>
+
+      <div class="area-tile" onclick="goToArea('security')">
+        <div class="area-icon">🔒</div>
+        <div class="area-title">Security &amp; ITOps</div>
+        <div class="area-tags">2FA &amp; Auth · Account recovery · Threat detection</div>
+      </div>
+
+      <div class="area-tile" onclick="goToArea('automation')">
+        <div class="area-icon">⚡</div>
+        <div class="area-title">Automations</div>
+        <div class="area-tags">Custom Forms · Workflows · Approval audit trails</div>
+      </div>
+
+      <div class="area-tile" onclick="goToArea('benefits')">
+        <div class="area-icon">💎</div>
+        <div class="area-title">Benefits &amp; Perks</div>
+        <div class="area-tags">HeroPoints · Group benefits · Perks</div>
+      </div>
+
+      <div class="area-tile" onclick="goToArea('onboarding')">
+        <div class="area-icon">🚀</div>
+        <div class="area-title">Digital Onboarding</div>
+        <div class="area-tags">IO ANZ · IO NZ · IO Global · Pay run setup</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="25 218 105 65" fill="currentColor" style="vertical-align:middle;margin-right:5px;opacity:.65">
+        <path d="M70.11,257.33c.8,0,1.55.44,1.95,1.15.38.68.37,1.49-.03,2.16l-.02.03c-2.79,4.44-7.28,7.67-12.34,8.88-1.38.33-2.35,1.58-2.35,3.05,0,1.69,1.36,3.07,3.04,3.07.24,0,.47-.03.71-.08,5.65-1.35,10.78-4.6,14.43-9.17,3.77-4.7,5.76-10.37,5.76-16.4s-1.99-11.7-5.76-16.4c-3.65-4.58-8.78-7.84-14.43-9.18-.23-.06-.47-.08-.71-.08-1.67,0-3.04,1.37-3.04,3.07,0,1.46.96,2.71,2.35,3.05,5.05,1.21,9.55,4.44,12.33,8.86l.03.06c.4.66.41,1.47.03,2.15-.4.71-1.15,1.15-1.95,1.15-.33,0-.64-.07-.95-.21-1.1-.52-2.29-.78-3.52-.78-4.4,0-8.04,3.44-8.29,7.83v.05c-.01.13-.02.23-.02.33v.2c0,.1,0,.21.02.33v.05c.25,4.39,3.9,7.84,8.29,7.84,1.23,0,2.42-.27,3.52-.78.3-.14.62-.21.95-.21"/>
+        <path d="M49.88,224.36c-.24,0-.47.03-.71.08-5.65,1.34-10.78,4.6-14.43,9.17-3.77,4.71-5.76,10.37-5.76,16.4s1.99,11.7,5.76,16.4c3.66,4.57,8.78,7.83,14.43,9.17.24.06.47.08.71.08,1.67,0,3.04-1.37,3.04-3.07,0-1.46-.96-2.71-2.35-3.05-5.05-1.21-9.55-4.44-12.33-8.87l-.03-.05c-.41-.68-.42-1.48-.03-2.16.4-.71,1.15-1.15,1.95-1.15.33,0,.64.07.95.21,1.1.52,2.29.78,3.52.78,4.4,0,8.04-3.44,8.29-7.83v-.05c.01-.12.02-.22.02-.33v-.2c0-.1,0-.21-.02-.33v-.05c-.25-4.39-3.9-7.84-8.29-7.84-1.23,0-2.42.27-3.52.78-.3.14-.62.21-.95.21-.8,0-1.55-.44-1.95-1.15-.38-.68-.37-1.49.03-2.16v-.02l.02-.03c2.78-4.43,7.28-7.66,12.33-8.87,1.38-.33,2.35-1.58,2.35-3.05,0-1.69-1.36-3.07-3.04-3.07"/>
+      </svg>employment hero
+    </div>
+    <p>Making employment easier for every Australian business. &nbsp;&middot;&nbsp; <a href="https://employmenthero.com" target="_blank" rel="noopener">employmenthero.com</a> &nbsp;&middot;&nbsp; <a href="https://help.employmenthero.com/hc/en-au" target="_blank" rel="noopener">Help Centre</a> &nbsp;&middot;&nbsp; <a href="https://employmenthero.com/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a></p>
+    <p style="margin-top:.35rem;font-size:.68rem;">&copy; 2026 Employment Hero Pty Ltd. All rights reserved.</p>
+  </div>
+</footer>
+
+    </div><!-- /main-content -->
+  </div><!-- /layout -->
+</div><!-- /hub-frame -->
+
+<!-- ═══ MODAL ═══ -->
+<div class="modal-bg" id="modal-bg" onclick="handleBgClick(event)">
+  <div class="modal" id="modal">
+    <div class="modal-head">
+      <div class="modal-head-top">
+        <h2 id="modal-title"></h2>
+        <button class="modal-close" onclick="closeModal()">✕</button>
+      </div>
+      <div class="modal-head-chips" id="modal-chips"></div>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<!-- ═══ SCRIPTS ═══ -->
+<script>
+/* ────────────────────────────
+   RELEASE DATA
+──────────────────────────────*/
+const releases = {
+  'custom-forms-mobile': {
+    title: 'Custom Forms — Full Submit & Browse on Mobile',
+    tag: '⚡ Automations', tagClass: 'tag-automation',
+    date: '1 December 2025', plan: 'Employment Plus · Platinum', region: '🌏 EU · AU · NZ', users: 'Employees · Frontline Workers',
+    problem: 'Frontline and mobile-first employees had no way to initiate or submit forms on mobile — forcing desktop dependency and slowing down end-to-end processes.',
+    features: [
+      'Forms Library — browse all published forms alphabetically with category filters',
+      'Keyword search to find specific forms fast',
+      'Full form completion with mobile-optimised field layout and validation',
+      'Submit directly from mobile with an instant success confirmation',
+      'Deep-link from notification emails — opens straight into the correct form',
+      'Offline and form-unavailable error states handled gracefully'
+    ],
+    audience: 'Any organisation with employees who primarily work on mobile — retail, construction, hospitality, aged care. Requires Employment Plus or Platinum with Custom Forms enabled.'
+  },
+  'custom-forms-submissions': {
+    title: 'Custom Forms — Track My Submissions on Mobile',
+    tag: '⚡ Automations', tagClass: 'tag-automation',
+    date: '1 December 2025', plan: 'Employment Plus · Platinum', region: '🌏 EU · AU · NZ', users: 'Employees',
+    problem: 'Mobile-first employees had no visibility of their form submission status, leading to duplicate submissions and unnecessary contacts to HR.',
+    features: [
+      'My Submissions tab added to Forms in the EH Work App',
+      'Status tracking at a glance: Pending, Approved, Rejected',
+      'Tap any submission to view what was submitted and approver comments'
+    ],
+    audience: 'All employees using Custom Forms on the EH Work App. Eliminates the "did my form go through?" question entirely.'
+  },
+  'geofencing': {
+    title: 'Geofencing for Work Sites',
+    tag: '🕐 Time & Attendance', tagClass: 'tag-time',
+    date: 'November 2025', plan: 'Employment Plus · Platinum', region: '🇦🇺 AU', users: 'HR Admins · Employees',
+    problem: 'Employees could clock in from anywhere, creating inaccurate timesheets and buddy-punching risk for site-based employers.',
+    features: [
+      'Set a configurable GPS radius per work site (e.g. 50m to 500m)',
+      'Real-time location validation in the EH Work App at clock-in and clock-out',
+      'Choose per-site: warn employees outside the boundary, or hard-block the clock-in',
+      'Admin dashboard shows any out-of-boundary clock-in attempts'
+    ],
+    audience: 'AU businesses with site-based teams — construction, hospitality, retail, healthcare. If you\'ve had disputes over timesheet accuracy or suspected buddy-punching, this closes that door.'
+  },
+  'smartmatch': {
+    title: 'SmartMatch Summary Enhancement',
+    tag: '✨ HeroAI Recruitment', tagClass: 'tag-heroai',
+    date: 'November 2025', plan: 'Employment Plus · Platinum', region: '🌐 Global', users: 'Hiring Managers · Recruiters',
+    problem: 'Hiring managers couldn\'t understand why a candidate was a strong match from the score alone — requiring them to read every resume in full.',
+    features: [
+      'Expanded AI match rationale panel explaining why the candidate ranked highly',
+      'Skill-gap indicators showing where a candidate is strong vs. where they\'d need development',
+      'Resume signals mapped directly against job requirements side-by-side',
+      'Improved ranking to surface strong candidates from underrepresented pools'
+    ],
+    audience: 'Hiring managers and recruiters using SmartMatch on Employment Plus and Platinum plans. Cuts the time spent reading every resume before shortlisting.'
+  },
+  'acct-recovery': {
+    title: 'Enhanced Account Recovery — Decline Reasons & Notifications',
+    tag: '🔒 Security', tagClass: 'tag-security',
+    date: 'December 2025', plan: 'All plans', region: '🌐 Global', users: 'HR Admins · Employees',
+    problem: 'Declined account recovery requests left employees without clear feedback, generating support tickets and confusion about next steps.',
+    features: [
+      'HR admins select from structured decline reason categories when rejecting a request',
+      'Employees automatically receive an email explaining why their request was declined',
+      'Guidance included on how to re-initiate if they\'re still eligible',
+      'Full audit trail maintained for compliance purposes'
+    ],
+    audience: 'Any organisation using the account recovery workflow. HR admins get clearer controls; employees get fewer surprises.'
+  },
+  'breached-pw': {
+    title: 'Automated Check for Compromised Passwords on Payroll',
+    tag: '🔒 Security', tagClass: 'tag-security',
+    date: 'November 2025', plan: 'All plans', region: '🌐 Global Payroll', users: 'Payroll Users',
+    problem: 'Existing payroll accounts may have been using passwords exposed in third-party data breaches — a silent security risk with no automated detection.',
+    features: [
+      'Credentials automatically scanned against known breach databases',
+      'Rolling cohort-based rollout — no big-bang disruption',
+      'Affected users prompted to reset their password with a clear explanation',
+      'No action needed if your password hasn\'t been compromised'
+    ],
+    audience: 'All payroll users globally. This runs automatically in the background — you only see something if action is needed.'
+  },
+  'email-security': {
+    title: 'Enhanced Security for Account Email Address Changes',
+    tag: '🔒 Security', tagClass: 'tag-security',
+    date: 'November 2025', plan: 'All plans', region: '🌐 Global', users: 'All Users',
+    problem: 'Email address changes on accounts posed an account-takeover vector — no re-verification was required before the change took effect.',
+    features: [
+      'A verification link is sent to the current email before the change takes effect',
+      'HR admins receive a notification whenever an employee email is changed',
+      'All changes logged in the audit trail with timestamps'
+    ],
+    audience: 'All Employment Hero users. The extra step only appears when an email address is being changed — everyday logins are completely unaffected.'
+  },
+  'app-block': {
+    title: 'Minimum App Version Enforcement — EH Work App',
+    tag: '🔒 Security', tagClass: 'tag-security',
+    date: 'November 2025', plan: 'All plans', region: '📱 iOS · Android', users: 'All Mobile Users',
+    problem: 'A long tail of users on old app versions created a persistent security exposure with known but unpatched vulnerabilities in older builds.',
+    features: [
+      'Users below the minimum supported version see a clear prompt to update on launch',
+      'App store link provided directly in the prompt — one tap to update',
+      'Rolled out by version cohort to minimise disruption'
+    ],
+    audience: 'Anyone using the EH Work mobile app. Most users auto-update and won\'t see this. For large mobile workforces, communicating the update ahead of time is recommended.'
+  },
+  '2fa': {
+    title: 'Payroll 2FA — Prompt Incomplete Setup at Login',
+    tag: '🔒 Security', tagClass: 'tag-security',
+    date: 'November 2025', plan: 'All plans', region: '🇦🇺 APAC', users: 'Payroll Users',
+    problem: 'Some payroll users had 2FA enforced at the org level but hadn\'t completed authenticator setup — leaving a gap in actual enforcement.',
+    features: [
+      'Users detected as "incomplete 2FA setup" are prompted at next login',
+      'Supports both authenticator apps (Google Authenticator, Authy etc.) and SMS fallback',
+      'Admins can monitor setup completion in the security dashboard'
+    ],
+    audience: 'APAC payroll admins who have 2FA enforced at the organisation level. Only users who haven\'t completed setup will see the prompt — existing 2FA users are unaffected.'
+  },
+  'threat-hunting': {
+    title: 'Threat Hunting Security Improvements',
+    tag: '🔒 Security', tagClass: 'tag-security',
+    date: 'October 2025', plan: 'All plans', region: '🌐 Global', users: 'All Users (background)',
+    problem: 'A reactive security posture left gaps in detecting sophisticated threats before they could impact customers.',
+    features: [
+      'Broader set of behavioural signals now monitored for anomalies',
+      'Faster detection-to-response pipeline',
+      'Improved attacker behavioural pattern matching'
+    ],
+    audience: 'All customers — this runs entirely in the background. No action needed. Your data is better protected with zero impact to your day-to-day experience.'
+  },
+  'employment-details': {
+    title: 'Employment Details Uplift — Notice Periods, Probation & Contract Type',
+    tag: '👥 Core HR', tagClass: 'tag-hr',
+    date: 'November – December 2025', plan: 'All plans', region: '🌐 Global', users: 'HR Admins · Managers',
+    problem: 'HR teams relied on spreadsheets or free-text notes to track notice periods, probation end dates and contract type — creating compliance risk.',
+    features: [
+      'Notice period now a structured field on the employee profile',
+      'Probation end date tracked with manager alerts ahead of expiry',
+      'Contract type: permanent, fixed-term or casual',
+      'Contract end date for fixed-term employees',
+      'All new fields visible in employee reports and exports'
+    ],
+    audience: 'HR admins and managers at any organisation size. Particularly valuable for organisations managing a mix of casual, fixed-term and permanent staff.'
+  },
+  'contract-type': {
+    title: 'Contract Type & End Date in Employment Details',
+    tag: '👥 Core HR', tagClass: 'tag-hr',
+    date: 'December 2025', plan: 'All plans', region: '🌐 Global', users: 'HR Admins',
+    problem: 'Contract type and end dates were stored inconsistently across free-text fields, creating compliance risk for fixed-term employees.',
+    features: [
+      'Structured Contract Type field: permanent, fixed-term, casual',
+      'Contract End Date field for fixed-term contracts with expiry alerts',
+      'Reflected in employee reports and exports'
+    ],
+    audience: 'HR admins managing employees on fixed-term or casual contracts who need reliable, reportable contract data.'
+  },
+  'positions-colour': {
+    title: 'Assign Colours to Positions',
+    tag: '👥 Core HR', tagClass: 'tag-hr',
+    date: 'October 2025', plan: 'All plans', region: '🌐 Global', users: 'HR Admins',
+    problem: 'Large organisations with many positions struggled to visually differentiate roles in rostering and org chart views.',
+    features: [
+      'Colour picker added to position management settings',
+      'Colours reflected across rostering views and org charts',
+      'Works with existing positions — no migration required'
+    ],
+    audience: 'HR admins managing multiple positions or shifts. Especially useful for hospitality, retail and healthcare teams.'
+  },
+  'doc-notifications': {
+    title: 'Email Notifications for Employment Documents',
+    tag: '👥 Core HR', tagClass: 'tag-hr',
+    date: 'December 2025', plan: 'All plans', region: '🌐 Global', users: 'Employees · HR Admins',
+    problem: 'Document completion rates were low because employees had no real-time notification when a contract or policy was awaiting their attention.',
+    features: [
+      'Instant email notification when a document is assigned for signature or review',
+      'Automated reminder for overdue documents',
+      'One-click deep link from the email directly to the document'
+    ],
+    audience: 'All customers using Employment Documents. Employees no longer need to log in to check for pending documents — the notification comes to them.'
+  },
+  'settings-uplift': {
+    title: 'Settings Uplift — Cleaner Navigation & Better Discoverability',
+    tag: '👥 Core HR', tagClass: 'tag-hr',
+    date: 'November 2025', plan: 'All plans', region: '🌐 Global', users: 'HR Admins · Payroll Admins',
+    problem: 'Growing settings complexity made it hard for admins to locate specific configuration options without support.',
+    features: [
+      'Settings reorganised into clearer logical groupings',
+      'Search within settings to jump directly to any option',
+      'Refreshed visual hierarchy with less noise and more clarity'
+    ],
+    audience: 'HR and payroll admins. The settings themselves haven\'t changed — just how you navigate to them.'
+  },
+  'company-feed': {
+    title: 'Company Feed',
+    tag: '👥 Talent Management', tagClass: 'tag-hr',
+    date: 'October 2025', plan: 'All plans', region: '🌐 Global', users: 'All Employees',
+    problem: 'With distributed teams, there was no centralised, engaging way for leaders to share updates and keep employees connected to company culture.',
+    features: [
+      'Rich text posts with media attachments',
+      'Reactions and comments from employees',
+      'Audience targeting by team or location',
+      'Pin important updates to the top of the feed'
+    ],
+    audience: 'All Employment Hero customers. Particularly valuable for multi-site or remote-first organisations wanting to maintain culture without relying on email newsletters.'
+  },
+  'split-earnings': {
+    title: 'UK Payroll — Split Earnings Across Cost Centres',
+    tag: '💰 UK Payroll', tagClass: 'tag-payroll',
+    date: 'November 2025', plan: 'Employment Plus · Platinum', region: '🇬🇧 UK', users: 'Payroll Admins',
+    problem: 'Multi-site UK employers needed to allocate employee earnings across departments without running separate pay runs — previously impossible.',
+    features: [
+      'Split earnings by percentage or fixed amount per cost centre',
+      'Configure per-employee or use a template for teams',
+      'Splits reflected in payroll reports and general ledger export'
+    ],
+    audience: 'UK payroll admins at organisations where employees work across multiple departments, sites or projects. Eliminates separate pay runs or manual journal adjustments.'
+  },
+  'contractor-codes': {
+    title: 'Automate Employee & Contractor Classification Codes',
+    tag: '💰 Payroll', tagClass: 'tag-payroll',
+    date: 'November 2025', plan: 'All plans', region: '🇦🇺 APAC', users: 'Payroll Admins',
+    problem: 'Manual code assignment was error-prone, causing downstream payroll calculation mistakes and ATO compliance issues.',
+    features: [
+      'Rules-based code assignment triggered by employment type selection',
+      'Backwards-compatible — existing records are not affected',
+      'Validation alert surfaces any mismatches for review'
+    ],
+    audience: 'APAC payroll admins managing both employees and independent contractors. Especially useful during high-volume onboarding.'
+  },
+  'bureau-dashboard': {
+    title: 'New Bureau Dashboard Landing Page',
+    tag: '💰 Bureau', tagClass: 'tag-payroll',
+    date: 'October 2025', plan: 'All plans', region: '🌐 Bureau', users: 'Bureau Operators',
+    problem: 'Bureau operators managing many clients had no single view of status — navigating between clients one-by-one to check payroll obligations.',
+    features: [
+      'Consolidated dashboard of all managed client payrolls',
+      'Deadline tracking with colour-coded urgency indicators',
+      'Quick-access shortcuts to jump into any client payroll file',
+      'Recent activity feed across all clients'
+    ],
+    audience: 'Bureau operators managing payroll on behalf of multiple client organisations.'
+  },
+  'io-chart-accounts': {
+    title: 'IO AU: Chart of Accounts Mapping Step',
+    tag: '💰 Payroll — IO', tagClass: 'tag-payroll',
+    date: 'October 2025', plan: 'All plans', region: '🇦🇺 AU', users: 'Payroll Admins · Accountants',
+    problem: 'New payroll clients had to map chart of accounts post-setup, creating delays and back-and-forth between the client\'s accounting team and EH.',
+    features: [
+      'Inline account mapping UI built into the AU payroll onboarding wizard',
+      'Common account categories pre-filled to reduce manual entry',
+      'Syncs directly to the connected accounting integration on completion'
+    ],
+    audience: 'Australian businesses setting up payroll through Employment Hero\'s integrated onboarding.'
+  },
+  'inactive-users': {
+    title: 'Inactive User Verification Before Pay Run',
+    tag: '💰 Payroll', tagClass: 'tag-payroll',
+    date: 'November 2025', plan: 'All plans', region: '🌐 Global', users: 'Payroll Admins',
+    problem: 'Inactive accounts being included in pay runs was a recurring issue — often not caught until after processing, requiring corrections.',
+    features: [
+      'Pre-run checklist flags inactive users included in the upcoming run',
+      'One-click to review, exclude or confirm each flagged user',
+      'Audit log of verification decisions per pay run'
+    ],
+    audience: 'All payroll admins. Particularly valuable for organisations with higher staff turnover or complex offboarding workflows.'
+  },
+  'split-earnings-apac': {
+    title: 'eOS IO — Split Earnings Capability',
+    tag: '💰 Payroll', tagClass: 'tag-payroll',
+    date: 'November 2025', plan: 'Employment Plus · Platinum', region: '🇦🇺 🇳🇿 ANZ', users: 'Payroll Admins',
+    problem: 'The integrated onboarding payroll environment didn\'t support split earnings, forcing workarounds for clients with complex pay structures.',
+    features: [
+      'Split earnings across earnings types within the IO environment',
+      'Supports complex pay structures out of the box during onboarding',
+      'Reflected in test pay run reconciliation'
+    ],
+    audience: 'ANZ clients going through integrated payroll onboarding who have employees with earnings split across multiple types.'
+  },
+  'indeed': {
+    title: 'ATS — Direct Integration with Indeed',
+    tag: '🔍 Recruitment', tagClass: 'tag-recruitment',
+    date: 'December 2025', plan: 'All plans', region: '🇦🇺 AU · 🇳🇿 NZ', users: 'Recruiters',
+    problem: 'Recruiters were duplicating job postings manually across systems, creating data inconsistency and missing candidates who applied on Indeed.',
+    features: [
+      'One-click job publishing from EH directly to Indeed',
+      'Candidates who apply on Indeed flow directly into your ATS pipeline',
+      'Apply with Indeed supported for a faster candidate experience',
+      'Job automatically closes on Indeed when filled in EH'
+    ],
+    audience: 'All AU and NZ customers using the Employment Hero ATS. If you\'ve been posting to Indeed separately — you can stop.'
+  },
+  'jobseeker-flow': {
+    title: 'Jobseeker Application Flow — Redesigned & Consolidated',
+    tag: '🔍 Recruitment', tagClass: 'tag-recruitment',
+    date: 'October – November 2025', plan: 'All plans', region: '🌐 Global', users: 'Candidates · Recruiters',
+    problem: 'The application journey was fragmented across different flows, causing drop-off and a poor candidate experience on mobile.',
+    features: [
+      'Fewer steps from "apply" to "submitted"',
+      'Mobile-first form layout — works cleanly on any screen size',
+      'Progress saved automatically — candidates can complete in multiple sittings',
+      'Consistent design across all job source entry points'
+    ],
+    audience: 'All customers with active job listings. Better candidate experience means more completed applications and a stronger talent pool for your roles.'
+  },
+  'marketing-signup': {
+    title: 'Marketing Jobseeker Signup Flow',
+    tag: '✨ HeroAI Recruitment', tagClass: 'tag-heroai',
+    date: 'November 2025', plan: 'All plans', region: '🌐 Global', users: 'Candidates',
+    problem: 'High drop-off in the jobseeker signup flow was reducing the pool of talent entering the Employment Hero network.',
+    features: [
+      'Streamlined signup steps — fewer screens to complete',
+      'Progress indicators so candidates know where they are in the process',
+      'Improved mobile layout throughout the signup journey'
+    ],
+    audience: 'Any employer advertising roles through Employment Hero — a better jobseeker signup experience directly increases the volume of quality candidates available.'
+  },
+  'hero-foundation': {
+    title: 'Hero Foundation — Candidate Onboarding Experience',
+    tag: '🔍 Recruitment', tagClass: 'tag-recruitment',
+    date: 'November 2025', plan: 'Employment Plus · Platinum', region: '🌐 Global', users: 'New Hires · HR Admins',
+    problem: 'After offer acceptance, new hires had a disjointed experience completing paperwork and preparing for day one — spread across emails and multiple systems.',
+    features: [
+      'Guided onboarding portal for new hires post offer acceptance',
+      'Document completion, tax forms and banking details in one flow',
+      'Configurable task checklists for HR teams to assign pre-start tasks'
+    ],
+    audience: 'HR teams on Employment Plus and Platinum who want new hires arriving on day one already set up. Reduces first-week admin for both HR and the new employee.'
+  },
+  'offer-benefits': {
+    title: 'Benefits Summary in Offer Letters',
+    tag: '🔍 Recruitment', tagClass: 'tag-recruitment',
+    date: 'October 2025', plan: 'Employment Plus · Platinum', region: '🌐 Global', users: 'HR Admins · Candidates',
+    problem: 'Benefits packages were invisible at the point of offer, meaning candidates couldn\'t evaluate their full total compensation — reducing offer acceptance rates.',
+    features: [
+      'Benefits summary block available as a component in offer letter templates',
+      'Populates dynamically from the employee\'s assigned benefit plan',
+      'Customisable display per benefit category'
+    ],
+    audience: 'HR teams on Plus and Platinum using Employment Hero offer letters. Particularly useful when competing for talent — the benefits summary strengthens the offer without extra manual work.'
+  },
+  'aus-ethical': {
+    title: 'Australian Ethical — Now a Featured Super Fund',
+    tag: '💎 Benefits & Perks', tagClass: 'tag-benefits',
+    date: 'October 2025', plan: 'All plans', region: '🇦🇺 AU', users: 'Employees',
+    problem: 'Employees looking for ethical super investment options had no prominent way to discover and select them within Employment Hero.',
+    features: [
+      'Australian Ethical prominently featured in the super choice flow',
+      'Fund comparison information available inline for employees to review'
+    ],
+    audience: 'All Australian employees going through or revisiting the super choice process. Gives employees who want an ethical investment option easier access.'
+  },
+  'billing-statement': {
+    title: 'Upload Billing Statement to Auto-Fill Group Benefits Fields',
+    tag: '💎 Benefits & Perks', tagClass: 'tag-benefits',
+    date: 'October 2025', plan: 'All plans', region: '🌐 Global', users: 'HR Admins · Payroll Admins',
+    problem: 'Admins manually re-entered group insurance premium data from insurer billing statements into payroll deduction fields every pay cycle — error-prone and time-consuming.',
+    features: [
+      'Upload the insurer billing statement directly in the Benefits module',
+      'System auto-parses and maps values to the correct payroll deduction fields',
+      'Review step before confirming — full control remains with the admin'
+    ],
+    audience: 'Any organisation managing group insurance or benefits with monthly premium invoices. Eliminates a recurring manual task that\'s easy to get wrong.'
+  },
+  'go1': {
+    title: 'Go1 Learn — Refreshed User Experience',
+    tag: '🎓 Learning', tagClass: 'tag-learning',
+    date: 'October 2025', plan: 'Employment Plus · Platinum', region: '🌐 Global', users: 'All Employees',
+    problem: 'The existing Go1 interface within Employment Hero felt dated and lacked intuitive discovery, reducing learner engagement and course completion rates.',
+    features: [
+      'New learner home with AI-powered course recommendations',
+      'Redesigned course catalogue with better search and category filters',
+      'Progress tracking and completion widgets visible on the employee dashboard',
+      'Improved mobile responsiveness across all learning views'
+    ],
+    audience: 'All employees on plans with Go1 access. The redesign doesn\'t change what\'s available — it makes it far easier to find, start and track learning.'
+  },
+  'roster-perf': {
+    title: 'Roster Builder — Up to 3× Faster for Large Teams',
+    tag: '🕐 Time & Attendance', tagClass: 'tag-time',
+    date: 'December 2025', plan: 'All plans', region: '🌐 Global', users: 'Managers · HR Admins',
+    problem: 'Large roster views with many employees and shifts were slow to load and caused browser memory issues — reducing adoption for large hospitality and retail customers.',
+    features: [
+      'Faster initial load time — especially noticeable with 50+ employees',
+      'Smoother week-by-week navigation without full page reloads',
+      'Reduced browser memory footprint during long rostering sessions',
+      'More responsive drag-and-drop shift placement'
+    ],
+    audience: 'Any manager or HR admin using the roster builder. No configuration needed — the improvements apply automatically.'
+  },
+  'custom-work-hours': {
+    title: 'Custom Work Hours — Extended to 8-Week Window',
+    tag: '🕐 Time & Attendance', tagClass: 'tag-time',
+    date: 'November 2025', plan: 'Employment Plus · Platinum', region: '🇦🇺 AU', users: 'HR Admins · Payroll Admins',
+    problem: 'The 2-week window was too short for employers with annualised hours or rotating roster cycles longer than a fortnight.',
+    features: [
+      'Schedule planning horizon extended from 2 weeks to 8 weeks',
+      '4-week and 8-week rotation cycles supported natively',
+      'Works within existing custom work hour configuration — no rebuild required'
+    ],
+    audience: 'AU employers with annualised hours agreements or rotating roster cycles — common in healthcare, manufacturing and aged care.'
+  },
+  'io-anz': {
+    title: 'IO ANZ — Smarter Default Entity Config & BCI Step',
+    tag: '🚀 Digital Onboarding', tagClass: 'tag-onboarding',
+    date: 'November 2025', plan: 'All plans', region: '🇦🇺 AU · 🇳🇿 NZ', users: 'Implementation Partners · New Clients',
+    problem: 'New payroll clients spent significant time re-entering default configurations and working through a cumbersome BCI step during onboarding.',
+    features: [
+      'Entity configuration pre-filled with smart defaults based on business type',
+      'BCI step redesigned with inline validation and clearer labels',
+      'Reduced back-and-forth with the implementation team during setup'
+    ],
+    audience: 'Implementation partners and new clients going through payroll setup in Australia or New Zealand.'
+  },
+  'io-nz': {
+    title: 'IO NZ — Guided First Live Pay Run Checklist',
+    tag: '🚀 Digital Onboarding', tagClass: 'tag-onboarding',
+    date: 'October 2025', plan: 'All plans', region: '🇳🇿 NZ', users: 'Payroll Admins · New Clients',
+    problem: 'NZ payroll clients frequently ran into issues on their first live pay run because pre-run validation steps weren\'t clearly guided.',
+    features: [
+      'Structured checklist of pre-live-run requirements built into the onboarding wizard',
+      'In-wizard validation of tax codes, bank accounts and employee setup',
+      'Confidence indicator shows readiness before going live'
+    ],
+    audience: 'New NZ payroll clients approaching their go-live date. Particularly useful for clients without a dedicated payroll admin.'
+  },
+  'io-duplicates': {
+    title: 'IO Global — Prevent Duplicate Inclusions in Test Pay Runs',
+    tag: '🚀 Digital Onboarding', tagClass: 'tag-onboarding',
+    date: 'November 2025', plan: 'All plans', region: '🌐 Global', users: 'Payroll Admins · Partners',
+    problem: 'Duplicate employee records included in test pay runs were only caught during reconciliation — causing unnecessary rework.',
+    features: [
+      'Duplicate employee detection runs automatically when a test pay run is initiated',
+      'Clear error message identifies which records are duplicated',
+      'Blocks submission until duplicates are resolved'
+    ],
+    audience: 'Implementation partners and payroll admins running test pay runs. Saves the frustration of discovering duplicate records after the fact.'
+  },
+  'io-au-custom-hours': {
+    title: 'eOS IO — Custom Work Hours in Employee Data Tables',
+    tag: '🚀 Digital Onboarding', tagClass: 'tag-onboarding',
+    date: 'November 2025', plan: 'All plans', region: '🇦🇺 AU', users: 'Payroll Admins',
+    problem: 'Custom work hours weren\'t visible in employee data tables within the IO environment, forcing admins to cross-reference multiple screens.',
+    features: [
+      'Custom work hours now display directly in employee data tables within IO',
+      'Full visibility during onboarding setup without leaving the table view',
+      'Consistent with how data is displayed in the live payroll environment'
+    ],
+    audience: 'Payroll admins and implementation partners setting up Australian payroll through integrated onboarding.'
+  },
+
+  /* ─── APRIL 2026 RELEASES ─── */
+
+  'heroai-work-app': {
+    title: 'Hero AI Enhancements — EH Work App',
+    tag: '✨ HeroAI', tagClass: 'tag-heroai',
+    date: '20 April 2026', plan: 'All plans', region: '🌐 AU · NZ · UK · CA', users: 'All EH Work App Users',
+    problem: 'Employees using the EH Work app couldn\'t take action on leave, timesheets or unavailability through Hero AI, and had no way to continue or manage past conversations.',
+    features: [
+      'Take direct leave, unavailability and timesheet actions through Hero AI — no menu navigation required',
+      'Resume recent conversations exactly where you left off',
+      'Delete individual chats from your Hero AI history for better privacy control',
+      'New tab discovery animation in the Work pillar encourages users to explore Hero AI',
+      'Hero AI is now integrated with Search — ask questions alongside traditional navigation',
+      'Suggested prompts tailored to your permissions and what you\'re currently searching for'
+    ],
+    audience: 'All EH Work App users in AU, NZ, UK and CA. The biggest Hero AI update to the mobile experience yet — every interaction is now action-oriented.',
+    loomUrl: 'https://www.loom.com/embed/960f8ca874bf47e282cf2607c5c1d9b1'
+  },
+
+  'heroai-leave-mgmt': {
+    title: 'HeroAI Leave Management — Team Availability Insights',
+    tag: '✨ HeroAI', tagClass: 'tag-heroai',
+    date: '22 April 2026', plan: 'Platinum', region: '🌐 AU · NZ · UK · CA', users: 'Managers',
+    problem: 'Managers had no quick way to see who was on leave or had pending requests without navigating through multiple screens — making leave approval decisions uninformed.',
+    features: [
+      'HeroAI heading now dynamically shows the count of pending leave requests requiring attention',
+      'Subheadings summarise who is currently on leave or away this week',
+      'Suggested prompts update based on live team availability data',
+      'Context-aware insights help managers make better decisions when approving new requests'
+    ],
+    audience: 'Managers on Platinum plans in AU, NZ, UK and CA. Particularly valuable for team leads managing multiple direct reports across different leave schedules.',
+    loomUrl: 'https://www.loom.com/embed/ae8589d66506427199b22cf3b1d41196'
+  },
+
+  'heroai-leave-suggest': {
+    title: 'Auto-Suggest Best Leave Type Based on Reason',
+    tag: '✨ HeroAI', tagClass: 'tag-heroai',
+    date: '17 April 2026', plan: 'Elite +', region: '🌐 Global', users: 'Employees',
+    problem: 'Employees frequently selected the wrong leave type when submitting requests, creating correction work for HR and inaccurate leave balance records.',
+    features: [
+      'As employees type their leave reason, a suggestion banner recommends the most appropriate leave type',
+      'Suggestions draw only from the organisation\'s own leave types and reason labels',
+      'Country-specific statutory entitlements are factored in automatically per region',
+      'If AI can\'t make a confident match or is unavailable, the form works exactly as before — no blocking'
+    ],
+    audience: 'All employees on Elite tier and above globally. Particularly valuable for organisations with complex leave policies or multiple leave type categories.'
+  },
+
+  'hiring-criteria': {
+    title: 'AI Hiring Criteria — Transparent Candidate Scoring',
+    tag: '✨ HeroAI Recruitment', tagClass: 'tag-heroai',
+    date: '9 April 2026', plan: 'All plans', region: '🌐 Global', users: 'Hiring Managers · Recruiters',
+    problem: 'Candidates were scored against AI-generated criteria that hiring managers couldn\'t see or control — creating a trust gap in the shortlisting process.',
+    features: [
+      'Hiring Criteria step added to job creation — review and customise AI-generated criteria before publishing',
+      'Mark each requirement as must-have or nice-to-have to weight the match score accordingly',
+      'Remove criteria that aren\'t relevant, or add your own custom requirements',
+      'Candidate match scores now split by must-have vs nice-to-have for faster shortlisting',
+      'Existing jobs updated automatically — criteria set to must-have by default, editable at any time'
+    ],
+    audience: 'All hiring managers and recruiters on any paid plan globally. Makes AI match scores more accurate and gives hirers full visibility into what candidates are being assessed against.',
+    loomUrl: 'https://www.loom.com/embed/deba379490294fd082e4e7e761f9f952'
+  },
+
+  'ai-job-summaries': {
+    title: 'AI Job Summaries for Job Seekers',
+    tag: '✨ HeroAI Recruitment', tagClass: 'tag-heroai',
+    date: '23 April 2026', plan: 'All plans', region: '🌐 Global', users: 'Candidates',
+    problem: 'Job seekers spent excessive time parsing long job descriptions to identify critical information like salary, remote flexibility and core requirements.',
+    features: [
+      'AI-generated summary appears at the top of every job listing on the EH job board',
+      'Extracts and surfaces the most relevant data points — salary, location, key requirements — instantly',
+      'Applies to all new jobs immediately; backfill for existing jobs underway'
+    ],
+    audience: 'All candidates browsing the Employment Hero job board. A better candidate experience means more completed applications for your roles.',
+    loomUrl: 'https://www.loom.com/embed/0351201923fd46028988adb776c68270'
+  },
+
+  'hiring-stage-ui': {
+    title: 'Hiring Stage UI — Self-Serve AI Agent Setup',
+    tag: '✨ HeroAI Recruitment', tagClass: 'tag-heroai',
+    date: '17 April 2026', plan: 'All paid plans', region: '🌐 Global', users: 'Admins · Recruiters',
+    problem: 'Recruiters couldn\'t find, enable or configure AI agents without support — and had no visibility into how AI was assessing candidates.',
+    features: [
+      'Discovery banner and live AI counts show recruiters exactly what agents are available and active',
+      'Two-panel layout gives full visibility into AI scoring criteria for each hiring stage',
+      'Shortlisting Agent is now fully self-serve — find, enable and configure directly in the hiring stage screen',
+      'All AI agents, evaluations, third-party assessments and automated workflows visible on one screen'
+    ],
+    audience: 'All admins and recruiters on any paid plan. Removes the need to contact support to activate AI features — increasing AI adoption across the platform.',
+    loomUrl: 'https://www.loom.com/embed/26f9c8dfc7cd4047bc0bcd88510f3554'
+  },
+
+  'ref-check-fraud': {
+    title: 'Reference Check Fraud Detection',
+    tag: '🔍 Recruitment', tagClass: 'tag-recruitment',
+    date: '23 April 2026', plan: 'Reference check enabled orgs', region: '🌐 Global', users: 'Recruiters · Hiring Managers',
+    problem: 'Candidates could fill in their own reference check questionnaires or list themselves as a referee — with no automated way to detect it.',
+    features: [
+      'Detect when a candidate\'s email matches their referee\'s email — blocked before the questionnaire is sent',
+      'Detect when candidate and referee submitted from the same IP address',
+      'Detect same device, browser and OS fingerprint across candidate and referee submissions',
+      'Fraud warning indicator next to referee names in the Review Results table with tooltip detail',
+      'Dedicated fraud signals section at the top of each referee\'s results page in plain language',
+      'Fraud warnings also surface in "referee submitted" email notifications'
+    ],
+    audience: 'Any organisation using Employment Hero\'s reference check feature. Particularly valuable for roles where reference quality directly impacts hiring decisions.',
+    loomUrl: 'https://www.loom.com/embed/e86d5579ebf4475daeab22facd0a7c7f'
+  },
+
+  'career-page-widget': {
+    title: 'Embeddable Career Page Widget',
+    tag: '🔍 Recruitment', tagClass: 'tag-recruitment',
+    date: '6 April 2026', plan: 'All paid plans', region: '🌐 Global', users: 'Recruiters · Marketing Teams',
+    problem: 'ATS customers had to manually duplicate job listings on their company website using third-party tools — creating sync issues and extra admin.',
+    features: [
+      'Embed a live job listings widget on any company website with a single <script> tag',
+      'Widget auto-displays all published roles from the EH ATS — no manual duplication',
+      'Real-time sync — changes in the ATS reflect on the website instantly',
+      'No developer required; embed code available in Recruitment Settings → Career Page',
+      'Employment Hero is the first customer — powering employmenthero.com/careers'
+    ],
+    audience: 'All admins and recruiters on any paid plan. Eliminates the disconnect between your ATS and your careers page with zero ongoing maintenance.',
+    loomUrl: 'https://www.loom.com/embed/45d182d03663416a8cd1e67d8cb4dd2c'
+  },
+
+  'position-templates': {
+    title: 'Recruitment Position Templates',
+    tag: '🔍 Recruitment', tagClass: 'tag-recruitment',
+    date: '3 April 2026', plan: 'All paid plans', region: '🌐 Global', users: 'Admins · Recruiters',
+    problem: 'Hiring managers at organisations with recurring roles had to manually recreate job descriptions, salary ranges and screening questions for every new posting.',
+    features: [
+      'Build a library of approved role blueprints in Recruitment Settings → Position Templates',
+      'Each template captures: job title, description, employment type, workplace type, salary range and screening questions',
+      'One click to pre-fill all standard details when starting a new job posting',
+      'Managers can still customise any field before going live — the original template is never affected'
+    ],
+    audience: 'Mid-market clients and any organisation with recurring roles — restaurant chains, multi-location retailers, professional services firms. Eliminates repetitive job creation work.',
+    loomUrl: 'https://www.loom.com/embed/5127488991344bd98d1e91faab71fc22'
+  },
+
+  'job-board-emails': {
+    title: 'Job Board Application Confirmation Emails',
+    tag: '🔍 Recruitment', tagClass: 'tag-recruitment',
+    date: '23 April 2026', plan: 'All plans', region: '🌐 Global', users: 'Candidates',
+    problem: 'Candidates applying through Seek or Indeed received no acknowledgment once their application was ingested into Employment Hero — causing confusion about whether it was received.',
+    features: [
+      'Automated "Application Submitted Successfully" email sent immediately on ingestion from external boards',
+      'Email includes a summary of the data submitted for candidate transparency',
+      'Introduces Employment Hero as the platform used by the employer',
+      'Withdraw application link included',
+      'Account creation prompt consolidated into this email to avoid a spammy double-notification experience'
+    ],
+    audience: 'All organisations advertising roles through Employment Hero. Reducing "application anxiety" leads to better candidate experience and fewer inbound status enquiries.'
+  },
+
+  'compliance-doc-tagging': {
+    title: 'Compliance Document Tagging',
+    tag: '👥 Core HR', tagClass: 'tag-hr',
+    date: '21 April 2026', plan: 'All plans', region: '🌐 Global', users: 'HR Admins',
+    problem: 'HR teams had no structured way to categorise compliance documents by regulatory framework or audit requirement — making audit preparation time-consuming.',
+    features: [
+      'Create and manage a custom list of compliance tags across the organisation',
+      'Apply up to 10 tags per document when uploading or editing',
+      'Create a new tag inline without leaving the document workflow',
+      'Filter the documents list by one or more compliance tags for a clear, audit-ready view',
+      'Compliance tags are visible to HR Admins only — employees and managers cannot see them'
+    ],
+    audience: 'HR admins and compliance officers at any organisation size. Particularly valuable ahead of audits or when demonstrating regulatory compliance.',
+    loomUrl: 'https://www.loom.com/embed/d8af0cadfe6d4827ab90b2fac9d6aa4f'
+  },
+
+  'casual-conversion': {
+    title: 'Casual Conversion Pre-Check — Fair Work Act Compliance',
+    tag: '👥 Core HR', tagClass: 'tag-hr',
+    date: '15 April 2026', plan: 'All plans', region: '🇦🇺 AU', users: 'HR Admins',
+    problem: 'Under 2026 Fair Work Act amendments, AU employers must proactively offer permanent employment to casual employees who reach a 12-month qualifying period — with no in-platform mechanism to track this.',
+    features: [
+      'Flag a casual employee\'s regular and systematic engagement intent at the time of hire',
+      'Creates a timestamped record of the employment arrangement from day one',
+      'Helps employers demonstrate proactive compliance with Fair Work Act amendments',
+      'Reduces legal liability for AU organisations with casual staff reaching the 12-month threshold'
+    ],
+    audience: 'All Australian organisations with casual employees. Embeds Fair Work compliance into the onboarding flow so no employer is caught off guard at the 12-month mark.',
+    loomUrl: 'https://www.loom.com/embed/0afc3266cc1e40f099b1daa67c03df03'
+  },
+
+  'compliance-leave-filter': {
+    title: 'Compliance Reports — On-Leave Employee Filter',
+    tag: '👥 Core HR', tagClass: 'tag-hr',
+    date: '16 April 2026', plan: 'Standard +', region: '🌐 Global', users: 'HR Admins · Compliance Officers',
+    problem: 'Compliance reminder emails were being sent to employees currently on leave — who couldn\'t action overdue items — wasting communication and creating noise.',
+    features: [
+      '"Show employees on leave: Yes/No" filter added to Policies, Induction Content, Certifications and HR Documents reports',
+      'Defaults to "No" so compliance officers only see employees who can act on overdue items',
+      'Filter applies to both bulk reminder sends and CSV exports'
+    ],
+    audience: 'HR admins and compliance officers managing policy acknowledgement and certification compliance globally.'
+  },
+
+  'uk-policy-owner': {
+    title: 'Policy Owner Assignment &amp; Review Cycles',
+    tag: '👥 Core HR', tagClass: 'tag-hr',
+    date: '15 April 2026', plan: 'All plans', region: '🇬🇧 UK · Global TBC', users: 'HR Admins · Policy Owners',
+    problem: 'Policy management lacked formal accountability and automated review tracking — organisations relied on manual processes to identify who owned a policy and when it needed updating.',
+    features: [
+      'Assign a Responsible Owner to any policy during upload or edit',
+      'Define a review cycle frequency — yearly or custom duration',
+      'Policy Management table now shows assigned owners and upcoming review dates at a glance',
+      'Policies transition to "Review Required" status automatically when due — reverting on upload of new version',
+      'Automated email reminders and to-do tasks generated for the owner when a review is due',
+      'Responsible Owners gain scoped access to their assigned policies only'
+    ],
+    audience: 'HR admins and policy managers at UK organisations initially, with global rollout TBC. Eliminates the risk of policies falling out of compliance through missed review cycles.',
+    loomUrl: 'https://www.loom.com/embed/e0416d1b268c4d25949fe991b78e126a'
+  },
+
+  'leave-time-precise': {
+    title: 'Precise Time-Based Leave Requests',
+    tag: '👥 Leave', tagClass: 'tag-hr',
+    date: '17–23 April 2026', plan: 'All plans', region: '🌐 Global', users: 'Employees · Managers',
+    problem: '"Morning/Afternoon" leave selections were ambiguous — managers had to follow up for clarification and payroll defaulted to flat half-day deductions regardless of actual time away.',
+    features: [
+      'Employees toggle between classic AM/PM selection and new "Specific Start and End Times" option',
+      'Dynamic duration calculation shows total hours to be deducted as times are entered',
+      'Upgraded AM/PM logic references the employee\'s contracted schedule — not a hard 12:00 PM split',
+      'Integrated sync with Xero, KeyPay and other payroll platforms — hours pushed accurately without manual recalculation',
+      'Web only initially; separate mobile release to follow'
+    ],
+    audience: 'All employees and managers globally on any plan. Eliminates the "clarification loop" between employees and managers, and ensures payroll accuracy for partial-day leave.'
+  },
+
+  'leave-cancel-termination': {
+    title: 'Auto-Cancel Leave on Termination',
+    tag: '👥 Leave', tagClass: 'tag-hr',
+    date: '14–20 April 2026', plan: 'All plans', region: '🌐 Global', users: 'HR Admins · Managers · Employees',
+    problem: 'Future leave requests lingered in approval queues after employee termination — creating manual cleanup work and risk of accidental leave payments.',
+    features: [
+      'All pending and approved leave requests after the termination date are auto-declined instantly on confirmation',
+      'Notice period leave is protected — requests before or on the final termination date remain untouched',
+      'Automated notifications sent to the employee and their managers explaining why requests were removed',
+      'HR Admins see a real-time warning in the termination form if future leave exists before committing',
+      'Every auto-decline is logged against the initiating HR Admin for audit purposes'
+    ],
+    audience: 'All organisations globally on any plan. Particularly valuable during high-volume offboarding periods or for organisations with longer notice periods.'
+  },
+
+  'leave-calendar-filters': {
+    title: 'Save Filters on Leave Calendar',
+    tag: '👥 Leave', tagClass: 'tag-hr',
+    date: '23 April 2026', plan: 'All plans', region: '🌐 Global', users: 'HR Admins · Managers',
+    problem: 'Managers and HR admins had to re-apply the same location, team and leave type filters every time they opened the Leave Calendar.',
+    features: [
+      '"Save filters" button stores your selected location, team and leave type preferences',
+      'Filters restore automatically every time you open the Leave Calendar — no re-selecting',
+      'Preferences are saved per user',
+      '"Reset saved filters" clears preferences at any time'
+    ],
+    audience: 'All HR admins and managers who use the Leave Calendar regularly with consistent filter preferences.',
+    loomUrl: 'https://www.loom.com/embed/21b0d0f488b2435e8ad15c50d3775218'
+  },
+
+  'eh-chat': {
+    title: 'Employment Hero Chat — Now Available to All Clients',
+    tag: '👥 Platform', tagClass: 'tag-hr',
+    date: '15 April 2026', plan: 'Unlimited (included) · All plans (add-on)', region: '🌐 Global', users: 'All Employees',
+    problem: 'Teams relied on WhatsApp, SMS or expensive tools like Slack for workplace communication — creating compliance risks and disconnected experiences outside the HRIS.',
+    features: [
+      'Built-in workplace messaging integrated directly into Employment Hero — no separate login or app switching',
+      'Available to all Employment Unlimited clients at no extra cost',
+      'Available as a purchasable add-on for all other HR subscription tiers',
+      'Saves $5–10k per year for a 50-person team compared to Slack or Teams',
+      'Lives inside the platform where employees already manage shifts, leave and payroll'
+    ],
+    audience: 'All Employment Hero customers. Unlimited plan clients can activate immediately. All other plans can purchase the add-on — contact your account manager or find it in Settings.'
+  },
+
+  'goals-bulk-archive': {
+    title: 'Goals — Bulk Archive &amp; Delete',
+    tag: '🎯 Performance', tagClass: 'tag-performance',
+    date: '20 April 2026', plan: 'Elite +', region: '🌐 Global', users: 'HR Admins · Managers',
+    problem: 'Archiving or deleting outdated goals at the end of a review cycle required opening and actioning each goal individually — tedious at scale.',
+    features: [
+      'Select multiple goals using checkboxes directly from the goals list',
+      'Archive or permanently delete selected goals in a single action',
+      'Bulk action toolbar appears as soon as goals are selected — shows count and options',
+      'Confirmation step before any goals are removed',
+      'Goals you don\'t have permission to manage don\'t show a checkbox'
+    ],
+    audience: 'HR admins and managers on Elite plans with access to the Goals feature. Cuts end-of-cycle cleanup from hours to minutes for organisations with large goal libraries.',
+    loomUrl: 'https://www.loom.com/embed/638c5c59bc4b4f2eb5ad0e0d9a3f1e2c'
+  },
+
+  'goals-clone': {
+    title: 'Goals — Clone &amp; Bulk Issue to Employees',
+    tag: '🎯 Performance', tagClass: 'tag-performance',
+    date: '20 April 2026', plan: 'Platinum · Elite', region: '🌐 Global', users: 'HR Admins · Managers',
+    problem: 'Setting the same goal across a team required recreating it manually for each employee — error-prone and time-consuming at scale.',
+    features: [
+      'Clone any goal from the Goals detail view and issue it to one or more employees in a single action',
+      'Select which key results to carry across and set a due date in the clone modal',
+      'Each selected employee gets an independent copy — progress starts at zero',
+      'Original template is never affected by changes to issued copies',
+      'Includes general UI uplift to the goals feature throughout'
+    ],
+    audience: 'HR admins and managers on Platinum and Elite plans. Particularly useful at the start of a review cycle when team-wide or company-wide goals need to be distributed.',
+    loomUrl: 'https://www.loom.com/embed/eaf0e98aa29749e08ecaf4e13917743f'
+  },
+
+  'disciplinary-report': {
+    title: 'Disciplinary Cases Report',
+    tag: '🎯 Performance', tagClass: 'tag-performance',
+    date: '23 April 2026', plan: 'All plans', region: '🇬🇧 UK', users: 'HR Admins',
+    problem: 'HR admins had no way to view all disciplinary cases across the organisation in one place — requiring profile-by-profile navigation to review cases.',
+    features: [
+      'Dedicated Disciplinary Cases report in the Performance Reports section',
+      'All cases across the organisation in a single sortable, filterable table',
+      'Filter and export to CSV for reporting and audit purposes',
+      'Update individual cases directly from the report — no need to navigate to the employee profile',
+      'Access controlled via new "Disciplinary Cases Report" permission with View and Modify levels'
+    ],
+    audience: 'HR admins at UK organisations. Provides the organisational visibility needed to manage disciplinary processes consistently and demonstrate procedural fairness.'
+  },
+
+  'recovery-codes': {
+    title: 'Recovery Codes on EH Work App for Payroll Users',
+    tag: '🔒 Security', tagClass: 'tag-security',
+    date: '22 April 2026', plan: 'All plans', region: '📱 iOS · Android', users: 'Payroll Users (Mobile)',
+    problem: 'Payroll users enabling 2FA on the EH Work App had no way to generate or use recovery codes on mobile — creating a lockout risk if they lost access to their authenticator.',
+    features: [
+      'When 2FA is enabled in the mobile app, a unique recovery code is automatically generated',
+      'Users are prompted to save the code immediately at setup',
+      'Recovery codes can be entered directly in the app to verify identity if SMS or Authenticator access is lost'
+    ],
+    audience: 'All payroll users on the EH Work mobile app. Brings mobile to full parity with the web platform for 2FA recovery.'
+  },
+
+  '2fa-mobile': {
+    title: 'Mandatory 2FA Enforced on EH Work App for Payroll',
+    tag: '🔒 Security', tagClass: 'tag-security',
+    date: '22 April 2026', plan: 'All plans', region: '📱 iOS · Android', users: 'Payroll Users (Mobile)',
+    problem: 'Mandatory 2FA requirements set at the org or platform level were only enforced on web — users could potentially bypass the requirement by using the mobile app.',
+    features: [
+      'EH Work App now recognises and enforces 2FA mandates set at org, brand or platform level',
+      'Users who haven\'t enabled 2FA are required to complete setup immediately on login',
+      'Access to app features is restricted until 2FA setup is complete'
+    ],
+    audience: 'All payroll users whose organisation has mandatory 2FA enforced. Closes the mobile bypass gap — consistent security enforcement across web and app.'
+  },
+
+  'workflow-triggers-personal': {
+    title: 'Employee Personal Detail Changes as Workflow Triggers',
+    tag: '⚡ Automations', tagClass: 'tag-automation',
+    date: '24 April 2026', plan: 'All workflow users', region: '🌐 Global', users: 'HR Admins',
+    problem: 'When employee personal details changed, there was no automatic follow-up — important actions like payroll checks or compliance updates were handled manually with no audit trail.',
+    features: [
+      'New triggers for "Employee personal details updated" and "Request personal detail change"',
+      'Automatically run workflows when name, address, date of birth or pronouns are updated or submitted for approval',
+      'Only triggers when relevant details actually change — no spurious workflow executions'
+    ],
+    audience: 'All organisations using Workflows globally. Eliminates the manual monitoring of personal detail changes and creates an auditable automated response chain.',
+    loomUrl: 'https://www.loom.com/embed/9404657274f34f5bb801f35370051cef'
+  },
+
+  'forms-bulk-delete': {
+    title: 'Custom Forms — Bulk Delete Responses',
+    tag: '⚡ Automations', tagClass: 'tag-automation',
+    date: '22 April 2026', plan: 'All plans', region: '🌐 Global', users: 'HR Admins',
+    problem: 'Test submissions and erroneous form responses could not be removed — cluttering the Responses tab and reducing data reliability for reporting and audits.',
+    features: [
+      'Select one or multiple responses and delete them in bulk',
+      'Delete a single response directly from each row',
+      'Confirmation step before deletion to prevent mistakes',
+      'Deleted responses are removed from all user views including employee files',
+      'Any in-progress approvals linked to deleted responses are automatically cancelled',
+      'A hidden compliance record of deletions is maintained for audit purposes'
+    ],
+    audience: 'All admins and users with form management permissions globally. Keeps Custom Forms trustworthy as a compliance tool by enabling proper data hygiene.',
+    loomUrl: 'https://www.loom.com/embed/aa209ebb064f4a0c80026f52986e4376'
+  },
+
+  'forms-approval-audit': {
+    title: 'Custom Forms — Full Approval Audit Trail',
+    tag: '⚡ Automations', tagClass: 'tag-automation',
+    date: '14–21 April 2026', plan: 'All plans', region: '🌐 Global', users: 'HR Admins · Compliance',
+    problem: 'Approval status and decision details were buried in individual form responses — admins had to open each row and navigate between surfaces to piece together compliance information.',
+    features: [
+      'Approval status column in the Responses tab — Pending, Approved, Declined visible at a glance',
+      'Who made the last decision and when — shown directly in the list without opening each response',
+      'Approval History tab when viewing any form response — full timeline of actions with decline reasons',
+      'Approval information (who, when, status) now visible in the employee file without navigating away',
+      'CSV exports now include approval status, approver name, decision date and decline reason'
+    ],
+    audience: 'All organisations using Custom Forms with approvals globally. Makes Custom Forms a reliable single source of truth for compliance reviews and HR audits.'
+  },
+
+  'roster-copy-paste': {
+    title: 'Roster Copy-Paste — 5× Faster with Ghost Shifts',
+    tag: '🕐 Time &amp; Attendance', tagClass: 'tag-time',
+    date: '24 April 2026', plan: 'All plans', region: '🌐 Global', users: 'Managers · HR Admins',
+    problem: 'Every paste triggered a slow 5–10 second background save, blocking further pastes until complete. For managers copying patterns 10–50 times a session, copy-paste was slower than typing shifts by hand.',
+    features: [
+      'Every paste appears instantly (<100ms) as a ghost shift — visible placeholder with employee name, times, work type and break',
+      'Paste continuously without waiting — multiple ghost shifts save independently in the background',
+      'All conflicts (leave clashes, roster rules, unavailabilities) accumulate in a single resolution modal instead of interrupting one by one',
+      'Bulk resolve: "Create open shifts for all" or "Dismiss all" — no need to handle each conflict separately',
+      '10 pastes: ~50–100s → ~10–20s improvement confirmed'
+    ],
+    audience: 'All managers and HR admins using the roster builder. No configuration required — improvements apply automatically.',
+    loomUrl: 'https://www.loom.com/embed/368e5a48c1d44b919d60fdf4fb2e8152'
+  },
+
+  'roster-overtime': {
+    title: 'Roster Shift Overtime Indicator',
+    tag: '🕐 Time &amp; Attendance', tagClass: 'tag-time',
+    date: '23 April 2026', plan: 'All plans', region: '🌐 Global', users: 'Managers · HR Admins',
+    problem: 'Managers had no visual way to identify which shifts contained overtime without opening each one individually — a slow and error-prone process during busy roster periods.',
+    features: [
+      'Shifts with overtime show a red border in daily/weekly view — visible at a glance',
+      'Shift cost turns red; click it to open the full cost breakdown',
+      'In 2-week+ compact view, red border always visible on the tile with cost shown in red inside the hover tooltip',
+      'No configuration required — applies to all rosters with shift cost visibility enabled'
+    ],
+    audience: 'Managers and admins with access to shift cost information. Most useful for hospitality, retail and healthcare where overtime management directly impacts labour cost.',
+    loomUrl: 'https://www.loom.com/embed/f0d80fdad80043eab66711a072af399b'
+  },
+
+  'roster-async-bulk': {
+    title: 'Roster Bulk Actions — Async Processing with Progress Bar',
+    tag: '🕐 Time &amp; Attendance', tagClass: 'tag-time',
+    date: '22 April 2026', plan: 'Advanced Rostering', region: '🌐 Global', users: 'Managers · HR Admins',
+    problem: 'Bulk publish, unpublish and delete actions on large rosters were timing out and failing for organisations with high shift volumes.',
+    features: [
+      'Asynchronous processing for all bulk roster actions — no more timeout failures',
+      'Progress bar shows live status while large batches process in the background',
+      'Managers can continue working while the bulk action completes',
+      'Applies to bulk publish, unpublish and delete actions on 10+ shifts selected'
+    ],
+    audience: 'All organisations on Advanced Rostering (work sites and positions). Particularly valuable for large hospitality, retail and healthcare rosters with 100+ shifts per week.'
+  },
+
+  'hero-points-perms': {
+    title: 'Hero Points — Delegate Management &amp; Purchasing Permissions',
+    tag: '💎 Benefits &amp; Perks', tagClass: 'tag-benefits',
+    date: '22 April 2026', plan: 'All plans', region: '🇦🇺 AU · 🇬🇧 UK · 🇨🇦 CA', users: 'Org Admins · HR Managers',
+    problem: 'Hero Points management was restricted to org admins — non-admin HR staff couldn\'t send recognition or purchase points on behalf of the organisation.',
+    features: [
+      'New Hero Points permission group in User Access Control with two child permissions',
+      '"Hero Points Management" — lets assigned users send and manage points within a defined scope (All Employees, Reporting Employees, Teams or Locations)',
+      '"Hero Points Purchase" — lets assigned users purchase Hero Points credit on behalf of the org',
+      'Scope can be limited to specific teams or locations for regional HR managers'
+    ],
+    audience: 'Org admins in AU, UK and Canada who want to delegate recognition programmes to HR managers without granting full admin access.',
+    loomUrl: 'https://www.loom.com/embed/1bb5e555175847919ad7e4c39ac4687c'
+  },
+
+  'heroclear-approvals': {
+    title: 'HeroClear Payment Approvals',
+    tag: '💰 Payroll', tagClass: 'tag-payroll',
+    date: '22 April 2026', plan: 'All plans', region: '🌐 Global', users: 'Payroll Admins · Finance Teams',
+    problem: 'Automated payments were processed without a mandatory review step — creating risk of unauthorised or erroneous transactions leaving the business.',
+    features: [
+      'Configure approval rules so all automated payments require sign-off before disbursement',
+      'Designated approvers review and approve or reject payments before processing',
+      'Escalation handling for edge cases where primary approver is unavailable',
+      'Full audit trail of every payment approval decision'
+    ],
+    audience: 'Finance teams and payroll admins at any organisation using HeroClear for automated payments. Adds an essential oversight layer without changing the day-to-day payment workflow.'
+  },
+
+  'ca-global-eos': {
+    title: 'Canada — Centralised Bulk Payroll Data Management',
+    tag: '💰 CA Payroll', tagClass: 'tag-payroll',
+    date: '23 April 2026', plan: 'All plans', region: '🇨🇦 Canada', users: 'Payroll Admins',
+    problem: 'CA payroll admins had to navigate to individual employee profiles to update payroll data — labour-intensive for high-headcount organisations and error-prone.',
+    features: [
+      'New centralised hubs at Settings → Payroll → Import payroll data and Export payroll data',
+      'Mass create and modify records via CSV and Excel — pre-filled templates include existing active data',
+      'Real-time validation during review step — identifies specific row-level failures with resolution guidance',
+      'Re-import only failed rows after fixing — no need to re-process successful records',
+      'Initial implementation covers Canadian Employee Deductions; more regions and data types to follow'
+    ],
+    audience: 'Canadian payroll admins at organisations with high headcount or complex deduction structures. Eliminates the need to update payroll data employee-by-employee.'
+  },
+
+  'ca-xero': {
+    title: 'Xero Integration for Canadian Payroll',
+    tag: '💰 CA Payroll', tagClass: 'tag-payroll',
+    date: '7 April 2026', plan: 'All plans', region: '🇨🇦 Canada', users: 'Payroll Admins · Accountants',
+    problem: 'Canadian payroll clients using Xero had no direct integration — requiring manual chart of accounts mapping and journal exports.',
+    features: [
+      'Connect Canadian payroll to Xero directly from Settings',
+      'Import chart of accounts from Xero for payroll mapping',
+      'Import tax codes from Xero into the payroll engine',
+      'Export payroll journals to Xero automatically at finalisation, or on a chosen date and time'
+    ],
+    audience: 'Canadian organisations using Xero for accounting. Eliminates the manual step of transferring payroll data between systems after each pay run.'
+  },
+
+  'payrun-deduction-filter': {
+    title: 'Pay Run Inclusions — Hide Inactive Deductions',
+    tag: '💰 Payroll', tagClass: 'tag-payroll',
+    date: '20 April 2026', plan: 'All plans', region: '🌐 Global', users: 'Payroll Admins',
+    problem: 'For employees with many historical deductions (e.g. frequent EWA users), the Pay Run Inclusions page was cluttered with inactive line items — requiring excessive scrolling to verify active inclusions.',
+    features: [
+      'New "Hide Inactive Deductions" checkbox filter on the Pay Run Inclusions page',
+      'Toggle to instantly hide deductions that are no longer active',
+      'Reduces manual scrolling and speeds up verification of active inclusions before finalising'
+    ],
+    audience: 'All payroll admins globally. Most impactful for organisations managing Earned Wage Access or employees with many one-off historical deductions.'
+  }
+};
+
+/* ────────────────────────────
+   MODAL
+──────────────────────────────*/
+function openModal(id) {
+  const r = releases[id];
+  if (!r) return;
+
+  document.getElementById('modal-title').textContent = r.title;
+  document.getElementById('modal-chips').innerHTML = `
+    <span class="chip chip-date">📅 ${r.date}</span>
+    <span class="chip chip-plan">${r.plan}</span>
+    <span class="chip chip-region">${r.region}</span>
+    <span class="chip chip-user">${r.users}</span>
+  `;
+
+  let body = `
+    <div class="modal-section">
+      <div class="rcard-tag ${r.tagClass}" style="display:inline-flex;margin-bottom:1rem">${r.tag}</div>
+    </div>
+  `;
+
+  if (r.problem) {
+    body += `<div class="modal-section"><h4>What problem does this solve?</h4><p>${r.problem}</p></div>`;
+  }
+  if (r.features && r.features.length) {
+    body += `<div class="modal-section"><h4>What's new</h4><ul>${r.features.map(f=>`<li>${f}</li>`).join('')}</ul></div>`;
+  }
+  if (r.audience) {
+    body += `<div class="modal-divider"></div><div class="modal-section"><h4>Who is this for?</h4><p>${r.audience}</p></div>`;
+  }
+
+  /* Loom embed — only render if a URL is provided in the data object */
+  if (r.loomUrl) {
+    body += `
+      <div class="modal-divider"></div>
+      <div class="modal-section">
+        <h4>Walkthrough</h4>
+        <div class="loom-embed"><iframe src="${r.loomUrl}?hide_owner=true&hide_share=true&hideEmbedTopBar=true" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
+        ${r.loomLabel ? `<div class="loom-caption">${r.loomLabel}</div>` : ''}
+      </div>
+    `;
+  }
+
+  /* Screenshot — only render if a URL is provided */
+  if (r.screenshotUrl) {
+    body += `
+      <div class="modal-divider"></div>
+      <div class="modal-section">
+        <h4>Screenshot</h4>
+        <div class="screenshot-wrap">
+          <img src="${r.screenshotUrl}" alt="${r.screenshotAlt || r.title}" />
+          ${r.screenshotCaption ? `<div class="screenshot-caption">${r.screenshotCaption}</div>` : ''}
+        </div>
+      </div>
+    `;
+  }
+
+  document.getElementById('modal-body').innerHTML = body;
+  document.getElementById('modal-bg').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modal-bg').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function handleBgClick(e) {
+  if (e.target === document.getElementById('modal-bg')) closeModal();
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+/* ────────────────────────────
+   TAB FILTERING
+──────────────────────────────*/
+let activeTab = 'all';
+let activeSub = null;
+
+const subTabMap = { heroai: 'sub-heroai', hr: 'sub-hr', payroll: 'sub-payroll', recruitment: 'sub-recruitment', performance: 'sub-performance', security: 'sub-security' };
+const tabLabels = {
+  all: 'All releases', hr: 'Core HR', payroll: 'Payroll',
+  recruitment: 'Recruitment', security: 'Security', automation: 'Automations',
+  time: 'Time & Attendance', benefits: 'Benefits & Perks', learning: 'Learning', onboarding: 'Digital Onboarding'
+};
+
+function switchTab(btn) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  activeTab = btn.dataset.tab;
+  activeSub = null;
+
+  // Hide all subtab rows, reset their active state
+  document.querySelectorAll('.subtabs-row').forEach(r => {
+    r.classList.remove('show');
+    r.querySelectorAll('.subtab').forEach((s,i) => { if(i===0) s.classList.add('active'); else s.classList.remove('active'); });
+  });
+  // Show relevant subtab row
+  const subId = subTabMap[activeTab];
+  if (subId) document.getElementById(subId).classList.add('show');
+
+  applyFilter();
+  syncSidebarActive(activeTab);
+}
+
+function switchSub(btn, parentTab) {
+  const row = btn.closest('.subtabs-row');
+  row.querySelectorAll('.subtab').forEach(s => s.classList.remove('active'));
+  btn.classList.add('active');
+  activeSub = btn.dataset.sub;
+  applyFilter();
+}
+
+function applyFilter() {
+  const cards = document.querySelectorAll('.rcard');
+  let visible = 0;
+
+  cards.forEach(card => {
+    const cats = (card.dataset.cats || '').split(' ');
+    let show = false;
+
+    if (activeTab === 'all') {
+      show = true;
+    } else if (activeSub && activeSub !== activeTab) {
+      show = cats.includes(activeSub);
+    } else {
+      show = cats.includes(activeTab);
+    }
+
+    card.classList.toggle('hidden', !show);
+    if (show) visible++;
+  });
+
+  const label = activeSub && activeSub !== activeTab
+    ? document.querySelector(`.subtab.active`)?.textContent || tabLabels[activeTab]
+    : tabLabels[activeTab] || 'All releases';
+
+  const titleEl = document.getElementById('grid-title');
+  const countEl = document.getElementById('grid-count');
+  if (titleEl) titleEl.textContent = label;
+  if (countEl) countEl.textContent = `Showing ${visible} release${visible !== 1 ? 's' : ''}`;
+  updateMonthCounts();
+}
+
+/* Auto-updating week date range */
+(function setWeekRange() {
+  const el = document.getElementById('ntw-daterange');
+  if (!el) return;
+  const now = new Date();
+  const day = now.getDay(); // 0=Sun
+  const diffToMon = (day === 0) ? -6 : 1 - day;
+  const mon = new Date(now); mon.setDate(now.getDate() + diffToMon);
+  const sun = new Date(mon); sun.setDate(mon.getDate() + 6);
+  const fmt = (d, showYear) => d.toLocaleDateString('en-AU', {
+    day: 'numeric', month: 'short', ...(showYear ? { year: 'numeric' } : {})
+  });
+  const sameMonth = mon.getMonth() === sun.getMonth();
+  const label = sameMonth
+    ? `${mon.getDate()} – ${fmt(sun, true)}`
+    : `${fmt(mon)} – ${fmt(sun, true)}`;
+  el.textContent = label;
+})();
+
+/* Month-grouped sort — inserts headings and sorts newest → oldest */
+const MONTH_MAP = {
+  january:1,february:2,march:3,april:4,may:5,june:6,
+  july:7,august:8,september:9,october:10,november:11,december:12,
+  jan:1,feb:2,mar:3,apr:4,may:5,jun:6,jul:7,aug:8,sep:9,oct:10,nov:11,dec:12
+};
+const MONTH_NAMES = ['','January','February','March','April','May','June','July','August','September','October','November','December'];
+
+function parseDateNum(card) {
+  const chip = card.querySelector('.chip-date');
+  if (!chip) return 0;
+  const txt = chip.textContent.replace('📅','').trim().toLowerCase();
+  const m = txt.match(/(\d{1,2})?[-–\s]*([a-z]+)[,\s]+(\d{4})/);
+  if (!m) {
+    const m2 = txt.match(/([a-z]+)\s+(\d{4})/);
+    if (m2) return parseInt(m2[2]) * 100 + (MONTH_MAP[m2[1]] || 0);
+    const m3 = txt.match(/(\d{4})/);
+    return m3 ? parseInt(m3[1]) * 100 : 0;
+  }
+  return parseInt(m[3]) * 10000 + (MONTH_MAP[m[2]] || 0) * 100 + parseInt(m[1] || 1);
+}
+
+/* Parse a plain date string (e.g. "1 December 2025" or "November 2025") → YYYYMMDD integer */
+function parseDateStr(dateStr) {
+  const txt = (dateStr || '').trim().toLowerCase();
+  const m = txt.match(/(\d{1,2})?[-–\s]*([a-z]+)[,\s]+(\d{4})/);
+  if (m) return parseInt(m[3]) * 10000 + (MONTH_MAP[m[2]] || 0) * 100 + parseInt(m[1] || 1);
+  const m2 = txt.match(/([a-z]+)\s+(\d{4})/);
+  if (m2) return parseInt(m2[2]) * 10000 + (MONTH_MAP[m2[1]] || 0) * 100 + 1;
+  return 0;
+}
+
+function getMonthKey(card) {
+  const n = parseDateNum(card);
+  if (!n) return 'Undated';
+  const yr = Math.floor(n / 10000);
+  const mo = Math.floor((n % 10000) / 100);
+  return `${MONTH_NAMES[mo] || 'Unknown'} ${yr}`;
+}
+
+function buildMonthGroups() {
+  const grid = document.getElementById('cards-grid');
+  if (!grid) return;
+  // Remove existing month headers
+  grid.querySelectorAll('.month-group').forEach(el => el.remove());
+  // Sort all cards
+  const cards = [...grid.querySelectorAll('.rcard')].sort((a,b) => parseDateNum(b) - parseDateNum(a));
+  cards.forEach(c => grid.appendChild(c));
+  // Insert month headers
+  let lastKey = null;
+  cards.forEach(card => {
+    const key = getMonthKey(card);
+    if (key !== lastKey) {
+      const hdr = document.createElement('div');
+      hdr.className = 'month-group';
+      hdr.dataset.month = key;
+      hdr.innerHTML = `<h3>${key}</h3><div class="month-group-line"></div><span class="month-group-count"></span>`;
+      grid.insertBefore(hdr, card);
+      lastKey = key;
+    }
+  });
+  updateMonthCounts();
+}
+
+function updateMonthCounts() {
+  const grid = document.getElementById('cards-grid');
+  if (!grid) return;
+  const headers = [...grid.querySelectorAll('.month-group')];
+  headers.forEach((hdr, i) => {
+    const next = headers[i + 1];
+    let node = hdr.nextElementSibling;
+    let count = 0;
+    while (node && node !== next) {
+      if (node.classList.contains('rcard') && !node.classList.contains('hidden')) count++;
+      node = node.nextElementSibling;
+    }
+    hdr.style.display = count === 0 ? 'none' : 'flex';
+    const badge = hdr.querySelector('.month-group-count');
+    if (badge) badge.textContent = count === 1 ? '1 release' : `${count} releases`;
+  });
+}
+
+buildMonthGroups();
+
+/* ── Hero stats — calculated from card dates ── */
+(function updateHeroStats() {
+  const now = new Date();
+
+  // Week: Mon–Sun bounds as YYYYMMDD integers
+  const day = now.getDay();
+  const diffToMon = (day === 0) ? -6 : 1 - day;
+  const mon = new Date(now); mon.setDate(now.getDate() + diffToMon);
+  const sun = new Date(mon); sun.setDate(mon.getDate() + 6);
+  const monNum = mon.getFullYear() * 10000 + (mon.getMonth() + 1) * 100 + mon.getDate();
+  const sunNum = sun.getFullYear() * 10000 + (sun.getMonth() + 1) * 100 + sun.getDate();
+
+  // Month: first day of current month
+  const monthStart = now.getFullYear() * 10000 + (now.getMonth() + 1) * 100 + 1;
+
+  // 6 months ago: first day of that month
+  const sixAgo = new Date(now); sixAgo.setMonth(sixAgo.getMonth() - 6);
+  const sixStart = sixAgo.getFullYear() * 10000 + (sixAgo.getMonth() + 1) * 100 + 1;
+
+  let weekCount = 0, monthCount = 0, sixCount = 0;
+
+  document.querySelectorAll('.rcard').forEach(card => {
+    const d = parseDateNum(card);
+    if (!d) return;
+    if (d >= monNum && d <= sunNum) weekCount++;
+    if (d >= monthStart) monthCount++;
+    if (d >= sixStart) sixCount++;
+  });
+
+  const swEl = document.getElementById('stat-week');
+  const smEl = document.getElementById('stat-month');
+  const s6El = document.getElementById('stat-6months');
+  if (swEl) swEl.textContent = weekCount || '0';
+  if (smEl) smEl.textContent = monthCount || '0';
+  if (s6El) s6El.textContent = sixCount >= 100 ? sixCount + '+' : sixCount || '0';
+})();
+
+/* ── Sidebar search ── */
+let searchQuery = '';
+
+function onSearchInput(val) {
+  searchQuery = val.trim().toLowerCase();
+  document.getElementById('search-clear').classList.toggle('show', val.length > 0);
+  applyFilter();
+}
+
+function clearSearch() {
+  searchQuery = '';
+  document.getElementById('sidebar-search').value = '';
+  document.getElementById('search-clear').classList.remove('show');
+  applyFilter();
+}
+
+
+/* ── Sidebar ── */
+function sidebarNav(link, tab) {
+  document.querySelectorAll('.snav-link').forEach(l => l.classList.remove('active'));
+  link.classList.add('active');
+  if (tab === 'all') {
+    // Return to landing page
+    exitSubPage();
+  } else {
+    goToArea(tab);
+  }
+  if (window.innerWidth <= 960) closeSidebar();
+}
+
+function syncSidebarActive(tab) {
+  document.querySelectorAll('.snav-link').forEach(l => {
+    l.classList.toggle('active', l.dataset.stab === tab);
+  });
+}
+
+/* ── Dark / light mode toggle ── */
+function toggleTheme() {
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  if (isDark) {
+    document.documentElement.removeAttribute('data-theme');
+    localStorage.setItem('eh-theme', 'light');
+  } else {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    localStorage.setItem('eh-theme', 'dark');
+  }
+}
+
+function toggleSidebar() {
+  const s = document.getElementById('sidebar');
+  const o = document.getElementById('sidebar-overlay');
+  s.classList.toggle('open');
+  o.classList.toggle('open');
+}
+
+function closeSidebar() {
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('sidebar-overlay').classList.remove('open');
+}
+
+/* ── Sub-page mode ── */
+const productAreas = {
+  'all-updates': {
+    icon: '📦', name: 'All Releases',
+    desc: 'Every feature, fix and improvement shipped across all Employment Hero product areas — sorted newest to oldest.',
+    gradient: 'linear-gradient(135deg, #0A0010 0%, #2D0649 40%, #7622D7 75%, #A569FF 100%)',
+  },
+  heroai: {
+    icon: '🤖', name: 'HeroAI Hub',
+    desc: 'AI-powered features built into every corner of Employment Hero — from intelligent recruitment matching to automated leave approvals and smarter compliance.',
+    gradient: 'linear-gradient(135deg, #0A0010 0%, #2D0649 45%, #7622D7 100%)',
+  },
+  hr: {
+    icon: '👥', name: 'HR Platform',
+    desc: 'Core HR capabilities for managing your workforce — employment details, documents, performance reviews, and everything your people team needs in one place.',
+    gradient: 'linear-gradient(135deg, #002A40 0%, #006B9E 50%, #40D1FF 100%)',
+  },
+  payroll: {
+    icon: '💰', name: 'Payroll',
+    desc: 'Accurate, compliant payroll processing across APAC, UK, Bureau, and Canada — built to handle the complexity of multi-region payroll at scale.',
+    gradient: 'linear-gradient(135deg, #7f1d1d 0%, #b91c1c 50%, #ef4444 100%)',
+  },
+  recruitment: {
+    icon: '🔍', name: 'Recruitment',
+    desc: 'End-to-end recruitment — AI-powered job matching, ATS integrations, and a better jobseeker experience that helps you hire faster and smarter.',
+    gradient: 'linear-gradient(135deg, #2D0649 0%, #7622D7 50%, #A569FF 100%)',
+  },
+  performance: {
+    icon: '🎯', name: 'Performance Management',
+    desc: 'Goals, disciplinary workflows, and performance reviews designed to help managers develop their people, track progress, and build high-performing teams.',
+    gradient: 'linear-gradient(135deg, #1a0335 0%, #460078 50%, #A569FF 100%)',
+  },
+  security: {
+    icon: '🔒', name: 'Security & ITOps',
+    desc: 'Account recovery, multi-factor authentication, and real-time threat detection — keeping your organisation and employee data protected at every layer.',
+    gradient: 'linear-gradient(135deg, #3A2000 0%, #7A4500 50%, #FFA000 100%)',
+  },
+  automation: {
+    icon: '⚡', name: 'Automations',
+    desc: 'Smart workflow automations that eliminate repetitive manual tasks — so your HR and payroll teams can focus on work that actually matters.',
+    gradient: 'linear-gradient(135deg, #0A0010 0%, #2D0649 50%, #7622D7 100%)',
+  },
+  time: {
+    icon: '🕐', name: 'Rostering & Timesheets',
+    desc: 'Rostering, timesheets, and attendance tracking that give managers full visibility over hours worked — and give employees clarity on every shift.',
+    gradient: 'linear-gradient(135deg, #3A2000 0%, #8A4800 50%, #FFA000 100%)',
+  },
+  benefits: {
+    icon: '💎', name: 'Benefits & Perks',
+    desc: 'HeroPoints, group benefits, and workplace perks that help you attract and retain great people — making Employment Hero a genuinely great place to work.',
+    gradient: 'linear-gradient(135deg, #002A40 0%, #006B9E 50%, #40D1FF 100%)',
+  },
+  learning: {
+    icon: '🎓', name: 'Learning',
+    desc: 'Course management and structured learning pathways that upskill your team on the job — building capability without pulling people away from their work.',
+    gradient: 'linear-gradient(135deg, #500724 0%, #9d174d 50%, #ec4899 100%)',
+  },
+  onboarding: {
+    icon: '🚀', name: 'Digital Onboarding',
+    desc: 'Integrated payroll setup and digital onboarding workflows that get new hires up and running from day one — with fewer errors and less back-and-forth.',
+    gradient: 'linear-gradient(135deg, #1A3A00 0%, #3A6B00 50%, #BAFC58 100%)',
+  },
+};
+
+function getAreaCounts(tab) {
+  const now = new Date();
+  const monthStart = now.getFullYear() * 10000 + (now.getMonth() + 1) * 100 + 1;
+  let month = 0, total = 0;
+  if (tab === 'all-updates') {
+    Object.values(releases).forEach(r => {
+      total++;
+      if (parseDateStr(r.date) >= monthStart) month++;
+    });
+  } else {
+    document.querySelectorAll('.rcard').forEach(card => {
+      if (!(card.dataset.cats || '').split(' ').includes(tab)) return;
+      total++;
+      if (parseDateNum(card) >= monthStart) month++;
+    });
+  }
+  return { month, total };
+}
+
+/* ── Subtab definitions per product area (null keys = show all) ── */
+const areaSubTabs = {
+  heroai: [
+    { label: 'All HeroAI',     keys: null },
+    { label: 'EH Work App',    keys: ['heroai-work-app'] },
+    { label: 'Recruitment AI', keys: ['smartmatch','marketing-signup','hiring-criteria','ai-job-summaries','hiring-stage-ui'] },
+    { label: 'Leave AI',       keys: ['heroai-leave-mgmt','heroai-leave-suggest'] },
+  ],
+  hr: [
+    { label: 'All HR',                  keys: null },
+    { label: 'Employment Details',       keys: ['employment-details','contract-type','casual-conversion'] },
+    { label: 'Leave',                    keys: ['leave-time-precise','leave-cancel-termination','leave-calendar-filters','compliance-leave-filter'] },
+    { label: 'Documents & Policies',     keys: ['doc-notifications','compliance-doc-tagging','uk-policy-owner'] },
+    { label: 'Platform & Engagement',    keys: ['positions-colour','settings-uplift','company-feed','eh-chat'] },
+  ],
+  payroll: [
+    { label: 'All Payroll', keys: null },
+    { label: 'Global',      keys: ['inactive-users','heroclear-approvals','payrun-deduction-filter'] },
+    { label: 'Australia',   keys: ['contractor-codes','split-earnings-apac'] },
+    { label: 'UK',          keys: ['split-earnings'] },
+    { label: 'Canada',      keys: ['ca-global-eos','ca-xero'] },
+    { label: 'Bureau',      keys: ['bureau-dashboard'] },
+  ],
+  recruitment: [
+    { label: 'All Recruitment',      keys: null },
+    { label: 'ATS & Integrations',   keys: ['indeed','career-page-widget'] },
+    { label: 'Jobseeker Experience', keys: ['jobseeker-flow','hero-foundation','job-board-emails','marketing-signup'] },
+    { label: 'Job Creation',         keys: ['position-templates','offer-benefits'] },
+    { label: 'Hiring Process',       keys: ['ref-check-fraud'] },
+  ],
+  time: [
+    { label: 'All Time & Attendance', keys: null },
+    { label: 'Rostering',             keys: ['roster-perf','roster-copy-paste','roster-overtime','roster-async-bulk'] },
+    { label: 'Timesheets',            keys: ['geofencing'] },
+    { label: 'Scheduling',            keys: ['custom-work-hours'] },
+  ],
+  security: [
+    { label: 'All Security',     keys: null },
+    { label: '2FA & Auth',       keys: ['2fa','recovery-codes','2fa-mobile'] },
+    { label: 'Account Recovery', keys: ['acct-recovery'] },
+    { label: 'Threat Detection', keys: ['breached-pw','threat-hunting','email-security','app-block'] },
+  ],
+  automation: [
+    { label: 'All Automations', keys: null },
+    { label: 'Custom Forms',    keys: ['custom-forms-mobile','custom-forms-submissions','forms-bulk-delete','forms-approval-audit'] },
+    { label: 'Workflows',       keys: ['workflow-triggers-personal'] },
+  ],
+  benefits: [
+    { label: 'All Benefits',   keys: null },
+    { label: 'Hero Points',    keys: ['hero-points-perms'] },
+    { label: 'Group Benefits', keys: ['billing-statement'] },
+    { label: 'Perks & Super',  keys: ['aus-ethical'] },
+  ],
+  learning: [
+    { label: 'All Learning', keys: null },
+    { label: 'Go1',          keys: ['go1'] },
+  ],
+  onboarding: [
+    { label: 'All Onboarding', keys: null },
+    { label: 'ANZ',            keys: ['io-anz','io-au-custom-hours'] },
+    { label: 'New Zealand',    keys: ['io-nz'] },
+    { label: 'Global',         keys: ['io-duplicates'] },
+  ],
+  performance: [
+    { label: 'All Performance', keys: null },
+    { label: 'Goals',           keys: ['goals-bulk-archive','goals-clone'] },
+    { label: 'Disciplinary',    keys: ['disciplinary-report'] },
+  ],
+};
+
+let activeAreaSubTab = null; // tracks current subtab index within a module view
+
+/* Render subtab pills for the active product area */
+function renderSubTabs(tab) {
+  const tabs = areaSubTabs[tab];
+  const row = document.getElementById('lp-subtabs-row');
+  const wrap = document.getElementById('lp-subtabs-wrap');
+  if (!row || !wrap) return;
+
+  if (!tabs || tabs.length <= 1) {
+    wrap.style.display = 'none';
+    return;
+  }
+
+  activeAreaSubTab = 0;
+  row.innerHTML = tabs.map((t, i) =>
+    `<button class="subtab${i === 0 ? ' active' : ''}" onclick="selectAreaSubTab(${i},'${tab}')">${t.label}</button>`
+  ).join('');
+  wrap.style.display = 'block';
+}
+
+/* Handle subtab click — re-filter cards for the selected subtab */
+function selectAreaSubTab(index, tab) {
+  activeAreaSubTab = index;
+  document.querySelectorAll('#lp-subtabs-row .subtab').forEach((btn, i) => {
+    btn.classList.toggle('active', i === index);
+  });
+  buildAreaCards(tab, index);
+}
+
+/* Build and render release cards for a module into lp-cards-grid */
+function buildAreaCards(tab, subIndex) {
+  const tabCatMap = {
+    'tag-heroai': 'heroai', 'tag-hr': 'hr', 'tag-payroll': 'payroll',
+    'tag-recruitment': 'recruitment', 'tag-automation': 'automation',
+    'tag-time': 'time', 'tag-security': 'security', 'tag-benefits': 'benefits',
+    'tag-learning': 'learning', 'tag-onboarding': 'onboarding',
+    'tag-performance': 'performance'
+  };
+  const barColorMap = {
+    'tag-heroai': 'var(--purple)', 'tag-hr': 'var(--cyan)',
+    'tag-payroll': '#ef4444',      'tag-recruitment': 'var(--violet)',
+    'tag-automation': 'var(--purple)', 'tag-time': 'var(--amber)',
+    'tag-security': '#f59e0b', 'tag-benefits': '#0891b2',
+    'tag-learning': '#ec4899', 'tag-onboarding': '#16a34a',
+    'tag-performance': '#8b5cf6'
+  };
+
+  const isAll = tab === 'all-updates';
+  const subDef = isAll ? null : (areaSubTabs[tab] || [])[subIndex];
+  const keySet = subDef && subDef.keys ? new Set(subDef.keys) : null;
+  const matching = Object.entries(releases)
+    .filter(([key, r]) => isAll || (tabCatMap[r.tagClass] === tab && (!keySet || keySet.has(key))))
+    .sort(([, a], [, b]) => parseDateStr(b.date) - parseDateStr(a.date));
+  const area = productAreas[tab] || { name: tab };
+  const lpGrid = document.getElementById('lp-cards-grid');
+
+  if (lpGrid) {
+    // Group sorted releases by calendar month
+    const groups = [];
+    let currentGroup = null;
+    matching.forEach(([key, r]) => {
+      const n = parseDateStr(r.date);
+      const yr = Math.floor(n / 10000);
+      const mo = Math.floor((n % 10000) / 100);
+      const monthKey = n ? `${MONTH_NAMES[mo] || 'Unknown'} ${yr}` : 'Undated';
+      if (!currentGroup || currentGroup.key !== monthKey) {
+        currentGroup = { key: monthKey, items: [] };
+        groups.push(currentGroup);
+      }
+      currentGroup.items.push([key, r]);
+    });
+
+    // Render month dividers + cards
+    let html = '';
+    groups.forEach(group => {
+      const countLabel = group.items.length === 1 ? '1 release' : `${group.items.length} releases`;
+      html += `<div class="month-group">
+        <h3>${group.key}</h3>
+        <div class="month-group-line"></div>
+        <span class="month-group-count">${countLabel}</span>
+      </div>`;
+      group.items.forEach(([key, r]) => {
+        const bar = barColorMap[r.tagClass] || 'var(--purple)';
+        const cat = tabCatMap[r.tagClass] || '';
+        const safeKey = key.replace(/'/g, "\\'");
+        html += `<article class="rcard" data-cats="${cat}" onclick="openModal('${safeKey}')">
+          <div class="rcard-bar" style="background:${bar}"></div>
+          <div class="rcard-body">
+            <span class="rcard-tag ${r.tagClass}">${r.tag}</span>
+            <h4>${r.title}</h4>
+            <p>${r.problem || ''}</p>
+            <div class="rcard-chips">
+              <span class="chip chip-date">📅 ${r.date}</span>
+              <span class="chip chip-plan">${r.plan}</span>
+              <span class="chip chip-region">${r.region}</span>
+            </div>
+          </div>
+        </article>`;
+      });
+    });
+    lpGrid.innerHTML = html;
+  }
+}
+
+function enterSubPage(tab, sub) {
+  const area = productAreas[tab] || { icon: '📦', name: tab, desc: '', gradient: 'linear-gradient(135deg, #2d0649, #7622d7)' };
+
+  // Build cards first so getAreaCounts can read them
+  buildAreaCards(tab, sub);
+  const counts = getAreaCounts(tab);
+
+  // Populate area header
+  document.getElementById('ah-icon').textContent = area.icon;
+  document.getElementById('ah-name').textContent = area.name;
+  document.getElementById('ah-desc').textContent = area.desc;
+  document.getElementById('ah-stat-month').textContent = counts.month || '0';
+  document.getElementById('ah-stat-total').textContent = counts.total || '0';
+  document.getElementById('area-header').style.background = area.gradient;
+
+  // Show/hide sections
+  document.getElementById('area-header').classList.add('show');
+  const heroEl = document.querySelector('.hero');
+  if (heroEl) heroEl.style.display = 'none';
+  document.querySelector('.ntw-wrap').style.display = 'none';
+  const lpHero = document.querySelector('.lp-hero');
+  const exploreWrap = document.querySelector('.explore-wrap');
+  if (lpHero) lpHero.style.display = 'none';
+  if (exploreWrap) exploreWrap.style.display = 'none';
+  const lpResults = document.getElementById('lp-results-wrap');
+  if (lpResults) lpResults.style.display = 'block';
+  renderSubTabs(tab);
+  document.body.classList.add('subpage-mode');
+  window.scrollTo({ top: 0, behavior: 'instant' });
+}
+
+function exitSubPage() {
+  history.pushState('', document.title, window.location.pathname + window.location.search);
+  document.getElementById('area-header').classList.remove('show');
+  const heroEl = document.querySelector('.hero');
+  if (heroEl) heroEl.style.display = '';
+  document.querySelector('.ntw-wrap').style.display = '';
+  const lpHero = document.querySelector('.lp-hero');
+  const exploreWrap = document.querySelector('.explore-wrap');
+  if (lpHero) lpHero.style.display = '';
+  if (exploreWrap) exploreWrap.style.display = '';
+  const lpGrid = document.getElementById('lp-cards-grid');
+  if (lpGrid) lpGrid.innerHTML = '';
+  const lpResults = document.getElementById('lp-results-wrap');
+  if (lpResults) lpResults.style.display = 'none';
+  const lpSubTabsWrap = document.getElementById('lp-subtabs-wrap');
+  if (lpSubTabsWrap) lpSubTabsWrap.style.display = 'none';
+  activeAreaSubTab = null;
+  document.body.classList.remove('subpage-mode');
+  activeTab = 'all';
+  activeSub = null;
+  applyFilter();
+  syncSidebarActive('all');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function goToArea(tab, sub) {
+  const hash = sub ? `${tab}:${sub}` : tab;
+  history.pushState({ subPage: true, tab, sub }, '', '#' + hash);
+  // Set activeTab directly (no .tab buttons in landing page DOM)
+  activeTab = tab;
+  activeSub = sub || null;
+  applyFilter();
+  syncSidebarActive(tab);
+  enterSubPage(tab, sub);
+}
+
+window.addEventListener('popstate', function() {
+  const hash = window.location.hash.replace('#', '');
+  if (hash) {
+    const [tab, sub] = hash.split(':');
+    activeTab = tab;
+    activeSub = sub || null;
+    applyFilter();
+    syncSidebarActive(tab);
+    enterSubPage(tab, sub);
+  } else {
+    document.getElementById('area-header').classList.remove('show');
+    const heroElP = document.querySelector('.hero');
+    if (heroElP) heroElP.style.display = '';
+    document.querySelector('.ntw-wrap').style.display = '';
+    const lpHeroP = document.querySelector('.lp-hero');
+    const exploreWrapP = document.querySelector('.explore-wrap');
+    if (lpHeroP) lpHeroP.style.display = '';
+    if (exploreWrapP) exploreWrapP.style.display = '';
+    const lpGridP = document.getElementById('lp-cards-grid');
+    if (lpGridP) lpGridP.innerHTML = '';
+    const lpResultsP = document.getElementById('lp-results-wrap');
+    if (lpResultsP) lpResultsP.style.display = 'none';
+    const lpSubTabsP = document.getElementById('lp-subtabs-wrap');
+    if (lpSubTabsP) lpSubTabsP.style.display = 'none';
+    activeAreaSubTab = null;
+    document.body.classList.remove('subpage-mode');
+    activeTab = 'all';
+    activeSub = null;
+    applyFilter();
+    syncSidebarActive('all');
+  }
+});
+
+/* On load: read hash and apply sub-page mode */
+(function applyHashFilter() {
+  const hash = window.location.hash.replace('#', '');
+  if (!hash) return;
+  const [tab, sub] = hash.split(':');
+  activeTab = tab;
+  activeSub = sub || null;
+  applyFilter();
+  syncSidebarActive(tab);
+  enterSubPage(tab, sub);
+})();
+
+/* ────────────────────────────
+   LANDING PAGE SEARCH
+──────────────────────────────*/
+// Populate lp stats directly from the releases data object
+(function setLpStats() {
+  const now = new Date();
+  const day = now.getDay();
+  const diffToMon = (day === 0) ? -6 : 1 - day;
+  const mon = new Date(now); mon.setDate(now.getDate() + diffToMon);
+  const sun = new Date(mon); sun.setDate(mon.getDate() + 6);
+  const monNum  = mon.getFullYear() * 10000 + (mon.getMonth() + 1) * 100 + mon.getDate();
+  const sunNum  = sun.getFullYear() * 10000 + (sun.getMonth() + 1) * 100 + sun.getDate();
+  const monthStart = now.getFullYear() * 10000 + (now.getMonth() + 1) * 100 + 1;
+  const sixAgo = new Date(now); sixAgo.setMonth(sixAgo.getMonth() - 6);
+  const sixStart = sixAgo.getFullYear() * 10000 + (sixAgo.getMonth() + 1) * 100 + 1;
+
+  let wk = 0, mo = 0, six = 0;
+  Object.values(releases).forEach(r => {
+    const d = parseDateStr(r.date);
+    if (!d) return;
+    if (d >= monNum && d <= sunNum) wk++;
+    if (d >= monthStart) mo++;
+    if (d >= sixStart) six++;
+  });
+
+  const w = document.getElementById('lp-stat-week');
+  const m = document.getElementById('lp-stat-month');
+  const s = document.getElementById('lp-stat-6months');
+  if (w) w.textContent = wk || '0';
+  if (m) m.textContent = mo || '0';
+  if (s) s.textContent = six >= 100 ? six + '+' : (six || '0');
+})();
+
+// Wire landing page search to the sidebar search (reuse filtering)
+function onLpSearch(val) {
+  const resultsWrap = document.getElementById('lp-results-wrap');
+  const lpGrid = document.getElementById('lp-cards-grid');
+  const sidebarInput = document.getElementById('sidebar-search');
+
+  if (!val || val.trim() === '') {
+    resultsWrap.style.display = 'none';
+    if (sidebarInput) { sidebarInput.value = ''; onSearchInput(''); }
+    return;
+  }
+
+  // Mirror into sidebar search logic
+  if (sidebarInput) sidebarInput.value = val;
+  onSearchInput(val);
+
+  // Clone matching cards into lp-grid
+  const query = val.trim().toLowerCase();
+  const allCards = document.querySelectorAll('#cards-grid .rcard');
+  const matches = [...allCards].filter(card => {
+    const title = (card.querySelector('h4')?.textContent || '').toLowerCase();
+    const desc  = (card.querySelector('p')?.textContent  || '').toLowerCase();
+    return title.includes(query) || desc.includes(query);
+  });
+
+  lpGrid.innerHTML = '';
+  matches.forEach(card => {
+    const clone = card.cloneNode(true);
+    clone.classList.remove('hidden');
+    // Re-attach click handler from data
+    const onclick = card.getAttribute('onclick');
+    if (onclick) clone.setAttribute('onclick', onclick);
+    lpGrid.appendChild(clone);
+  });
+
+  resultsWrap.style.display = 'block';
+}
+
+function clearLpSearch() {
+  onLpSearch('');
+}
+
+
+/* ── Nav search sync ── */
+function syncNavSearch(val) {
+  const clearBtn = document.getElementById('nav-search-clear');
+  if (clearBtn) clearBtn.classList.toggle('show', val.length > 0);
+  // Also sync sidebar search input value
+  const sidebar = document.getElementById('sidebar-search');
+  if (sidebar) sidebar.value = val;
+  onLpSearch(val);
+}
+function clearNavSearch() {
+  const input = document.getElementById('nav-search-input');
+  if (input) { input.value = ''; syncNavSearch(''); }
+  const sidebar = document.getElementById('sidebar-search');
+  if (sidebar) { sidebar.value = ''; }
+  onSearchInput('');
+  clearLpSearch();
+}
+
+</script>
+
+</body>
+</html>
