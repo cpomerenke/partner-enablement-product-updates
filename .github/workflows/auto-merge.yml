@@ -1,0 +1,52 @@
+name: Auto-merge product changelog sync
+
+on:
+  push:
+    branches:
+      - add-jan-feb-2026-releases
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  auto-merge:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Create or find open PR
+        id: pr
+        run: |
+          EXISTING=$(gh pr list \
+            --head add-jan-feb-2026-releases \
+            --base main \
+            --state open \
+            --json number \
+            --jq '.[0].number')
+
+          if [ -n "$EXISTING" ]; then
+            echo "Found existing PR #$EXISTING"
+            echo "number=$EXISTING" >> "$GITHUB_OUTPUT"
+          else
+            NUMBER=$(gh pr create \
+              --title "Auto-sync: product changelog updates ($(date +%Y-%m-%d))" \
+              --body "Automated release sync from #product-changelog Slack channel. UK/CA-only releases excluded." \
+              --head add-jan-feb-2026-releases \
+              --base main \
+              --json number \
+              --jq '.number')
+            echo "Created PR #$NUMBER"
+            echo "number=$NUMBER" >> "$GITHUB_OUTPUT"
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+
+      - name: Merge PR
+        run: |
+          gh pr merge "${{ steps.pr.outputs.number }}" \
+            --merge \
+            --delete-branch=false
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
