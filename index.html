@@ -8318,36 +8318,6 @@ function renderReport() {
       <div class="region-pct">${Math.round(n/total*100)}%</div>
     </div>`).join('');
 
-  // Video walkthrough coverage
-  const withLoom = all.filter(r => r.loomUrl && r.loomUrl.trim()).length;
-  const withoutLoom = total - withLoom;
-  const loomPct = Math.round(withLoom / total * 100);
-  const loomRows = [
-    { label: 'With video walkthrough', n: withLoom, color: 'var(--purple)' },
-    { label: 'Without video walkthrough', n: withoutLoom, color: 'var(--border)' },
-  ].map(({ label, n, color }) => `
-    <div class="region-row">
-      <div class="region-pill" style="background:${color === 'var(--border)' ? 'var(--chip-bg)' : 'var(--fog)'};color:${color === 'var(--border)' ? 'var(--subtle)' : 'var(--purple)'}">${n}</div>
-      <div class="region-label">${label}</div>
-      <div class="region-pct">${Math.round(n/total*100)}%</div>
-    </div>`).join('');
-
-  // Top months by volume
-  const allMonths = {};
-  all.forEach(r => {
-    const n = parseDateStr(r.date);
-    if (!n) return;
-    const yr = Math.floor(n / 10000), mo = Math.floor((n % 10000) / 100);
-    const k = `${MONTH_NAMES[mo]} ${yr}`;
-    allMonths[k] = (allMonths[k] || 0) + 1;
-  });
-  const topMonths = Object.entries(allMonths).sort(([,a],[,b]) => b - a).slice(0, 6);
-  const topMonthRows = topMonths.map(([label, n]) => `
-    <div class="rbar-row">
-      <div class="rbar-label">${label}</div>
-      <div class="rbar-track"><div class="rbar-fill" style="width:${Math.round(n/topMonths[0][1]*100)}%;background:var(--purple)"></div></div>
-      <div class="rbar-count">${n}</div>
-    </div>`).join('');
 
   const coverageLabel = `${MONTH_NAMES[minMo]} ${minYr} – ${MONTH_NAMES[now.getMonth()+1]} ${now.getFullYear()}`;
 
@@ -8377,20 +8347,9 @@ function renderReport() {
         ${barRows}
       </div>
 
-      <div class="report-two-col">
-        <div class="report-section">
-          <div class="report-section-title">Plan tier coverage</div>
-          <div class="report-panel">${tierRows}</div>
-        </div>
-        <div class="report-section">
-          <div class="report-section-title">Video walkthrough coverage</div>
-          <div class="report-panel">${loomRows}</div>
-        </div>
-      </div>
-
       <div class="report-section">
-        <div class="report-section-title">Busiest months</div>
-        ${topMonthRows}
+        <div class="report-section-title">Plan tier coverage</div>
+        <div class="report-panel">${tierRows}</div>
       </div>
     </div>`;
 }
