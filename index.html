@@ -1238,7 +1238,7 @@
       <div class="area-tile" onclick="goToArea('payroll')">
         <div class="area-icon">💰</div>
         <div class="area-title">Payroll</div>
-        <div class="area-tags">AU · UK · CA · Bureau · eOS</div>
+        <div class="area-tags">AU · NZ · eOS</div>
       </div>
 
       <div class="area-tile" onclick="goToArea('time')">
@@ -1550,19 +1550,6 @@ const releases = {
       'Validation alert surfaces any mismatches for review'
     ],
     audience: 'APAC payroll admins managing both employees and independent contractors. Especially useful during high-volume onboarding.'
-  },
-  'bureau-dashboard': {
-    title: 'New Bureau Dashboard Landing Page',
-    tag: '💰 Bureau', tagClass: 'tag-payroll',
-    date: 'October 2025', plan: 'All plans', region: '🌐 Bureau', users: 'Bureau Operators',
-    problem: 'Bureau operators managing many clients had no single view of status — navigating between clients one-by-one to check payroll obligations.',
-    features: [
-      'Consolidated dashboard of all managed client payrolls',
-      'Deadline tracking with colour-coded urgency indicators',
-      'Quick-access shortcuts to jump into any client payroll file',
-      'Recent activity feed across all clients'
-    ],
-    audience: 'Bureau operators managing payroll on behalf of multiple client organisations.'
   },
   'io-chart-accounts': {
     title: 'IO AU: Chart of Accounts Mapping Step',
@@ -5254,7 +5241,7 @@ const productAreas = {
   },
   payroll: {
     icon: '💰', name: 'Payroll',
-    desc: 'Accurate, compliant payroll processing across APAC, UK, Bureau, and Canada — built to handle the complexity of multi-region payroll at scale.',
+    desc: 'Accurate, compliant payroll processing across AU and NZ — built to handle the complexity of multi-region payroll at scale.',
     gradient: 'linear-gradient(135deg, #7f1d1d 0%, #b91c1c 50%, #ef4444 100%)',
   },
   recruitment: {
@@ -5345,7 +5332,6 @@ const areaSubTabs = {
     { label: 'New Zealand', keys: ['nz-payroll-unpaid-leave','nz-esct-report'] },
     { label: 'UK',          keys: [] },
     { label: 'Canada',      keys: [] },
-    { label: 'Bureau',      keys: ['bureau-dashboard'] },
   ],
   recruitment: [
     { label: 'All Recruitment',      keys: null },
