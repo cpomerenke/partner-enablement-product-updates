@@ -2152,97 +2152,6 @@ const releases = {
     audience: 'All organisations using Custom Forms with approvals globally. Makes Custom Forms a reliable single source of truth for compliance reviews and HR audits.'
   },
 
-  'roster-copy-paste': {
-    title: 'Roster Copy-Paste — 5× Faster with Ghost Shifts',
-    tag: '🕐 Time &amp; Attendance', tagClass: 'tag-time',
-    date: '24 April 2026', plan: 'All plans', region: '🌐 Global', users: 'Managers · HR Admins',
-    problem: 'Every paste triggered a slow 5–10 second background save, blocking further pastes until complete. For managers copying patterns 10–50 times a session, copy-paste was slower than typing shifts by hand.',
-    features: [
-      'Every paste appears instantly (<100ms) as a ghost shift — visible placeholder with employee name, times, work type and break',
-      'Paste continuously without waiting — multiple ghost shifts save independently in the background',
-      'All conflicts (leave clashes, roster rules, unavailabilities) accumulate in a single resolution modal instead of interrupting one by one',
-      'Bulk resolve: "Create open shifts for all" or "Dismiss all" — no need to handle each conflict separately',
-      '10 pastes: ~50–100s → ~10–20s improvement confirmed'
-    ],
-    audience: 'All managers and HR admins using the roster builder. No configuration required — improvements apply automatically.',
-    loomUrl: 'https://www.loom.com/embed/368e5a48c1d44b919d60fdf4fb2e8152'
-  },
-
-  'roster-overtime': {
-    title: 'Roster Shift Overtime Indicator',
-    tag: '🕐 Time &amp; Attendance', tagClass: 'tag-time',
-    date: '23 April 2026', plan: 'All plans', region: '🌐 Global', users: 'Managers · HR Admins',
-    problem: 'Managers had no visual way to identify which shifts contained overtime without opening each one individually — a slow and error-prone process during busy roster periods.',
-    features: [
-      'Shifts with overtime show a red border in daily/weekly view — visible at a glance',
-      'Shift cost turns red; click it to open the full cost breakdown',
-      'In 2-week+ compact view, red border always visible on the tile with cost shown in red inside the hover tooltip',
-      'No configuration required — applies to all rosters with shift cost visibility enabled'
-    ],
-    audience: 'Managers and admins with access to shift cost information. Most useful for hospitality, retail and healthcare where overtime management directly impacts labour cost.',
-    loomUrl: 'https://www.loom.com/embed/f0d80fdad80043eab66711a072af399b'
-  },
-
-  'roster-async-bulk': {
-    title: 'Roster Bulk Actions — Async Processing with Progress Bar',
-    tag: '🕐 Time &amp; Attendance', tagClass: 'tag-time',
-    date: '22 April 2026', plan: 'Advanced Rostering', region: '🌐 Global', users: 'Managers · HR Admins',
-    problem: 'Bulk publish, unpublish and delete actions on large rosters were timing out and failing for organisations with high shift volumes.',
-    features: [
-      'Asynchronous processing for all bulk roster actions — no more timeout failures',
-      'Progress bar shows live status while large batches process in the background',
-      'Managers can continue working while the bulk action completes',
-      'Applies to bulk publish, unpublish and delete actions on 10+ shifts selected'
-    ],
-    audience: 'All organisations on Advanced Rostering (work sites and positions). Particularly valuable for large hospitality, retail and healthcare rosters with 100+ shifts per week.'
-  },
-
-  'hero-points-perms': {
-    title: 'Hero Points — Delegate Management &amp; Purchasing Permissions',
-    tag: '💎 Benefits &amp; Perks', tagClass: 'tag-benefits',
-    date: '22 April 2026', plan: 'All plans', region: '🇦🇺 AU · 🇬🇧 UK · 🇨🇦 CA', users: 'Org Admins · HR Managers',
-    problem: 'Hero Points management was restricted to org admins — non-admin HR staff couldn\'t send recognition or purchase points on behalf of the organisation.',
-    features: [
-      'New Hero Points permission group in User Access Control with two child permissions',
-      '"Hero Points Management" — lets assigned users send and manage points within a defined scope (All Employees, Reporting Employees, Teams or Locations)',
-      '"Hero Points Purchase" — lets assigned users purchase Hero Points credit on behalf of the org',
-      'Scope can be limited to specific teams or locations for regional HR managers'
-    ],
-    audience: 'Org admins in AU, UK and Canada who want to delegate recognition programmes to HR managers without granting full admin access.',
-    loomUrl: 'https://www.loom.com/embed/1bb5e555175847919ad7e4c39ac4687c'
-  },
-
-  'heroclear-approvals': {
-    title: 'HeroClear Payment Approvals',
-    tag: '💰 Payroll', tagClass: 'tag-payroll',
-    date: '22 April 2026', plan: 'All plans', region: '🌐 Global', users: 'Payroll Admins · Finance Teams',
-    problem: 'Automated payments were processed without a mandatory review step — creating risk of unauthorised or erroneous transactions leaving the business.',
-    features: [
-      'Configure approval rules so all automated payments require sign-off before disbursement',
-      'Designated approvers review and approve or reject payments before processing',
-      'Escalation handling for edge cases where primary approver is unavailable',
-      'Full audit trail of every payment approval decision'
-    ],
-    audience: 'Finance teams and payroll admins at any organisation using HeroClear for automated payments. Adds an essential oversight layer without changing the day-to-day payment workflow.'
-  },
-
-
-
-  'payrun-deduction-filter': {
-    title: 'Pay Run Inclusions — Hide Inactive Deductions',
-    tag: '💰 Payroll', tagClass: 'tag-payroll',
-    date: '20 April 2026', plan: 'All plans', region: '🌐 Global', users: 'Payroll Admins',
-    problem: 'For employees with many historical deductions (e.g. frequent EWA users), the Pay Run Inclusions page was cluttered with inactive line items — requiring excessive scrolling to verify active inclusions.',
-    features: [
-      'New "Hide Inactive Deductions" checkbox filter on the Pay Run Inclusions page',
-      'Toggle to instantly hide deductions that are no longer active',
-      'Reduces manual scrolling and speeds up verification of active inclusions before finalising'
-    ],
-    audience: 'All payroll admins globally. Most impactful for organisations managing Earned Wage Access or employees with many one-off historical deductions.'
-  },
-
-  /* ─── ADDITIONAL APRIL 2026 RELEASES ─── */
-
   'heroai-search-box': {
     title: 'Ask HeroAI — Integrated into Global Search',
     tag: '✨ HeroAI', tagClass: 'tag-heroai',
@@ -2256,21 +2165,6 @@ const releases = {
     ],
     audience: 'All users with HeroAI access in AU, NZ, UK and CA. Makes AI assistance feel native to the platform rather than a separate feature to locate.',
     loomUrl: 'https://www.loom.com/embed/e7e9b6126a1947d2a11d2a4ce609358d'
-  },
-
-  'heroai-widget-personalization': {
-    title: 'HeroAI Widget — Personalised & Intelligent Prompts',
-    tag: '✨ HeroAI', tagClass: 'tag-heroai',
-    date: '21 April 2026', plan: 'All plans', region: '🌐 AU · NZ · UK · CA', users: 'All Users',
-    problem: 'HeroAI suggestions were static and repetitive — often showing tasks already completed or prompts that were irrelevant to the current user context.',
-    features: [
-      'Smart cooldowns: acted-on suggestions disappear for 7 days and return only when relevant again',
-      'Prompts ignored more than 3 times are suppressed for 30 days to reduce widget clutter',
-      'Anti-spam logic prevents refresh spamming from prematurely hiding useful prompts',
-      'Users returning after 14+ days see their most-used prompts first to quickly resume familiar workflows',
-      'Personalised history follows users across devices — no longer treated as new when switching'
-    ],
-    audience: 'All HeroAI users in AU, NZ, UK and CA. The widget becomes more relevant over time — adapting to each user\'s specific workflows and habits.'
   },
 
   'heroai-chat-optimisations': {
@@ -2367,20 +2261,6 @@ const releases = {
       'Existing overlapping records created before this release are not affected'
     ],
     audience: 'All organisations globally on any plan. Eliminates double-payments and the manual balance corrections they trigger. Most impactful for organisations with complex multi-category leave policies.'
-  },
-
-  'leave-employee-disambiguation': {
-    title: 'Employee Disambiguation in Leave Booking',
-    tag: '👥 Leave', tagClass: 'tag-hr',
-    date: '22 April 2026', plan: 'All plans', region: '🌐 Global', users: 'HR Admins · Managers',
-    problem: 'When multiple employees shared the same name, admins had no way to distinguish between them in the leave booking form — resulting in leave booked against the wrong person.',
-    features: [
-      'Employee dropdown now shows a two-line display: Preferred Name on line 1; Employee Code and Job Title on line 2',
-      'Smart visibility: second line is hidden if both job title and employee code are blank',
-      'Search logic upgraded to match both Preferred Name and legal First/Last Name',
-      'Backend logic locks the unique employee ID once selected — prevents neighbour-row selection errors'
-    ],
-    audience: 'HR admins and managers at any organisation. Particularly impactful at businesses with common surnames or where family members are employed — turns guesswork into a verified, confident selection.'
   },
 
   'uk-passport-visa-expiry': {
@@ -6860,7 +6740,7 @@ function getAreaCounts(tab) {
 const areaSubTabs = {
   heroai: [
     { label: 'All HeroAI',     keys: null },
-    { label: 'Chat & Widget',  keys: ['heroai-work-app','heroai-search-box','heroai-widget-personalization','heroai-chat-optimisations','heroai-prompt-admin','heroai-chat-resume','heroai-chat-history','heroai-dashboard-widget','heroai-interface-refresh','heroai-icon-nav','heroai-ui-dec25','heroai-tools-public','heroai-payslip-salary','heroai-extended-memory','heroai-zendesk-ticket-visibility','heroai-speed-performance','heroai-experience-refresh','heroai-personalisation-topbar','heroai-setup-mode-access-control','heroai-delete-recent-chat','heroai-widget-personalisation'] },
+    { label: 'Chat & Widget',  keys: ['heroai-work-app','heroai-search-box','heroai-chat-optimisations','heroai-prompt-admin','heroai-chat-resume','heroai-chat-history','heroai-dashboard-widget','heroai-interface-refresh','heroai-icon-nav','heroai-ui-dec25','heroai-tools-public','heroai-payslip-salary','heroai-extended-memory','heroai-zendesk-ticket-visibility','heroai-speed-performance','heroai-experience-refresh','heroai-personalisation-topbar','heroai-setup-mode-access-control','heroai-delete-recent-chat','heroai-widget-personalisation'] },
     { label: 'Mobile',         keys: ['heroai-hr-agent-mobile','heroai-hr-agent-expand'] },
     { label: 'Recruitment AI', keys: ['smartmatch','marketing-signup','hiring-criteria','ai-job-summaries','hiring-stage-ui','ai-voice-interviewer','voice-agent-multiregion','ai-job-description-gen','ai-tailored-applications','ai-tailored-all-apps','ai-interviewer-default','recruitment-ai-billing','ai-sq-suggestions'] },
     { label: 'Leave AI',       keys: ['heroai-leave-mgmt','heroai-leave-suggest','heroai-enhanced-chat-leave','leave-ai-autosuggest-type'] },
@@ -6874,7 +6754,7 @@ const areaSubTabs = {
   ],
   payroll: [
     { label: 'All Payroll', keys: null },
-    { label: 'Global',      keys: ['inactive-users','heroclear-approvals','payrun-deduction-filter','roster-timesheet-report-mar','pay-condition-api','payroll-hide-inactive-deductions'] },
+    { label: 'Global',      keys: ['inactive-users','roster-timesheet-report-mar','pay-condition-api','payroll-hide-inactive-deductions'] },
     { label: 'Australia',   keys: ['contractor-codes','split-earnings-apac','au-pay-rate-template','heroclear-payment-rails','pay-rate-webhook','super-auto-import','heroclear-payment-approvals','payroll-award-preserve-customisation'] },
     { label: 'New Zealand', keys: ['nz-payroll-unpaid-leave','nz-esct-report'] },
     { label: 'UK',          keys: [] },
@@ -6890,7 +6770,7 @@ const areaSubTabs = {
   ],
   time: [
     { label: 'All Time & Attendance', keys: null },
-    { label: 'Rostering',             keys: ['roster-perf','roster-copy-paste','roster-overtime','roster-async-bulk','roster-unavailability-notifs','roster-advanced-copy','bulk-rota-management','roster-print-employee','square-pos-sales','roster-sales-forecast','roster-first-day-week','leave-rota-conflict','worksite-time-reports','roster-templates-wp','print-roster-wp','roster-shift-costing','edit-published-shifts','hero-time-clock-sso','roster-copy-paste-performance','roster-overtime-indicator','roster-bulk-actions-async','roster-advanced-copy-modal'] },
+    { label: 'Rostering',             keys: ['roster-perf','roster-unavailability-notifs','roster-advanced-copy','bulk-rota-management','roster-print-employee','square-pos-sales','roster-sales-forecast','roster-first-day-week','leave-rota-conflict','worksite-time-reports','roster-templates-wp','print-roster-wp','roster-shift-costing','edit-published-shifts','hero-time-clock-sso','roster-copy-paste-performance','roster-overtime-indicator','roster-bulk-actions-async','roster-advanced-copy-modal'] },
     { label: 'Timesheets',            keys: ['geofencing','timesheet-redesign','overnight-timesheets-all','timesheet-reuse','nz-ph-timesheet-automation'] },
     { label: 'Scheduling',            keys: ['custom-work-hours','custom-work-hours-8w'] },
   ],
@@ -6910,7 +6790,7 @@ const areaSubTabs = {
   ],
   benefits: [
     { label: 'All Benefits',   keys: null },
-    { label: 'Hero Points',    keys: ['hero-points-perms','heropoints-css-permissions'] },
+    { label: 'Hero Points',    keys: ['heropoints-css-permissions'] },
     { label: 'Group Benefits', keys: ['billing-statement','offer-letter-benefits'] },
     { label: 'Perks & Super',  keys: ['aus-ethical','super-auto-import'] },
   ],
