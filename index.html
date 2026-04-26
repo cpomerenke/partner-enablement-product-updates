@@ -6331,6 +6331,150 @@ const releases = {
     ],
     audience: 'Partners managing clients with SSO enabled — self-service recovery eliminates multi-hour lockout delays and removes the need to escalate to support for certificate-related access issues.',
     loomUrl: ''
+  },
+
+  'eh-work-bottom-nav': {
+    title: 'EH Work App: Bottom Navigation Bar',
+    tag: '🧑‍💼 HR', tagClass: 'tag-hr',
+    date: '2 February 2026', plan: 'All plans', region: '🌏 Global', users: 'Employees · Frontline Workers',
+    problem: 'The pillar switcher at the top of the EH Work Home dashboard required multiple taps to navigate between key areas of the app, creating friction for employees trying to access Home, Work, Money, Perks, and Career pillars.',
+    features: [
+      'New persistent bottom navigation bar replaces the top pillar switcher on the Home dashboard',
+      'One-tap access to Home Dashboard and all Pillars (Work, Money, Perks, Career) from anywhere in the app',
+      'Reduced number of taps required to reach key features — cleaner dashboard UI with improved discoverability',
+      'Phase 1 of broader Information Architecture changes — sets the foundation for new Hubs introduced in Phase 2',
+    ],
+    audience: 'Partners with clients using the EH Work mobile app — particularly those with frontline or mobile-first workforces who rely on the app daily for HR tasks.',
+    loomUrl: 'https://www.loom.com/share/e5cc9f095b814813b539612721fe5c1d'
+  },
+
+  'policy-template-country-default': {
+    title: 'Policy Templates Defaulted to Organisation Country',
+    tag: '🧑‍💼 HR', tagClass: 'tag-hr',
+    date: '28 January 2026', plan: 'All plans', region: '🌏 Global', users: 'HR Admins',
+    problem: 'When adding a policy template, HR admins had to manually filter by country every time to find templates relevant to their organisation — adding unnecessary steps and slowing down policy management.',
+    features: [
+      'Country filter on the Add Policy Template screen now defaults to the organisation\'s own country',
+      'Admins immediately see templates relevant to their organisation without any manual filtering',
+      'Organisations can still change the country filter at any time to browse templates from other regions',
+    ],
+    audience: 'Partners managing multiple client organisations — the default country filter eliminates repetitive manual steps when setting up policies for each client.',
+    loomUrl: ''
+  },
+
+  'audit-trail-emergency-contacts': {
+    title: 'Audit Trail: Emergency Contact Changes',
+    tag: '🧑‍💼 HR', tagClass: 'tag-hr',
+    date: '28 January 2026', plan: 'Standard · Employment Lite+', region: '🌏 Global', users: 'HR Admins',
+    problem: 'Changes to employee emergency contact details were not recorded in Audit Trails, creating gaps in compliance records and making it difficult to track who made changes and what was altered.',
+    features: [
+      'Audit Trails in HR and SAP now record all changes to employee emergency contact details',
+      'Tracks who made the change and what was added, updated, or deleted',
+      'Applies to emergency contact changes made via both HR and SAP interfaces',
+    ],
+    audience: 'Partners supporting clients in regulated industries where full audit trails of employee record changes are required for compliance purposes.',
+    loomUrl: ''
+  },
+
+  'au-award-update-batching': {
+    title: 'AU Payroll: Award Update Install Reliability Fix',
+    tag: '💰 Payroll', tagClass: 'tag-payroll',
+    date: '28 January 2026', plan: 'All AU plans with Awards', region: '🇦🇺 Australia', users: 'Payroll Admins',
+    problem: 'Award update installs were timing out for large AU organisations — particularly those with hundreds or thousands of employees linked to pay rate templates or leave allowance templates — causing failed installs and support escalations.',
+    features: [
+      'Batched processing introduced for Pay Rate Templates (PRTs) and Leave Allowance Templates (LATs) during award update installs',
+      'Eliminates timeout failures for large organisations (e.g. 900–2,000+ employees on templates)',
+      'Ensures successful award installs ahead of high-volume EOFY periods',
+    ],
+    audience: 'Partners with large AU payroll clients using Awards functionality — especially those with large workforces linked to pay rate or leave allowance templates.',
+    loomUrl: ''
+  },
+
+  'heroclear-onboarding-setup': {
+    title: 'HeroClear: Streamlined Onboarding Setup',
+    tag: '💰 Payroll', tagClass: 'tag-payroll',
+    date: '22 January 2026', plan: 'HeroClear users', region: '🇦🇺 Australia', users: 'Payroll Admins · Finance Teams',
+    problem: 'The HeroClear onboarding setup process lacked clear guidance and status visibility, making it difficult for customers to configure payment methods and complete setup without support involvement.',
+    features: [
+      'Improved onboarding guidance: step-by-step setup guide added at the start of the flow with a link to the Help Centre',
+      'Clearer setup status updates: timestamped confirmations for when HeroClear setup starts and when it goes active',
+      'New manual funding option via PayID — customers can push funds to EH for processing, with a recommended test payment to ensure instant NPP payments',
+      'Simplified automated funding setup: customers now just connect a bank account; EH automatically selects the best PayTo or Direct Debit connection for their bank',
+    ],
+    audience: 'Partners supporting AU clients onboarding to HeroClear for superannuation payment processing — streamlined setup reduces time-to-activation and support overhead.',
+    loomUrl: ''
+  },
+
+  'openapi-worksites-departments': {
+    title: 'OpenAPI: Create & Update Departments and Positions',
+    tag: '🧑‍💼 HR', tagClass: 'tag-hr',
+    date: '29 January 2026', plan: 'HR Platinum · eOS Plus · Unlimited', region: '🌏 Global', users: 'Developers · HR Admins',
+    problem: 'The HR OpenAPI lacked endpoints to create or update departments and positions within existing worksites, forcing integration builders to manually configure these organisational structures in the UI.',
+    features: [
+      'Four new API endpoints: Create Departments, Update Departments, Create Positions, Update Positions',
+      'Endpoints operate against existing worksites to populate positions and departments via API',
+      'Developer documentation updated and released alongside the change',
+      'Completes API support for the full worksites, positions, and departments data model',
+    ],
+    audience: 'Partners building HRIS integrations or automated org-structure provisioning flows for clients — enables full programmatic setup of departments and positions without manual UI configuration.',
+    loomUrl: ''
+  },
+
+  'io-org-emails-revamp': {
+    title: 'IO: Modern Organisation Emails Experience',
+    tag: '🚀 Onboarding', tagClass: 'tag-onboarding',
+    date: '16 January 2026', plan: 'All IO plans', region: '🌏 Global', users: 'HR Admins',
+    problem: 'Intelligent Onboarding (IO) customers were stuck on an outdated Organisation Emails page while non-IO customers had access to a modern, improved interface — creating inconsistent product quality across cohorts.',
+    features: [
+      'IO customers now see the same modern Organisation Emails experience as non-IO customers',
+      'The Organisation Emails step is integrated directly into the IO Onboarding Checklist for easier access',
+      'Step renamed to "Organisation emails" for clarity',
+      'Improved visibility and control over email settings within the onboarding flow',
+    ],
+    audience: 'Partners managing clients on Intelligent Onboarding — consistent email settings experience reduces confusion and support queries during client setup.',
+    loomUrl: ''
+  },
+
+  'heroforce-company-search': {
+    title: 'HeroForce: Search Jobs by Company Name',
+    tag: '🎯 Recruitment', tagClass: 'tag-recruitment',
+    date: '22 January 2026', plan: 'All plans', region: '🌏 Global', users: 'Job Seekers',
+    problem: 'Job seekers on HeroForce could only search by job title, location, and general preferences — there was no way to target specific employers, which is a core part of most job search journeys.',
+    features: [
+      'Job seekers can now filter by company name within the primary HeroForce search engine',
+      'Enables direct employer-specific job discovery alongside existing title and location search',
+      'UX enhancement for mixed-input disambiguation (e.g. company name vs job title vs location) planned for a subsequent release',
+    ],
+    audience: 'Partners with clients posting roles on HeroForce — company name search increases the platform\'s discoverability and makes it easier for candidates to find roles at specific employers.',
+    loomUrl: ''
+  },
+
+  'heroforce-search-nlp': {
+    title: 'HeroForce: Search Quality & NLP Improvements',
+    tag: '🎯 Recruitment', tagClass: 'tag-recruitment',
+    date: '22 January 2026', plan: 'All plans', region: '🌏 Global', users: 'Job Seekers',
+    problem: 'Inconsistent NLP search logic on HeroForce was producing irrelevant results — primary keywords were sometimes ignored, and ranking did not reliably surface the most relevant jobs at the top.',
+    features: [
+      'Mandatory keyword recognition: primary search keywords are now always recognised and prioritised — no more core terms being ignored',
+      'Ranking logic optimisation: results ranking algorithm refined to prioritise relevance, surfacing the most accurate matches at the top',
+      'Infrastructure migration from legacy NLS code to a more resilient architecture for improved system stability',
+    ],
+    audience: 'Partners with clients posting roles on HeroForce — improved search accuracy means candidates find the right roles faster, reducing mismatched applicants.',
+    loomUrl: ''
+  },
+
+  'heroforce-job-preference': {
+    title: 'HeroForce: Job Preference Inference from Application History',
+    tag: '🎯 Recruitment', tagClass: 'tag-recruitment',
+    date: '20 January 2026', plan: 'All plans', region: '🌏 Global', users: 'Job Seekers',
+    problem: 'Job seekers on HeroForce had to manually set all their preferences, and preferences stayed static even as their application behaviour evolved — leading to less relevant job recommendations over time.',
+    features: [
+      'Job preferences (work type, work arrangement, location radius, seniority) automatically inferred from a user\'s application history',
+      'Preferences evolve dynamically — additional suggestions added or removed based on ongoing application behaviour',
+      'Users can review and edit all inferred preferences from their profile at any time',
+    ],
+    audience: 'Partners with clients using HeroForce for talent sourcing — improved job relevance means candidates engage more with the platform and apply to better-matched roles.',
+    loomUrl: ''
   }
 };
 
@@ -6823,12 +6967,12 @@ const areaSubTabs = {
     { label: 'Employment Details',       keys: ['employment-details','contract-type','casual-conversion','contractors-as-managers','offer-multiple-signatories','offer-letter-reminders','legal-name-privacy','contractor-custom-fields-v2','vacant-positions-perms','employee-permissions-view','mandatory-fields-settings','wp-employee-profile','probation-end-date','contract-type-display','notice-periods-all','employee-contractor-codes','granular-employee-deletion-permissions'] },
     { label: 'Leave',                    keys: ['leave-time-precise','leave-cancel-termination','leave-calendar-filters','compliance-leave-filter','leave-overlap-prevention','leave-employee-disambiguation','public-holiday-indicator','leave-compliance-edit','leave-table-uplift','leave-table-standardize','public-holiday-auto','partially-approved-leave-status','zero-unit-leave-validation','leave-taken-report-extended-filters','leave-calendar-save-filters','leave-precise-time-requests'] },
     { label: 'Documents & Policies',     keys: ['doc-notifications','compliance-doc-tagging','compliance-doc-purpose','uk-policy-owner','uk-passport-visa-expiry','doc-template-visa-vars','doc-multiple-signatories','doc-image-upload','policy-due-dates','doc-editor-new','email-notifications-ui','email-notifs-docs','email-notifs-leave','cert-due-dates','cert-notification-improvements','probation-report','doc-template-variable-library','bulk-issue-documents','streamline-policy-acknowledgement','compliance-document-descriptions','compliance-document-tagging','compliance-reports-on-leave-filter','hr-document-editor-optional-block'] },
-    { label: 'Platform & Engagement',    keys: ['positions-colour','settings-uplift','company-feed','eh-chat','banking-audit-trail','multi-owner-tasks','audit-trail-onboarding','compliance-report-filters','people-report-permissions','eh-work-mobile-public','manager-reassignment','multi-currency-expenses','bpay-aiop','personal-email-settings-ui-refresh','standardising-expense-management-ui','export-requisitions-onboarding-approvals','independent-contractor-work-types','onboarding-offboarding-multi-owner-tasks','audit-report-onboarding-pay-details','heroforce-onboarding-ctas','chat-addon-client-launch','hr-casual-conversion-precheck','recognition-report-csv-uplift','hr-custom-work-hours-standard','scalable-filters'] },
+    { label: 'Platform & Engagement',    keys: ['positions-colour','settings-uplift','company-feed','eh-chat','banking-audit-trail','multi-owner-tasks','audit-trail-onboarding','compliance-report-filters','people-report-permissions','eh-work-mobile-public','manager-reassignment','multi-currency-expenses','bpay-aiop','personal-email-settings-ui-refresh','standardising-expense-management-ui','export-requisitions-onboarding-approvals','independent-contractor-work-types','onboarding-offboarding-multi-owner-tasks','audit-report-onboarding-pay-details','heroforce-onboarding-ctas','chat-addon-client-launch','hr-casual-conversion-precheck','recognition-report-csv-uplift','hr-custom-work-hours-standard','scalable-filters','eh-work-bottom-nav','policy-template-country-default','audit-trail-emergency-contacts','openapi-worksites-departments'] },
   ],
   payroll: [
     { label: 'All Payroll', keys: null },
     { label: 'Global',      keys: ['inactive-users','roster-timesheet-report-mar','pay-condition-api','payroll-hide-inactive-deductions'] },
-    { label: 'Australia',   keys: ['contractor-codes','split-earnings-apac','au-pay-rate-template','heroclear-payment-rails','pay-rate-webhook','super-auto-import','heroclear-payment-approvals','payroll-award-preserve-customisation'] },
+    { label: 'Australia',   keys: ['contractor-codes','split-earnings-apac','au-pay-rate-template','heroclear-payment-rails','pay-rate-webhook','super-auto-import','heroclear-payment-approvals','payroll-award-preserve-customisation','au-award-update-batching','heroclear-onboarding-setup'] },
     { label: 'New Zealand', keys: ['nz-payroll-unpaid-leave','nz-esct-report'] },
     { label: 'UK',          keys: [] },
     { label: 'Canada',      keys: [] },
@@ -6836,7 +6980,7 @@ const areaSubTabs = {
   recruitment: [
     { label: 'All Recruitment',      keys: null },
     { label: 'ATS & Integrations',   keys: ['indeed','career-page-widget','ats-assessments-codility','talent-search-refine','talent-saved-candidates','ats-advanced-filtering','indeed-direct','ats-applicant-mgmt','talent-search-ats','recruitment-career-page-widget','recruitment-talent-search-experience','recruitment-zinc-check-statuses'] },
-    { label: 'Jobseeker Experience', keys: ['jobseeker-flow','hero-foundation','job-board-emails','external-app-confirmation-email','marketing-signup','eoi-jobs','smartmatch-ondemand','talent-digest-email','eh-jobs-microsoft-sso','recruitment-external-application-confirmation','recruitment-ai-job-summaries','recruitment-context-aware-auth','recruitment-linkedin-profile-import','recruitment-job-report-enhancement','notification-consent','jobs-search-quality'] },
+    { label: 'Jobseeker Experience', keys: ['jobseeker-flow','hero-foundation','job-board-emails','external-app-confirmation-email','marketing-signup','eoi-jobs','smartmatch-ondemand','talent-digest-email','eh-jobs-microsoft-sso','recruitment-external-application-confirmation','recruitment-ai-job-summaries','recruitment-context-aware-auth','recruitment-linkedin-profile-import','recruitment-job-report-enhancement','notification-consent','jobs-search-quality','heroforce-company-search','heroforce-search-nlp','heroforce-job-preference'] },
     { label: 'Job Creation',         keys: ['position-templates','offer-benefits','job-posting-improvements','job-posting-nlp','recruitment-position-templates','recruitment-job-editor-rich-text','heroforce-landing'] },
     { label: 'Hiring Process',       keys: ['ref-check-fraud','hiring-funnel-report','recruiter-activity-report','eoi-confirmation-email','recruitment-agent-preview','talent-job-search','requisition-conditional-approvals','recruitment-reference-fraud','recruitment-hiring-process-ui-ai-agent','recruitment-hiring-criteria','recruitment-reference-check-friction'] },
     { label: 'Recruitment Reports',  keys: ['recruitment-candidate-source-conversion','recruitment-disqualification-withdrawal','recruitment-time-to-hire-uplift'] },
@@ -6880,7 +7024,7 @@ const areaSubTabs = {
     { label: 'ANZ',            keys: ['io-anz','io-au-custom-hours','io-anz-welcome-revamp','io-au-smsf','io-anz-bci'] },
     { label: 'New Zealand',    keys: ['io-nz','nz-kiwisaver-digital'] },
     { label: 'UK',             keys: [] },
-    { label: 'Global',         keys: ['io-duplicates','io-induction-ftu','io-global-due-dates'] },
+    { label: 'Global',         keys: ['io-duplicates','io-induction-ftu','io-global-due-dates','io-org-emails-revamp'] },
   ],
   contractors: [
     { label: 'All Contractors',       keys: ['contractors-as-managers','contractor-custom-fields-v2','contract-type','contract-type-display','casual-conversion','notice-periods-all','contractor-codes','employee-contractor-codes','learning-contractors','independent-contractor-work-types'] },
