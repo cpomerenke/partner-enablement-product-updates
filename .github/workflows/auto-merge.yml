@@ -14,39 +14,30 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Create or find open PR
-        id: pr
+      - name: Create or find open PR, then merge
         run: |
-          EXISTING=$(gh pr list \
+          # Find existing open PR
+          PR_NUMBER=$(gh pr list \
             --head add-jan-feb-2026-releases \
             --base main \
             --state open \
             --json number \
-            --jq '.[0].number')
+            --jq '.[0].number // empty')
 
-          if [ -n "$EXISTING" ]; then
-            echo "Found existing PR #$EXISTING"
-            echo "number=$EXISTING" >> "$GITHUB_OUTPUT"
-          else
-            NUMBER=$(gh pr create \
+          if [ -z "$PR_NUMBER" ]; then
+            # gh pr create returns the PR URL — extract the number from it
+            PR_URL=$(gh pr create \
               --title "Auto-sync: product changelog updates ($(date +%Y-%m-%d))" \
               --body "Automated release sync from #product-changelog Slack channel. UK/CA-only releases excluded." \
               --head add-jan-feb-2026-releases \
-              --base main \
-              --json number \
-              --jq '.number')
-            echo "Created PR #$NUMBER"
-            echo "number=$NUMBER" >> "$GITHUB_OUTPUT"
+              --base main)
+            PR_NUMBER=$(echo "$PR_URL" | grep -oE '[0-9]+$')
+            echo "Created PR #$PR_NUMBER"
+          else
+            echo "Found existing PR #$PR_NUMBER"
           fi
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GH_REPO: ${{ github.repository }}
 
-      - name: Merge PR
-        run: |
-          gh pr merge "${{ steps.pr.outputs.number }}" \
-            --merge \
-            --delete-branch=false
+          gh pr merge "$PR_NUMBER" --merge --delete-branch=false
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
