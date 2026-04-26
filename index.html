@@ -8701,6 +8701,13 @@ function buildAreaCards(tab, subIndex) {
 function enterSubPage(tab, sub) {
   const area = productAreas[tab] || { icon: '📦', name: tab, desc: '', gradient: 'linear-gradient(135deg, #2d0649, #7622d7)' };
 
+  // Clear any active search state so the results label doesn't bleed into area view
+  const lpLabel = document.getElementById('lp-results-label');
+  if (lpLabel) lpLabel.textContent = '';
+  const navClear = document.getElementById('nav-search-clear');
+  if (navClear) navClear.classList.remove('show');
+  searchPageActive = false;
+
   // renderSubTabs must run first so _visible_{tab} is populated before buildAreaCards reads it
   renderSubTabs(tab);
   buildAreaCards(tab, sub ?? 0);
