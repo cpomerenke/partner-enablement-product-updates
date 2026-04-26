@@ -6279,7 +6279,7 @@ const releases = {
   'go1-assigned-learning-workflows': {
     title: 'Go1: Assign Learning via Workflows',
     tag: '📚 Learning', tagClass: 'tag-learning',
-    date: '04 March 2026', plan: 'Mid-market organisations with Go1 and Workflows access', region: '🌏 Global', users: 'HR Admins',
+    date: '04 March 2026', plan: 'Employment Plus · Platinum', region: '🌏 Global', users: 'HR Admins',
     problem: 'There was no way to automatically assign Go1 learning courses based on organisational attributes or events — learning assignment was entirely manual.',
     features: [
       'New "Assign Learning" workflow action available across all workflow categories',
@@ -8408,7 +8408,7 @@ function selectAreaSubTab(index, tab) {
     btn.classList.toggle('active', i === index);
   });
   buildAreaCards(tab, index);
-  requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'instant' }));
+  const _mc = document.querySelector('.main-content'); if (_mc) _mc.scrollTop = 0;
 }
 
 /* Build and render release cards for a module into lp-cards-grid */
@@ -8515,7 +8515,7 @@ function enterSubPage(tab, sub) {
   const lpResults = document.getElementById('lp-results-wrap');
   if (lpResults) lpResults.style.display = 'block';
   document.body.classList.add('subpage-mode');
-  requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'instant' }));
+  const _mc = document.querySelector('.main-content'); if (_mc) _mc.scrollTop = 0;
 }
 
 function exitSubPage() {
@@ -8540,7 +8540,7 @@ function exitSubPage() {
   activeSub = null;
   applyFilter();
   syncSidebarActive('all');
-  requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'instant' }));
+  const _mc = document.querySelector('.main-content'); if (_mc) _mc.scrollTop = 0;
 }
 
 function goToArea(tab, sub) {
@@ -8709,7 +8709,7 @@ function doSearch(val) {
 
   resultsWrap.style.display = 'block';
   searchPageActive = true;
-  requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'instant' }));
+  const _mc = document.querySelector('.main-content'); if (_mc) _mc.scrollTop = 0;
 }
 
 function clearNavSearch() {
@@ -8732,7 +8732,7 @@ function clearNavSearch() {
   if (explore)    explore.style.display = '';
   if (resultsWrap) resultsWrap.style.display = 'none';
   if (lpGrid)      lpGrid.innerHTML = '';
-  requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'instant' }));
+  const _mc = document.querySelector('.main-content'); if (_mc) _mc.scrollTop = 0;
 }
 
 </script>
