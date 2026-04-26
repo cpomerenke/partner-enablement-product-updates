@@ -994,6 +994,57 @@
     .nav-search-clear.show { display: block; }
     .nav-search-clear:hover { color: var(--ink); }
     @media (max-width: 768px) { .nav-search-box { display: none; } }
+
+    /* ─── RELEASE REPORT ─── */
+    .report-wrap { padding: 0 0 48px; }
+    .report-hero {
+      background: linear-gradient(135deg, #0A0010 0%, #1a0835 40%, #2D0649 70%, #460078 100%);
+      padding: 32px 32px 28px;
+      color: #fff;
+    }
+    .report-hero-label { font-size: .7rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; opacity: .55; margin-bottom: 6px; }
+    .report-hero h1 { font-family: var(--font-h); font-size: 1.8rem; font-weight: 800; color: #fff; margin-bottom: 6px; }
+    .report-hero p { opacity: .65; font-size: .82rem; }
+    .report-body { padding: 28px 28px 0; max-width: 960px; }
+    .report-section { margin-bottom: 36px; }
+    .report-section-title {
+      font-family: var(--font-h); font-size: .72rem; font-weight: 700;
+      letter-spacing: .07em; text-transform: uppercase; color: var(--subtle);
+      margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid var(--border);
+    }
+    /* Stat cards */
+    .report-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 36px; }
+    @media (max-width: 680px) { .report-stats { grid-template-columns: repeat(2,1fr); } }
+    .rstat {
+      background: var(--card); border: 1px solid var(--border); border-radius: var(--r);
+      padding: 18px 20px; display: flex; flex-direction: column; gap: 4px;
+    }
+    .rstat-val { font-family: var(--font-h); font-size: 2rem; font-weight: 800; color: var(--purple); line-height: 1; }
+    .rstat-label { font-size: .72rem; color: var(--subtle); font-weight: 500; }
+    /* Bar chart */
+    .rbar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .rbar-label { font-size: .78rem; font-weight: 500; color: var(--ink); width: 150px; flex-shrink: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .rbar-track { flex: 1; background: var(--border); border-radius: 99px; height: 8px; overflow: hidden; }
+    .rbar-fill { height: 100%; border-radius: 99px; transition: width .4s ease; }
+    .rbar-count { font-size: .75rem; color: var(--subtle); width: 30px; text-align: right; flex-shrink: 0; }
+    /* Trend chart */
+    .trend-chart { display: flex; align-items: flex-end; gap: 6px; height: 120px; }
+    .trend-col { display: flex; flex-direction: column; align-items: center; gap: 4px; flex: 1; }
+    .trend-bar-wrap { flex: 1; display: flex; align-items: flex-end; width: 100%; }
+    .trend-bar { width: 100%; background: var(--purple); border-radius: 4px 4px 0 0; opacity: .85; min-height: 3px; transition: height .4s ease; position: relative; }
+    .trend-bar:hover { opacity: 1; }
+    .trend-bar[data-tip]:hover::after { content: attr(data-tip); position: absolute; bottom: calc(100% + 4px); left: 50%; transform: translateX(-50%); background: var(--ink); color: var(--white); font-size: .65rem; padding: 3px 7px; border-radius: 4px; white-space: nowrap; pointer-events: none; }
+    .trend-month { font-size: .6rem; color: var(--subtle); text-align: center; }
+    /* Two-col layout */
+    .report-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    @media (max-width: 680px) { .report-two-col { grid-template-columns: 1fr; } }
+    .report-panel { background: var(--card); border: 1px solid var(--border); border-radius: var(--r); padding: 20px; }
+    .report-panel-title { font-family: var(--font-h); font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--subtle); margin-bottom: 14px; }
+    /* Donut-style region pills */
+    .region-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+    .region-pill { font-size: .7rem; background: var(--fog); color: var(--purple); border-radius: 99px; padding: 2px 8px; font-weight: 600; min-width: 32px; text-align: center; }
+    .region-label { font-size: .78rem; color: var(--ink); flex: 1; }
+    .region-pct { font-size: .72rem; color: var(--subtle); }
   </style>
 </head>
 <body>
@@ -1128,6 +1179,13 @@
     <div class="sidebar-divider"></div>
     <div class="sidebar-section">Resources</div>
 
+    <a class="snav-link" data-stab="release-report" onclick="sidebarNav(this,'release-report')">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;opacity:.7">
+        <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
+      </svg>
+      Release Report
+    </a>
+
     <a class="snav-link" href="https://help.employmenthero.com/hc/en-au" target="_blank" rel="noopener">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;opacity:.7">
         <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
@@ -1220,6 +1278,9 @@
     <div class="cards-grid" id="lp-cards-grid"></div>
   </div>
 </div>
+
+<!-- ═══ RELEASE REPORT ═══ -->
+<div class="report-wrap" id="report-wrap" style="display:none;"></div>
 
 <!-- ═══ EXPLORE BY PRODUCT AREA ═══ -->
 <div class="explore-wrap">
@@ -8135,12 +8196,184 @@ function sidebarNav(link, tab) {
   document.querySelectorAll('.snav-link').forEach(l => l.classList.remove('active'));
   link.classList.add('active');
   if (tab === 'all') {
-    // Return to landing page
     exitSubPage();
+    hideReport();
+  } else if (tab === 'release-report') {
+    exitSubPage();
+    showReport();
   } else {
+    hideReport();
     goToArea(tab);
   }
   if (window.innerWidth <= 960) closeSidebar();
+}
+
+function showReport() {
+  const wrap = document.getElementById('report-wrap');
+  const lpHero = document.querySelector('.lp-hero');
+  const ntw = document.querySelector('.ntw-wrap');
+  const explore = document.querySelector('.explore-wrap');
+  const lpResults = document.getElementById('lp-results-wrap');
+  if (lpHero) lpHero.style.display = 'none';
+  if (ntw) ntw.style.display = 'none';
+  if (explore) explore.style.display = 'none';
+  if (lpResults) lpResults.style.display = 'none';
+  if (wrap) { wrap.style.display = 'block'; renderReport(); }
+  const _mc = document.querySelector('.main-content'); if (_mc) _mc.scrollTop = 0;
+}
+
+function hideReport() {
+  const wrap = document.getElementById('report-wrap');
+  if (wrap) wrap.style.display = 'none';
+}
+
+function renderReport() {
+  const wrap = document.getElementById('report-wrap');
+  if (!wrap) return;
+
+  const now = new Date();
+  const monthStart = now.getFullYear() * 10000 + (now.getMonth() + 1) * 100 + 1;
+  const d3 = new Date(now); d3.setMonth(d3.getMonth() - 3);
+  const threeStart = d3.getFullYear() * 10000 + (d3.getMonth() + 1) * 100 + 1;
+
+  const all = Object.values(releases);
+  const total = all.length;
+  let thisMonth = 0, last3 = 0;
+  all.forEach(r => {
+    const d = parseDateStr(r.date);
+    if (d >= monthStart) thisMonth++;
+    if (d >= threeStart) last3++;
+  });
+
+  // Detect actual data span from earliest release date
+  const allDates = all.map(r => parseDateStr(r.date)).filter(Boolean);
+  const minDate = Math.min(...allDates);
+  const minYr = Math.floor(minDate / 10000), minMo = Math.floor((minDate % 10000) / 100);
+  const spanStart = new Date(minYr, minMo - 1, 1);
+
+  // By tag area
+  const tagLabels = {
+    'tag-hr': '🧑‍💼 HR', 'tag-heroai': '🤖 Hero AI', 'tag-payroll': '💰 Payroll',
+    'tag-recruitment': '🎯 Recruitment', 'tag-automation': '⚙️ Automations',
+    'tag-time': '⏰ Time & Attendance', 'tag-security': '🔒 Security',
+    'tag-benefits': '🎁 Benefits', 'tag-learning': '📚 Learning',
+    'tag-onboarding': '🚀 Onboarding', 'tag-performance': '📈 Performance'
+  };
+  const tagColors = {
+    'tag-hr': 'var(--cyan)', 'tag-heroai': 'var(--purple)', 'tag-payroll': '#ef4444',
+    'tag-recruitment': 'var(--violet)', 'tag-automation': 'var(--purple)',
+    'tag-time': 'var(--amber)', 'tag-security': '#f59e0b', 'tag-benefits': '#0891b2',
+    'tag-learning': '#ec4899', 'tag-onboarding': '#16a34a', 'tag-performance': '#8b5cf6'
+  };
+  const byCat = {};
+  all.forEach(r => { byCat[r.tagClass] = (byCat[r.tagClass] || 0) + 1; });
+  const catSorted = Object.entries(byCat).sort(([,a],[,b]) => b - a);
+  const maxCat = catSorted[0]?.[1] || 1;
+  const barRows = catSorted.map(([cls, n]) => `
+    <div class="rbar-row">
+      <div class="rbar-label">${tagLabels[cls] || cls}</div>
+      <div class="rbar-track"><div class="rbar-fill" style="width:${Math.round(n/maxCat*100)}%;background:${tagColors[cls]||'var(--purple)'}"></div></div>
+      <div class="rbar-count">${n}</div>
+    </div>`).join('');
+
+  // Monthly trend — driven by actual data span
+  const monthBuckets = [];
+  const cursor = new Date(spanStart);
+  while (cursor <= now) {
+    const yr = cursor.getFullYear(), mo = cursor.getMonth() + 1;
+    const key = yr * 10000 + mo * 100 + 1;
+    const keyEnd = yr * 10000 + mo * 100 + 31;
+    const count = all.filter(r => { const n = parseDateStr(r.date); return n >= key && n <= keyEnd; }).length;
+    monthBuckets.push({ label: MONTH_NAMES[mo].slice(0,3) + ' \'' + String(yr).slice(2), count });
+    cursor.setMonth(cursor.getMonth() + 1);
+  }
+  const spanMonths = monthBuckets.length || 1;
+  const avgPerMonth = Math.round(total / spanMonths);
+  const maxMonth = Math.max(...monthBuckets.map(b => b.count), 1);
+  const trendCols = monthBuckets.map(b => `
+    <div class="trend-col">
+      <div class="trend-bar-wrap">
+        <div class="trend-bar" style="height:${Math.round(b.count/maxMonth*100)}%" data-tip="${b.label}: ${b.count} release${b.count!==1?'s':''}"></div>
+      </div>
+      <div class="trend-month">${b.label}</div>
+    </div>`).join('');
+
+  // By region
+  const regionMap = {};
+  all.forEach(r => {
+    let region = r.region || 'Unknown';
+    region = region.replace(/^[\u{1F1E0}-\u{1F1FF}\u{1F300}-\u{1F9FF}🌏🌐🇦🇺🇬🇧🇨🇦🇸🇬🇳🇿]\s*/u, '').trim();
+    if (region.includes('Global')) region = 'Global';
+    else if (region.includes('Australia') && region.includes('NZ')) region = 'AU · NZ';
+    else if (region.includes('Australia')) region = 'Australia';
+    else if (region.includes('NZ')) region = 'New Zealand';
+    else if (region.length > 25) region = region.slice(0,25) + '…';
+    regionMap[region] = (regionMap[region] || 0) + 1;
+  });
+  const regionSorted = Object.entries(regionMap).sort(([,a],[,b]) => b - a).slice(0, 8);
+  const regionRows = regionSorted.map(([label, n]) => `
+    <div class="region-row">
+      <div class="region-pill">${n}</div>
+      <div class="region-label">${label}</div>
+      <div class="region-pct">${Math.round(n/total*100)}%</div>
+    </div>`).join('');
+
+  // Top months by volume
+  const allMonths = {};
+  all.forEach(r => {
+    const n = parseDateStr(r.date);
+    if (!n) return;
+    const yr = Math.floor(n / 10000), mo = Math.floor((n % 10000) / 100);
+    const k = `${MONTH_NAMES[mo]} ${yr}`;
+    allMonths[k] = (allMonths[k] || 0) + 1;
+  });
+  const topMonths = Object.entries(allMonths).sort(([,a],[,b]) => b - a).slice(0, 6);
+  const topMonthRows = topMonths.map(([label, n]) => `
+    <div class="rbar-row">
+      <div class="rbar-label">${label}</div>
+      <div class="rbar-track"><div class="rbar-fill" style="width:${Math.round(n/topMonths[0][1]*100)}%;background:var(--purple)"></div></div>
+      <div class="rbar-count">${n}</div>
+    </div>`).join('');
+
+  const coverageLabel = `${MONTH_NAMES[minMo]} ${minYr} – ${MONTH_NAMES[now.getMonth()+1]} ${now.getFullYear()}`;
+
+  wrap.innerHTML = `
+    <div class="report-hero">
+      <div class="report-hero-label">Resources</div>
+      <h1>Release Report</h1>
+      <p>Volume and breadth of Employment Hero product releases tracked in this hub. Coverage: ${coverageLabel}.</p>
+    </div>
+    <div class="report-body">
+      <div class="report-stats">
+        <div class="rstat"><div class="rstat-val">${total}</div><div class="rstat-label">Total releases tracked</div></div>
+        <div class="rstat"><div class="rstat-val">${thisMonth}</div><div class="rstat-label">This month</div></div>
+        <div class="rstat"><div class="rstat-val">${last3}</div><div class="rstat-label">Last 3 months</div></div>
+        <div class="rstat"><div class="rstat-val">${avgPerMonth}</div><div class="rstat-label">Avg releases / month</div></div>
+      </div>
+
+      <div class="report-section">
+        <div class="report-section-title">Release trend — ${coverageLabel}</div>
+        <div class="report-panel">
+          <div class="trend-chart">${trendCols}</div>
+        </div>
+      </div>
+
+      <div class="report-section">
+        <div class="report-section-title">Releases by product area</div>
+        ${barRows}
+      </div>
+
+      <div class="report-two-col">
+        <div class="report-section">
+          <div class="report-section-title">Releases by region</div>
+          <div class="report-panel">${regionRows}</div>
+        </div>
+        <div class="report-section">
+          <div class="report-section-title">Busiest months</div>
+          <div class="report-panel">${topMonthRows}</div>
+        </div>
+      </div>
+    </div>`;
 }
 
 function syncSidebarActive(tab) {
