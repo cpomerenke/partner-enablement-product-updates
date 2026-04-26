@@ -6258,6 +6258,79 @@ const releases = {
     ],
     audience: 'Partners with mid-market clients using Go1 who want to automate compliance or onboarding training assignment without manual intervention.',
     loomUrl: 'https://www.loom.com/share/73b201dca4484ffe8f84ad4071e395c5'
+  },
+
+  'scalable-filters': {
+    title: 'Scalable Filters & Cascading Menu',
+    tag: '🧑‍💼 HR', tagClass: 'tag-hr',
+    date: '03 February 2026', plan: 'All plans', region: '🌏 Global', users: 'HR Admins · Employees',
+    problem: 'Filtering across the HR platform was inconsistent — 330+ filter components used varying designs, causing visual clutter, responsive layout issues, and a disjointed experience for users navigating high-traffic areas like Reports, Custom Forms, and Employee File Approvals.',
+    features: [
+      'New unified filter design rolled out to Reports, Custom Forms, and Employee File Approvals as the first wave',
+      'Single "Filters" button consolidates all search criteria, replacing fragmented sidebars and search bars',
+      'Active filter tags display above tables so users can see and remove individual filters at a glance',
+      'Cascading menu pattern supports deeper filter hierarchies without cluttering the interface',
+      'New design is the platform standard — progressive migration of all 330+ filter components underway',
+    ],
+    audience: 'Partners with clients who rely heavily on Reports, Custom Forms, or Employee File Approvals will benefit most as the cleaner filter experience reduces friction and improves data discoverability.',
+    loomUrl: 'https://www.loom.com/share/a296b2a72d87494793581041272e94af'
+  },
+
+  'notification-consent': {
+    title: 'Job Seeker Notification Consent & Settings Cleanup',
+    tag: '🎯 Recruitment', tagClass: 'tag-recruitment',
+    date: '05 February 2026', plan: 'All plans', region: '🌏 Global', users: 'Job Seekers',
+    problem: 'Job seekers had no granular control over marketing and job abandonment emails, and SMS consent logic was inconsistently applied across entry points — creating compliance risks and a disjointed communication experience on the Jobs platform.',
+    features: [
+      'Profile settings page split into distinct "Profile" and "Notifications" sections for clearer navigation',
+      'New consent toggles for Marketing emails and Application Reminders (job abandonment emails)',
+      'SMS consent messaging and backend logic unified across all entry points to ensure regional compliance',
+    ],
+    audience: 'Partners with clients who post roles on the Employment Hero Jobs platform — cleaner consent controls reduce compliance risk and improve candidate communication reliability.',
+    loomUrl: ''
+  },
+
+  'heroforce-landing': {
+    title: 'HeroForce Landing Page Redesign',
+    tag: '🎯 Recruitment', tagClass: 'tag-recruitment',
+    date: '11 February 2026', plan: 'All plans', region: '🌏 Global', users: 'Hirers',
+    problem: 'The HeroForce landing page did not clearly communicate its value proposition, leaving hirers without a clear path to discover HeroForce roles or access talent search — reducing conversion from landing page visits to active sourcing.',
+    features: [
+      'Redesigned landing page with a prominent HeroForce-branded banner and clear calls-to-action',
+      'Embedded talent search bar on the landing page — hirers can search and be redirected to Talent Search with applied terms instantly',
+      'New "Hire based on skill, not location" section to highlight the global talent proposition',
+      '"Top Roles" grid showcases HeroForce roles with clickable cards that automatically surface relevant talent in Talent Search',
+    ],
+    audience: 'Partners with clients actively sourcing talent through HeroForce — the redesigned page shortens the path from awareness to active candidate discovery.',
+    loomUrl: 'https://www.loom.com/share/c1b5058a76a747b8a5859e638dfd90f4'
+  },
+
+  'jobs-search-quality': {
+    title: 'Jobs Search Quality Improvement & Postcode Search',
+    tag: '🎯 Recruitment', tagClass: 'tag-recruitment',
+    date: '12 February 2026', plan: 'All plans', region: '🌏 Global', users: 'Job Seekers',
+    problem: 'Ambiguous search terms like "Marketing", "Sales", or "Admin" could refer to a role, industry, company, or location — causing the NLP engine to auto-map incorrectly. Users also had no way to search by postcode, limiting location precision.',
+    features: [
+      'Ambiguity resolution: when a keyword could mean multiple things (role, industry, company, location), users can now explicitly select the intended meaning instead of relying on automated NLP interpretation',
+      'Postcode search: users can now search for jobs using specific postcodes, expanding beyond location name filters',
+    ],
+    audience: 'Partners with clients posting roles on the Employment Hero Jobs platform — improved search accuracy means candidates find the right roles faster, reducing mismatched applicants.',
+    loomUrl: ''
+  },
+
+  'sso-self-service-recovery': {
+    title: 'SSO Self-Service Recovery Mode',
+    tag: '🔒 Security', tagClass: 'tag-security',
+    date: '12 February 2026', plan: 'All plans', region: '🌏 Global', users: 'HR Admins · Owners',
+    problem: 'When an SSO certificate expired, organisations were completely locked out of the platform and had to wait for the Support team to manually disable SSO in the backend — causing multi-hour delays and blocking access to critical HR and payroll data.',
+    features: [
+      'Administrators can now bypass SSO login using standard account credentials when their SSO certificate has expired',
+      'Multi-Factor Authentication (OTP via Email/SMS or TOTP) is enforced during recovery logins to maintain security',
+      'Upon successful MFA verification, admins can disable SSO for the organisation directly — no support ticket required',
+      'System automatically redirects to SSO configuration to update credentials after disabling',
+    ],
+    audience: 'Partners managing clients with SSO enabled — self-service recovery eliminates multi-hour lockout delays and removes the need to escalate to support for certificate-related access issues.',
+    loomUrl: ''
   }
 };
 
@@ -6750,7 +6823,7 @@ const areaSubTabs = {
     { label: 'Employment Details',       keys: ['employment-details','contract-type','casual-conversion','contractors-as-managers','offer-multiple-signatories','offer-letter-reminders','legal-name-privacy','contractor-custom-fields-v2','vacant-positions-perms','employee-permissions-view','mandatory-fields-settings','wp-employee-profile','probation-end-date','contract-type-display','notice-periods-all','employee-contractor-codes','granular-employee-deletion-permissions'] },
     { label: 'Leave',                    keys: ['leave-time-precise','leave-cancel-termination','leave-calendar-filters','compliance-leave-filter','leave-overlap-prevention','leave-employee-disambiguation','public-holiday-indicator','leave-compliance-edit','leave-table-uplift','leave-table-standardize','public-holiday-auto','partially-approved-leave-status','zero-unit-leave-validation','leave-taken-report-extended-filters','leave-calendar-save-filters','leave-precise-time-requests'] },
     { label: 'Documents & Policies',     keys: ['doc-notifications','compliance-doc-tagging','compliance-doc-purpose','uk-policy-owner','uk-passport-visa-expiry','doc-template-visa-vars','doc-multiple-signatories','doc-image-upload','policy-due-dates','doc-editor-new','email-notifications-ui','email-notifs-docs','email-notifs-leave','cert-due-dates','cert-notification-improvements','probation-report','doc-template-variable-library','bulk-issue-documents','streamline-policy-acknowledgement','compliance-document-descriptions','compliance-document-tagging','compliance-reports-on-leave-filter','hr-document-editor-optional-block'] },
-    { label: 'Platform & Engagement',    keys: ['positions-colour','settings-uplift','company-feed','eh-chat','banking-audit-trail','multi-owner-tasks','audit-trail-onboarding','compliance-report-filters','people-report-permissions','eh-work-mobile-public','manager-reassignment','multi-currency-expenses','bpay-aiop','personal-email-settings-ui-refresh','standardising-expense-management-ui','export-requisitions-onboarding-approvals','independent-contractor-work-types','onboarding-offboarding-multi-owner-tasks','audit-report-onboarding-pay-details','heroforce-onboarding-ctas','chat-addon-client-launch','hr-casual-conversion-precheck','recognition-report-csv-uplift','hr-custom-work-hours-standard'] },
+    { label: 'Platform & Engagement',    keys: ['positions-colour','settings-uplift','company-feed','eh-chat','banking-audit-trail','multi-owner-tasks','audit-trail-onboarding','compliance-report-filters','people-report-permissions','eh-work-mobile-public','manager-reassignment','multi-currency-expenses','bpay-aiop','personal-email-settings-ui-refresh','standardising-expense-management-ui','export-requisitions-onboarding-approvals','independent-contractor-work-types','onboarding-offboarding-multi-owner-tasks','audit-report-onboarding-pay-details','heroforce-onboarding-ctas','chat-addon-client-launch','hr-casual-conversion-precheck','recognition-report-csv-uplift','hr-custom-work-hours-standard','scalable-filters'] },
   ],
   payroll: [
     { label: 'All Payroll', keys: null },
@@ -6763,8 +6836,8 @@ const areaSubTabs = {
   recruitment: [
     { label: 'All Recruitment',      keys: null },
     { label: 'ATS & Integrations',   keys: ['indeed','career-page-widget','ats-assessments-codility','talent-search-refine','talent-saved-candidates','ats-advanced-filtering','indeed-direct','ats-applicant-mgmt','talent-search-ats','recruitment-career-page-widget','recruitment-talent-search-experience','recruitment-zinc-check-statuses'] },
-    { label: 'Jobseeker Experience', keys: ['jobseeker-flow','hero-foundation','job-board-emails','external-app-confirmation-email','marketing-signup','eoi-jobs','smartmatch-ondemand','talent-digest-email','eh-jobs-microsoft-sso','recruitment-external-application-confirmation','recruitment-ai-job-summaries','recruitment-context-aware-auth','recruitment-linkedin-profile-import','recruitment-job-report-enhancement'] },
-    { label: 'Job Creation',         keys: ['position-templates','offer-benefits','job-posting-improvements','job-posting-nlp','recruitment-position-templates','recruitment-job-editor-rich-text'] },
+    { label: 'Jobseeker Experience', keys: ['jobseeker-flow','hero-foundation','job-board-emails','external-app-confirmation-email','marketing-signup','eoi-jobs','smartmatch-ondemand','talent-digest-email','eh-jobs-microsoft-sso','recruitment-external-application-confirmation','recruitment-ai-job-summaries','recruitment-context-aware-auth','recruitment-linkedin-profile-import','recruitment-job-report-enhancement','notification-consent','jobs-search-quality'] },
+    { label: 'Job Creation',         keys: ['position-templates','offer-benefits','job-posting-improvements','job-posting-nlp','recruitment-position-templates','recruitment-job-editor-rich-text','heroforce-landing'] },
     { label: 'Hiring Process',       keys: ['ref-check-fraud','hiring-funnel-report','recruiter-activity-report','eoi-confirmation-email','recruitment-agent-preview','talent-job-search','requisition-conditional-approvals','recruitment-reference-fraud','recruitment-hiring-process-ui-ai-agent','recruitment-hiring-criteria','recruitment-reference-check-friction'] },
     { label: 'Recruitment Reports',  keys: ['recruitment-candidate-source-conversion','recruitment-disqualification-withdrawal','recruitment-time-to-hire-uplift'] },
   ],
@@ -6779,7 +6852,7 @@ const areaSubTabs = {
     { label: '2FA & Auth',            keys: ['2fa','recovery-codes','2fa-mobile','mandatory-2fa-forgot-pw','org-2fa-device-memory','forgot-pw-company-email','payroll-2fa-multi','payroll-login-refresh','eh-jobs-microsoft-sso','security-recovery-codes-mobile','security-mandatory-2fa-mobile'] },
     { label: 'Account Recovery',      keys: ['acct-recovery'] },
     { label: 'Threat Detection',      keys: ['breached-pw','threat-hunting','email-security','app-block','sso-cert-expiry-notifs'] },
-    { label: 'IT & Integrations',     keys: ['asset-register-custom-fields','m365-reporting-sync','mdm-jamf-intune','custom-webhook-headers','public-holiday-css','sso-dual-cert','sso-css-permission','jobs-unified-auth','openapi-certificates-webhooks-worktypes','employer-initiated-email-update','user-security-overview-enhancements','asset-register-csv-bulk-reassignment','openapi-permissions-alignment','security-asset-register-email-column','security-asset-management-filter'] },
+    { label: 'IT & Integrations',     keys: ['asset-register-custom-fields','m365-reporting-sync','mdm-jamf-intune','custom-webhook-headers','public-holiday-css','sso-dual-cert','sso-css-permission','jobs-unified-auth','openapi-certificates-webhooks-worktypes','employer-initiated-email-update','user-security-overview-enhancements','asset-register-csv-bulk-reassignment','openapi-permissions-alignment','security-asset-register-email-column','security-asset-management-filter','sso-self-service-recovery'] },
     { label: 'Permissions',           keys: ['granular-employee-deletion-permissions','security-permissions-terminology'] },
   ],
   automation: [
