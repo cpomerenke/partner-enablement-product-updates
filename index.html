@@ -5203,19 +5203,16 @@ buildMonthGroups();
   if (s6El) s6El.textContent = sixCount >= 100 ? sixCount + '+' : sixCount || '0';
 })();
 
-/* ── Sidebar search ── */
+/* ── Search ── */
 let searchQuery = '';
 
 function onSearchInput(val) {
   searchQuery = val.trim().toLowerCase();
-  document.getElementById('search-clear').classList.toggle('show', val.length > 0);
   applyFilter();
 }
 
 function clearSearch() {
   searchQuery = '';
-  document.getElementById('sidebar-search').value = '';
-  document.getElementById('search-clear').classList.remove('show');
   applyFilter();
 }
 
@@ -5686,37 +5683,59 @@ window.addEventListener('popstate', function() {
 // Wire landing page search to the sidebar search (reuse filtering)
 function onLpSearch(val) {
   const resultsWrap = document.getElementById('lp-results-wrap');
-  const lpGrid = document.getElementById('lp-cards-grid');
-  const sidebarInput = document.getElementById('sidebar-search');
+  const lpGrid     = document.getElementById('lp-cards-grid');
+  if (!resultsWrap || !lpGrid) return;
 
   if (!val || val.trim() === '') {
     resultsWrap.style.display = 'none';
-    if (sidebarInput) { sidebarInput.value = ''; onSearchInput(''); }
+    lpGrid.innerHTML = '';
     return;
   }
 
-  // Mirror into sidebar search logic
-  if (sidebarInput) sidebarInput.value = val;
-  onSearchInput(val);
-
-  // Clone matching cards into lp-grid
   const query = val.trim().toLowerCase();
-  const allCards = document.querySelectorAll('#cards-grid .rcard');
-  const matches = [...allCards].filter(card => {
-    const title = (card.querySelector('h4')?.textContent || '').toLowerCase();
-    const desc  = (card.querySelector('p')?.textContent  || '').toLowerCase();
-    return title.includes(query) || desc.includes(query);
-  });
+  const barColorMap = {
+    'tag-heroai':'var(--purple)','tag-hr':'var(--cyan)','tag-payroll':'#ef4444',
+    'tag-recruitment':'var(--violet)','tag-automation':'var(--purple)',
+    'tag-time':'var(--amber)','tag-security':'#f59e0b','tag-benefits':'#0891b2',
+    'tag-learning':'#ec4899','tag-onboarding':'#16a34a','tag-performance':'#8b5cf6'
+  };
+  const tabCatMap = {
+    'tag-heroai':'heroai','tag-hr':'hr','tag-payroll':'payroll',
+    'tag-recruitment':'recruitment','tag-automation':'automation',
+    'tag-time':'time','tag-security':'security','tag-benefits':'benefits',
+    'tag-learning':'learning','tag-onboarding':'onboarding','tag-performance':'performance'
+  };
 
-  lpGrid.innerHTML = '';
-  matches.forEach(card => {
-    const clone = card.cloneNode(true);
-    clone.classList.remove('hidden');
-    // Re-attach click handler from data
-    const onclick = card.getAttribute('onclick');
-    if (onclick) clone.setAttribute('onclick', onclick);
-    lpGrid.appendChild(clone);
-  });
+  const matches = Object.entries(releases)
+    .filter(([, r]) => {
+      const haystack = [r.title, r.problem, r.audience,
+        ...(r.highlights || [])].join(' ').toLowerCase();
+      return haystack.includes(query);
+    })
+    .sort(([, a], [, b]) => parseDateStr(b.date) - parseDateStr(a.date));
+
+  if (!matches.length) {
+    lpGrid.innerHTML = `<p style="color:var(--muted);padding:1rem 0">No results for "<strong>${val}</strong>"</p>`;
+  } else {
+    lpGrid.innerHTML = matches.map(([key, r]) => {
+      const bar  = barColorMap[r.tagClass] || 'var(--purple)';
+      const cat  = tabCatMap[r.tagClass]   || '';
+      const safe = key.replace(/'/g, "\\'");
+      return `<article class="rcard" data-cats="${cat}" onclick="openModal('${safe}')">
+        <div class="rcard-bar" style="background:${bar}"></div>
+        <div class="rcard-body">
+          <span class="rcard-tag ${r.tagClass}">${r.tag}</span>
+          <h4>${r.title}</h4>
+          <p>${r.problem || ''}</p>
+          <div class="rcard-chips">
+            <span class="chip chip-date">📅 ${r.date}</span>
+            <span class="chip chip-plan">${r.plan}</span>
+            <span class="chip chip-region">${r.region}</span>
+          </div>
+        </div>
+      </article>`;
+    }).join('');
+  }
 
   resultsWrap.style.display = 'block';
 }
