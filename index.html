@@ -1013,7 +1013,7 @@
     <!-- Nav search -->
     <div class="nav-search-box">
       <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="5" stroke="currentColor" stroke-width="1.6"/><path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-      <input type="text" placeholder="Search releases…" oninput="onSearchInput(this.value); syncNavSearch(this.value)" id="nav-search-input" />
+      <input type="text" placeholder="Search releases…" onkeydown="if(event.key==='Enter')doSearch(this.value)" id="nav-search-input" />
       <button class="nav-search-clear" id="nav-search-clear" onclick="clearNavSearch()" title="Clear">✕</button>
     </div>
     <!-- Dark / light mode toggle -->
@@ -1209,7 +1209,8 @@
 <div class="lp-results-wrap" id="lp-results-wrap" style="display:none;">
   <div class="lp-results-inner">
     <div class="lp-results-header">
-      <button class="lp-results-clear" onclick="clearLpSearch()">✕ Clear</button>
+      <span id="lp-results-label"></span>
+      <button class="lp-results-clear" onclick="clearNavSearch()">✕ Clear search</button>
     </div>
     <div class="cards-grid" id="lp-cards-grid"></div>
   </div>
@@ -5457,7 +5458,7 @@ function selectAreaSubTab(index, tab) {
     btn.classList.toggle('active', i === index);
   });
   buildAreaCards(tab, index);
-  window.scrollTo({ top: 0, behavior: 'instant' });
+  requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'instant' }));
 }
 
 /* Build and render release cards for a module into lp-cards-grid */
@@ -5563,7 +5564,7 @@ function enterSubPage(tab, sub) {
   if (lpResults) lpResults.style.display = 'block';
   renderSubTabs(tab);
   document.body.classList.add('subpage-mode');
-  window.scrollTo({ top: 0, behavior: 'instant' });
+  requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'instant' }));
 }
 
 function exitSubPage() {
@@ -5588,7 +5589,7 @@ function exitSubPage() {
   activeSub = null;
   applyFilter();
   syncSidebarActive('all');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'instant' }));
 }
 
 function goToArea(tab, sub) {
@@ -5681,31 +5682,47 @@ window.addEventListener('popstate', function() {
 })();
 
 // Wire landing page search to the sidebar search (reuse filtering)
-function onLpSearch(val) {
+const barColorMap = {
+  'tag-heroai':'var(--purple)','tag-hr':'var(--cyan)','tag-payroll':'#ef4444',
+  'tag-recruitment':'var(--violet)','tag-automation':'var(--purple)',
+  'tag-time':'var(--amber)','tag-security':'#f59e0b','tag-benefits':'#0891b2',
+  'tag-learning':'#ec4899','tag-onboarding':'#16a34a','tag-performance':'#8b5cf6'
+};
+const tabCatMap = {
+  'tag-heroai':'heroai','tag-hr':'hr','tag-payroll':'payroll',
+  'tag-recruitment':'recruitment','tag-automation':'automation',
+  'tag-time':'time','tag-security':'security','tag-benefits':'benefits',
+  'tag-learning':'learning','tag-onboarding':'onboarding','tag-performance':'performance'
+};
+
+let searchPageActive = false;
+
+function doSearch(val) {
+  if (!val || !val.trim()) return;
+  const query = val.trim().toLowerCase();
   const resultsWrap = document.getElementById('lp-results-wrap');
-  const lpGrid     = document.getElementById('lp-cards-grid');
+  const lpGrid      = document.getElementById('lp-cards-grid');
+  const label       = document.getElementById('lp-results-label');
   if (!resultsWrap || !lpGrid) return;
 
-  if (!val || val.trim() === '') {
-    resultsWrap.style.display = 'none';
-    lpGrid.innerHTML = '';
-    return;
-  }
+  // Switch to search-page view
+  const lpHero     = document.querySelector('.lp-hero');
+  const ntw        = document.querySelector('.ntw-wrap');
+  const explore    = document.querySelector('.explore-wrap');
+  const areaHeader = document.getElementById('area-header');
+  const subTabs    = document.getElementById('lp-subtabs-wrap');
+  if (lpHero)     lpHero.style.display    = 'none';
+  if (ntw)        ntw.style.display       = 'none';
+  if (explore)    explore.style.display   = 'none';
+  if (areaHeader) areaHeader.classList.remove('show');
+  if (subTabs)    subTabs.style.display   = 'none';
+  document.body.classList.remove('subpage-mode');
 
-  const query = val.trim().toLowerCase();
-  const barColorMap = {
-    'tag-heroai':'var(--purple)','tag-hr':'var(--cyan)','tag-payroll':'#ef4444',
-    'tag-recruitment':'var(--violet)','tag-automation':'var(--purple)',
-    'tag-time':'var(--amber)','tag-security':'#f59e0b','tag-benefits':'#0891b2',
-    'tag-learning':'#ec4899','tag-onboarding':'#16a34a','tag-performance':'#8b5cf6'
-  };
-  const tabCatMap = {
-    'tag-heroai':'heroai','tag-hr':'hr','tag-payroll':'payroll',
-    'tag-recruitment':'recruitment','tag-automation':'automation',
-    'tag-time':'time','tag-security':'security','tag-benefits':'benefits',
-    'tag-learning':'learning','tag-onboarding':'onboarding','tag-performance':'performance'
-  };
+  // Show clear button in nav
+  const clearBtn = document.getElementById('nav-search-clear');
+  if (clearBtn) clearBtn.classList.add('show');
 
+  // Build results
   const matches = Object.entries(releases)
     .filter(([, r]) => {
       const haystack = [r.title, r.problem, r.audience,
@@ -5714,53 +5731,57 @@ function onLpSearch(val) {
     })
     .sort(([, a], [, b]) => parseDateStr(b.date) - parseDateStr(a.date));
 
-  if (!matches.length) {
-    lpGrid.innerHTML = `<p style="color:var(--muted);padding:1rem 0">No results for "<strong>${val}</strong>"</p>`;
-  } else {
-    lpGrid.innerHTML = matches.map(([key, r]) => {
-      const bar  = barColorMap[r.tagClass] || 'var(--purple)';
-      const cat  = tabCatMap[r.tagClass]   || '';
-      const safe = key.replace(/'/g, "\\'");
-      return `<article class="rcard" data-cats="${cat}" onclick="openModal('${safe}')">
-        <div class="rcard-bar" style="background:${bar}"></div>
-        <div class="rcard-body">
-          <span class="rcard-tag ${r.tagClass}">${r.tag}</span>
-          <h4>${r.title}</h4>
-          <p>${r.problem || ''}</p>
-          <div class="rcard-chips">
-            <span class="chip chip-date">📅 ${r.date}</span>
-            <span class="chip chip-plan">${r.plan}</span>
-            <span class="chip chip-region">${r.region}</span>
+  if (label) label.textContent = matches.length
+    ? `${matches.length} result${matches.length !== 1 ? 's' : ''} for "${val.trim()}"`
+    : `No results for "${val.trim()}"`;
+
+  lpGrid.innerHTML = matches.length
+    ? matches.map(([key, r]) => {
+        const bar  = barColorMap[r.tagClass] || 'var(--purple)';
+        const cat  = tabCatMap[r.tagClass]   || '';
+        const safe = key.replace(/'/g, "\\'");
+        return `<article class="rcard" data-cats="${cat}" onclick="openModal('${safe}')">
+          <div class="rcard-bar" style="background:${bar}"></div>
+          <div class="rcard-body">
+            <span class="rcard-tag ${r.tagClass}">${r.tag}</span>
+            <h4>${r.title}</h4>
+            <p>${r.problem || ''}</p>
+            <div class="rcard-chips">
+              <span class="chip chip-date">📅 ${r.date}</span>
+              <span class="chip chip-plan">${r.plan}</span>
+              <span class="chip chip-region">${r.region}</span>
+            </div>
           </div>
-        </div>
-      </article>`;
-    }).join('');
-  }
+        </article>`;
+      }).join('')
+    : '';
 
   resultsWrap.style.display = 'block';
+  searchPageActive = true;
+  requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'instant' }));
 }
 
-function clearLpSearch() {
-  onLpSearch('');
-}
-
-
-/* ── Nav search sync ── */
-function syncNavSearch(val) {
-  const clearBtn = document.getElementById('nav-search-clear');
-  if (clearBtn) clearBtn.classList.toggle('show', val.length > 0);
-  // Also sync sidebar search input value
-  const sidebar = document.getElementById('sidebar-search');
-  if (sidebar) sidebar.value = val;
-  onLpSearch(val);
-}
 function clearNavSearch() {
   const input = document.getElementById('nav-search-input');
-  if (input) { input.value = ''; syncNavSearch(''); }
-  const sidebar = document.getElementById('sidebar-search');
-  if (sidebar) { sidebar.value = ''; }
-  onSearchInput('');
-  clearLpSearch();
+  if (input) input.value = '';
+  const clearBtn = document.getElementById('nav-search-clear');
+  if (clearBtn) clearBtn.classList.remove('show');
+
+  if (!searchPageActive) return;
+  searchPageActive = false;
+
+  // Restore landing page
+  const lpHero  = document.querySelector('.lp-hero');
+  const ntw     = document.querySelector('.ntw-wrap');
+  const explore = document.querySelector('.explore-wrap');
+  const resultsWrap = document.getElementById('lp-results-wrap');
+  const lpGrid      = document.getElementById('lp-cards-grid');
+  if (lpHero)     lpHero.style.display  = '';
+  if (ntw)        ntw.style.display     = '';
+  if (explore)    explore.style.display = '';
+  if (resultsWrap) resultsWrap.style.display = 'none';
+  if (lpGrid)      lpGrid.innerHTML = '';
+  requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'instant' }));
 }
 
 </script>
