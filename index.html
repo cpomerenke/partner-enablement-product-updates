@@ -5460,6 +5460,7 @@ function selectAreaSubTab(index, tab) {
     btn.classList.toggle('active', i === index);
   });
   buildAreaCards(tab, index);
+  window.scrollTo({ top: 0, behavior: 'instant' });
 }
 
 /* Build and render release cards for a module into lp-cards-grid */
