@@ -1154,8 +1154,8 @@
           </div>
           <div class="area-header-stat-div"></div>
           <div class="area-header-stat">
-            <strong id="ah-stat-total">—</strong>
-            <span>Total releases</span>
+            <strong id="ah-stat-3months">—</strong>
+            <span>Last 3 months</span>
           </div>
         </div>
       </div>
@@ -5333,20 +5333,24 @@ const productAreas = {
 function getAreaCounts(tab) {
   const now = new Date();
   const monthStart = now.getFullYear() * 10000 + (now.getMonth() + 1) * 100 + 1;
-  let month = 0, total = 0;
+  const threeAgo = new Date(now); threeAgo.setMonth(threeAgo.getMonth() - 3);
+  const threeStart = threeAgo.getFullYear() * 10000 + (threeAgo.getMonth() + 1) * 100 + 1;
+  let month = 0, threeMonths = 0;
   if (tab === 'all-updates') {
     Object.values(releases).forEach(r => {
-      total++;
-      if (parseDateStr(r.date) >= monthStart) month++;
+      const d = parseDateStr(r.date);
+      if (d >= monthStart) month++;
+      if (d >= threeStart) threeMonths++;
     });
   } else {
     document.querySelectorAll('.rcard').forEach(card => {
       if (!(card.dataset.cats || '').split(' ').includes(tab)) return;
-      total++;
-      if (parseDateNum(card) >= monthStart) month++;
+      const d = parseDateNum(card);
+      if (d >= monthStart) month++;
+      if (d >= threeStart) threeMonths++;
     });
   }
-  return { month, total };
+  return { month, threeMonths };
 }
 
 /* ── Subtab definitions per product area (null keys = show all) ── */
@@ -5548,7 +5552,7 @@ function enterSubPage(tab, sub) {
   document.getElementById('ah-name').textContent = area.name;
   document.getElementById('ah-desc').textContent = area.desc;
   document.getElementById('ah-stat-month').textContent = counts.month || '0';
-  document.getElementById('ah-stat-total').textContent = counts.total || '0';
+  document.getElementById('ah-stat-3months').textContent = counts.threeMonths || '0';
   document.getElementById('area-header').style.background = area.gradient;
 
   // Show/hide sections
