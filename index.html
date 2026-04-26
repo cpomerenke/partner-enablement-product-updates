@@ -1902,20 +1902,6 @@ const releases = {
 
 
 
-  'job-board-emails': {
-    title: 'Job Board Application Confirmation Emails',
-    tag: '🔍 Recruitment', tagClass: 'tag-recruitment',
-    date: '23 April 2026', plan: 'All plans', region: '🌐 Global', users: 'Candidates',
-    problem: 'Candidates applying through Seek or Indeed received no acknowledgment once their application was ingested into Employment Hero — causing confusion about whether it was received.',
-    features: [
-      'Automated "Application Submitted Successfully" email sent immediately on ingestion from external boards',
-      'Email includes a summary of the data submitted for candidate transparency',
-      'Introduces Employment Hero as the platform used by the employer',
-      'Withdraw application link included',
-      'Account creation prompt consolidated into this email to avoid a spammy double-notification experience'
-    ],
-    audience: 'All organisations advertising roles through Employment Hero. Reducing "application anxiety" leads to better candidate experience and fewer inbound status enquiries.'
-  },
 
 
   'casual-conversion': {
@@ -8361,7 +8347,7 @@ const areaSubTabs = {
   recruitment: [
     { label: 'All Recruitment',      keys: null },
     { label: 'ATS & Integrations',   keys: ['indeed','ats-assessments-codility','talent-search-refine','talent-saved-candidates','ats-advanced-filtering','indeed-direct','ats-applicant-mgmt','talent-search-ats','recruitment-career-page-widget','recruitment-talent-search-experience','recruitment-zinc-check-statuses','heroforce-candidate-screening','ats-kanban'] },
-    { label: 'Jobseeker Experience', keys: ['jobseeker-flow','hero-foundation','job-board-emails','marketing-signup','eoi-jobs','smartmatch-ondemand','talent-digest-email','eh-jobs-microsoft-sso','recruitment-external-application-confirmation','recruitment-ai-job-summaries','recruitment-context-aware-auth','recruitment-linkedin-profile-import','recruitment-job-report-enhancement','notification-consent','jobs-search-quality','heroforce-company-search','heroforce-search-nlp','heroforce-job-preference','recruitment-job-abandonment-email','cv-profile-parsing','smartmatch-summary','jobs-homepage-nlp','jobs-google-signin','jobs-nlp-dashboard','jobseeker-dashboard-ai-summary'] },
+    { label: 'Jobseeker Experience', keys: ['jobseeker-flow','hero-foundation','marketing-signup','eoi-jobs','smartmatch-ondemand','talent-digest-email','eh-jobs-microsoft-sso','recruitment-external-application-confirmation','recruitment-ai-job-summaries','recruitment-context-aware-auth','recruitment-linkedin-profile-import','recruitment-job-report-enhancement','notification-consent','jobs-search-quality','heroforce-company-search','heroforce-search-nlp','heroforce-job-preference','recruitment-job-abandonment-email','cv-profile-parsing','smartmatch-summary','jobs-homepage-nlp','jobs-google-signin','jobs-nlp-dashboard','jobseeker-dashboard-ai-summary'] },
     { label: 'Job Creation',         keys: ['offer-benefits','job-posting-improvements','job-posting-nlp','recruitment-position-templates','recruitment-job-editor-rich-text','heroforce-landing'] },
     { label: 'Hiring Process',       keys: ['hiring-funnel-report','recruiter-activity-report','eoi-confirmation-email','recruitment-agent-preview','talent-job-search','requisition-conditional-approvals','recruitment-reference-fraud','recruitment-hiring-process-ui-ai-agent','recruitment-hiring-criteria','recruitment-reference-check-friction','recruitment-email-notifs','recruitment-agent-employer','recruitment-boy-scoring'] },
     { label: 'Recruitment Reports',  keys: ['recruitment-candidate-source-conversion','recruitment-disqualification-withdrawal','recruitment-time-to-hire-uplift'] },
