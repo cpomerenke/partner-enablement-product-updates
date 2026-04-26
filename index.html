@@ -1550,18 +1550,6 @@ const releases = {
     ],
     audience: 'HR admins and managers at any organisation size. Particularly valuable for organisations managing a mix of casual, fixed-term and permanent staff.'
   },
-  'contract-type': {
-    title: 'Contract Type & End Date in Employment Details',
-    tag: '👥 Core HR', tagClass: 'tag-hr',
-    date: 'December 2025', plan: 'All plans', region: '🌐 Global', users: 'HR Admins',
-    problem: 'Contract type and end dates were stored inconsistently across free-text fields, creating compliance risk for fixed-term employees.',
-    features: [
-      'Structured Contract Type field: permanent, fixed-term, casual',
-      'Contract End Date field for fixed-term contracts with expiry alerts',
-      'Reflected in employee reports and exports'
-    ],
-    audience: 'HR admins managing employees on fixed-term or casual contracts who need reliable, reportable contract data.'
-  },
   'positions-colour': {
     title: 'Assign Colours to Positions',
     tag: '👥 Core HR', tagClass: 'tag-hr',
@@ -1895,19 +1883,6 @@ const releases = {
     loomUrl: 'https://www.loom.com/embed/deba379490294fd082e4e7e761f9f952'
   },
 
-  'ai-job-summaries': {
-    title: 'AI Job Summaries for Job Seekers',
-    tag: '✨ HeroAI Recruitment', tagClass: 'tag-heroai',
-    date: '23 April 2026', plan: 'All plans', region: '🌐 Global', users: 'Candidates',
-    problem: 'Job seekers spent excessive time parsing long job descriptions to identify critical information like salary, remote flexibility and core requirements.',
-    features: [
-      'AI-generated summary appears at the top of every job listing on the EH job board',
-      'Extracts and surfaces the most relevant data points — salary, location, key requirements — instantly',
-      'Applies to all new jobs immediately; backfill for existing jobs underway'
-    ],
-    audience: 'All candidates browsing the Employment Hero job board. A better candidate experience means more completed applications for your roles.',
-    loomUrl: 'https://www.loom.com/embed/0351201923fd46028988adb776c68270'
-  },
 
   'hiring-stage-ui': {
     title: 'Hiring Stage UI — Self-Serve AI Agent Setup',
@@ -1924,53 +1899,8 @@ const releases = {
     loomUrl: 'https://www.loom.com/embed/26f9c8dfc7cd4047bc0bcd88510f3554'
   },
 
-  'ref-check-fraud': {
-    title: 'Reference Check Fraud Detection',
-    tag: '🔍 Recruitment', tagClass: 'tag-recruitment',
-    date: '23 April 2026', plan: 'Reference check enabled orgs', region: '🌐 Global', users: 'Recruiters · Hiring Managers',
-    problem: 'Candidates could fill in their own reference check questionnaires or list themselves as a referee — with no automated way to detect it.',
-    features: [
-      'Detect when a candidate\'s email matches their referee\'s email — blocked before the questionnaire is sent',
-      'Detect when candidate and referee submitted from the same IP address',
-      'Detect same device, browser and OS fingerprint across candidate and referee submissions',
-      'Fraud warning indicator next to referee names in the Review Results table with tooltip detail',
-      'Dedicated fraud signals section at the top of each referee\'s results page in plain language',
-      'Fraud warnings also surface in "referee submitted" email notifications'
-    ],
-    audience: 'Any organisation using Employment Hero\'s reference check feature. Particularly valuable for roles where reference quality directly impacts hiring decisions.',
-    loomUrl: 'https://www.loom.com/embed/e86d5579ebf4475daeab22facd0a7c7f'
-  },
 
-  'career-page-widget': {
-    title: 'Embeddable Career Page Widget',
-    tag: '🔍 Recruitment', tagClass: 'tag-recruitment',
-    date: '6 April 2026', plan: 'All paid plans', region: '🌐 Global', users: 'Recruiters · Marketing Teams',
-    problem: 'ATS customers had to manually duplicate job listings on their company website using third-party tools — creating sync issues and extra admin.',
-    features: [
-      'Embed a live job listings widget on any company website with a single <script> tag',
-      'Widget auto-displays all published roles from the EH ATS — no manual duplication',
-      'Real-time sync — changes in the ATS reflect on the website instantly',
-      'No developer required; embed code available in Recruitment Settings → Career Page',
-      'Employment Hero is the first customer — powering employmenthero.com/careers'
-    ],
-    audience: 'All admins and recruiters on any paid plan. Eliminates the disconnect between your ATS and your careers page with zero ongoing maintenance.',
-    loomUrl: 'https://www.loom.com/embed/45d182d03663416a8cd1e67d8cb4dd2c'
-  },
 
-  'position-templates': {
-    title: 'Recruitment Position Templates',
-    tag: '🔍 Recruitment', tagClass: 'tag-recruitment',
-    date: '3 April 2026', plan: 'All paid plans', region: '🌐 Global', users: 'Admins · Recruiters',
-    problem: 'Hiring managers at organisations with recurring roles had to manually recreate job descriptions, salary ranges and screening questions for every new posting.',
-    features: [
-      'Build a library of approved role blueprints in Recruitment Settings → Position Templates',
-      'Each template captures: job title, description, employment type, workplace type, salary range and screening questions',
-      'One click to pre-fill all standard details when starting a new job posting',
-      'Managers can still customise any field before going live — the original template is never affected'
-    ],
-    audience: 'Mid-market clients and any organisation with recurring roles — restaurant chains, multi-location retailers, professional services firms. Eliminates repetitive job creation work.',
-    loomUrl: 'https://www.loom.com/embed/5127488991344bd98d1e91faab71fc22'
-  },
 
   'job-board-emails': {
     title: 'Job Board Application Confirmation Emails',
@@ -1987,21 +1917,6 @@ const releases = {
     audience: 'All organisations advertising roles through Employment Hero. Reducing "application anxiety" leads to better candidate experience and fewer inbound status enquiries.'
   },
 
-  'compliance-doc-tagging': {
-    title: 'Compliance Document Tagging',
-    tag: '👥 Core HR', tagClass: 'tag-hr',
-    date: '21 April 2026', plan: 'All plans', region: '🌐 Global', users: 'HR Admins',
-    problem: 'HR teams had no structured way to categorise compliance documents by regulatory framework or audit requirement — making audit preparation time-consuming.',
-    features: [
-      'Create and manage a custom list of compliance tags across the organisation',
-      'Apply up to 10 tags per document when uploading or editing',
-      'Create a new tag inline without leaving the document workflow',
-      'Filter the documents list by one or more compliance tags for a clear, audit-ready view',
-      'Compliance tags are visible to HR Admins only — employees and managers cannot see them'
-    ],
-    audience: 'HR admins and compliance officers at any organisation size. Particularly valuable ahead of audits or when demonstrating regulatory compliance.',
-    loomUrl: 'https://www.loom.com/embed/d8af0cadfe6d4827ab90b2fac9d6aa4f'
-  },
 
   'casual-conversion': {
     title: 'Casual Conversion Pre-Check — Fair Work Act Compliance',
@@ -2048,20 +1963,6 @@ const releases = {
     loomUrl: 'https://www.loom.com/embed/e0416d1b268c4d25949fe991b78e126a'
   },
 
-  'leave-time-precise': {
-    title: 'Precise Time-Based Leave Requests',
-    tag: '👥 Leave', tagClass: 'tag-hr',
-    date: '17–23 April 2026', plan: 'All plans', region: '🌐 Global', users: 'Employees · Managers',
-    problem: '"Morning/Afternoon" leave selections were ambiguous — managers had to follow up for clarification and payroll defaulted to flat half-day deductions regardless of actual time away.',
-    features: [
-      'Employees toggle between classic AM/PM selection and new "Specific Start and End Times" option',
-      'Dynamic duration calculation shows total hours to be deducted as times are entered',
-      'Upgraded AM/PM logic references the employee\'s contracted schedule — not a hard 12:00 PM split',
-      'Integrated sync with Xero, KeyPay and other payroll platforms — hours pushed accurately without manual recalculation',
-      'Web only initially; separate mobile release to follow'
-    ],
-    audience: 'All employees and managers globally on any plan. Eliminates the "clarification loop" between employees and managers, and ensures payroll accuracy for partial-day leave.'
-  },
 
   'leave-cancel-termination': {
     title: 'Auto-Cancel Leave on Termination',
@@ -2078,20 +1979,6 @@ const releases = {
     audience: 'All organisations globally on any plan. Particularly valuable during high-volume offboarding periods or for organisations with longer notice periods.'
   },
 
-  'leave-calendar-filters': {
-    title: 'Save Filters on Leave Calendar',
-    tag: '👥 Leave', tagClass: 'tag-hr',
-    date: '23 April 2026', plan: 'All plans', region: '🌐 Global', users: 'HR Admins · Managers',
-    problem: 'Managers and HR admins had to re-apply the same location, team and leave type filters every time they opened the Leave Calendar.',
-    features: [
-      '"Save filters" button stores your selected location, team and leave type preferences',
-      'Filters restore automatically every time you open the Leave Calendar — no re-selecting',
-      'Preferences are saved per user',
-      '"Reset saved filters" clears preferences at any time'
-    ],
-    audience: 'All HR admins and managers who use the Leave Calendar regularly with consistent filter preferences.',
-    loomUrl: 'https://www.loom.com/embed/21b0d0f488b2435e8ad15c50d3775218'
-  },
 
   'eh-chat': {
     title: 'Employment Hero Chat — Now Available to All Clients',
@@ -2167,19 +2054,6 @@ const releases = {
     audience: 'All payroll users whose organisation has mandatory 2FA enforced. Closes the mobile bypass gap — consistent security enforcement across web and app.'
   },
 
-  'workflow-triggers-personal': {
-    title: 'Employee Personal Detail Changes as Workflow Triggers',
-    tag: '⚡ Automations', tagClass: 'tag-automation',
-    date: '24 April 2026', plan: 'All workflow users', region: '🌐 Global', users: 'HR Admins',
-    problem: 'When employee personal details changed, there was no automatic follow-up — important actions like payroll checks or compliance updates were handled manually with no audit trail.',
-    features: [
-      'New triggers for "Employee personal details updated" and "Request personal detail change"',
-      'Automatically run workflows when name, address, date of birth or pronouns are updated or submitted for approval',
-      'Only triggers when relevant details actually change — no spurious workflow executions'
-    ],
-    audience: 'All organisations using Workflows globally. Eliminates the manual monitoring of personal detail changes and creates an auditable automated response chain.',
-    loomUrl: 'https://www.loom.com/embed/9404657274f34f5bb801f35370051cef'
-  },
 
   'forms-bulk-delete': {
     title: 'Custom Forms — Bulk Delete Responses',
@@ -4785,21 +4659,6 @@ const releases = {
     loomUrl: ''
   },
 
-  'external-app-confirmation-email': {
-    title: 'External Job Board Application Confirmation Emails',
-    tag: '🎯 Recruitment', tagClass: 'tag-recruitment',
-    date: '23 April 2026', plan: 'All organisations', region: '🌐 Global', users: 'Candidates',
-    problem: 'Candidates applying via external job boards like Seek and Indeed received no acknowledgement after their data was ingested into Employment Hero — creating "application anxiety" and missed brand awareness.',
-    features: [
-      'Automated confirmation email sent immediately after successful ingestion from external sources',
-      'Email summary shows the data submitted by the candidate for transparency',
-      'Introduces Employment Hero as the platform powering the recruitment process',
-      'Includes a withdraw application link and "Powered by Employment Hero" footer',
-      'Account creation prompt consolidated into this confirmation email (excluding Seek and Indeed) — replaces the standalone "Confirm your email" notification'
-    ],
-    audience: 'All organisations posting jobs via external job boards. Reduces candidate confusion and increases EH brand recognition with applicants who go on to receive platform communications.',
-    loomUrl: 'https://www.loom.com/embed/0351201923fd46028988adb776c68270'
-  },
 
   'mdm-jamf-intune': {
     title: 'MDM Integration — Jamf Pro & Microsoft Intune',
@@ -8494,14 +8353,14 @@ const areaSubTabs = {
     { label: 'All HeroAI',     keys: null },
     { label: 'Chat & Widget',  keys: ['heroai-hr-agent','heroai-work-app','heroai-search-box','heroai-chat-optimisations','heroai-prompt-admin','heroai-chat-resume','heroai-chat-history','heroai-dashboard-widget','heroai-interface-refresh','heroai-icon-nav','heroai-ui-dec25','heroai-tools-public','heroai-payslip-salary','heroai-extended-memory','heroai-zendesk-ticket-visibility','heroai-speed-performance','heroai-experience-refresh','heroai-personalisation-topbar','heroai-setup-mode-access-control','heroai-delete-recent-chat','heroai-widget-personalisation'] },
     { label: 'Mobile',         keys: ['heroai-hr-agent-mobile','heroai-hr-agent-expand'] },
-    { label: 'Recruitment AI', keys: ['smartmatch','marketing-signup','hiring-criteria','ai-job-summaries','hiring-stage-ui','ai-voice-interviewer','voice-agent-multiregion','ai-job-description-gen','ai-tailored-applications','ai-tailored-all-apps','ai-interviewer-default','recruitment-ai-billing','ai-sq-suggestions','recruitment-agent-employer'] },
+    { label: 'Recruitment AI', keys: ['smartmatch','marketing-signup','hiring-criteria','hiring-stage-ui','ai-voice-interviewer','voice-agent-multiregion','ai-job-description-gen','ai-tailored-applications','ai-tailored-all-apps','ai-interviewer-default','recruitment-ai-billing','ai-sq-suggestions','recruitment-agent-employer'] },
     { label: 'Leave AI',       keys: ['heroai-leave-mgmt','heroai-leave-suggest','heroai-enhanced-chat-leave','leave-ai-autosuggest-type','heroai-hr-agent-leave-actions'] },
   ],
   hr: [
     { label: 'All HR',                  keys: null },
-    { label: 'Employment Details',       keys: ['employment-details','contract-type','casual-conversion','contractors-as-managers','offer-multiple-signatories','offer-letter-reminders','legal-name-privacy','contractor-custom-fields-v2','vacant-positions-perms','employee-permissions-view','mandatory-fields-settings','wp-employee-profile','probation-end-date','contract-type-display','notice-periods-all','employee-contractor-codes','granular-employee-deletion-permissions','hr-permissions-expansion','permissions-renaming','vevo-check-api'] },
-    { label: 'Leave',                    keys: ['leave-time-precise','leave-cancel-termination','leave-calendar-filters','compliance-leave-filter','leave-overlap-prevention','leave-employee-disambiguation','public-holiday-indicator','leave-compliance-edit','leave-table-uplift','leave-table-standardize','public-holiday-auto','partially-approved-leave-status','zero-unit-leave-validation','leave-taken-report-extended-filters','leave-calendar-save-filters','leave-precise-time-requests','leave-prevent-delete-approved','leave-calendar-public-holidays','leave-pending-negative-balance','leave-reports-migration'] },
-    { label: 'Documents & Policies',     keys: ['doc-notifications','compliance-doc-tagging','compliance-doc-purpose','uk-policy-owner','uk-passport-visa-expiry','doc-template-visa-vars','doc-multiple-signatories','doc-image-upload','policy-due-dates','doc-editor-new','email-notifications-ui','email-notifs-docs','email-notifs-leave','cert-due-dates','cert-notification-improvements','probation-report','doc-template-variable-library','bulk-issue-documents','streamline-policy-acknowledgement','compliance-document-descriptions','compliance-document-tagging','compliance-reports-on-leave-filter','hr-document-editor-optional-block','email-notifs-org-consistency','gt-bulk-reminders','gt-portal-hr-docs-report','fair-work-statement-update'] },
+    { label: 'Employment Details',       keys: ['employment-details','casual-conversion','contractors-as-managers','offer-multiple-signatories','offer-letter-reminders','legal-name-privacy','contractor-custom-fields-v2','vacant-positions-perms','employee-permissions-view','mandatory-fields-settings','wp-employee-profile','probation-end-date','contract-type-display','notice-periods-all','employee-contractor-codes','granular-employee-deletion-permissions','hr-permissions-expansion','permissions-renaming','vevo-check-api'] },
+    { label: 'Leave',                    keys: ['leave-cancel-termination','compliance-leave-filter','leave-overlap-prevention','leave-employee-disambiguation','public-holiday-indicator','leave-compliance-edit','leave-table-uplift','leave-table-standardize','public-holiday-auto','partially-approved-leave-status','zero-unit-leave-validation','leave-taken-report-extended-filters','leave-calendar-save-filters','leave-precise-time-requests','leave-prevent-delete-approved','leave-calendar-public-holidays','leave-pending-negative-balance','leave-reports-migration'] },
+    { label: 'Documents & Policies',     keys: ['doc-notifications','compliance-doc-purpose','uk-policy-owner','uk-passport-visa-expiry','doc-template-visa-vars','doc-multiple-signatories','doc-image-upload','policy-due-dates','doc-editor-new','email-notifications-ui','email-notifs-docs','email-notifs-leave','cert-due-dates','cert-notification-improvements','probation-report','doc-template-variable-library','bulk-issue-documents','streamline-policy-acknowledgement','compliance-document-descriptions','compliance-document-tagging','compliance-reports-on-leave-filter','hr-document-editor-optional-block','email-notifs-org-consistency','gt-bulk-reminders','gt-portal-hr-docs-report','fair-work-statement-update'] },
     { label: 'Platform & Engagement',    keys: ['positions-colour','settings-uplift','company-feed','eh-chat','banking-audit-trail','multi-owner-tasks','audit-trail-onboarding','compliance-report-filters','people-report-permissions','eh-work-mobile-public','manager-reassignment','multi-currency-expenses','bpay-aiop','personal-email-settings-ui-refresh','standardising-expense-management-ui','export-requisitions-onboarding-approvals','independent-contractor-work-types','onboarding-offboarding-multi-owner-tasks','audit-report-onboarding-pay-details','heroforce-onboarding-ctas','chat-addon-client-launch','hr-casual-conversion-precheck','recognition-report-csv-uplift','hr-custom-work-hours-standard','scalable-filters','eh-work-bottom-nav','policy-template-country-default','audit-trail-emergency-contacts','openapi-worksites-departments','expense-policies-allowance','openapi-timesheets-webhook','openapi-partner-docs','eh-work-todo-personal','custom-work-hours-au-uk-hr','openapi-dev-docs-ui','dashboard-declutter','addons-settings-uplift','settings-people-controls','settings-system-setup-branding','settings-org-emails-uplift','settings-company-details-rewards','settings-recognition-uplift','openapi-write-apis','openapi-rate-limit','openapi-app-flow-uplift'] },
   ],
   payroll: [
@@ -8514,10 +8373,10 @@ const areaSubTabs = {
   ],
   recruitment: [
     { label: 'All Recruitment',      keys: null },
-    { label: 'ATS & Integrations',   keys: ['indeed','career-page-widget','ats-assessments-codility','talent-search-refine','talent-saved-candidates','ats-advanced-filtering','indeed-direct','ats-applicant-mgmt','talent-search-ats','recruitment-career-page-widget','recruitment-talent-search-experience','recruitment-zinc-check-statuses','heroforce-candidate-screening','ats-kanban'] },
-    { label: 'Jobseeker Experience', keys: ['jobseeker-flow','hero-foundation','job-board-emails','external-app-confirmation-email','marketing-signup','eoi-jobs','smartmatch-ondemand','talent-digest-email','eh-jobs-microsoft-sso','recruitment-external-application-confirmation','recruitment-ai-job-summaries','recruitment-context-aware-auth','recruitment-linkedin-profile-import','recruitment-job-report-enhancement','notification-consent','jobs-search-quality','heroforce-company-search','heroforce-search-nlp','heroforce-job-preference','recruitment-job-abandonment-email','cv-profile-parsing','smartmatch-summary','jobs-homepage-nlp','jobs-google-signin','jobs-nlp-dashboard','jobseeker-dashboard-ai-summary'] },
-    { label: 'Job Creation',         keys: ['position-templates','offer-benefits','job-posting-improvements','job-posting-nlp','recruitment-position-templates','recruitment-job-editor-rich-text','heroforce-landing'] },
-    { label: 'Hiring Process',       keys: ['ref-check-fraud','hiring-funnel-report','recruiter-activity-report','eoi-confirmation-email','recruitment-agent-preview','talent-job-search','requisition-conditional-approvals','recruitment-reference-fraud','recruitment-hiring-process-ui-ai-agent','recruitment-hiring-criteria','recruitment-reference-check-friction','recruitment-email-notifs','recruitment-agent-employer','recruitment-boy-scoring'] },
+    { label: 'ATS & Integrations',   keys: ['indeed','ats-assessments-codility','talent-search-refine','talent-saved-candidates','ats-advanced-filtering','indeed-direct','ats-applicant-mgmt','talent-search-ats','recruitment-career-page-widget','recruitment-talent-search-experience','recruitment-zinc-check-statuses','heroforce-candidate-screening','ats-kanban'] },
+    { label: 'Jobseeker Experience', keys: ['jobseeker-flow','hero-foundation','job-board-emails','marketing-signup','eoi-jobs','smartmatch-ondemand','talent-digest-email','eh-jobs-microsoft-sso','recruitment-external-application-confirmation','recruitment-ai-job-summaries','recruitment-context-aware-auth','recruitment-linkedin-profile-import','recruitment-job-report-enhancement','notification-consent','jobs-search-quality','heroforce-company-search','heroforce-search-nlp','heroforce-job-preference','recruitment-job-abandonment-email','cv-profile-parsing','smartmatch-summary','jobs-homepage-nlp','jobs-google-signin','jobs-nlp-dashboard','jobseeker-dashboard-ai-summary'] },
+    { label: 'Job Creation',         keys: ['offer-benefits','job-posting-improvements','job-posting-nlp','recruitment-position-templates','recruitment-job-editor-rich-text','heroforce-landing'] },
+    { label: 'Hiring Process',       keys: ['hiring-funnel-report','recruiter-activity-report','eoi-confirmation-email','recruitment-agent-preview','talent-job-search','requisition-conditional-approvals','recruitment-reference-fraud','recruitment-hiring-process-ui-ai-agent','recruitment-hiring-criteria','recruitment-reference-check-friction','recruitment-email-notifs','recruitment-agent-employer','recruitment-boy-scoring'] },
     { label: 'Recruitment Reports',  keys: ['recruitment-candidate-source-conversion','recruitment-disqualification-withdrawal','recruitment-time-to-hire-uplift'] },
   ],
   time: [
@@ -8537,7 +8396,7 @@ const areaSubTabs = {
   automation: [
     { label: 'All Automations',  keys: null },
     { label: 'Custom Forms',     keys: ['custom-forms-mobile','custom-forms-submissions','forms-bulk-delete','forms-approval-audit','forms-question-reorder','forms-assignment-status','proxy-form-submissions','forms-multi-layer-approvals','custom-forms-new-fields','forms-employee-file','forms-assign','forms-create-task','multi-level-duplicate-reviewer-approval','forms-conditional-logic','forms-checkbox-signature-fields','forms-edit-recipients-active','forms-bulk-delete-responses','forms-approval-csv-export','forms-approval-info-employee-file','forms-approval-history-view','forms-linked-workflows','forms-responses-tab','forms-my-submissions','forms-publish-modal'] },
-    { label: 'Workflows',        keys: ['workflow-triggers-personal','workflow-api-action','is-admin-reports','workflow-simplified-edit','workflow-survey-action','workflow-email-uplift','workflow-templates-hub3','compliance-workflow-cert-action','compliance-workflow-policy-s1','compliance-workflow-policy-s2','workflow-docs','workflow-induction','workflow-efc-dynamic-approvers','unified-basic-view-rollout','automated-assign-expense-policy','automations-personal-detail-triggers','approval-history-labels','onboarding-workflow-triggers','requisitions-new-workflows'] },
+    { label: 'Workflows',        keys: ['workflow-api-action','is-admin-reports','workflow-simplified-edit','workflow-survey-action','workflow-email-uplift','workflow-templates-hub3','compliance-workflow-cert-action','compliance-workflow-policy-s1','compliance-workflow-policy-s2','workflow-docs','workflow-induction','workflow-efc-dynamic-approvers','unified-basic-view-rollout','automated-assign-expense-policy','automations-personal-detail-triggers','approval-history-labels','onboarding-workflow-triggers','requisitions-new-workflows'] },
     { label: 'Custom Reports',   keys: ['leave-reports-byor','custom-reports-my-reports','termination-fields-report','salary-custom-reports','wgea-workforce-reports','reports-saved-filters','wgea-workplace-report','custom-report-ownership-transfer','duplicate-custom-reports','is-manager-field-accuracy-byor','reports-is-admin-field','automation-reports-dashboard-csv','custom-reports-sharing','turnover-report-enhancements'] },
   ],
   benefits: [
@@ -8562,8 +8421,8 @@ const areaSubTabs = {
     { label: 'Global',         keys: ['io-duplicates','io-induction-ftu','io-global-due-dates','io-org-emails-revamp'] },
   ],
   contractors: [
-    { label: 'All Contractors',       keys: ['contractors-as-managers','contractor-custom-fields-v2','contract-type','contract-type-display','casual-conversion','notice-periods-all','contractor-codes','employee-contractor-codes','learning-contractors','independent-contractor-work-types'] },
-    { label: 'Employment',            keys: ['contractors-as-managers','contractor-custom-fields-v2','contract-type','contract-type-display','casual-conversion','notice-periods-all','independent-contractor-work-types'] },
+    { label: 'All Contractors',       keys: ['contractors-as-managers','contractor-custom-fields-v2','contract-type-display','casual-conversion','notice-periods-all','contractor-codes','employee-contractor-codes','learning-contractors','independent-contractor-work-types'] },
+    { label: 'Employment',            keys: ['contractors-as-managers','contractor-custom-fields-v2','contract-type-display','casual-conversion','notice-periods-all','independent-contractor-work-types'] },
     { label: 'Payroll',               keys: ['contractor-codes','employee-contractor-codes'] },
     { label: 'Learning',              keys: ['learning-contractors','go1-assigned-learning-workflows'] },
   ],
