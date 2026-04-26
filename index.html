@@ -1028,10 +1028,10 @@
     .rbar-fill { height: 100%; border-radius: 99px; transition: width .4s ease; }
     .rbar-count { font-size: .75rem; color: var(--subtle); width: 30px; text-align: right; flex-shrink: 0; }
     /* Trend chart */
-    .trend-chart { display: flex; align-items: flex-end; gap: 6px; height: 120px; }
+    .trend-chart { display: flex; align-items: flex-end; gap: 6px; }
     .trend-col { display: flex; flex-direction: column; align-items: center; gap: 4px; flex: 1; }
-    .trend-bar-wrap { flex: 1; display: flex; align-items: flex-end; width: 100%; }
-    .trend-bar { width: 100%; background: var(--purple); border-radius: 4px 4px 0 0; opacity: .85; min-height: 3px; transition: height .4s ease; position: relative; }
+    .trend-bar-wrap { height: 100px; display: flex; align-items: flex-end; width: 100%; }
+    .trend-bar { width: 100%; background: var(--purple); border-radius: 4px 4px 0 0; opacity: .85; transition: height .4s ease; position: relative; }
     .trend-bar:hover { opacity: 1; }
     .trend-bar[data-tip]:hover::after { content: attr(data-tip); position: absolute; bottom: calc(100% + 4px); left: 50%; transform: translateX(-50%); background: var(--ink); color: var(--white); font-size: .65rem; padding: 3px 7px; border-radius: 4px; white-space: nowrap; pointer-events: none; }
     .trend-month { font-size: .6rem; color: var(--subtle); text-align: center; }
@@ -8290,30 +8290,44 @@ function renderReport() {
   const spanMonths = monthBuckets.length || 1;
   const avgPerMonth = Math.round(total / spanMonths);
   const maxMonth = Math.max(...monthBuckets.map(b => b.count), 1);
-  const trendCols = monthBuckets.map(b => `
+  const trendCols = monthBuckets.map(b => {
+    const barH = b.count === 0 ? 3 : Math.max(4, Math.round(b.count / maxMonth * 100));
+    return `
     <div class="trend-col">
       <div class="trend-bar-wrap">
-        <div class="trend-bar" style="height:${Math.round(b.count/maxMonth*100)}%" data-tip="${b.label}: ${b.count} release${b.count!==1?'s':''}"></div>
+        <div class="trend-bar" style="height:${barH}px" data-tip="${b.label}: ${b.count} release${b.count!==1?'s':''}"></div>
       </div>
       <div class="trend-month">${b.label}</div>
+    </div>`;
+  }).join('');
+
+  // Plan tier breakdown
+  const tierMap = { 'All organisations': 0, 'Plus & Platinum': 0, 'Unlimited': 0, 'Other': 0 };
+  all.forEach(r => {
+    const p = (r.plan || '').toLowerCase();
+    if (p.includes('all org') || p.includes('all plan') || p === 'all organisations') tierMap['All organisations']++;
+    else if (p.includes('unlimited')) tierMap['Unlimited']++;
+    else if (p.includes('plus') || p.includes('platinum')) tierMap['Plus & Platinum']++;
+    else tierMap['Other']++;
+  });
+  const tierColors = { 'All organisations': '#16a34a', 'Plus & Platinum': 'var(--purple)', 'Unlimited': '#0891b2', 'Other': 'var(--amber)' };
+  const tierRows = Object.entries(tierMap).map(([label, n]) => `
+    <div class="region-row">
+      <div class="region-pill" style="background:${tierColors[label]}20;color:${tierColors[label]}">${n}</div>
+      <div class="region-label">${label}</div>
+      <div class="region-pct">${Math.round(n/total*100)}%</div>
     </div>`).join('');
 
-  // By region
-  const regionMap = {};
-  all.forEach(r => {
-    let region = r.region || 'Unknown';
-    region = region.replace(/^[\u{1F1E0}-\u{1F1FF}\u{1F300}-\u{1F9FF}🌏🌐🇦🇺🇬🇧🇨🇦🇸🇬🇳🇿]\s*/u, '').trim();
-    if (region.includes('Global')) region = 'Global';
-    else if (region.includes('Australia') && region.includes('NZ')) region = 'AU · NZ';
-    else if (region.includes('Australia')) region = 'Australia';
-    else if (region.includes('NZ')) region = 'New Zealand';
-    else if (region.length > 25) region = region.slice(0,25) + '…';
-    regionMap[region] = (regionMap[region] || 0) + 1;
-  });
-  const regionSorted = Object.entries(regionMap).sort(([,a],[,b]) => b - a).slice(0, 8);
-  const regionRows = regionSorted.map(([label, n]) => `
+  // Video walkthrough coverage
+  const withLoom = all.filter(r => r.loomUrl && r.loomUrl.trim()).length;
+  const withoutLoom = total - withLoom;
+  const loomPct = Math.round(withLoom / total * 100);
+  const loomRows = [
+    { label: 'With video walkthrough', n: withLoom, color: 'var(--purple)' },
+    { label: 'Without video walkthrough', n: withoutLoom, color: 'var(--border)' },
+  ].map(({ label, n, color }) => `
     <div class="region-row">
-      <div class="region-pill">${n}</div>
+      <div class="region-pill" style="background:${color === 'var(--border)' ? 'var(--chip-bg)' : 'var(--fog)'};color:${color === 'var(--border)' ? 'var(--subtle)' : 'var(--purple)'}">${n}</div>
       <div class="region-label">${label}</div>
       <div class="region-pct">${Math.round(n/total*100)}%</div>
     </div>`).join('');
@@ -8365,13 +8379,18 @@ function renderReport() {
 
       <div class="report-two-col">
         <div class="report-section">
-          <div class="report-section-title">Releases by region</div>
-          <div class="report-panel">${regionRows}</div>
+          <div class="report-section-title">Plan tier coverage</div>
+          <div class="report-panel">${tierRows}</div>
         </div>
         <div class="report-section">
-          <div class="report-section-title">Busiest months</div>
-          <div class="report-panel">${topMonthRows}</div>
+          <div class="report-section-title">Video walkthrough coverage</div>
+          <div class="report-panel">${loomRows}</div>
         </div>
+      </div>
+
+      <div class="report-section">
+        <div class="report-section-title">Busiest months</div>
+        ${topMonthRows}
       </div>
     </div>`;
 }
