@@ -8921,6 +8921,8 @@ function doSearch(val) {
   resultsWrap.style.display = 'block';
   searchPageActive = true;
   const _mc = document.querySelector('.main-content'); if (_mc) _mc.scrollTop = 0;
+  const searchInput = document.getElementById('nav-search-input');
+  if (searchInput) searchInput.value = '';
 }
 
 function clearNavSearch() {
