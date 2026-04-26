@@ -6105,6 +6105,279 @@ const releases = {
     ],
     audience: 'Partners building HR system integrations for clients where IT involvement in credential management is a blocker.',
     loomUrl: ''
+  },
+
+  'performance-360-review-extension': {
+    title: 'Extend Completed 360 Reviews',
+    tag: '📈 Performance', tagClass: 'tag-performance',
+    date: '10 March 2026', plan: 'Employment Plus · Platinum · Unlimited · Elite (360 Review access)', region: '🌏 Global', users: 'HR Admins',
+    problem: 'Completed 360 reviews with a past due date could not be edited or extended, leaving teams unable to add responses after the deadline passed.',
+    features: [
+      'The Edit Detail button is now accessible on Completed 360 Reviews',
+      'Admins can update the title, description, and due date of a completed review',
+      'Extending the due date into the future reverts the review from Completed back to In Progress',
+      'Employees and reviewers can update or add responses once the review is back In Progress',
+    ],
+    audience: 'Partners whose clients run 360 review cycles and occasionally need to extend deadlines after the review has closed.',
+    loomUrl: 'https://www.loom.com/share/eb802f6a12d34247ae0b323c83776906'
+  },
+
+  'recruitment-zinc-check-statuses': {
+    title: 'Zinc Background Checks — Individual Check Statuses',
+    tag: '🎯 Recruitment', tagClass: 'tag-recruitment',
+    date: '09 March 2026', plan: 'Organisations with Zinc background check access', region: '🌏 Global', users: 'Recruiters · HR Admins',
+    problem: 'Users could not see the status of each individual check within a Zinc check package without opening the full report — making it hard to spot which specific check needed review.',
+    features: [
+      'Individual check statuses now displayed within a check package when it is completed or flagged for review',
+      'Each check shows a clear "clear" or "consider" status',
+      'No need to open the full report to identify which check requires attention',
+    ],
+    audience: 'Partners whose clients use Zinc for pre-employment background screening and need quick status visibility in the recruitment pipeline.',
+    loomUrl: ''
+  },
+
+  'recruitment-reference-check-friction': {
+    title: 'Reference Checks: Reduced Friction for Referees',
+    tag: '🎯 Recruitment', tagClass: 'tag-recruitment',
+    date: '09 March 2026', plan: 'All organisations', region: '🌏 Global', users: 'Recruiters · Referees',
+    problem: 'When reference questionnaire links expired, both the referee and candidate had to follow up with the recruiter to get a new link — creating unnecessary friction and delays.',
+    features: [
+      'Questionnaire links expire after 7 days, consistent with platform standards',
+      'Referees who open an expired link can request a new one with a single click — no recruiter involvement needed',
+      'Error states now show specific human-readable messages: invalid links prompt contact with recruiter; already-submitted links confirm the response was received',
+    ],
+    audience: 'Partners whose clients rely on structured reference checks and want to reduce drop-off and recruiter overhead during the process.',
+    loomUrl: 'https://www.loom.com/share/e67ffecf0ca0448294871753321bc030'
+  },
+
+  'security-permissions-terminology': {
+    title: 'Permissions Module Terminology Consistency',
+    tag: '🔒 Security', tagClass: 'tag-security',
+    date: '06 March 2026', plan: 'All organisations', region: '🌏 Global', users: 'HR Admins',
+    problem: 'Administrators saw two different names for the same feature — "Permissions" in the settings menu and "Custom Security Settings" throughout the rest of the module — creating navigation confusion.',
+    features: [
+      'Standardised terminology across the entire Permissions module',
+      'Consistent naming applied to navigation menus, breadcrumbs, page titles, headers, form labels, help text, tooltips, and success/error messages',
+    ],
+    audience: 'Partners onboarding clients to permissions management who want a clear, consistent experience without confusing naming discrepancies.',
+    loomUrl: ''
+  },
+
+  'learning-email-notification-controls': {
+    title: 'Learning Email Notification Controls for HR Admins',
+    tag: '📚 Learning', tagClass: 'tag-learning',
+    date: '06 March 2026', plan: 'Organisations with LMS access', region: '🌏 Global', users: 'HR Admins',
+    problem: 'HR Admins had no visibility or control over which learning-related emails were being sent to employees, and no way to toggle them on or off.',
+    features: [
+      'New Learning section in Organisation Emails (Development > Learning) surfaces all learning notification emails',
+      'HR Admins can see what each email does, when it is sent, and toggle delivery on or off at the organisation level',
+      'Two new toggles added: reminder for newly assigned courses, and monthly course summary email',
+      'Email previews supported for all learning notification toggles so admins can review content before managing delivery',
+    ],
+    audience: 'Partners managing LMS rollouts for clients who want control over employee communication cadence around learning assignments.',
+    loomUrl: ''
+  },
+
+  'recognition-report-csv-uplift': {
+    title: 'Recognition Report CSV Export — Account Email Column',
+    tag: '🧑‍💼 HR', tagClass: 'tag-hr',
+    date: '04 March 2026', plan: 'Organisations with Recognition feature access', region: '🌏 Global', users: 'HR Admins',
+    problem: 'The Recognition CSV export only included preferred first and last name — not a unique identifier — making it difficult to accurately match employee records across reports.',
+    features: [
+      'New "Account Email" column added to the Recognition CSV export',
+      'Provides a reliable unique identifier for matching employee records across data sets',
+    ],
+    audience: 'Partners whose clients run recognition programmes and use data exports for reporting or payroll reconciliation.',
+    loomUrl: ''
+  },
+
+  'performance-goals-visibility-default': {
+    title: 'Goals: Improved Default Visibility Settings',
+    tag: '📈 Performance', tagClass: 'tag-performance',
+    date: '04 March 2026', plan: 'Organisations with Goals feature access', region: '🌏 Global', users: 'HR Admins · Employees',
+    problem: 'The default "Visible to" setting when creating goals was set to Everyone, leading to unintended visibility when users skipped updating the field.',
+    features: [
+      'Individual goals now default to Participants (owner, collaborators, and their managers)',
+      'Group goals now default to Teams (all participants and assigned teams)',
+      'Reduces accidental oversharing while still being appropriate for typical goal use cases',
+    ],
+    audience: 'Partners whose clients use OKRs or goals features and want privacy-safe defaults without requiring manual configuration on every goal.',
+    loomUrl: 'https://www.loom.com/share/658121449cd7438c8ae2eb26534550f6'
+  },
+
+  'hr-custom-work-hours-standard': {
+    title: 'Custom Work Hours Available on Legacy Standard Plan',
+    tag: '🧑‍💼 HR', tagClass: 'tag-hr',
+    date: '06 March 2026', plan: 'Legacy Standard plan', region: '🌏 Global', users: 'HR Admins',
+    problem: 'Custom work hours was only available on Premium and above, creating a disconnect for clients who used custom work hours in Payroll but could not access the same configuration in HR without upgrading.',
+    features: [
+      'Custom Work Hours feature is now available to Legacy Standard tier HR clients',
+      'Eliminates the plan-tier disconnect between Payroll and HR configuration for affected organisations',
+    ],
+    audience: 'Partners managing clients on Legacy Standard HR plans who also use payroll features requiring custom work hours.',
+    loomUrl: ''
+  },
+
+  'recruitment-talent-search-experience': {
+    title: 'Enhanced Talent Search: Experience Level Filtering',
+    tag: '🎯 Recruitment', tagClass: 'tag-recruitment',
+    date: '05 March 2026', plan: 'All organisations', region: '🌏 Global', users: 'Recruiters · HR Admins',
+    problem: 'Experience was treated as a low-impact keyword in talent search, so candidates with more experience than requested (e.g. 4 years for a 3-year search) were frequently missed.',
+    features: [
+      'Experience input now functions as a "greater than or equal to" logical filter rather than a keyword',
+      'Candidates who meet or exceed the requested experience level are correctly included in results',
+      'Moves away from rigid text-matching to inclusive seniority-based filtering',
+    ],
+    audience: 'Partners whose clients use the Find Talent feature and want more reliable experience-based candidate matching.',
+    loomUrl: ''
+  },
+
+  'recruitment-context-aware-auth': {
+    title: 'Context-Aware Authentication Messaging for Job Seekers',
+    tag: '🎯 Recruitment', tagClass: 'tag-recruitment',
+    date: '04 March 2026', plan: 'All organisations', region: '🌏 Global', users: 'Job Seekers',
+    problem: 'All job seekers saw identical "Log in or sign up" messaging regardless of their intent — whether applying, accepting an offer, or saving a listing — causing confusion at key moments.',
+    features: [
+      'Dynamic headlines and subtitles now provide immediate context based on what the job seeker is doing',
+      '12 distinct entry points mapped to specific, intent-driven messaging',
+      'Context-specific value propositions highlighted: application tracking, saved jobs, auto-fill forms, personalised recommendations',
+    ],
+    audience: 'Partners with clients posting on the Employment Hero job board who want improved candidate conversion at authentication touchpoints.',
+    loomUrl: ''
+  },
+
+  'recruitment-linkedin-profile-import': {
+    title: 'LinkedIn Profile Import for Candidates',
+    tag: '🎯 Recruitment', tagClass: 'tag-recruitment',
+    date: '04 March 2026', plan: 'All organisations', region: '🌏 Global', users: 'Job Seekers',
+    problem: 'Manual data entry and lack of a ready-to-use CV caused significant friction for job seekers during the initial profile setup on Employment Hero.',
+    features: [
+      '"Import from LinkedIn" button added to the candidate portal',
+      'Step-by-step guide walks candidates through saving their LinkedIn profile as a PDF',
+      'Existing ATS parsing automatically extracts professional history from the uploaded LinkedIn PDF',
+      'Reduces manual entry and time-to-apply for candidates',
+    ],
+    audience: 'Partners whose clients want to increase apply rates by reducing candidate friction at the start of the application process.',
+    loomUrl: ''
+  },
+
+  'recruitment-job-report-enhancement': {
+    title: 'Job Report Enhancement for Job Seekers',
+    tag: '🎯 Recruitment', tagClass: 'tag-recruitment',
+    date: '04 March 2026', plan: 'All organisations', region: '🌏 Global', users: 'Job Seekers',
+    problem: 'The "Report this job" action triggered an immediate submission without a confirmation step, leading to accidental reports and providing no context for the internal team to act on.',
+    features: [
+      'Mandatory confirmation modal prevents accidental job report submissions',
+      'Reason codes and comments field added so job seekers can describe the specific issue',
+      'Optional email field for follow-up contact',
+      'Enhanced Mixpanel event tracking captures detailed report data for analysis and actioning',
+    ],
+    audience: 'Partners whose clients post jobs on the Employment Hero job board and want reliable fraud/quality signals from job seeker reporting.',
+    loomUrl: ''
+  },
+
+  'recruitment-job-editor-rich-text': {
+    title: 'Job Editor Rich-Text Formatting Improvements',
+    tag: '🎯 Recruitment', tagClass: 'tag-recruitment',
+    date: '05 March 2026', plan: 'All organisations', region: '🌏 Global', users: 'Recruiters · HR Admins',
+    problem: 'Formatting was stripped when pasting job descriptions from Google Docs, Word, LinkedIn, or SEEK into the Employment Hero job editor, forcing recruiters to manually reformat every time.',
+    features: [
+      'Smart paste from any online source preserves bold, italic, underline, bullet lists, numbered lists, and headings — background colours and fonts are auto-stripped',
+      'Clean paste from Microsoft Word removes symbols and broken layouts while keeping readable formatting',
+      'Keyboard shortcuts now work in the editor: Ctrl/Cmd+B, I, U for formatting; Ctrl/Cmd+Z for undo including paste undo',
+    ],
+    audience: 'Partners whose clients hire frequently and paste job descriptions from existing documents or other job boards.',
+    loomUrl: 'https://www.loom.com/share/defdf341f4274222a7c670c5f7f84b8b'
+  },
+
+  'security-asset-register-email-column': {
+    title: 'Asset Register — Assignee Company Email Column',
+    tag: '🔒 Security', tagClass: 'tag-security',
+    date: '04 March 2026', plan: 'All organisations with asset register access', region: '🌏 Global', users: 'HR Admins',
+    problem: 'The asset register did not show employee company emails, forcing admins to jump between the register and individual profiles to find contact details during audits.',
+    features: [
+      'New "Assignee Company Email" column added directly to the asset register table',
+      'Company email included in CSV exports for streamlined auditing',
+      'Field remains empty if an employee does not have a company email set up',
+    ],
+    audience: 'Partners managing clients with asset-heavy workforces who conduct regular equipment audits or follow-up contact.',
+    loomUrl: ''
+  },
+
+  'payroll-award-preserve-customisation': {
+    title: 'Preserve Custom Settings When Installing Award Updates',
+    tag: '💰 Payroll', tagClass: 'tag-payroll',
+    date: '05 March 2026', plan: 'AU Payroll Plus · Premium (organisations with Awards)', region: '🇦🇺 Australia', users: 'Payroll Admins',
+    problem: 'Installing an Award update reset customised Employment Agreement settings and custom pay rates to defaults, forcing admins to manually re-apply all customisations after every update.',
+    features: [
+      'New "Preserve custom employment agreements" option appears during Award update installation when customised EA settings are detected',
+      'New "Preserve Custom Pay Rates" option appears when custom pay rates exist on Pay Rate Templates',
+      'Custom pay categories added to business PRTs remain active after Award updates',
+      'Award pay rates that were overridden stay unchanged when the preserve option is selected',
+    ],
+    audience: 'Partners managing AU payroll clients with heavily customised Awards where update resets were causing significant remediation work.',
+    loomUrl: ''
+  },
+
+  'security-asset-management-filter': {
+    title: 'Asset Management Filter in Employee File',
+    tag: '🔒 Security', tagClass: 'tag-security',
+    date: '04 March 2026', plan: 'All organisations with asset register access', region: '🌏 Global', users: 'HR Admins',
+    problem: 'The Asset Management tile in employee files displayed all assets ever assigned — including returned items — making it hard to see what equipment an employee currently holds.',
+    features: [
+      'Asset Management tile now shows only current assets by default',
+      '"Show all assets" checkbox lets users view historical and returned items when needed',
+      'Category and Disposal Reason columns added so full asset context is visible at a glance',
+      'Non-current assets display assigned and returned dates for clear historical tracking',
+    ],
+    audience: 'Partners whose clients manage equipment allocation and need clean, current-state visibility in employee files without past asset clutter.',
+    loomUrl: ''
+  },
+
+  'hr-document-editor-optional-block': {
+    title: 'Document Editor: Optional Block Redesign',
+    tag: '🧑‍💼 HR', tagClass: 'tag-hr',
+    date: '02 March 2026', plan: 'All organisations (new document editor)', region: '🌏 Global', users: 'HR Admins',
+    problem: 'The clause creation experience in the document editor was confusing — users were unclear about the difference between optional and grouped clause behaviour, leading to incorrect template setup.',
+    features: [
+      'Redesigned clause creation experience that clearly communicates what kind of clause is being created',
+      'Simplified optional vs grouped behaviour removes ambiguity',
+      'Reduced cognitive load when configuring clauses',
+      'Fewer opportunities for incorrect clause setup and improved confidence building document templates',
+      'Available to organisations on the new document editor (organisations created after 19 Dec 2025; AU new orgs from mid-March 2026)',
+    ],
+    audience: 'Partners onboarding new clients who use the document template builder and want to ensure clean, correctly structured employment contracts from day one.',
+    loomUrl: 'https://www.loom.com/share/d12bded16bb9443a9249be52c608da25'
+  },
+
+  'automation-reports-dashboard-csv': {
+    title: 'Reports Dashboard: Inline CSV Export',
+    tag: '⚙️ Automations', tagClass: 'tag-automation',
+    date: '03 March 2026', plan: 'All organisations', region: '🌏 Global', users: 'HR Admins · Payroll Admins',
+    problem: 'Exporting multiple reports required entering and exiting each report individually — repetitive navigation that added 50+ seconds per session for users exporting 5 or more reports.',
+    features: [
+      'Three-dot action menu on every report card allows "Export as CSV" directly from the Reports dashboard',
+      'No need to open the report first — zero context switching between exports',
+      'Default view parameters used for instant downloads',
+      'Hover tooltip labels make the export action easily discoverable',
+    ],
+    audience: 'Partners whose clients run regular reporting cycles — payroll reconciliation, headcount, compliance — and want to reduce the time spent navigating between reports.',
+    loomUrl: ''
+  },
+
+  'go1-assigned-learning-workflows': {
+    title: 'Go1: Assign Learning via Workflows',
+    tag: '📚 Learning', tagClass: 'tag-learning',
+    date: '04 March 2026', plan: 'Mid-market organisations with Go1 and Workflows access', region: '🌏 Global', users: 'HR Admins',
+    problem: 'There was no way to automatically assign Go1 learning courses based on organisational attributes or events — learning assignment was entirely manual.',
+    features: [
+      'New "Assign Learning" workflow action available across all workflow categories',
+      'New "Assign Learning to New Hires" workflow template under Onboarding automatically assigns courses on an employee\'s start date',
+      'Choose specific Go1 courses from the active library when configuring the action',
+      'Assigned courses appear automatically in the employee\'s EH My Learning and connected Go1 account',
+    ],
+    audience: 'Partners with mid-market clients using Go1 who want to automate compliance or onboarding training assignment without manual intervention.',
+    loomUrl: 'https://www.loom.com/share/73b201dca4484ffe8f84ad4071e395c5'
   }
 };
 
@@ -6596,23 +6869,23 @@ const areaSubTabs = {
     { label: 'All HR',                  keys: null },
     { label: 'Employment Details',       keys: ['employment-details','contract-type','casual-conversion','contractors-as-managers','offer-multiple-signatories','offer-letter-reminders','legal-name-privacy','contractor-custom-fields-v2','vacant-positions-perms','employee-permissions-view','mandatory-fields-settings','wp-employee-profile','probation-end-date','contract-type-display','notice-periods-all','employee-contractor-codes','granular-employee-deletion-permissions'] },
     { label: 'Leave',                    keys: ['leave-time-precise','leave-cancel-termination','leave-calendar-filters','compliance-leave-filter','leave-overlap-prevention','leave-employee-disambiguation','public-holiday-indicator','leave-compliance-edit','leave-table-uplift','leave-table-standardize','public-holiday-auto','partially-approved-leave-status','zero-unit-leave-validation','leave-taken-report-extended-filters','leave-calendar-save-filters','leave-precise-time-requests'] },
-    { label: 'Documents & Policies',     keys: ['doc-notifications','compliance-doc-tagging','compliance-doc-purpose','uk-policy-owner','uk-passport-visa-expiry','doc-template-visa-vars','doc-multiple-signatories','doc-image-upload','policy-due-dates','doc-editor-new','email-notifications-ui','email-notifs-docs','email-notifs-leave','cert-due-dates','cert-notification-improvements','probation-report','doc-template-variable-library','bulk-issue-documents','streamline-policy-acknowledgement','compliance-document-descriptions','compliance-document-tagging','compliance-reports-on-leave-filter'] },
-    { label: 'Platform & Engagement',    keys: ['positions-colour','settings-uplift','company-feed','eh-chat','banking-audit-trail','multi-owner-tasks','audit-trail-onboarding','compliance-report-filters','people-report-permissions','eh-work-mobile-public','manager-reassignment','multi-currency-expenses','bpay-aiop','personal-email-settings-ui-refresh','standardising-expense-management-ui','export-requisitions-onboarding-approvals','independent-contractor-work-types','onboarding-offboarding-multi-owner-tasks','audit-report-onboarding-pay-details','heroforce-onboarding-ctas','chat-addon-client-launch','hr-casual-conversion-precheck'] },
+    { label: 'Documents & Policies',     keys: ['doc-notifications','compliance-doc-tagging','compliance-doc-purpose','uk-policy-owner','uk-passport-visa-expiry','doc-template-visa-vars','doc-multiple-signatories','doc-image-upload','policy-due-dates','doc-editor-new','email-notifications-ui','email-notifs-docs','email-notifs-leave','cert-due-dates','cert-notification-improvements','probation-report','doc-template-variable-library','bulk-issue-documents','streamline-policy-acknowledgement','compliance-document-descriptions','compliance-document-tagging','compliance-reports-on-leave-filter','hr-document-editor-optional-block'] },
+    { label: 'Platform & Engagement',    keys: ['positions-colour','settings-uplift','company-feed','eh-chat','banking-audit-trail','multi-owner-tasks','audit-trail-onboarding','compliance-report-filters','people-report-permissions','eh-work-mobile-public','manager-reassignment','multi-currency-expenses','bpay-aiop','personal-email-settings-ui-refresh','standardising-expense-management-ui','export-requisitions-onboarding-approvals','independent-contractor-work-types','onboarding-offboarding-multi-owner-tasks','audit-report-onboarding-pay-details','heroforce-onboarding-ctas','chat-addon-client-launch','hr-casual-conversion-precheck','recognition-report-csv-uplift','hr-custom-work-hours-standard'] },
   ],
   payroll: [
     { label: 'All Payroll', keys: null },
     { label: 'Global',      keys: ['inactive-users','heroclear-approvals','payrun-deduction-filter','roster-timesheet-report-mar','pay-condition-api','payroll-hide-inactive-deductions'] },
-    { label: 'Australia',   keys: ['contractor-codes','split-earnings-apac','au-pay-rate-template','heroclear-payment-rails','pay-rate-webhook','super-auto-import','heroclear-payment-approvals'] },
+    { label: 'Australia',   keys: ['contractor-codes','split-earnings-apac','au-pay-rate-template','heroclear-payment-rails','pay-rate-webhook','super-auto-import','heroclear-payment-approvals','payroll-award-preserve-customisation'] },
     { label: 'New Zealand', keys: ['nz-payroll-unpaid-leave','nz-esct-report'] },
     { label: 'UK',          keys: [] },
     { label: 'Canada',      keys: [] },
   ],
   recruitment: [
     { label: 'All Recruitment',      keys: null },
-    { label: 'ATS & Integrations',   keys: ['indeed','career-page-widget','ats-assessments-codility','talent-search-refine','talent-saved-candidates','ats-advanced-filtering','indeed-direct','ats-applicant-mgmt','talent-search-ats','recruitment-career-page-widget'] },
-    { label: 'Jobseeker Experience', keys: ['jobseeker-flow','hero-foundation','job-board-emails','external-app-confirmation-email','marketing-signup','eoi-jobs','smartmatch-ondemand','talent-digest-email','eh-jobs-microsoft-sso','recruitment-external-application-confirmation','recruitment-ai-job-summaries'] },
-    { label: 'Job Creation',         keys: ['position-templates','offer-benefits','job-posting-improvements','job-posting-nlp','recruitment-position-templates'] },
-    { label: 'Hiring Process',       keys: ['ref-check-fraud','hiring-funnel-report','recruiter-activity-report','eoi-confirmation-email','recruitment-agent-preview','talent-job-search','requisition-conditional-approvals','recruitment-reference-fraud','recruitment-hiring-process-ui-ai-agent','recruitment-hiring-criteria'] },
+    { label: 'ATS & Integrations',   keys: ['indeed','career-page-widget','ats-assessments-codility','talent-search-refine','talent-saved-candidates','ats-advanced-filtering','indeed-direct','ats-applicant-mgmt','talent-search-ats','recruitment-career-page-widget','recruitment-talent-search-experience','recruitment-zinc-check-statuses'] },
+    { label: 'Jobseeker Experience', keys: ['jobseeker-flow','hero-foundation','job-board-emails','external-app-confirmation-email','marketing-signup','eoi-jobs','smartmatch-ondemand','talent-digest-email','eh-jobs-microsoft-sso','recruitment-external-application-confirmation','recruitment-ai-job-summaries','recruitment-context-aware-auth','recruitment-linkedin-profile-import','recruitment-job-report-enhancement'] },
+    { label: 'Job Creation',         keys: ['position-templates','offer-benefits','job-posting-improvements','job-posting-nlp','recruitment-position-templates','recruitment-job-editor-rich-text'] },
+    { label: 'Hiring Process',       keys: ['ref-check-fraud','hiring-funnel-report','recruiter-activity-report','eoi-confirmation-email','recruitment-agent-preview','talent-job-search','requisition-conditional-approvals','recruitment-reference-fraud','recruitment-hiring-process-ui-ai-agent','recruitment-hiring-criteria','recruitment-reference-check-friction'] },
     { label: 'Recruitment Reports',  keys: ['recruitment-candidate-source-conversion','recruitment-disqualification-withdrawal','recruitment-time-to-hire-uplift'] },
   ],
   time: [
@@ -6626,14 +6899,14 @@ const areaSubTabs = {
     { label: '2FA & Auth',            keys: ['2fa','recovery-codes','2fa-mobile','mandatory-2fa-forgot-pw','org-2fa-device-memory','forgot-pw-company-email','payroll-2fa-multi','payroll-login-refresh','eh-jobs-microsoft-sso','security-recovery-codes-mobile','security-mandatory-2fa-mobile'] },
     { label: 'Account Recovery',      keys: ['acct-recovery'] },
     { label: 'Threat Detection',      keys: ['breached-pw','threat-hunting','email-security','app-block','sso-cert-expiry-notifs'] },
-    { label: 'IT & Integrations',     keys: ['asset-register-custom-fields','m365-reporting-sync','mdm-jamf-intune','custom-webhook-headers','public-holiday-css','sso-dual-cert','sso-css-permission','jobs-unified-auth','openapi-certificates-webhooks-worktypes','employer-initiated-email-update','user-security-overview-enhancements','asset-register-csv-bulk-reassignment','openapi-permissions-alignment'] },
-    { label: 'Permissions',           keys: ['granular-employee-deletion-permissions'] },
+    { label: 'IT & Integrations',     keys: ['asset-register-custom-fields','m365-reporting-sync','mdm-jamf-intune','custom-webhook-headers','public-holiday-css','sso-dual-cert','sso-css-permission','jobs-unified-auth','openapi-certificates-webhooks-worktypes','employer-initiated-email-update','user-security-overview-enhancements','asset-register-csv-bulk-reassignment','openapi-permissions-alignment','security-asset-register-email-column','security-asset-management-filter'] },
+    { label: 'Permissions',           keys: ['granular-employee-deletion-permissions','security-permissions-terminology'] },
   ],
   automation: [
     { label: 'All Automations',  keys: null },
     { label: 'Custom Forms',     keys: ['custom-forms-mobile','custom-forms-submissions','forms-bulk-delete','forms-approval-audit','forms-question-reorder','forms-assignment-status','proxy-form-submissions','forms-multi-layer-approvals','custom-forms-new-fields','forms-employee-file','forms-assign','forms-create-task','multi-level-duplicate-reviewer-approval','forms-conditional-logic','forms-checkbox-signature-fields','forms-edit-recipients-active','forms-bulk-delete-responses','forms-approval-csv-export','forms-approval-info-employee-file','forms-approval-history-view'] },
     { label: 'Workflows',        keys: ['workflow-triggers-personal','workflow-api-action','is-admin-reports','workflow-simplified-edit','workflow-survey-action','workflow-email-uplift','workflow-templates-hub3','compliance-workflow-cert-action','compliance-workflow-policy-s1','workflow-docs','workflow-induction','workflow-efc-dynamic-approvers','unified-basic-view-rollout','automated-assign-expense-policy','automations-personal-detail-triggers'] },
-    { label: 'Custom Reports',   keys: ['leave-reports-byor','custom-reports-my-reports','termination-fields-report','salary-custom-reports','wgea-workforce-reports','reports-saved-filters','wgea-workplace-report','custom-report-ownership-transfer','duplicate-custom-reports','is-manager-field-accuracy-byor','reports-is-admin-field'] },
+    { label: 'Custom Reports',   keys: ['leave-reports-byor','custom-reports-my-reports','termination-fields-report','salary-custom-reports','wgea-workforce-reports','reports-saved-filters','wgea-workplace-report','custom-report-ownership-transfer','duplicate-custom-reports','is-manager-field-accuracy-byor','reports-is-admin-field','automation-reports-dashboard-csv'] },
   ],
   benefits: [
     { label: 'All Benefits',   keys: null },
@@ -6643,10 +6916,11 @@ const areaSubTabs = {
   ],
   learning: [
     { label: 'All Learning',    keys: null },
-    { label: 'Go1',             keys: ['go1','go1-learning-admin-perms','go1-assigned-learning-report','go1-auto-assign-eh-content'] },
+    { label: 'Go1',             keys: ['go1','go1-learning-admin-perms','go1-assigned-learning-report','go1-auto-assign-eh-content','go1-assigned-learning-workflows'] },
     { label: 'Learning Reports',keys: ['learning-indirect-reports'] },
     { label: 'Access & Permissions', keys: ['learning-contractors'] },
-    { label: 'Workflows',       keys: ['set-due-date-assigned-learning-workflows'] },
+    { label: 'Workflows',       keys: ['set-due-date-assigned-learning-workflows','go1-assigned-learning-workflows'] },
+    { label: 'Notifications',   keys: ['learning-email-notification-controls'] },
   ],
   onboarding: [
     { label: 'All Onboarding', keys: null },
@@ -6659,12 +6933,12 @@ const areaSubTabs = {
     { label: 'All Contractors',       keys: ['contractors-as-managers','contractor-custom-fields-v2','contract-type','contract-type-display','casual-conversion','notice-periods-all','contractor-codes','employee-contractor-codes','learning-contractors','independent-contractor-work-types'] },
     { label: 'Employment',            keys: ['contractors-as-managers','contractor-custom-fields-v2','contract-type','contract-type-display','casual-conversion','notice-periods-all','independent-contractor-work-types'] },
     { label: 'Payroll',               keys: ['contractor-codes','employee-contractor-codes'] },
-    { label: 'Learning',              keys: ['learning-contractors'] },
+    { label: 'Learning',              keys: ['learning-contractors','go1-assigned-learning-workflows'] },
   ],
   performance: [
     { label: 'All Performance', keys: null },
-    { label: 'Goals',           keys: ['goals-bulk-archive','goals-clone','goals-detailed-report','performance-goals-bulk-archive','performance-goals-clone-bulk-issue'] },
-    { label: 'Reviews',         keys: ['performance-review-questions','review-question-roles','review-visibility-controls','happiness-survey-export','performance-reviews-uplift','360-custom-permissions','performance-review-ftu-templates','perf-review-start-date-visibility','performance-consolidate-notifications','performance-reorder-questions','performance-continuous-review-lockout'] },
+    { label: 'Goals',           keys: ['goals-bulk-archive','goals-clone','goals-detailed-report','performance-goals-bulk-archive','performance-goals-clone-bulk-issue','performance-goals-visibility-default'] },
+    { label: 'Reviews',         keys: ['performance-review-questions','review-question-roles','review-visibility-controls','happiness-survey-export','performance-reviews-uplift','360-custom-permissions','performance-review-ftu-templates','perf-review-start-date-visibility','performance-consolidate-notifications','performance-reorder-questions','performance-continuous-review-lockout','performance-360-review-extension'] },
     { label: '1:1s',            keys: ['1on1-session-controls'] },
     { label: 'Disciplinary',    keys: [] },
     { label: '9-Box Grid',      keys: ['9box-talent-grid','performance-9box-banner-accuracy'] },
