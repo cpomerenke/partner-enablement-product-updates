@@ -5031,60 +5031,6 @@ function applyFilter() {
   updateMonthCounts();
 }
 
-/* Hot off the press — date range label + dynamically populated chips */
-(function populateHotOffThePress() {
-  const el    = document.getElementById('ntw-daterange');
-  const chips = document.getElementById('ntw-chips');
-  if (!el || !chips) return;
-
-  // Current week Mon–Sun
-  const now = new Date();
-  const day = now.getDay();
-  const diffToMon = (day === 0) ? -6 : 1 - day;
-  const mon = new Date(now); mon.setDate(now.getDate() + diffToMon);
-  const sun = new Date(mon); sun.setDate(mon.getDate() + 6);
-
-  // Date-range label
-  const fmt = (d, showYear) => d.toLocaleDateString('en-AU', {
-    day: 'numeric', month: 'short', ...(showYear ? { year: 'numeric' } : {})
-  });
-  const sameMonth = mon.getMonth() === sun.getMonth();
-  el.textContent = sameMonth
-    ? `${mon.getDate()} – ${fmt(sun, true)}`
-    : `${fmt(mon)} – ${fmt(sun, true)}`;
-
-  // Convert a Date to YYYYMMDD integer for comparison
-  const toNum = d => d.getFullYear() * 10000 + (d.getMonth() + 1) * 100 + d.getDate();
-  const monNum = toNum(mon);
-  const sunNum = toNum(sun);
-
-  const dotColors = {
-    'tag-heroai':      'var(--purple)',
-    'tag-hr':          'var(--cyan)',
-    'tag-payroll':     '#ef4444',
-    'tag-recruitment': 'var(--violet)',
-    'tag-automation':  'var(--purple)',
-    'tag-time':        'var(--amber)',
-    'tag-security':    '#f59e0b',
-    'tag-benefits':    '#0891b2',
-    'tag-learning':    '#ec4899',
-    'tag-onboarding':  '#16a34a',
-    'tag-performance': '#8b5cf6'
-  };
-
-  const thisWeek = Object.entries(releases)
-    .filter(([, r]) => { const n = parseDateStr(r.date); return n >= monNum && n <= sunNum; })
-    .sort(([, a], [, b]) => parseDateStr(b.date) - parseDateStr(a.date));
-
-  chips.innerHTML = thisWeek.length
-    ? thisWeek.map(([key, r]) =>
-        `<div class="ntw-chip" onclick="openModal('${key}')">` +
-        `<span class="dot" style="background:${dotColors[r.tagClass] || 'var(--purple)'}"></span>` +
-        `${r.title}</div>`
-      ).join('')
-    : `<span style="color:var(--muted);font-size:.8rem">No releases this week yet.</span>`;
-})();
-
 /* Month-grouped sort — inserts headings and sorts newest → oldest */
 const MONTH_MAP = {
   january:1,february:2,march:3,april:4,may:5,june:6,
@@ -5116,6 +5062,57 @@ function parseDateStr(dateStr) {
   if (m2) return parseInt(m2[2]) * 10000 + (MONTH_MAP[m2[1]] || 0) * 100 + 1;
   return 0;
 }
+
+/* Hot off the press — date range label + dynamically populated chips */
+(function populateHotOffThePress() {
+  const el    = document.getElementById('ntw-daterange');
+  const chips = document.getElementById('ntw-chips');
+  if (!el || !chips) return;
+
+  const now = new Date();
+  const day = now.getDay();
+  const diffToMon = (day === 0) ? -6 : 1 - day;
+  const mon = new Date(now); mon.setDate(now.getDate() + diffToMon);
+  const sun = new Date(mon); sun.setDate(mon.getDate() + 6);
+
+  const fmt = (d, showYear) => d.toLocaleDateString('en-AU', {
+    day: 'numeric', month: 'short', ...(showYear ? { year: 'numeric' } : {})
+  });
+  const sameMonth = mon.getMonth() === sun.getMonth();
+  el.textContent = sameMonth
+    ? `${mon.getDate()} – ${fmt(sun, true)}`
+    : `${fmt(mon)} – ${fmt(sun, true)}`;
+
+  const toNum = d => d.getFullYear() * 10000 + (d.getMonth() + 1) * 100 + d.getDate();
+  const monNum = toNum(mon);
+  const sunNum = toNum(sun);
+
+  const dotColors = {
+    'tag-heroai':      'var(--purple)',
+    'tag-hr':          'var(--cyan)',
+    'tag-payroll':     '#ef4444',
+    'tag-recruitment': 'var(--violet)',
+    'tag-automation':  'var(--purple)',
+    'tag-time':        'var(--amber)',
+    'tag-security':    '#f59e0b',
+    'tag-benefits':    '#0891b2',
+    'tag-learning':    '#ec4899',
+    'tag-onboarding':  '#16a34a',
+    'tag-performance': '#8b5cf6'
+  };
+
+  const thisWeek = Object.entries(releases)
+    .filter(([, r]) => { const n = parseDateStr(r.date); return n >= monNum && n <= sunNum; })
+    .sort(([, a], [, b]) => parseDateStr(b.date) - parseDateStr(a.date));
+
+  chips.innerHTML = thisWeek.length
+    ? thisWeek.map(([key, r]) =>
+        `<div class="ntw-chip" onclick="openModal('${key}')">` +
+        `<span class="dot" style="background:${dotColors[r.tagClass] || 'var(--purple)'}"></span>` +
+        `${r.title}</div>`
+      ).join('')
+    : `<span style="color:var(--muted);font-size:.8rem">No releases this week yet.</span>`;
+})();
 
 function getMonthKey(card) {
   const n = parseDateNum(card);
