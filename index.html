@@ -4405,6 +4405,37 @@ const releases = {
   },
 
 
+  'gt-portal-hr-docs-report': {
+    title: 'Global Teams Portal: HR Documents Report',
+    tag: '🧑‍💼 HR', tagClass: 'tag-hr',
+    date: '28 November 2025', plan: 'Global Teams (PEO organisations)', region: '🌏 Global', users: 'GT Admins',
+    problem: 'Global Teams Admins had no centralised way to view or export HR documents across all PEO organisations — they had to access each organisation individually, which was time-consuming and inefficient.',
+    features: [
+      'New "Reports & Documents" section in the Global Teams Portal sidebar',
+      'HR Documents Report: view HR document status across all PEO organisations in one place',
+      'Filter by Personnel Type, Employee, Organisation, Document Status, and Employee Status',
+      'CSV export for filtered results',
+      'Scoped to PEO organisations only (non-PEO support coming soon)'
+    ],
+    audience: 'Partners and employers using Employment Hero\'s Global Teams (HeroForce) product. Reduces manual effort when auditing document compliance across multiple entities.',
+    loomUrl: ''
+  },
+
+  'compliance-workflow-policy-s2': {
+    title: 'Compliance Workflows: Policy Triggers & Conditions (Slice 2)',
+    tag: '⚙️ Automations', tagClass: 'tag-automation',
+    date: '20 November 2025', plan: 'Employment Plus · Platinum', region: '🌏 Global', users: 'HR Admins',
+    problem: 'Compliance Workflows lacked the granularity to act on specific policies or to run steps before an employee gets system access — limiting end-to-end policy automation.',
+    features: [
+      'New trigger: "Employee acknowledges a policy" — automate follow-up steps after acknowledgment (e.g. notify HR, create a task)',
+      'New condition: "Policy" — apply workflows only to selected policies (e.g. Code of Conduct, WHS)',
+      'New condition: "Before system access date" — run workflows before or after an employee gains full system access, enabling pre-start compliance requirements',
+      'Unlocks end-to-end policy automation from issue to acknowledgment'
+    ],
+    audience: 'Organisations on Employment Plus or Platinum using Compliance Workflows. Ideal for clients with onboarding compliance requirements that vary by policy type.',
+    loomUrl: 'https://www.loom.com/share/cfa980c16d314e53940c36b5b646bb2e'
+  },
+
   // ── December 2025 ─────────────────────────────────────────────────────────
 
   'heroai-ui-dec25': {
@@ -7542,7 +7573,7 @@ const areaSubTabs = {
     { label: 'All HR',                  keys: null },
     { label: 'Employment Details',       keys: ['employment-details','contract-type','casual-conversion','contractors-as-managers','offer-multiple-signatories','offer-letter-reminders','legal-name-privacy','contractor-custom-fields-v2','vacant-positions-perms','employee-permissions-view','mandatory-fields-settings','wp-employee-profile','probation-end-date','contract-type-display','notice-periods-all','employee-contractor-codes','granular-employee-deletion-permissions','hr-permissions-expansion'] },
     { label: 'Leave',                    keys: ['leave-time-precise','leave-cancel-termination','leave-calendar-filters','compliance-leave-filter','leave-overlap-prevention','leave-employee-disambiguation','public-holiday-indicator','leave-compliance-edit','leave-table-uplift','leave-table-standardize','public-holiday-auto','partially-approved-leave-status','zero-unit-leave-validation','leave-taken-report-extended-filters','leave-calendar-save-filters','leave-precise-time-requests','leave-prevent-delete-approved','leave-calendar-public-holidays'] },
-    { label: 'Documents & Policies',     keys: ['doc-notifications','compliance-doc-tagging','compliance-doc-purpose','uk-policy-owner','uk-passport-visa-expiry','doc-template-visa-vars','doc-multiple-signatories','doc-image-upload','policy-due-dates','doc-editor-new','email-notifications-ui','email-notifs-docs','email-notifs-leave','cert-due-dates','cert-notification-improvements','probation-report','doc-template-variable-library','bulk-issue-documents','streamline-policy-acknowledgement','compliance-document-descriptions','compliance-document-tagging','compliance-reports-on-leave-filter','hr-document-editor-optional-block','email-notifs-org-consistency','gt-bulk-reminders'] },
+    { label: 'Documents & Policies',     keys: ['doc-notifications','compliance-doc-tagging','compliance-doc-purpose','uk-policy-owner','uk-passport-visa-expiry','doc-template-visa-vars','doc-multiple-signatories','doc-image-upload','policy-due-dates','doc-editor-new','email-notifications-ui','email-notifs-docs','email-notifs-leave','cert-due-dates','cert-notification-improvements','probation-report','doc-template-variable-library','bulk-issue-documents','streamline-policy-acknowledgement','compliance-document-descriptions','compliance-document-tagging','compliance-reports-on-leave-filter','hr-document-editor-optional-block','email-notifs-org-consistency','gt-bulk-reminders','gt-portal-hr-docs-report'] },
     { label: 'Platform & Engagement',    keys: ['positions-colour','settings-uplift','company-feed','eh-chat','banking-audit-trail','multi-owner-tasks','audit-trail-onboarding','compliance-report-filters','people-report-permissions','eh-work-mobile-public','manager-reassignment','multi-currency-expenses','bpay-aiop','personal-email-settings-ui-refresh','standardising-expense-management-ui','export-requisitions-onboarding-approvals','independent-contractor-work-types','onboarding-offboarding-multi-owner-tasks','audit-report-onboarding-pay-details','heroforce-onboarding-ctas','chat-addon-client-launch','hr-casual-conversion-precheck','recognition-report-csv-uplift','hr-custom-work-hours-standard','scalable-filters','eh-work-bottom-nav','policy-template-country-default','audit-trail-emergency-contacts','openapi-worksites-departments','expense-policies-allowance','openapi-timesheets-webhook','openapi-partner-docs','eh-work-todo-personal','custom-work-hours-au-uk-hr'] },
   ],
   payroll: [
@@ -7578,7 +7609,7 @@ const areaSubTabs = {
   automation: [
     { label: 'All Automations',  keys: null },
     { label: 'Custom Forms',     keys: ['custom-forms-mobile','custom-forms-submissions','forms-bulk-delete','forms-approval-audit','forms-question-reorder','forms-assignment-status','proxy-form-submissions','forms-multi-layer-approvals','custom-forms-new-fields','forms-employee-file','forms-assign','forms-create-task','multi-level-duplicate-reviewer-approval','forms-conditional-logic','forms-checkbox-signature-fields','forms-edit-recipients-active','forms-bulk-delete-responses','forms-approval-csv-export','forms-approval-info-employee-file','forms-approval-history-view'] },
-    { label: 'Workflows',        keys: ['workflow-triggers-personal','workflow-api-action','is-admin-reports','workflow-simplified-edit','workflow-survey-action','workflow-email-uplift','workflow-templates-hub3','compliance-workflow-cert-action','compliance-workflow-policy-s1','workflow-docs','workflow-induction','workflow-efc-dynamic-approvers','unified-basic-view-rollout','automated-assign-expense-policy','automations-personal-detail-triggers','approval-history-labels'] },
+    { label: 'Workflows',        keys: ['workflow-triggers-personal','workflow-api-action','is-admin-reports','workflow-simplified-edit','workflow-survey-action','workflow-email-uplift','workflow-templates-hub3','compliance-workflow-cert-action','compliance-workflow-policy-s1','compliance-workflow-policy-s2','workflow-docs','workflow-induction','workflow-efc-dynamic-approvers','unified-basic-view-rollout','automated-assign-expense-policy','automations-personal-detail-triggers','approval-history-labels'] },
     { label: 'Custom Reports',   keys: ['leave-reports-byor','custom-reports-my-reports','termination-fields-report','salary-custom-reports','wgea-workforce-reports','reports-saved-filters','wgea-workplace-report','custom-report-ownership-transfer','duplicate-custom-reports','is-manager-field-accuracy-byor','reports-is-admin-field','automation-reports-dashboard-csv','custom-reports-sharing','turnover-report-enhancements'] },
   ],
   benefits: [
