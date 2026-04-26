@@ -1196,16 +1196,7 @@
 <div class="ntw-wrap">
   <div class="ntw-inner">
     <div class="ntw-label">Hot off the press <span class="ntw-daterange" id="ntw-daterange"></span></div>
-    <div class="ntw-chips">
-      <div class="ntw-chip" onclick="openModal('heroai-work-app')"><span class="dot" style="background:var(--purple)"></span>Hero AI Enhancements — EH Work App</div>
-      <div class="ntw-chip" onclick="openModal('ref-check-fraud')"><span class="dot" style="background:var(--violet)"></span>Reference Check Fraud Detection</div>
-      <div class="ntw-chip" onclick="openModal('roster-overtime')"><span class="dot" style="background:var(--amber)"></span>Roster Shift Overtime Indicator</div>
-      <div class="ntw-chip" onclick="openModal('goals-bulk-archive')"><span class="dot" style="background:#8b5cf6"></span>Goals: Bulk Archive &amp; Delete</div>
-      <div class="ntw-chip" onclick="openModal('eh-chat')"><span class="dot" style="background:var(--cyan)"></span>Employment Hero Chat — Now Live</div>
-      <div class="ntw-chip" onclick="openModal('career-page-widget')"><span class="dot" style="background:var(--violet)"></span>Embeddable Career Page Widget</div>
-      <div class="ntw-chip" onclick="openModal('heroclear-approvals')"><span class="dot" style="background:#ef4444"></span>HeroClear Payment Approvals</div>
-      <div class="ntw-chip" onclick="openModal('hiring-criteria')"><span class="dot" style="background:var(--purple)"></span>AI Hiring Criteria</div>
-    </div>
+    <div class="ntw-chips" id="ntw-chips"></div>
   </div>
 </div>
 
@@ -5040,23 +5031,58 @@ function applyFilter() {
   updateMonthCounts();
 }
 
-/* Auto-updating week date range */
-(function setWeekRange() {
-  const el = document.getElementById('ntw-daterange');
-  if (!el) return;
+/* Hot off the press — date range label + dynamically populated chips */
+(function populateHotOffThePress() {
+  const el    = document.getElementById('ntw-daterange');
+  const chips = document.getElementById('ntw-chips');
+  if (!el || !chips) return;
+
+  // Current week Mon–Sun
   const now = new Date();
-  const day = now.getDay(); // 0=Sun
+  const day = now.getDay();
   const diffToMon = (day === 0) ? -6 : 1 - day;
   const mon = new Date(now); mon.setDate(now.getDate() + diffToMon);
   const sun = new Date(mon); sun.setDate(mon.getDate() + 6);
+
+  // Date-range label
   const fmt = (d, showYear) => d.toLocaleDateString('en-AU', {
     day: 'numeric', month: 'short', ...(showYear ? { year: 'numeric' } : {})
   });
   const sameMonth = mon.getMonth() === sun.getMonth();
-  const label = sameMonth
+  el.textContent = sameMonth
     ? `${mon.getDate()} – ${fmt(sun, true)}`
     : `${fmt(mon)} – ${fmt(sun, true)}`;
-  el.textContent = label;
+
+  // Convert a Date to YYYYMMDD integer for comparison
+  const toNum = d => d.getFullYear() * 10000 + (d.getMonth() + 1) * 100 + d.getDate();
+  const monNum = toNum(mon);
+  const sunNum = toNum(sun);
+
+  const dotColors = {
+    'tag-heroai':      'var(--purple)',
+    'tag-hr':          'var(--cyan)',
+    'tag-payroll':     '#ef4444',
+    'tag-recruitment': 'var(--violet)',
+    'tag-automation':  'var(--purple)',
+    'tag-time':        'var(--amber)',
+    'tag-security':    '#f59e0b',
+    'tag-benefits':    '#0891b2',
+    'tag-learning':    '#ec4899',
+    'tag-onboarding':  '#16a34a',
+    'tag-performance': '#8b5cf6'
+  };
+
+  const thisWeek = Object.entries(releases)
+    .filter(([, r]) => { const n = parseDateStr(r.date); return n >= monNum && n <= sunNum; })
+    .sort(([, a], [, b]) => parseDateStr(b.date) - parseDateStr(a.date));
+
+  chips.innerHTML = thisWeek.length
+    ? thisWeek.map(([key, r]) =>
+        `<div class="ntw-chip" onclick="openModal('${key}')">` +
+        `<span class="dot" style="background:${dotColors[r.tagClass] || 'var(--purple)'}"></span>` +
+        `${r.title}</div>`
+      ).join('')
+    : `<span style="color:var(--muted);font-size:.8rem">No releases this week yet.</span>`;
 })();
 
 /* Month-grouped sort — inserts headings and sorts newest → oldest */
