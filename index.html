@@ -8490,8 +8490,9 @@ function buildAreaCards(tab, subIndex) {
 function enterSubPage(tab, sub) {
   const area = productAreas[tab] || { icon: '📦', name: tab, desc: '', gradient: 'linear-gradient(135deg, #2d0649, #7622d7)' };
 
-  // Build cards first so getAreaCounts can read them
-  buildAreaCards(tab, sub);
+  // renderSubTabs must run first so _visible_{tab} is populated before buildAreaCards reads it
+  renderSubTabs(tab);
+  buildAreaCards(tab, sub ?? 0);
   const counts = getAreaCounts(tab);
 
   // Populate area header
@@ -8513,7 +8514,6 @@ function enterSubPage(tab, sub) {
   if (exploreWrap) exploreWrap.style.display = 'none';
   const lpResults = document.getElementById('lp-results-wrap');
   if (lpResults) lpResults.style.display = 'block';
-  renderSubTabs(tab);
   document.body.classList.add('subpage-mode');
   requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'instant' }));
 }
