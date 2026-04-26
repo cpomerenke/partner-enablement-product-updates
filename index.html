@@ -1119,6 +1119,11 @@
       Onboarding
 
     </a>
+    <a class="snav-link" data-stab="contractors" onclick="sidebarNav(this,'contractors')">
+      <span class="snav-dot" style="background:#00897b"></span>
+      Contractors
+
+    </a>
 
     <div class="sidebar-divider"></div>
     <div class="sidebar-section">Resources</div>
@@ -1293,6 +1298,12 @@
         <div class="area-icon">🚀</div>
         <div class="area-title">Digital Onboarding</div>
         <div class="area-tags">IO ANZ · IO NZ · IO Global · Pay run setup</div>
+      </div>
+
+      <div class="area-tile" onclick="goToArea('contractors')">
+        <div class="area-icon">🤝</div>
+        <div class="area-title">Contractors</div>
+        <div class="area-tags">Classification · Custom fields · Payroll codes · Learning access</div>
       </div>
 
     </div>
@@ -5284,6 +5295,11 @@ const productAreas = {
     desc: 'Integrated payroll setup and digital onboarding workflows that get new hires up and running from day one — with fewer errors and less back-and-forth.',
     gradient: 'linear-gradient(135deg, #1A3A00 0%, #3A6B00 50%, #BAFC58 100%)',
   },
+  contractors: {
+    icon: '🤝', name: 'Contractors',
+    desc: 'Everything Employment Hero has shipped to support contractor management — classification, custom fields, payroll codes, learning access, and manager permissions.',
+    gradient: 'linear-gradient(135deg, #001a1a 0%, #00474a 50%, #00897b 100%)',
+  },
 };
 
 function getAreaCounts(tab) {
@@ -5299,12 +5315,24 @@ function getAreaCounts(tab) {
       if (d >= threeStart) threeMonths++;
     });
   } else {
-    document.querySelectorAll('.rcard').forEach(card => {
-      if (!(card.dataset.cats || '').split(' ').includes(tab)) return;
-      const d = parseDateNum(card);
-      if (d >= monthStart) month++;
-      if (d >= threeStart) threeMonths++;
-    });
+    const tabList = areaSubTabs[tab] || [];
+    const isKeyBased = tabList.length > 0 && tabList[0].keys !== null;
+    if (isKeyBased) {
+      const allKeys = new Set(tabList.flatMap(t => t.keys || []));
+      Object.entries(releases).forEach(([key, r]) => {
+        if (!allKeys.has(key)) return;
+        const d = parseDateStr(r.date);
+        if (d >= monthStart) month++;
+        if (d >= threeStart) threeMonths++;
+      });
+    } else {
+      document.querySelectorAll('.rcard').forEach(card => {
+        if (!(card.dataset.cats || '').split(' ').includes(tab)) return;
+        const d = parseDateNum(card);
+        if (d >= monthStart) month++;
+        if (d >= threeStart) threeMonths++;
+      });
+    }
   }
   return { month, threeMonths };
 }
@@ -5377,6 +5405,12 @@ const areaSubTabs = {
     { label: 'New Zealand',    keys: ['io-nz','nz-kiwisaver-digital'] },
     { label: 'UK',             keys: [] },
     { label: 'Global',         keys: ['io-duplicates','io-induction-ftu','io-global-due-dates'] },
+  ],
+  contractors: [
+    { label: 'All Contractors',       keys: ['contractors-as-managers','contractor-custom-fields-v2','contract-type','contract-type-display','casual-conversion','notice-periods-all','contractor-codes','employee-contractor-codes','learning-contractors'] },
+    { label: 'Employment',            keys: ['contractors-as-managers','contractor-custom-fields-v2','contract-type','contract-type-display','casual-conversion','notice-periods-all'] },
+    { label: 'Payroll',               keys: ['contractor-codes','employee-contractor-codes'] },
+    { label: 'Learning',              keys: ['learning-contractors'] },
   ],
   performance: [
     { label: 'All Performance', keys: null },
@@ -5456,7 +5490,7 @@ function buildAreaCards(tab, subIndex) {
   const subDef = isAll ? null : tabList[subIndex];
   const keySet = subDef && subDef.keys ? new Set(subDef.keys) : null;
   const matching = Object.entries(releases)
-    .filter(([key, r]) => isAll || (tabCatMap[r.tagClass] === tab && (!keySet || keySet.has(key))))
+    .filter(([key, r]) => isAll || (keySet ? keySet.has(key) : tabCatMap[r.tagClass] === tab))
     .sort(([, a], [, b]) => parseDateStr(b.date) - parseDateStr(a.date));
   const area = productAreas[tab] || { name: tab };
   const lpGrid = document.getElementById('lp-cards-grid');
