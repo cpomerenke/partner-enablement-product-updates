@@ -6298,7 +6298,7 @@ function openModal(id) {
       <div class="modal-divider"></div>
       <div class="modal-section">
         <h4>Walkthrough</h4>
-        <div class="loom-embed"><iframe src="${r.loomUrl}?hide_owner=true&hide_share=true&hideEmbedTopBar=true" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
+        <div class="loom-embed"><iframe src="${r.loomUrl.replace('/share/', '/embed/')}?hide_owner=true&hide_share=true&hideEmbedTopBar=true" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
         ${r.loomLabel ? `<div class="loom-caption">${r.loomLabel}</div>` : ''}
       </div>
     `;
