@@ -5444,10 +5444,23 @@ function renderSubTabs(tab) {
     return;
   }
 
+  // Filter out tabs with no matching releases (empty or all keys absent from releases)
+  const visible = tabs.filter(t =>
+    t.keys === null || (t.keys.length > 0 && t.keys.some(k => k in releases))
+  );
+
+  if (visible.length <= 1) {
+    wrap.style.display = 'none';
+    return;
+  }
+
   activeAreaSubTab = 0;
-  row.innerHTML = tabs.map((t, i) =>
+  row.innerHTML = visible.map((t, i) =>
     `<button class="subtab${i === 0 ? ' active' : ''}" onclick="selectAreaSubTab(${i},'${tab}')">${t.label}</button>`
   ).join('');
+
+  // Store filtered tabs so selectAreaSubTab uses the right index
+  areaSubTabs[`_visible_${tab}`] = visible;
   wrap.style.display = 'block';
 }
 
@@ -5480,7 +5493,8 @@ function buildAreaCards(tab, subIndex) {
   };
 
   const isAll = tab === 'all-updates';
-  const subDef = isAll ? null : (areaSubTabs[tab] || [])[subIndex];
+  const tabList = areaSubTabs[`_visible_${tab}`] || areaSubTabs[tab] || [];
+  const subDef = isAll ? null : tabList[subIndex];
   const keySet = subDef && subDef.keys ? new Set(subDef.keys) : null;
   const matching = Object.entries(releases)
     .filter(([key, r]) => isAll || (tabCatMap[r.tagClass] === tab && (!keySet || keySet.has(key))))
