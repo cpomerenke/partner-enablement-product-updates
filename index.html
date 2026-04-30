@@ -7836,6 +7836,35 @@ const releases = {
     audience: 'Any partner using Workflows for leave automation — closes a real gap where deleted leave previously left orphaned shift cover, notifications, or tasks.',
     loomUrl: 'https://www.loom.com/share/f56f80e0b4974d598662022454b52340'
   },
+
+  'heroai-my-leave-dynamic-messaging': {
+    title: 'HeroAI: Dynamic Messaging on My Leave',
+    tag: '🤖 Hero AI', tagClass: 'tag-heroai',
+    date: '30 April 2026', plan: 'Platinum', region: '🌐 AU · NZ', users: 'Employees',
+    problem: 'The My Leave page showed the same static messaging to every employee, missing the chance to surface the right balance, request status, or next-action prompt at the right moment.',
+    features: [
+      'H1 and H2 messages now adapt dynamically to the user\'s default leave category and current leave status',
+      'Engagement logic refined to reflect real-time balances and pending requests',
+      'Logic-based fallback shows a generic message when the default category is sensitive (e.g. medical) or not Annual Leave',
+      'Smart prompts adapt to suggest the most relevant next action for each employee'
+    ],
+    audience: 'Platinum customers in AU and NZ — gives employees a more contextual, personalised experience whenever they open My Leave.',
+    loomUrl: 'https://www.loom.com/share/0cbe9fe223fe40cd8779cc9707b68bec'
+  },
+
+  'opening-balances-employee-id': {
+    title: 'Opening Balances Bulk Importer — Employee ID Column',
+    tag: '💰 Payroll', tagClass: 'tag-payroll',
+    date: '30 April 2026', plan: 'All organisations', region: '🌐 Global', users: 'Payroll Admins',
+    problem: 'Opening balance imports could be mapped to the wrong employee record when names alone were not unique, creating data integrity risk during payroll setup.',
+    features: [
+      'New Employee ID column added to the Opening Balances bulk importer',
+      'Field accepts the HR member ID from the employee profile',
+      'Unique identifier ensures imported balances map to the correct employee record'
+    ],
+    audience: 'Any organisation importing opening balances during payroll setup — eliminates mismatch errors caused by duplicate or similar employee names.',
+    loomUrl: ''
+  },
 };
 
 /* ────────────────────────────
@@ -8470,7 +8499,7 @@ const areaSubTabs = {
     { label: 'Chat & Widget',  keys: ['heroai-hr-agent','heroai-work-app','heroai-search-box','heroai-chat-optimisations','heroai-prompt-admin','heroai-chat-resume','heroai-chat-history','heroai-dashboard-widget','heroai-interface-refresh','heroai-icon-nav','heroai-ui-dec25','heroai-tools-public','heroai-payslip-salary','heroai-extended-memory','heroai-zendesk-ticket-visibility','heroai-speed-performance','heroai-experience-refresh','heroai-personalisation-topbar','heroai-setup-mode-access-control','heroai-delete-recent-chat','heroai-widget-personalisation','heroai-1on1-reading'] },
     { label: 'Mobile',         keys: ['heroai-hr-agent-mobile','heroai-hr-agent-expand'] },
     { label: 'Recruitment AI', keys: ['smartmatch','marketing-signup','hiring-criteria','hiring-stage-ui','ai-voice-interviewer','voice-agent-multiregion','ai-job-description-gen','ai-tailored-applications','ai-tailored-all-apps','ai-interviewer-default','recruitment-ai-billing','ai-sq-suggestions','recruitment-agent-employer'] },
-    { label: 'Leave AI',       keys: ['heroai-leave-mgmt','heroai-leave-suggest','heroai-enhanced-chat-leave','leave-ai-autosuggest-type','heroai-hr-agent-leave-actions'] },
+    { label: 'Leave AI',       keys: ['heroai-leave-mgmt','heroai-leave-suggest','heroai-enhanced-chat-leave','leave-ai-autosuggest-type','heroai-hr-agent-leave-actions','heroai-my-leave-dynamic-messaging'] },
   ],
   hr: [
     { label: 'All HR',                  keys: null },
@@ -8481,7 +8510,7 @@ const areaSubTabs = {
   ],
   payroll: [
     { label: 'All Payroll', keys: null },
-    { label: 'Global',      keys: ['inactive-users','roster-timesheet-report-mar','pay-condition-api','payroll-hide-inactive-deductions'] },
+    { label: 'Global',      keys: ['inactive-users','roster-timesheet-report-mar','pay-condition-api','payroll-hide-inactive-deductions','opening-balances-employee-id'] },
     { label: 'Australia',   keys: ['contractor-codes','split-earnings-apac','au-pay-rate-template','heroclear-payment-rails','pay-rate-webhook','super-auto-import','heroclear-payment-approvals','payroll-award-preserve-customisation','au-award-update-batching','heroclear-onboarding-setup','super-edit-eh-work','super-default-mysuper'] },
     { label: 'New Zealand', keys: ['nz-payroll-unpaid-leave','nz-esct-report','payroll-ask-community'] },
     { label: 'UK',          keys: [] },
