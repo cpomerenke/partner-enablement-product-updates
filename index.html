@@ -7865,6 +7865,38 @@ const releases = {
     audience: 'Any organisation importing opening balances during payroll setup — eliminates mismatch errors caused by duplicate or similar employee names.',
     loomUrl: ''
   },
+
+  'roster-budget-copy-apply': {
+    title: 'Rostering: Copy & Apply Wage/Hour Budgets',
+    tag: '⏰ Time & Attendance', tagClass: 'tag-time',
+    date: '1 May 2026', plan: 'All organisations', region: '🌏 Global', users: 'Rostering Managers',
+    problem: 'Rostering managers had to manually re-enter wage and hour budgets every week even when costs stayed the same or followed predictable patterns, creating repetitive admin and slowing down forward planning.',
+    features: [
+      'Copy the previous week\'s budget into the current week with one click',
+      'Apply a budget to multiple future weeks in bulk',
+      'Optionally adjust budgets with a fixed dollar change or percentage growth each week',
+      'Eliminates repetitive admin when managing recurring budgets',
+      'Supports better planning with built-in growth or reduction adjustments'
+    ],
+    audience: 'Any partner whose clients run weekly rostering with wage/hour budgets — significant time-saver for retail, hospitality, and any business setting recurring weekly cost targets.',
+    loomUrl: 'https://www.loom.com/share/e025310fe163425f946199e1151d1762'
+  },
+
+  'heroai-checker-tle': {
+    title: 'Hero AI Checker: Timesheets, Leave & Expenses',
+    tag: '🤖 Hero AI', tagClass: 'tag-heroai',
+    date: '4 May 2026', plan: 'All organisations', region: '🇦🇺 Australia', users: 'Employees · Managers · Payroll Admins',
+    problem: 'Issues such as policy breaches, missing details, or invalid submissions in Timesheets, Leave, and Expenses were often only identified late in the process, creating rework and slowing down payroll and approvals.',
+    features: [
+      'Real-time validation at the point of entry, guides employees to fix issues before submission',
+      'Clear, actionable warnings surfaced to managers during review',
+      'Ability to extract and apply rules from written policy documents for Leave and Expenses',
+      'Errors caught early instead of flowing downstream to payroll',
+      'Released to AU orgs as open beta from 4 May 2026; public release shortly after'
+    ],
+    audience: 'AU partners running Timesheets, Leave, and Expenses for their clients — reduces payroll rework by catching policy and data issues at submission rather than during review or pay run.',
+    loomUrl: 'https://www.loom.com/share/4d7a690dc18a4817b80607d6d575d6f4'
+  },
 };
 
 /* ────────────────────────────
@@ -8496,7 +8528,7 @@ function getAreaCounts(tab) {
 const areaSubTabs = {
   heroai: [
     { label: 'All HeroAI',     keys: null },
-    { label: 'Chat & Widget',  keys: ['heroai-hr-agent','heroai-work-app','heroai-search-box','heroai-chat-optimisations','heroai-prompt-admin','heroai-chat-resume','heroai-chat-history','heroai-dashboard-widget','heroai-interface-refresh','heroai-icon-nav','heroai-ui-dec25','heroai-tools-public','heroai-payslip-salary','heroai-extended-memory','heroai-zendesk-ticket-visibility','heroai-speed-performance','heroai-experience-refresh','heroai-personalisation-topbar','heroai-setup-mode-access-control','heroai-delete-recent-chat','heroai-widget-personalisation','heroai-1on1-reading'] },
+    { label: 'Chat & Widget',  keys: ['heroai-hr-agent','heroai-work-app','heroai-search-box','heroai-chat-optimisations','heroai-prompt-admin','heroai-chat-resume','heroai-chat-history','heroai-dashboard-widget','heroai-interface-refresh','heroai-icon-nav','heroai-ui-dec25','heroai-tools-public','heroai-payslip-salary','heroai-extended-memory','heroai-zendesk-ticket-visibility','heroai-speed-performance','heroai-experience-refresh','heroai-personalisation-topbar','heroai-setup-mode-access-control','heroai-delete-recent-chat','heroai-widget-personalisation','heroai-1on1-reading','heroai-checker-tle'] },
     { label: 'Mobile',         keys: ['heroai-hr-agent-mobile','heroai-hr-agent-expand'] },
     { label: 'Recruitment AI', keys: ['smartmatch','marketing-signup','hiring-criteria','hiring-stage-ui','ai-voice-interviewer','voice-agent-multiregion','ai-job-description-gen','ai-tailored-applications','ai-tailored-all-apps','ai-interviewer-default','recruitment-ai-billing','ai-sq-suggestions','recruitment-agent-employer'] },
     { label: 'Leave AI',       keys: ['heroai-leave-mgmt','heroai-leave-suggest','heroai-enhanced-chat-leave','leave-ai-autosuggest-type','heroai-hr-agent-leave-actions','heroai-my-leave-dynamic-messaging'] },
@@ -8526,7 +8558,7 @@ const areaSubTabs = {
   ],
   time: [
     { label: 'All Time & Attendance', keys: null },
-    { label: 'Rostering',             keys: ['roster-perf','roster-unavailability-notifs','bulk-rota-management','roster-print-employee','square-pos-sales','roster-sales-forecast','roster-first-day-week','leave-rota-conflict','worksite-time-reports','roster-templates-wp','print-roster-wp','roster-shift-costing','edit-published-shifts','hero-time-clock-sso','roster-copy-paste-performance','roster-overtime-indicator','roster-bulk-actions-async','roster-advanced-copy-modal','roster-reports-worksite-position','roster-sales-csv-import','roster-lock-shifts','roster-qol-dec25','roster-group-assignments'] },
+    { label: 'Rostering',             keys: ['roster-perf','roster-unavailability-notifs','bulk-rota-management','roster-print-employee','square-pos-sales','roster-sales-forecast','roster-first-day-week','leave-rota-conflict','worksite-time-reports','roster-templates-wp','print-roster-wp','roster-shift-costing','edit-published-shifts','hero-time-clock-sso','roster-copy-paste-performance','roster-overtime-indicator','roster-bulk-actions-async','roster-advanced-copy-modal','roster-reports-worksite-position','roster-sales-csv-import','roster-lock-shifts','roster-qol-dec25','roster-group-assignments','roster-budget-copy-apply'] },
     { label: 'Timesheets',            keys: ['geofencing','timesheet-redesign','overnight-timesheets-all','timesheet-reuse','nz-ph-timesheet-automation','email-notifs-timesheets','roster-leave-to-timesheet'] },
     { label: 'Scheduling',            keys: ['custom-work-hours','custom-work-hours-8w'] },
   ],
