@@ -7897,6 +7897,55 @@ const releases = {
     audience: 'AU partners running Timesheets, Leave, and Expenses for their clients — reduces payroll rework by catching policy and data issues at submission rather than during review or pay run.',
     loomUrl: 'https://www.loom.com/share/4d7a690dc18a4817b80607d6d575d6f4'
   },
+
+  'bulk-issue-documents-public': {
+    title: 'Bulk Issue Documents — Public Release',
+    tag: '🧑‍💼 HR', tagClass: 'tag-hr',
+    date: '4 May 2026', plan: 'All organisations', region: '🌏 Global', users: 'HR Admins · Document Signatories',
+    problem: 'Signatories previously received a separate email and link for every document requiring signature — an approach that didn\'t scale and created significant noise for both admins and signatories.',
+    features: [
+      'Public release of the complete end-to-end Bulk Issue Documents feature, available to all organisations',
+      'Document Review & Signing — dedicated page where signatories can review and sign across all recipients in one place; navigate by recipient, Sign & Accept individually, or Sign All via modal',
+      'Real-time progress tracker showing successful and failed document counts with expandable error details per failed document',
+      'Full document history with filtering, sorting, and the ability to view all issued recipients or delete documents at batch or individual level',
+      'Multiple Sending Signatories — assign Primary, Secondary, and Tertiary signatories with documents withheld until all required signatures are captured (new Document Editor orgs only)'
+    ],
+    audience: 'All partners managing document issuance at scale — eliminates the email storm and tracking overhead for HR Admins and gives signatories a single review-and-sign experience.',
+    loomUrl: 'https://www.loom.com/share/4c92acee049540aaacce0a5aeaa15900'
+  },
+
+  'medical-disclosure-audit-logging': {
+    title: 'Audit Logging for Medical Disclosure Statements',
+    tag: '🧑‍💼 HR', tagClass: 'tag-hr',
+    date: '4 May 2026', plan: 'All organisations', region: '🌏 Global', users: 'HR Admins',
+    problem: 'HR Admins had no visibility into who had viewed, created, modified, or deleted medical disclosure records, leaving a gap in governance and accountability for sensitive employee information.',
+    features: [
+      'Chronological activity history showing the actor\'s name, role, action taken, and date and time for every disclosure',
+      'Create and edit tracking with before-and-after field values recorded against the person who made the change',
+      'Deletion tracking that captures the actor\'s name and the date and time a disclosure was deleted',
+      'Reliable record of all medical disclosure activity regardless of which team member performs an action'
+    ],
+    audience: 'Any partner whose clients store medical disclosure data — strengthens governance and accountability coverage for sensitive HR records.',
+    loomUrl: 'https://www.loom.com/share/e61cc6af1e4347f4aa8ee5a097f269c9'
+  },
+
+  'recruitment-shortlisting-agent': {
+    title: 'Shortlisting Agent — Closed Beta',
+    tag: '🤖 Hero AI', tagClass: 'tag-heroai',
+    date: '15 April 2026', plan: 'Platinum · Premium · Employment Unlimited (Closed Beta — 61 orgs)', region: '🌐 AU · NZ', users: 'Recruiters · Hiring Managers',
+    problem: 'For high-volume jobs, manually reviewing every applicant in the New stage created a bottleneck — strong candidates with one resolvable gap were lost to inaction and time-to-shortlist suffered.',
+    features: [
+      'Second AI recruitment agent in the suite, automating first-pass assessment in the candidate review stage',
+      'Auto-advance candidates who clear all must-have criteria to the next hiring stage',
+      'AI voice outreach via SMS callback link for strong candidates with one unclear must-have, with a short AI clarification call to resolve the gap',
+      'Per-job credit budget controls with automatic stop when AI credits run out',
+      'Full activity log attribution with agent-driven actions clearly marked, plus post-call entries with outcome, reason, and a recruiter-visible summary',
+      'Transcript and recording of every AI call accessible from the candidate profile',
+      'Multi-region outreach supported for AU, NZ, UK, and CA candidates'
+    ],
+    audience: 'Recruitment partners running high-volume hiring on Platinum, Premium, or Employment Unlimited — drives measurable reductions in time-to-shortlist and improved conversion from New to Shortlisted.',
+    loomUrl: 'https://www.loom.com/share/28aac1f2552b4620a0cc0741cbdcfaee'
+  },
 };
 
 /* ────────────────────────────
@@ -8530,14 +8579,14 @@ const areaSubTabs = {
     { label: 'All HeroAI',     keys: null },
     { label: 'Chat & Widget',  keys: ['heroai-hr-agent','heroai-work-app','heroai-search-box','heroai-chat-optimisations','heroai-prompt-admin','heroai-chat-resume','heroai-chat-history','heroai-dashboard-widget','heroai-interface-refresh','heroai-icon-nav','heroai-ui-dec25','heroai-tools-public','heroai-payslip-salary','heroai-extended-memory','heroai-zendesk-ticket-visibility','heroai-speed-performance','heroai-experience-refresh','heroai-personalisation-topbar','heroai-setup-mode-access-control','heroai-delete-recent-chat','heroai-widget-personalisation','heroai-1on1-reading','heroai-checker-tle'] },
     { label: 'Mobile',         keys: ['heroai-hr-agent-mobile','heroai-hr-agent-expand'] },
-    { label: 'Recruitment AI', keys: ['smartmatch','marketing-signup','hiring-criteria','hiring-stage-ui','ai-voice-interviewer','voice-agent-multiregion','ai-job-description-gen','ai-tailored-applications','ai-tailored-all-apps','ai-interviewer-default','recruitment-ai-billing','ai-sq-suggestions','recruitment-agent-employer'] },
+    { label: 'Recruitment AI', keys: ['smartmatch','marketing-signup','hiring-criteria','hiring-stage-ui','ai-voice-interviewer','voice-agent-multiregion','ai-job-description-gen','ai-tailored-applications','ai-tailored-all-apps','ai-interviewer-default','recruitment-ai-billing','ai-sq-suggestions','recruitment-agent-employer','recruitment-shortlisting-agent'] },
     { label: 'Leave AI',       keys: ['heroai-leave-mgmt','heroai-leave-suggest','heroai-enhanced-chat-leave','leave-ai-autosuggest-type','heroai-hr-agent-leave-actions','heroai-my-leave-dynamic-messaging'] },
   ],
   hr: [
     { label: 'All HR',                  keys: null },
     { label: 'Employment Details',       keys: ['employment-details','casual-conversion','contractors-as-managers','offer-multiple-signatories','offer-letter-reminders','legal-name-privacy','contractor-custom-fields-v2','vacant-positions-perms','employee-permissions-view','mandatory-fields-settings','wp-employee-profile','probation-end-date','contract-type-display','notice-periods-all','employee-contractor-codes','granular-employee-deletion-permissions','hr-permissions-expansion','permissions-renaming','vevo-check-api'] },
     { label: 'Leave',                    keys: ['leave-cancel-termination','compliance-leave-filter','leave-overlap-prevention','leave-employee-disambiguation','public-holiday-indicator','leave-compliance-edit','leave-table-uplift','leave-table-standardize','public-holiday-auto','partially-approved-leave-status','zero-unit-leave-validation','leave-taken-report-extended-filters','leave-calendar-save-filters','leave-precise-time-requests','leave-prevent-delete-approved','leave-calendar-public-holidays','leave-pending-negative-balance','leave-reports-migration'] },
-    { label: 'Documents & Policies',     keys: ['doc-notifications','compliance-doc-purpose','uk-policy-owner','uk-passport-visa-expiry','doc-template-visa-vars','doc-multiple-signatories','doc-image-upload','policy-due-dates','doc-editor-new','email-notifications-ui','email-notifs-docs','email-notifs-leave','cert-due-dates','cert-notification-improvements','probation-report','doc-template-variable-library','bulk-issue-documents','streamline-policy-acknowledgement','compliance-document-descriptions','compliance-document-tagging','compliance-reports-on-leave-filter','hr-document-editor-optional-block','email-notifs-org-consistency','gt-bulk-reminders','gt-portal-hr-docs-report','fair-work-statement-update','doc-template-versioning'] },
+    { label: 'Documents & Policies',     keys: ['doc-notifications','compliance-doc-purpose','uk-policy-owner','uk-passport-visa-expiry','doc-template-visa-vars','doc-multiple-signatories','doc-image-upload','policy-due-dates','doc-editor-new','email-notifications-ui','email-notifs-docs','email-notifs-leave','cert-due-dates','cert-notification-improvements','probation-report','doc-template-variable-library','bulk-issue-documents','bulk-issue-documents-public','medical-disclosure-audit-logging','streamline-policy-acknowledgement','compliance-document-descriptions','compliance-document-tagging','compliance-reports-on-leave-filter','hr-document-editor-optional-block','email-notifs-org-consistency','gt-bulk-reminders','gt-portal-hr-docs-report','fair-work-statement-update','doc-template-versioning'] },
     { label: 'Platform & Engagement',    keys: ['positions-colour','settings-uplift','company-feed','eh-chat','banking-audit-trail','multi-owner-tasks','audit-trail-onboarding','compliance-report-filters','people-report-permissions','eh-work-mobile-public','manager-reassignment','multi-currency-expenses','bpay-aiop','personal-email-settings-ui-refresh','standardising-expense-management-ui','export-requisitions-onboarding-approvals','independent-contractor-work-types','onboarding-offboarding-multi-owner-tasks','audit-report-onboarding-pay-details','heroforce-onboarding-ctas','chat-addon-client-launch','hr-casual-conversion-precheck','recognition-report-csv-uplift','hr-custom-work-hours-standard','scalable-filters','eh-work-bottom-nav','policy-template-country-default','audit-trail-emergency-contacts','openapi-worksites-departments','expense-policies-allowance','openapi-timesheets-webhook','openapi-partner-docs','eh-work-todo-personal','custom-work-hours-au-uk-hr','openapi-dev-docs-ui','dashboard-declutter','addons-settings-uplift','settings-people-controls','settings-system-setup-branding','settings-org-emails-uplift','settings-company-details-rewards','settings-recognition-uplift','openapi-write-apis','openapi-rate-limit','openapi-app-flow-uplift','email-templates-unified'] },
   ],
   payroll: [
