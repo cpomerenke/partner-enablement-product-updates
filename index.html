@@ -7946,6 +7946,55 @@ const releases = {
     audience: 'Recruitment partners running high-volume hiring on Platinum, Premium, or Employment Unlimited — drives measurable reductions in time-to-shortlist and improved conversion from New to Shortlisted.',
     loomUrl: 'https://www.loom.com/share/28aac1f2552b4620a0cc0741cbdcfaee'
   },
+
+  'leave-approval-audit-trail': {
+    title: 'Rock Solid Leave Approval Audit Trail',
+    tag: '🧑‍💼 HR', tagClass: 'tag-hr',
+    date: '5 May 2026', plan: 'All organisations', region: '🌏 Global', users: 'HR Admins · Employees',
+    problem: 'HR Admins had to cross-reference multiple tools to answer "who approved this leave request and when?" — approval records were fragmented across screens, and employees had no self-service way to see their own approval history.',
+    features: [
+      'Every approval and decline event in the HR Audit Trail now includes a clickable link to the original leave request, so HR admins can navigate directly without searching across screens',
+      'Audit entries show the approver\'s full name and role (e.g. "Direct Manager", "HR Admin") along with the timestamp',
+      'Multi-step workflow approvals also display the approval stage (e.g. "Step 1 of 2: Manager approval")',
+      'Approvals made via the mobile app are captured with the same detail as desktop approvals',
+      'Employees can now see the full approval history for their own leave requests — including approver name, role, and stage — without contacting HR',
+      'Report supports filtering by approver name and approval stage'
+    ],
+    audience: 'Any partner whose clients face audit, compliance, or governance scrutiny on leave approvals — eliminates cross-tool reconciliation and gives employees self-service visibility into their own approval history.',
+    loomUrl: ''
+  },
+
+  'certification-expiry-triggers': {
+    title: 'Workflow Certification Expiry Triggers',
+    tag: '⚙️ Automations', tagClass: 'tag-automation',
+    date: '5 May 2026', plan: 'Workflows users (Employment Plus · Platinum)', region: '🌏 Global', users: 'HR Admins · Workflow Builders',
+    problem: 'Certifications were only tracked after they expired — creating compliance risk and reactive firefighting. Admins relied on spreadsheets and manual reminders because there was no automated way to act before expiry.',
+    features: [
+      'Trigger workflows before a certification expires (e.g. 30 days before) — not just after',
+      'Send automatic reminders to employees and managers ahead of expiry, with the actual expiry date inserted so people know exactly what to act on',
+      'Reminders auto-adjust if the expiry date changes',
+      'Continue to support actions after expiry (e.g. notify manager, create follow-up tasks)',
+      'Allow separate workflows for before-expiry and after-expiry scenarios',
+      'Insert expiry date and due date variables directly into workflow messages — each employee receives the correct date for their certification'
+    ],
+    audience: 'Any partner with clients in compliance-heavy industries (healthcare, construction, transport, NDIS) — shifts certification management from reactive cleanup to proactive renewal.',
+    loomUrl: 'https://www.loom.com/share/82f9f2a821f04580863e9346ed3c32e8'
+  },
+
+  'partner-account-recovery-requested-date': {
+    title: 'Partner Account Recovery: Requested Date Display',
+    tag: '🔒 Security', tagClass: 'tag-security',
+    date: '5 May 2026', plan: 'All organisations', region: '🌏 Global', users: 'Partner & Brand Users',
+    problem: 'Partner and Brand Users managing account recovery requests had no visibility of when each request was raised, making it hard to prioritise stale cases or maintain a clean backlog.',
+    features: [
+      'Requested date now surfaced on each Partner Account Recovery request',
+      'Allows partners to prioritise and escalate stale cases at a glance',
+      'Supports SLA management and backlog hygiene for partner support teams',
+      'Visible directly in the Partner Dashboard Account Recovery view'
+    ],
+    audience: 'Any payroll or HR partner managing client account recovery requests at scale — gives support teams the timestamp they need to triage and escalate without leaving the page.',
+    loomUrl: ''
+  },
 };
 
 /* ────────────────────────────
@@ -8585,7 +8634,7 @@ const areaSubTabs = {
   hr: [
     { label: 'All HR',                  keys: null },
     { label: 'Employment Details',       keys: ['employment-details','casual-conversion','contractors-as-managers','offer-multiple-signatories','offer-letter-reminders','legal-name-privacy','contractor-custom-fields-v2','vacant-positions-perms','employee-permissions-view','mandatory-fields-settings','wp-employee-profile','probation-end-date','contract-type-display','notice-periods-all','employee-contractor-codes','granular-employee-deletion-permissions','hr-permissions-expansion','permissions-renaming','vevo-check-api'] },
-    { label: 'Leave',                    keys: ['leave-cancel-termination','compliance-leave-filter','leave-overlap-prevention','leave-employee-disambiguation','public-holiday-indicator','leave-compliance-edit','leave-table-uplift','leave-table-standardize','public-holiday-auto','partially-approved-leave-status','zero-unit-leave-validation','leave-taken-report-extended-filters','leave-calendar-save-filters','leave-precise-time-requests','leave-prevent-delete-approved','leave-calendar-public-holidays','leave-pending-negative-balance','leave-reports-migration'] },
+    { label: 'Leave',                    keys: ['leave-cancel-termination','compliance-leave-filter','leave-overlap-prevention','leave-employee-disambiguation','public-holiday-indicator','leave-compliance-edit','leave-table-uplift','leave-table-standardize','public-holiday-auto','partially-approved-leave-status','zero-unit-leave-validation','leave-taken-report-extended-filters','leave-calendar-save-filters','leave-precise-time-requests','leave-prevent-delete-approved','leave-calendar-public-holidays','leave-pending-negative-balance','leave-reports-migration','leave-approval-audit-trail'] },
     { label: 'Documents & Policies',     keys: ['doc-notifications','compliance-doc-purpose','uk-policy-owner','uk-passport-visa-expiry','doc-template-visa-vars','doc-multiple-signatories','doc-image-upload','policy-due-dates','doc-editor-new','email-notifications-ui','email-notifs-docs','email-notifs-leave','cert-due-dates','cert-notification-improvements','probation-report','doc-template-variable-library','bulk-issue-documents','bulk-issue-documents-public','medical-disclosure-audit-logging','streamline-policy-acknowledgement','compliance-document-descriptions','compliance-document-tagging','compliance-reports-on-leave-filter','hr-document-editor-optional-block','email-notifs-org-consistency','gt-bulk-reminders','gt-portal-hr-docs-report','fair-work-statement-update','doc-template-versioning'] },
     { label: 'Platform & Engagement',    keys: ['positions-colour','settings-uplift','company-feed','eh-chat','banking-audit-trail','multi-owner-tasks','audit-trail-onboarding','compliance-report-filters','people-report-permissions','eh-work-mobile-public','manager-reassignment','multi-currency-expenses','bpay-aiop','personal-email-settings-ui-refresh','standardising-expense-management-ui','export-requisitions-onboarding-approvals','independent-contractor-work-types','onboarding-offboarding-multi-owner-tasks','audit-report-onboarding-pay-details','heroforce-onboarding-ctas','chat-addon-client-launch','hr-casual-conversion-precheck','recognition-report-csv-uplift','hr-custom-work-hours-standard','scalable-filters','eh-work-bottom-nav','policy-template-country-default','audit-trail-emergency-contacts','openapi-worksites-departments','expense-policies-allowance','openapi-timesheets-webhook','openapi-partner-docs','eh-work-todo-personal','custom-work-hours-au-uk-hr','openapi-dev-docs-ui','dashboard-declutter','addons-settings-uplift','settings-people-controls','settings-system-setup-branding','settings-org-emails-uplift','settings-company-details-rewards','settings-recognition-uplift','openapi-write-apis','openapi-rate-limit','openapi-app-flow-uplift','email-templates-unified'] },
   ],
@@ -8614,7 +8663,7 @@ const areaSubTabs = {
   security: [
     { label: 'All Security',          keys: null },
     { label: '2FA & Auth',            keys: ['2fa','recovery-codes','2fa-mobile','mandatory-2fa-forgot-pw','org-2fa-device-memory','forgot-pw-company-email','payroll-2fa-multi','payroll-login-refresh','eh-jobs-microsoft-sso','security-recovery-codes-mobile','security-mandatory-2fa-mobile','payroll-2fa-setup-mobile'] },
-    { label: 'Account Recovery',      keys: ['acct-recovery','payroll-partner-account-recovery','payroll-passkey-adoption','account-recovery-decline','payroll-ssar-ux'] },
+    { label: 'Account Recovery',      keys: ['acct-recovery','payroll-partner-account-recovery','payroll-passkey-adoption','account-recovery-decline','payroll-ssar-ux','partner-account-recovery-requested-date'] },
     { label: 'Threat Detection',      keys: ['breached-pw','threat-hunting','email-security','app-block','sso-cert-expiry-notifs','free-trial-scam-prevention'] },
     { label: 'IT & Integrations',     keys: ['asset-register-custom-fields','m365-reporting-sync','mdm-jamf-intune','custom-webhook-headers','public-holiday-css','sso-dual-cert','sso-css-permission','jobs-unified-auth','openapi-certificates-webhooks-worktypes','employer-initiated-email-update','user-security-overview-enhancements','asset-register-csv-bulk-reassignment','openapi-permissions-alignment','security-asset-register-email-column','security-asset-management-filter','sso-self-service-recovery','eh-work-sso-passkeys','payroll-user-access-dashboards','payroll-mfa-ei-brands','payslip-management'] },
     { label: 'Permissions',           keys: ['granular-employee-deletion-permissions','security-permissions-terminology'] },
@@ -8622,7 +8671,7 @@ const areaSubTabs = {
   automation: [
     { label: 'All Automations',  keys: null },
     { label: 'Custom Forms',     keys: ['custom-forms-mobile','custom-forms-submissions','forms-bulk-delete','forms-approval-audit','forms-question-reorder','forms-assignment-status','proxy-form-submissions','forms-multi-layer-approvals','custom-forms-new-fields','forms-employee-file','forms-assign','forms-create-task','multi-level-duplicate-reviewer-approval','forms-conditional-logic','forms-checkbox-signature-fields','forms-edit-recipients-active','forms-bulk-delete-responses','forms-approval-csv-export','forms-approval-info-employee-file','forms-approval-history-view','forms-linked-workflows','forms-responses-tab','forms-my-submissions','forms-publish-modal'] },
-    { label: 'Workflows',        keys: ['workflow-api-action','is-admin-reports','workflow-simplified-edit','workflow-survey-action','workflow-email-uplift','workflow-templates-hub3','compliance-workflow-cert-action','compliance-workflow-policy-s1','compliance-workflow-policy-s2','workflow-docs','workflow-induction','workflow-efc-dynamic-approvers','unified-basic-view-rollout','automated-assign-expense-policy','automations-personal-detail-triggers','approval-history-labels','onboarding-workflow-triggers','requisitions-new-workflows','workflow-leave-cancellation'] },
+    { label: 'Workflows',        keys: ['workflow-api-action','is-admin-reports','workflow-simplified-edit','workflow-survey-action','workflow-email-uplift','workflow-templates-hub3','compliance-workflow-cert-action','compliance-workflow-policy-s1','compliance-workflow-policy-s2','workflow-docs','workflow-induction','workflow-efc-dynamic-approvers','unified-basic-view-rollout','automated-assign-expense-policy','automations-personal-detail-triggers','approval-history-labels','onboarding-workflow-triggers','requisitions-new-workflows','workflow-leave-cancellation','certification-expiry-triggers'] },
     { label: 'Custom Reports',   keys: ['leave-reports-byor','custom-reports-my-reports','termination-fields-report','salary-custom-reports','wgea-workforce-reports','reports-saved-filters','wgea-workplace-report','custom-report-ownership-transfer','duplicate-custom-reports','is-manager-field-accuracy-byor','reports-is-admin-field','automation-reports-dashboard-csv','custom-reports-sharing','turnover-report-enhancements'] },
   ],
   benefits: [
