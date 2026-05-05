@@ -36,7 +36,10 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      scroll-snap-type: y mandatory;
+    }
     body {
       font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       background: var(--dark);
@@ -44,6 +47,61 @@
       min-height: 100vh;
       overflow-x: hidden;
     }
+
+    /* ─── SCROLL SNAP ─── */
+    section {
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+    }
+
+    /* ─── SCROLL NAV DOTS ─── */
+    .scroll-nav {
+      position: fixed; right: 1.4rem; top: 50%;
+      transform: translateY(-50%);
+      z-index: 300; display: flex; flex-direction: column; gap: 8px;
+    }
+    .scroll-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.28);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .scroll-dot.active {
+      background: var(--eh-purple);
+      border-color: var(--eh-purple);
+      box-shadow: 0 0 8px rgba(165,105,255,0.55);
+      transform: scale(1.4);
+    }
+    .scroll-dot:hover:not(.active) {
+      background: rgba(165,105,255,0.5);
+      border-color: rgba(165,105,255,0.6);
+    }
+    @media (max-width: 900px) { .scroll-nav { display: none; } }
+
+    /* ─── STATS CAROUSEL ─── */
+    .hero-stats {
+      border-top: 1px solid var(--border);
+      padding-top: 2.5rem;
+      overflow: hidden;
+      animation: fadeInUp 0.7s ease 0.4s both;
+    }
+    .hero-stats-track {
+      display: flex; gap: 0;
+      animation: statsScroll 20s linear infinite;
+      width: max-content;
+    }
+    .hero-stats:hover .hero-stats-track { animation-play-state: paused; }
+    @keyframes statsScroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .hero-stat {
+      flex-shrink: 0;
+      width: 200px; padding: 0 1.8rem;
+      border-right: 1px solid var(--border);
+    }
+    .hero-stat:last-child { border-right: 1px solid var(--border); }
 
     /* ─── SCROLLBAR ─── */
     ::-webkit-scrollbar { width: 6px; }
@@ -116,18 +174,6 @@
       display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
     }
     .hero-text { text-align: left; }
-    .hero-exclusive {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(165,105,255,0.12); border: 1px solid rgba(165,105,255,0.35);
-      color: var(--eh-lavender); font-size: 0.72rem; font-weight: 700;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      padding: 6px 16px; border-radius: 999px;
-      margin-bottom: 2rem; animation: fadeInDown 0.6s ease both;
-    }
-    .hero-exclusive::before {
-      content: ''; width: 6px; height: 6px; background: var(--eh-purple);
-      border-radius: 50%; animation: pulse 2s infinite;
-    }
     @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.4); } }
     .hero-heading {
       font-family: 'Lexend', sans-serif;
@@ -225,15 +271,7 @@
     }
 
     /* ─── HERO STATS ─── */
-    .hero-stats {
-      display: flex; gap: 0;
-      border-top: 1px solid var(--border);
-      padding-top: 2.5rem;
-      animation: fadeInUp 0.7s ease 0.4s both;
-    }
-    .hero-stat { flex: 1; max-width: 200px; padding: 0 1.5rem; border-right: 1px solid var(--border); }
-    .hero-stat:last-child { border-right: none; }
-    .hero-stat-num { font-size: 2rem; font-weight: 900; color: #fff; letter-spacing: -0.03em; }
+    .hero-stat-num { font-family: 'Lexend', sans-serif; font-size: 2rem; font-weight: 900; color: #fff; letter-spacing: -0.03em; }
     .hero-stat-num span { color: var(--eh-green); }
     .hero-stat-label { font-size: 0.75rem; color: var(--muted); margin-top: 2px; }
 
@@ -638,9 +676,7 @@
       .hero-text { text-align: center; }
       .hero-sub { margin: 0 auto 2.5rem; }
       .hero-actions { justify-content: center; }
-      .hero-stats { flex-wrap: wrap; }
-      .hero-stat { border-right: none; border-bottom: 1px solid var(--border); padding: 1rem 0; }
-      .hero-stat:last-child { border-bottom: none; }
+      .hero-stats-track { animation-duration: 14s; }
     }
     @media (max-width: 900px) {
       .why-grid, .roi-grid, .features-layout, .partnership-grid { grid-template-columns: 1fr; }
@@ -664,6 +700,9 @@
   </style>
 </head>
 <body>
+
+<!-- ─── SCROLL NAV DOTS ─── -->
+<div class="scroll-nav" id="scrollNav"></div>
 
 <!-- ─── NAV ─── -->
 <nav>
@@ -691,18 +730,17 @@
     <div class="hero-content">
       <!-- Left: text -->
       <div class="hero-text">
-        <div class="hero-exclusive">Part of your World Gym franchise — Employment Hero is your HR platform</div>
         <h1 class="hero-heading">
           Your franchise<br>
-          <span class="red">HR platform</span>,<br>
-          <span class="teal">ready to go</span>
+          <span class="red">operation</span><br>
+          <span class="teal">backbone</span>
         </h1>
         <p class="hero-sub">
           Employment Hero is the designated HR and payroll platform for World Gym Australia franchises. This guide walks you through what's included, how it's configured for your operation, and how to get set up.
         </p>
         <div class="hero-actions">
-          <a href="#offer" class="btn-primary">What's Included ↓</a>
-          <a href="#packages" class="btn-secondary">View Plans</a>
+          <a href="#start" class="btn-primary">Begin onboarding →</a>
+          <a href="#features" class="btn-secondary">Explore capabilities</a>
         </div>
       </div>
 
@@ -762,23 +800,59 @@
       </div>
     </div>
 
-    <!-- Stats bar — full width below -->
+    <!-- Stats carousel — continuous loop -->
     <div class="hero-stats">
-      <div class="hero-stat">
-        <div class="hero-stat-num">300<span>K+</span></div>
-        <div class="hero-stat-label">Businesses trust Employment Hero</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">2<span>M+</span></div>
-        <div class="hero-stat-label">Employees managed on platform</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">75<span>%</span></div>
-        <div class="hero-stat-label">Reduction in admin time reported</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">4.6<span>★</span></div>
-        <div class="hero-stat-label">App Store rating from employees</div>
+      <div class="hero-stats-track">
+        <!-- Set A -->
+        <div class="hero-stat">
+          <div class="hero-stat-num">300<span>K+</span></div>
+          <div class="hero-stat-label">Businesses trust Employment Hero</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">2<span>M+</span></div>
+          <div class="hero-stat-label">Employees managed on platform</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">75<span>%</span></div>
+          <div class="hero-stat-label">Reduction in admin time reported</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">4.6<span>★</span></div>
+          <div class="hero-stat-label">App Store rating from employees</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">$24<span>K</span></div>
+          <div class="hero-stat-label">Avg. cost to replace one employee</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">10<span>hrs</span></div>
+          <div class="hero-stat-label">Admin time saved per week</div>
+        </div>
+        <!-- Set B — duplicate for seamless loop -->
+        <div class="hero-stat">
+          <div class="hero-stat-num">300<span>K+</span></div>
+          <div class="hero-stat-label">Businesses trust Employment Hero</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">2<span>M+</span></div>
+          <div class="hero-stat-label">Employees managed on platform</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">75<span>%</span></div>
+          <div class="hero-stat-label">Reduction in admin time reported</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">4.6<span>★</span></div>
+          <div class="hero-stat-label">App Store rating from employees</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">$24<span>K</span></div>
+          <div class="hero-stat-label">Avg. cost to replace one employee</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">10<span>hrs</span></div>
+          <div class="hero-stat-label">Admin time saved per week</div>
+        </div>
       </div>
     </div>
   </div>
@@ -1459,6 +1533,49 @@
   }, { threshold: 0.3 });
 
   document.querySelectorAll('.roi-metrics-grid').forEach(el => ringObserver.observe(el));
+
+  // ─── SCROLL NAV DOTS ───
+  const snapSections = Array.from(document.querySelectorAll('section'));
+  const navEl = document.getElementById('scrollNav');
+  const dotLabels = ['Hero', 'Why', 'Partnership', 'Plans', 'Features', 'ROI', 'Setup', 'Contact'];
+
+  snapSections.forEach((sec, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'scroll-dot';
+    dot.setAttribute('aria-label', dotLabels[i] || `Section ${i + 1}`);
+    dot.title = dotLabels[i] || `Section ${i + 1}`;
+    dot.addEventListener('click', () => sec.scrollIntoView({ behavior: 'smooth' }));
+    navEl.appendChild(dot);
+  });
+
+  const dots = () => navEl.querySelectorAll('.scroll-dot');
+
+  const dotObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const idx = snapSections.indexOf(entry.target);
+        dots().forEach((d, i) => d.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: 0.4 });
+
+  snapSections.forEach(s => dotObserver.observe(s));
+
+  // ─── KEYBOARD SNAP ───
+  document.addEventListener('keydown', (e) => {
+    if (['ArrowDown', 'PageDown', 'ArrowUp', 'PageUp'].includes(e.key)) {
+      const activeDot = navEl.querySelector('.scroll-dot.active');
+      const allDots = Array.from(dots());
+      const idx = allDots.indexOf(activeDot);
+      if (e.key === 'ArrowDown' || e.key === 'PageDown') {
+        e.preventDefault();
+        if (idx < snapSections.length - 1) snapSections[idx + 1].scrollIntoView({ behavior: 'smooth' });
+      } else {
+        e.preventDefault();
+        if (idx > 0) snapSections[idx - 1].scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  });
 </script>
 </body>
 </html>
