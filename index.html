@@ -7995,6 +7995,80 @@ const releases = {
     audience: 'Any payroll or HR partner managing client account recovery requests at scale — gives support teams the timestamp they need to triage and escalate without leaving the page.',
     loomUrl: ''
   },
+
+  'checklist-reordering': {
+    title: 'Checklist Reordering — Onboarding & Offboarding',
+    tag: '🧑‍💼 HR', tagClass: 'tag-hr',
+    date: '6 May 2026', plan: 'All organisations with Checklists', region: '🌏 Global', users: 'HR Admins',
+    problem: 'Checklist task order was locked to system defaults, leaving admins unable to control how onboarding and offboarding tasks appeared to users.',
+    features: [
+      'Admins and users with relevant permissions can drag and reorder onboarding and offboarding checklist tasks',
+      'Re-ordering applies to checklist settings rather than relying on the system default',
+      'Click-and-hold from the left-hand side of the page to reposition each task'
+    ],
+    audience: 'Any partner whose clients use checklists — gives admins direct control of task flow without engineering or workaround support.',
+    loomUrl: ''
+  },
+
+  'timesheet-break-times': {
+    title: 'Timesheet Report — Break Start & End Times (BETA)',
+    tag: '💰 Payroll', tagClass: 'tag-payroll',
+    date: '6 May 2026', plan: 'All organisations (BETA — managed business pilot)', region: '🌏 Global', users: 'Admins · Payroll Managers',
+    problem: 'Admins and Payroll Managers had no way to prove exactly when employee breaks were taken to satisfy labour-law requirements — the Timesheet Report only showed total break count and duration, forcing manual cross-referencing of a second report that excluded manually entered timesheets.',
+    features: [
+      'New opt-in checkbox on the Timesheet Report export screen to include break start and end times',
+      'CSV and Excel exports include start and end time for each individual break as separate columns alongside existing break summary data',
+      'Applies to all employees regardless of how they record their time — manual entries and clock-in/clock-out',
+      'No changes to the on-screen timesheet grid — UX kept clean'
+    ],
+    audience: 'Partners with clients managing labour-law compliance — gives Payroll Managers exportable evidence of break timing without juggling multiple reports.',
+    loomUrl: ''
+  },
+
+  'salary-version-db-split': {
+    title: 'Salary Version Database Split — Pro-Ration Foundation',
+    tag: '💰 Payroll', tagClass: 'tag-payroll',
+    date: '6-11 May 2026', plan: 'All HR organisations (HR-only, EH Payroll, Xero, MYOB)', region: '🌏 Global', users: 'Payroll Admins · HR Admins',
+    problem: 'Pay schedules and leave allowance fields were tangled inside the salary version, blocking the rollout of pay-rate pro-ration and forcing all organisations onto a single rigid structure regardless of payroll connection.',
+    features: [
+      'Fields not directly tied to pay rate (pay schedule, leave allowance templates, tiered leave templates, apprentice and NWM/NLW eligibility) moved out of Salary History into Pay Run Details',
+      'These fields can no longer be scheduled alongside future-dated salary changes — they take effect immediately on save',
+      'Rolls out region by region: SG & MY on 6 May, UK & NZ on 7 May, AU on 11 May (CA already complete)',
+      'Active values auto-migrated for clients ahead of each region\'s migration'
+    ],
+    audience: 'All HR partners — structurally aligns every organisation in preparation for upcoming pay-rate pro-ration features that will roll out region by region.',
+    loomUrl: ''
+  },
+
+  'heroforce-roi-calculator-au': {
+    title: 'HeroForce Local ROI Calculator — AU Onboarding Pay Details',
+    tag: '🧑‍💼 HR', tagClass: 'tag-hr',
+    date: '5 May 2026', plan: 'AU organisations hiring AU domestic employees (feature flag controlled)', region: '🇦🇺 Australia', users: 'Admins · Owners · Managers',
+    problem: 'AU admins setting up new domestic hires had no clear comparison between Direct Employment and HeroForce — making it harder to surface the cost case at the most relevant moment in the hiring flow.',
+    features: [
+      'Live cost-comparison widget appears in the sidebar when an admin reaches the Pay Details step for a new AU domestic hire',
+      'Side-by-side comparison of Direct Employment vs HeroForce on the widget',
+      '"See full cost breakdown" opens an ROI Calculator modal comparing Direct Employment, Labour Hire and HeroForce line by line',
+      'Adjustable assumptions and a bar chart inside the modal',
+      'Direct CTA to get in touch with the HeroForce team from the modal'
+    ],
+    audience: 'AU partners positioning HeroForce — drops cost framing into the workflow at the moment admins are actively setting compensation for a new hire.',
+    loomUrl: 'https://www.loom.com/share/b85c813d57964ea88eba8279b73d5815'
+  },
+
+  'leave-balances-groups-filter': {
+    title: 'Time Off Balances Table — Groups Filter & Consistency',
+    tag: '🧑‍💼 HR', tagClass: 'tag-hr',
+    date: '6 May 2026', plan: 'All organisations', region: '🌏 Global', users: 'Admins · Managers',
+    problem: 'Admins and managers had limited ability to drill into leave balances by team — making it harder to monitor and act on time-off data without manual filtering or exports.',
+    features: [
+      'Filter leave balances by a specific group or employee',
+      'Combine the new Groups filter with the existing Time Off Category filter (e.g. annual leave for a specific team)',
+      'Filter UI updated for consistency with HD design guidelines'
+    ],
+    audience: 'Partners whose clients manage time off across multiple teams — gives managers faster, more targeted visibility into leave at the team level.',
+    loomUrl: 'https://www.loom.com/share/6c862ee432514b768d6fd937e0ffa19b'
+  },
 };
 
 /* ────────────────────────────
@@ -8634,13 +8708,13 @@ const areaSubTabs = {
   hr: [
     { label: 'All HR',                  keys: null },
     { label: 'Employment Details',       keys: ['employment-details','casual-conversion','contractors-as-managers','offer-multiple-signatories','offer-letter-reminders','legal-name-privacy','contractor-custom-fields-v2','vacant-positions-perms','employee-permissions-view','mandatory-fields-settings','wp-employee-profile','probation-end-date','contract-type-display','notice-periods-all','employee-contractor-codes','granular-employee-deletion-permissions','hr-permissions-expansion','permissions-renaming','vevo-check-api'] },
-    { label: 'Leave',                    keys: ['leave-cancel-termination','compliance-leave-filter','leave-overlap-prevention','leave-employee-disambiguation','public-holiday-indicator','leave-compliance-edit','leave-table-uplift','leave-table-standardize','public-holiday-auto','partially-approved-leave-status','zero-unit-leave-validation','leave-taken-report-extended-filters','leave-calendar-save-filters','leave-precise-time-requests','leave-prevent-delete-approved','leave-calendar-public-holidays','leave-pending-negative-balance','leave-reports-migration','leave-approval-audit-trail'] },
+    { label: 'Leave',                    keys: ['leave-cancel-termination','compliance-leave-filter','leave-overlap-prevention','leave-employee-disambiguation','public-holiday-indicator','leave-compliance-edit','leave-table-uplift','leave-table-standardize','public-holiday-auto','partially-approved-leave-status','zero-unit-leave-validation','leave-taken-report-extended-filters','leave-calendar-save-filters','leave-precise-time-requests','leave-prevent-delete-approved','leave-calendar-public-holidays','leave-pending-negative-balance','leave-reports-migration','leave-approval-audit-trail','leave-balances-groups-filter'] },
     { label: 'Documents & Policies',     keys: ['doc-notifications','compliance-doc-purpose','uk-policy-owner','uk-passport-visa-expiry','doc-template-visa-vars','doc-multiple-signatories','doc-image-upload','policy-due-dates','doc-editor-new','email-notifications-ui','email-notifs-docs','email-notifs-leave','cert-due-dates','cert-notification-improvements','probation-report','doc-template-variable-library','bulk-issue-documents','bulk-issue-documents-public','medical-disclosure-audit-logging','streamline-policy-acknowledgement','compliance-document-descriptions','compliance-document-tagging','compliance-reports-on-leave-filter','hr-document-editor-optional-block','email-notifs-org-consistency','gt-bulk-reminders','gt-portal-hr-docs-report','fair-work-statement-update','doc-template-versioning'] },
-    { label: 'Platform & Engagement',    keys: ['positions-colour','settings-uplift','company-feed','eh-chat','banking-audit-trail','multi-owner-tasks','audit-trail-onboarding','compliance-report-filters','people-report-permissions','eh-work-mobile-public','manager-reassignment','multi-currency-expenses','bpay-aiop','personal-email-settings-ui-refresh','standardising-expense-management-ui','export-requisitions-onboarding-approvals','independent-contractor-work-types','onboarding-offboarding-multi-owner-tasks','audit-report-onboarding-pay-details','heroforce-onboarding-ctas','chat-addon-client-launch','hr-casual-conversion-precheck','recognition-report-csv-uplift','hr-custom-work-hours-standard','scalable-filters','eh-work-bottom-nav','policy-template-country-default','audit-trail-emergency-contacts','openapi-worksites-departments','expense-policies-allowance','openapi-timesheets-webhook','openapi-partner-docs','eh-work-todo-personal','custom-work-hours-au-uk-hr','openapi-dev-docs-ui','dashboard-declutter','addons-settings-uplift','settings-people-controls','settings-system-setup-branding','settings-org-emails-uplift','settings-company-details-rewards','settings-recognition-uplift','openapi-write-apis','openapi-rate-limit','openapi-app-flow-uplift','email-templates-unified'] },
+    { label: 'Platform & Engagement',    keys: ['positions-colour','settings-uplift','company-feed','eh-chat','banking-audit-trail','multi-owner-tasks','audit-trail-onboarding','compliance-report-filters','people-report-permissions','eh-work-mobile-public','manager-reassignment','multi-currency-expenses','bpay-aiop','personal-email-settings-ui-refresh','standardising-expense-management-ui','export-requisitions-onboarding-approvals','independent-contractor-work-types','onboarding-offboarding-multi-owner-tasks','audit-report-onboarding-pay-details','heroforce-onboarding-ctas','chat-addon-client-launch','hr-casual-conversion-precheck','recognition-report-csv-uplift','hr-custom-work-hours-standard','scalable-filters','eh-work-bottom-nav','policy-template-country-default','audit-trail-emergency-contacts','openapi-worksites-departments','expense-policies-allowance','openapi-timesheets-webhook','openapi-partner-docs','eh-work-todo-personal','custom-work-hours-au-uk-hr','openapi-dev-docs-ui','dashboard-declutter','addons-settings-uplift','settings-people-controls','settings-system-setup-branding','settings-org-emails-uplift','settings-company-details-rewards','settings-recognition-uplift','openapi-write-apis','openapi-rate-limit','openapi-app-flow-uplift','email-templates-unified','checklist-reordering','heroforce-roi-calculator-au'] },
   ],
   payroll: [
     { label: 'All Payroll', keys: null },
-    { label: 'Global',      keys: ['inactive-users','roster-timesheet-report-mar','pay-condition-api','payroll-hide-inactive-deductions','opening-balances-employee-id'] },
+    { label: 'Global',      keys: ['inactive-users','roster-timesheet-report-mar','pay-condition-api','payroll-hide-inactive-deductions','opening-balances-employee-id','timesheet-break-times','salary-version-db-split'] },
     { label: 'Australia',   keys: ['contractor-codes','split-earnings-apac','au-pay-rate-template','heroclear-payment-rails','pay-rate-webhook','super-auto-import','heroclear-payment-approvals','payroll-award-preserve-customisation','au-award-update-batching','heroclear-onboarding-setup','super-edit-eh-work','super-default-mysuper'] },
     { label: 'New Zealand', keys: ['nz-payroll-unpaid-leave','nz-esct-report','payroll-ask-community'] },
     { label: 'UK',          keys: [] },
