@@ -8189,6 +8189,68 @@ const releases = {
     audience: 'Any partner whose clients have managers going on extended leave or sabbatical — eliminates the one-by-one reassign on the way out and the one-by-one revert on the way back.',
     loomUrl: 'https://www.loom.com/share/da5ff408fa994cd797891e51fe3de01f'
   },
+
+  'audit-trail-permission-filtering': {
+    title: 'Audit Trail Permission-Based Filtering',
+    tag: '🧑‍💼 HR', tagClass: 'tag-hr',
+    date: '8 May 2026', plan: 'Mid-market organisations', region: '🌏 Global', users: 'HR Admins · CSS Users',
+    problem: 'Clients wanted to delegate employee file management without exposing confidential payroll or financial history, but the Audit Trail showed everything to anyone with access — leaving teams reluctant to enable it at all.',
+    features: [
+      'Audit Trail now filters automatically based on existing Employee File permissions',
+      'Non-Payroll Details permission shows only non-payroll audit events — no salary, bank, or tax history',
+      'Adding Payroll Details expands the trail to include salary, payroll changes, and leaves',
+      'Adding Financial Details surfaces bank, tax, and superannuation changes',
+      'Filtering applies at the parent permission level — child permissions still inherit the full parent group view'
+    ],
+    audience: 'Mid-market partners whose clients flagged Audit Trail as a security concern — unlocks the feature without exposing sensitive payroll detail to broader admin groups.',
+    loomUrl: 'https://www.loom.com/share/c30e6ac65c80427e86414c626df94a78'
+  },
+
+  'roster-blackout-unavailability': {
+    title: 'Restrict Unavailability During Blackout Periods',
+    tag: '⏰ Time & Attendance', tagClass: 'tag-time',
+    date: '8 May 2026', plan: 'Orgs using work sites and position rostering', region: '🌏 Global', users: 'HR Admins · Managers · Employees',
+    problem: 'Employees could still create unavailability requests during blackout periods — leaving managers chasing gaps in the roster during peak season (e.g. Christmas for retail and hospitality).',
+    features: [
+      'Admins can toggle on a restriction in blackout period settings to block employee unavailability submissions',
+      'Employees see a clear message in EH Work explaining why their request can\'t be submitted',
+      'Managers see a warning on the roster but can override and create unavailability on the employee\'s behalf',
+      'Managers can still log their own unavailability after acknowledging the blackout warning'
+    ],
+    audience: 'Hospitality, retail, and any partner with seasonal staffing crunches — closes the loop on blackout enforcement so peak-season rosters stay covered.',
+    loomUrl: ''
+  },
+
+  'jobs-unified-signup-auth': {
+    title: 'Unified Sign-Up & Auth on EH Jobs',
+    tag: '🔒 Security', tagClass: 'tag-security',
+    date: '13 May 2026', plan: 'All Jobs site users', region: '🌏 Global', users: 'Job Seekers',
+    problem: 'Job seekers signing up on EH Jobs used a magic-link flow that diverged from the password-first login on HR and Payroll — two auth systems were painful to secure consistently and added friction for new users.',
+    features: [
+      'New password-first sign-up flow: Email → Password → Verification',
+      'Job seekers now share the same sign-in flow as HR users, including optional MFA in Account Settings',
+      'Six-digit verification codes can be entered directly on the Jobs site or confirmed via the email link',
+      'Registration sessions hold sign-up state until email verification — no more ghost accounts in the database',
+      'Internal soft launch on 8 May 2026 (employmenthero.com emails only); public release on 13 May 2026'
+    ],
+    audience: 'Recruitment partners running careers on EH Jobs — one consistent identity model across HR, Payroll, and Jobs cuts support tickets and brings the candidate flow up to platform security standards.',
+    loomUrl: 'https://www.loom.com/share/866f1e40fa574e9c9fd962f3e3ca9c75'
+  },
+
+  'heroai-1on1-history': {
+    title: 'Hero AI Reads Past 1:1 History & Notes',
+    tag: '🤖 Hero AI', tagClass: 'tag-heroai',
+    date: '6 May 2026', plan: 'Premium · Platinum · Plus · Unlimited · Engage · Elite', region: '🌏 Global', users: 'Managers · Employees',
+    problem: 'Hero AI could already see upcoming 1:1 schedules and talking points (Slice 1, 29 April), but managers and employees still had to scroll back through past meetings manually to recall what was discussed or which actions were outstanding.',
+    features: [
+      'Ask "What did we discuss in my last 1:1?" and get an instant recap',
+      '"Can you summarise my recent 1:1 notes?" pulls a synthesis across recent sessions',
+      '"What action items do I need to follow up on?" surfaces outstanding commitments',
+      'Builds on Slice 1 access to upcoming agenda and talking points'
+    ],
+    audience: 'Any partner whose clients run regular 1:1s — turns Hero AI into a continuity tool so managers walk into the next conversation already across the last one.',
+    loomUrl: 'https://www.loom.com/share/1b32362e65544816bdb6af3acec594fe'
+  },
 };
 
 /* ────────────────────────────
@@ -8820,7 +8882,7 @@ function getAreaCounts(tab) {
 const areaSubTabs = {
   heroai: [
     { label: 'All HeroAI',     keys: null },
-    { label: 'Chat & Widget',  keys: ['heroai-hr-agent','heroai-work-app','heroai-search-box','heroai-chat-optimisations','heroai-prompt-admin','heroai-chat-resume','heroai-chat-history','heroai-dashboard-widget','heroai-interface-refresh','heroai-icon-nav','heroai-ui-dec25','heroai-tools-public','heroai-payslip-salary','heroai-extended-memory','heroai-zendesk-ticket-visibility','heroai-speed-performance','heroai-experience-refresh','heroai-personalisation-topbar','heroai-setup-mode-access-control','heroai-delete-recent-chat','heroai-widget-personalisation','heroai-1on1-reading','heroai-checker-tle'] },
+    { label: 'Chat & Widget',  keys: ['heroai-hr-agent','heroai-work-app','heroai-search-box','heroai-chat-optimisations','heroai-prompt-admin','heroai-chat-resume','heroai-chat-history','heroai-dashboard-widget','heroai-interface-refresh','heroai-icon-nav','heroai-ui-dec25','heroai-tools-public','heroai-payslip-salary','heroai-extended-memory','heroai-zendesk-ticket-visibility','heroai-speed-performance','heroai-experience-refresh','heroai-personalisation-topbar','heroai-setup-mode-access-control','heroai-delete-recent-chat','heroai-widget-personalisation','heroai-1on1-reading','heroai-1on1-history','heroai-checker-tle'] },
     { label: 'Mobile',         keys: ['heroai-hr-agent-mobile','heroai-hr-agent-expand'] },
     { label: 'Recruitment AI', keys: ['smartmatch','marketing-signup','hiring-criteria','hiring-stage-ui','ai-voice-interviewer','voice-agent-multiregion','ai-job-description-gen','ai-tailored-applications','ai-tailored-all-apps','ai-interviewer-default','recruitment-ai-billing','ai-sq-suggestions','recruitment-agent-employer','recruitment-shortlisting-agent'] },
     { label: 'Leave AI',       keys: ['heroai-leave-mgmt','heroai-leave-suggest','heroai-enhanced-chat-leave','leave-ai-autosuggest-type','heroai-hr-agent-leave-actions','heroai-my-leave-dynamic-messaging'] },
@@ -8830,7 +8892,7 @@ const areaSubTabs = {
     { label: 'Employment Details',       keys: ['employment-details','casual-conversion','contractors-as-managers','offer-multiple-signatories','offer-letter-reminders','legal-name-privacy','contractor-custom-fields-v2','vacant-positions-perms','employee-permissions-view','mandatory-fields-settings','wp-employee-profile','probation-end-date','contract-type-display','notice-periods-all','employee-contractor-codes','granular-employee-deletion-permissions','hr-permissions-expansion','permissions-renaming','vevo-check-api'] },
     { label: 'Leave',                    keys: ['leave-cancel-termination','compliance-leave-filter','leave-overlap-prevention','leave-employee-disambiguation','public-holiday-indicator','leave-compliance-edit','leave-table-uplift','leave-table-standardize','public-holiday-auto','partially-approved-leave-status','zero-unit-leave-validation','leave-taken-report-extended-filters','leave-calendar-save-filters','leave-precise-time-requests','leave-prevent-delete-approved','leave-calendar-public-holidays','leave-pending-negative-balance','leave-reports-migration','leave-approval-audit-trail','leave-balances-groups-filter'] },
     { label: 'Documents & Policies',     keys: ['doc-notifications','compliance-doc-purpose','uk-policy-owner','uk-passport-visa-expiry','doc-template-visa-vars','doc-multiple-signatories','doc-image-upload','policy-due-dates','doc-editor-new','email-notifications-ui','email-notifs-docs','email-notifs-leave','cert-due-dates','cert-notification-improvements','probation-report','doc-template-variable-library','bulk-issue-documents','bulk-issue-documents-public','medical-disclosure-audit-logging','streamline-policy-acknowledgement','compliance-document-descriptions','compliance-document-tagging','compliance-reports-on-leave-filter','hr-document-editor-optional-block','email-notifs-org-consistency','gt-bulk-reminders','gt-portal-hr-docs-report','fair-work-statement-update','doc-template-versioning'] },
-    { label: 'Platform & Engagement',    keys: ['positions-colour','settings-uplift','company-feed','eh-chat','banking-audit-trail','multi-owner-tasks','audit-trail-onboarding','compliance-report-filters','people-report-permissions','eh-work-mobile-public','manager-reassignment','multi-currency-expenses','bpay-aiop','personal-email-settings-ui-refresh','standardising-expense-management-ui','export-requisitions-onboarding-approvals','independent-contractor-work-types','onboarding-offboarding-multi-owner-tasks','audit-report-onboarding-pay-details','heroforce-onboarding-ctas','chat-addon-client-launch','hr-casual-conversion-precheck','recognition-report-csv-uplift','hr-custom-work-hours-standard','scalable-filters','eh-work-bottom-nav','policy-template-country-default','audit-trail-emergency-contacts','openapi-worksites-departments','expense-policies-allowance','openapi-timesheets-webhook','openapi-partner-docs','eh-work-todo-personal','custom-work-hours-au-uk-hr','openapi-dev-docs-ui','dashboard-declutter','addons-settings-uplift','settings-people-controls','settings-system-setup-branding','settings-org-emails-uplift','settings-company-details-rewards','settings-recognition-uplift','openapi-write-apis','openapi-rate-limit','openapi-app-flow-uplift','email-templates-unified','checklist-reordering','heroforce-roi-calculator-au','manager-temp-reassignment'] },
+    { label: 'Platform & Engagement',    keys: ['positions-colour','settings-uplift','company-feed','eh-chat','banking-audit-trail','multi-owner-tasks','audit-trail-onboarding','compliance-report-filters','people-report-permissions','eh-work-mobile-public','manager-reassignment','multi-currency-expenses','bpay-aiop','personal-email-settings-ui-refresh','standardising-expense-management-ui','export-requisitions-onboarding-approvals','independent-contractor-work-types','onboarding-offboarding-multi-owner-tasks','audit-report-onboarding-pay-details','heroforce-onboarding-ctas','chat-addon-client-launch','hr-casual-conversion-precheck','recognition-report-csv-uplift','hr-custom-work-hours-standard','scalable-filters','eh-work-bottom-nav','policy-template-country-default','audit-trail-emergency-contacts','openapi-worksites-departments','expense-policies-allowance','openapi-timesheets-webhook','openapi-partner-docs','eh-work-todo-personal','custom-work-hours-au-uk-hr','openapi-dev-docs-ui','dashboard-declutter','addons-settings-uplift','settings-people-controls','settings-system-setup-branding','settings-org-emails-uplift','settings-company-details-rewards','settings-recognition-uplift','openapi-write-apis','openapi-rate-limit','openapi-app-flow-uplift','email-templates-unified','checklist-reordering','heroforce-roi-calculator-au','manager-temp-reassignment','audit-trail-permission-filtering'] },
   ],
   payroll: [
     { label: 'All Payroll', keys: null },
@@ -8850,7 +8912,7 @@ const areaSubTabs = {
   ],
   time: [
     { label: 'All Time & Attendance', keys: null },
-    { label: 'Rostering',             keys: ['roster-perf','roster-unavailability-notifs','bulk-rota-management','roster-print-employee','square-pos-sales','roster-sales-forecast','roster-first-day-week','leave-rota-conflict','worksite-time-reports','roster-templates-wp','print-roster-wp','roster-shift-costing','edit-published-shifts','hero-time-clock-sso','roster-copy-paste-performance','roster-overtime-indicator','roster-bulk-actions-async','roster-advanced-copy-modal','roster-reports-worksite-position','roster-sales-csv-import','roster-lock-shifts','roster-qol-dec25','roster-group-assignments','roster-budget-copy-apply','roster-bulk-selection','roster-warnings-toolbar','roster-row-order-customise'] },
+    { label: 'Rostering',             keys: ['roster-perf','roster-unavailability-notifs','bulk-rota-management','roster-print-employee','square-pos-sales','roster-sales-forecast','roster-first-day-week','leave-rota-conflict','worksite-time-reports','roster-templates-wp','print-roster-wp','roster-shift-costing','edit-published-shifts','hero-time-clock-sso','roster-copy-paste-performance','roster-overtime-indicator','roster-bulk-actions-async','roster-advanced-copy-modal','roster-reports-worksite-position','roster-sales-csv-import','roster-lock-shifts','roster-qol-dec25','roster-group-assignments','roster-budget-copy-apply','roster-bulk-selection','roster-warnings-toolbar','roster-row-order-customise','roster-blackout-unavailability'] },
     { label: 'Timesheets',            keys: ['geofencing','timesheet-redesign','overnight-timesheets-all','timesheet-reuse','nz-ph-timesheet-automation','email-notifs-timesheets','roster-leave-to-timesheet'] },
     { label: 'Scheduling',            keys: ['custom-work-hours','custom-work-hours-8w'] },
   ],
@@ -8859,7 +8921,7 @@ const areaSubTabs = {
     { label: '2FA & Auth',            keys: ['2fa','recovery-codes','2fa-mobile','mandatory-2fa-forgot-pw','org-2fa-device-memory','forgot-pw-company-email','payroll-2fa-multi','payroll-login-refresh','eh-jobs-microsoft-sso','security-recovery-codes-mobile','security-mandatory-2fa-mobile','payroll-2fa-setup-mobile','jobs-passkey-reauth'] },
     { label: 'Account Recovery',      keys: ['acct-recovery','payroll-partner-account-recovery','payroll-passkey-adoption','account-recovery-decline','payroll-ssar-ux','partner-account-recovery-requested-date'] },
     { label: 'Threat Detection',      keys: ['breached-pw','threat-hunting','email-security','app-block','sso-cert-expiry-notifs','free-trial-scam-prevention'] },
-    { label: 'IT & Integrations',     keys: ['asset-register-custom-fields','m365-reporting-sync','mdm-jamf-intune','custom-webhook-headers','public-holiday-css','sso-dual-cert','sso-css-permission','jobs-unified-auth','openapi-certificates-webhooks-worktypes','employer-initiated-email-update','user-security-overview-enhancements','asset-register-csv-bulk-reassignment','openapi-permissions-alignment','security-asset-register-email-column','security-asset-management-filter','sso-self-service-recovery','eh-work-sso-passkeys','payroll-user-access-dashboards','payroll-mfa-ei-brands','payslip-management','openapi-forms-webhooks'] },
+    { label: 'IT & Integrations',     keys: ['asset-register-custom-fields','m365-reporting-sync','mdm-jamf-intune','custom-webhook-headers','public-holiday-css','sso-dual-cert','sso-css-permission','jobs-unified-auth','openapi-certificates-webhooks-worktypes','employer-initiated-email-update','user-security-overview-enhancements','asset-register-csv-bulk-reassignment','openapi-permissions-alignment','security-asset-register-email-column','security-asset-management-filter','sso-self-service-recovery','eh-work-sso-passkeys','payroll-user-access-dashboards','payroll-mfa-ei-brands','payslip-management','openapi-forms-webhooks','jobs-unified-signup-auth'] },
     { label: 'Permissions',           keys: ['granular-employee-deletion-permissions','security-permissions-terminology'] },
   ],
   automation: [
