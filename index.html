@@ -8069,6 +8069,360 @@ const releases = {
     audience: 'Partners whose clients manage time off across multiple teams — gives managers faster, more targeted visibility into leave at the team level.',
     loomUrl: 'https://www.loom.com/share/6c862ee432514b768d6fd937e0ffa19b'
   },
+
+  'roster-bulk-selection': {
+    title: 'Roster — Bulk Selection & Mixed Shift Management',
+    tag: '🕐 Time & Attendance', tagClass: 'tag-time',
+    date: '7 May 2026', plan: 'All organisations', region: '🌏 Global', users: 'Roster Managers · Admins',
+    problem: 'In employee view, bulk selecting via the day header only captured unpublished shifts and there was no bulk selection in work site view, while Publish and Delete were unavailable when published and unpublished shifts were mixed — forcing managers to work in multiple passes.',
+    features: [
+      'Click a column or row header to select all shifts in that column or row, covering both published and unpublished, in employee and work site views',
+      'Selected columns and rows are visually highlighted for clarity',
+      'Summary bar at the top updates in real time so day, position, or employee level information is easy to review',
+      'Publish and Delete are now always available on mixed selections — both actions apply only to the unpublished shifts',
+      'Current day is highlighted on the roster for quick orientation',
+      'Press Escape to deselect all selected shifts'
+    ],
+    audience: 'Any partner whose clients build complex rosters across multiple work sites and positions — removes the need for managers to publish and delete in separate passes.',
+    loomUrl: 'https://www.loom.com/share/e2680a23c9644dea9cb507957d79c6a5'
+  },
+
+  'openapi-forms-webhooks': {
+    title: 'OpenAPI — Forms Webhook Events',
+    tag: '🔒 Security', tagClass: 'tag-security',
+    date: '7 May 2026', plan: 'All organisations', region: '🌏 Global', users: 'Developers · Integration Partners',
+    problem: 'Custom Forms users had no native way to trigger downstream actions in external systems when form responses were submitted or moved through approval workflows, forcing manual monitoring and exports that created delays, compliance risk and a fragmented integration experience.',
+    features: [
+      'New OpenAPI webhook events under Forms allow external systems to subscribe to real-time form activity',
+      'Form Response Submission — fires when an employee submits a form response',
+      'Response Step Approval — fires when an individual approval step within a multi-step workflow is approved',
+      'Response Fully Approved — fires when all required approval steps have been completed',
+      'Response Declined — fires when a response is declined at any point in the approval workflow'
+    ],
+    audience: 'Partners building integrations or automating workflows around Custom Forms — opens up real-time event-driven flows in external systems instead of polling or manual exports.',
+    loomUrl: ''
+  },
+
+  'roster-warnings-toolbar': {
+    title: 'Roster — Warnings Surfaced in Toolbar',
+    tag: '🕐 Time & Attendance', tagClass: 'tag-time',
+    date: '7 May 2026', plan: 'All organisations', region: '🌏 Global', users: 'Roster Managers',
+    problem: 'Managers could see warning counts in the legend, but still had to manually scan the roster and hover over individual shifts to find the actual issues — slowing roster builds and risking unresolved warnings going to publish.',
+    features: [
+      'Live warning count beside the roster costing overview',
+      'Enter Warning View directly from the toolbar badge or roster legend',
+      'Focus on warning shifts while keeping the full roster visible for context',
+      'Edit warning shifts directly with counts updating live as issues are resolved'
+    ],
+    audience: 'Any partner whose clients use work sites and position rostering — makes warnings impossible to miss during roster creation and speeds up resolution before publish.',
+    loomUrl: 'https://www.loom.com/share/c88744d796bb457eae93629d676f6395'
+  },
+
+  'leave-accrual-dimensions-export': {
+    title: 'Auto-Inherit Dimensions on Leave Accrual Journal Exports',
+    tag: '💰 Payroll', tagClass: 'tag-payroll',
+    date: '7 May 2026', plan: 'All organisations', region: '🇦🇺 Australia · NZ New Zealand', users: 'Payroll Admins',
+    problem: 'Dimension values had to be manually mapped against leave accrual lines during journal export, creating repetitive data entry and risking inconsistent financial reporting between earnings and accruals.',
+    features: [
+      'Dimension values on leave accrual lines automatically mirror the Dimensions assigned to the corresponding earnings lines in the pay run',
+      'Multiple earnings lines with different Dimensions are supported — each accrual line carries the correct, specific Dimension'
+    ],
+    audience: 'AU and NZ payroll partners running journal exports with reporting Dimensions configured — removes manual mapping and keeps cost reporting aligned between earnings and accruals.',
+    loomUrl: ''
+  },
+
+  'leave-earnings-dimensions-payrun': {
+    title: 'Auto-Populate Dimensions for Leave Earnings in Pay Runs',
+    tag: '💰 Payroll', tagClass: 'tag-payroll',
+    date: '7 May 2026', plan: 'All organisations', region: '🇦🇺 Australia · NZ New Zealand', users: 'Payroll Admins',
+    problem: 'Reporting Dimensions had to be manually assigned every time an employee took leave, adding clicks to every pay run and risking inconsistent cost tracking when the step was missed.',
+    features: [
+      'Dimensions are automatically pulled from the employee\'s pay run defaults the moment leave is added to a pay run',
+      'Works for all leave types — annual, sick, personal and others',
+      'Dimensions can still be manually edited in the pay run until it is finalised'
+    ],
+    audience: 'AU and NZ payroll partners with reporting Dimensions configured — saves clicks on every pay run and keeps leave cost tracking aligned without manual intervention.',
+    loomUrl: ''
+  },
+
+  'roster-row-order-customise': {
+    title: 'Roster — Customise Row Order',
+    tag: '🕐 Time & Attendance', tagClass: 'tag-time',
+    date: '7 May 2026', plan: 'All organisations', region: '🌏 Global', users: 'Roster Managers',
+    problem: 'Work sites and positions were displayed alphabetically with no way to reorder, so managers had to scroll past less relevant rows just to reach the locations or positions they used most often — daily friction with no workaround.',
+    features: [
+      'Reorder work site and position rows using simple up/down controls',
+      'Live preview of changes before saving',
+      'Save or cancel changes without affecting the current roster view',
+      'Personalised row order per manager — independent of other users',
+      'Support for ordering employees as well'
+    ],
+    audience: 'Any partner whose clients use work sites and position rostering — managers can prioritise the rows they use most and skip the daily scroll past irrelevant locations.',
+    loomUrl: 'https://www.loom.com/share/410c8d3f32ab443f97a32929919c6bc1'
+  },
+
+  'jobs-passkey-reauth': {
+    title: 'Jobs Site — Passkey Re-Auth on Session Timeout',
+    tag: '🔒 Security', tagClass: 'tag-security',
+    date: '7 May 2026', plan: 'All organisations', region: '🌏 Global', users: 'Job Seekers',
+    problem: 'Job seekers whose session timed out on the Jobs site had no quick re-authentication option and had to repeat a full sign-in flow — creating friction and abandoned sessions for users with passkey already configured.',
+    features: [
+      'Phase 4 of the Jobs Site Session Timeout Modal — passkey is now offered as a quick re-auth method',
+      'Available to job seekers who use passkey sign-in or who use password sign-in with passkey configured',
+      'Re-authenticate in a single biometric tap without leaving the current page'
+    ],
+    audience: 'Recruitment partners running careers pages on the EH Jobs site — reduces drop-off when sessions expire mid-application for any candidate with passkey set up.',
+    loomUrl: ''
+  },
+
+  'manager-temp-reassignment': {
+    title: 'Temporary Manager Reassignment',
+    tag: '🧑‍💼 HR', tagClass: 'tag-hr',
+    date: '4 May 2026', plan: 'All organisations', region: '🌏 Global', users: 'HR Admins',
+    problem: 'When a manager went on leave, HR Admins had no choice but to manually move every direct report one by one — tedious for any manager with a sizeable team and easy to forget to revert when the manager returned.',
+    features: [
+      'Initiate a bulk temporary reassignment directly from the manager\'s profile in a single action',
+      'Select a temporary manager and set coverage dates without leaving the profile',
+      'Bulk-assign all reports at once or split them across different temporary managers',
+      'Automatic reversion to the original manager when the coverage period ends'
+    ],
+    audience: 'Any partner whose clients have managers going on extended leave or sabbatical — eliminates the one-by-one reassign on the way out and the one-by-one revert on the way back.',
+    loomUrl: 'https://www.loom.com/share/da5ff408fa994cd797891e51fe3de01f'
+  },
+
+  'audit-trail-permission-filtering': {
+    title: 'Audit Trail Permission-Based Filtering',
+    tag: '🧑‍💼 HR', tagClass: 'tag-hr',
+    date: '8 May 2026', plan: 'Mid-market organisations', region: '🌏 Global', users: 'HR Admins · CSS Users',
+    problem: 'Clients wanted to delegate employee file management without exposing confidential payroll or financial history, but the Audit Trail showed everything to anyone with access — leaving teams reluctant to enable it at all.',
+    features: [
+      'Audit Trail now filters automatically based on existing Employee File permissions',
+      'Non-Payroll Details permission shows only non-payroll audit events — no salary, bank, or tax history',
+      'Adding Payroll Details expands the trail to include salary, payroll changes, and leaves',
+      'Adding Financial Details surfaces bank, tax, and superannuation changes',
+      'Filtering applies at the parent permission level — child permissions still inherit the full parent group view'
+    ],
+    audience: 'Mid-market partners whose clients flagged Audit Trail as a security concern — unlocks the feature without exposing sensitive payroll detail to broader admin groups.',
+    loomUrl: 'https://www.loom.com/share/c30e6ac65c80427e86414c626df94a78'
+  },
+
+  'roster-blackout-unavailability': {
+    title: 'Restrict Unavailability During Blackout Periods',
+    tag: '⏰ Time & Attendance', tagClass: 'tag-time',
+    date: '8 May 2026', plan: 'Orgs using work sites and position rostering', region: '🌏 Global', users: 'HR Admins · Managers · Employees',
+    problem: 'Employees could still create unavailability requests during blackout periods — leaving managers chasing gaps in the roster during peak season (e.g. Christmas for retail and hospitality).',
+    features: [
+      'Admins can toggle on a restriction in blackout period settings to block employee unavailability submissions',
+      'Employees see a clear message in EH Work explaining why their request can\'t be submitted',
+      'Managers see a warning on the roster but can override and create unavailability on the employee\'s behalf',
+      'Managers can still log their own unavailability after acknowledging the blackout warning'
+    ],
+    audience: 'Hospitality, retail, and any partner with seasonal staffing crunches — closes the loop on blackout enforcement so peak-season rosters stay covered.',
+    loomUrl: ''
+  },
+
+  'jobs-unified-signup-auth': {
+    title: 'Unified Sign-Up & Auth on EH Jobs',
+    tag: '🔒 Security', tagClass: 'tag-security',
+    date: '13 May 2026', plan: 'All Jobs site users', region: '🌏 Global', users: 'Job Seekers',
+    problem: 'Job seekers signing up on EH Jobs used a magic-link flow that diverged from the password-first login on HR and Payroll — two auth systems were painful to secure consistently and added friction for new users.',
+    features: [
+      'New password-first sign-up flow: Email → Password → Verification',
+      'Job seekers now share the same sign-in flow as HR users, including optional MFA in Account Settings',
+      'Six-digit verification codes can be entered directly on the Jobs site or confirmed via the email link',
+      'Registration sessions hold sign-up state until email verification — no more ghost accounts in the database',
+      'Internal soft launch on 8 May 2026 (employmenthero.com emails only); public release on 13 May 2026'
+    ],
+    audience: 'Recruitment partners running careers on EH Jobs — one consistent identity model across HR, Payroll, and Jobs cuts support tickets and brings the candidate flow up to platform security standards.',
+    loomUrl: 'https://www.loom.com/share/866f1e40fa574e9c9fd962f3e3ca9c75'
+  },
+
+  'heroai-1on1-history': {
+    title: 'Hero AI Reads Past 1:1 History & Notes',
+    tag: '🤖 Hero AI', tagClass: 'tag-heroai',
+    date: '6 May 2026', plan: 'Premium · Platinum · Plus · Unlimited · Engage · Elite', region: '🌏 Global', users: 'Managers · Employees',
+    problem: 'Hero AI could already see upcoming 1:1 schedules and talking points (Slice 1, 29 April), but managers and employees still had to scroll back through past meetings manually to recall what was discussed or which actions were outstanding.',
+    features: [
+      'Ask "What did we discuss in my last 1:1?" and get an instant recap',
+      '"Can you summarise my recent 1:1 notes?" pulls a synthesis across recent sessions',
+      '"What action items do I need to follow up on?" surfaces outstanding commitments',
+      'Builds on Slice 1 access to upcoming agenda and talking points'
+    ],
+    audience: 'Any partner whose clients run regular 1:1s — turns Hero AI into a continuity tool so managers walk into the next conversation already across the last one.',
+    loomUrl: 'https://www.loom.com/share/1b32362e65544816bdb6af3acec594fe'
+  },
+
+  'recruitment-bulk-cv-upload-25': {
+    title: 'Bulk CV Upload — Preview & Edit (up to 25)',
+    tag: '🎯 Recruitment', tagClass: 'tag-recruitment',
+    date: '11 May 2026', plan: 'All organisations', region: '🌏 Global', users: 'HR Admins · Hiring Managers',
+    problem: 'Bulk CV upload was capped at 10 with no preview — recruiters had to fix mis-parsed names, missing emails, or incomplete details one candidate at a time after every batch was already added to the system.',
+    features: [
+      'Upload up to 25 CVs at once from the talent pool or job pipeline, with instant validation for unsupported types, oversized files, and duplicates',
+      'Review every parsed candidate before commit — flagged as Ready, Needs Attention, or Failed',
+      'Edit any candidate inline on the review screen — fill missing required fields or manually enter details for CVs that couldn\'t be parsed',
+      'Bulk-apply source and tags across the whole batch',
+      'Add all ready candidates to the Job Pipeline in a single action',
+      'Phase 2 (coming): Talent Pool support. Phase 3: bulk upload up to 1000 CVs'
+    ],
+    audience: 'Mid-market partners running high-volume recruitment — eliminates the post-upload clean-up cycle and meaningfully lifts ATS adoption.',
+    loomUrl: 'https://www.loom.com/share/cc46b472c98f4f8db561f6675582a992'
+  },
+
+  '9box-talent-grid-dedicated-page': {
+    title: '9-Box Talent Grid — Dedicated Page with Add Score & Filters',
+    tag: '📈 Performance', tagClass: 'tag-performance',
+    date: '11 May 2026', plan: 'Platinum · Plus · Unlimited · Elite', region: '🌏 Global', users: 'HR Admins · Managers',
+    problem: 'The 9-Box Grid was buried in Reports, used different filtering behaviour than the employee list, and offered no clean way to add or update employee ratings — so managers treated it as an export rather than a working talent tool.',
+    features: [
+      'Dedicated 9-Box Talent Grid page in the navigation, with Talent Grid and Performance History tabs',
+      'Team and Personnel filters live above the tabs and stay in sync when switching views (fixes the grid/list filter divergence bug)',
+      'New Add Score side panel — search any employee and rate them directly from the grid, an employee row, or an employee file',
+      'One-click CSV export from either tab that respects active filters — no loading modal',
+      'Improved empty states for unrated employees, no-result filters, and unconfigured orgs',
+      'HR admins can hide the 9-Box page from navigation via Menu Customisation; legacy 9-Box Report has been removed'
+    ],
+    audience: 'Performance-led partners on Platinum and above — turns the 9-Box from a buried report into a first-class talent management workflow.',
+    loomUrl: 'https://www.loom.com/share/dba405139d5a4412b9f5a4d3e12f7906'
+  },
+
+  'mobile-quicklinks-employee-pool': {
+    title: 'Expanded Employee Quicklinks on EH Work Home',
+    tag: '🧑‍💼 HR', tagClass: 'tag-hr',
+    date: '11 May 2026', plan: 'All HR organisations', region: '🌏 Global', users: 'Employees',
+    problem: 'The employee Home screen in EH Work only surfaced a small set of Quicklinks, forcing employees to dig through navigation for the things they used every day — slowing down the most common mobile workflows.',
+    features: [
+      'Three new employee-specific shortcuts added to the Quicklinks pool: Certifications, Documents, and HR Policies (highest-usage items per Mixpanel data)',
+      'Updated pool surfaces automatically when the app detects relevant permissions — no admin action required',
+      'Shortcuts fill dynamically based on access so the 6-slot grid stays full'
+    ],
+    audience: 'Any partner with a mobile-first or frontline workforce — reduces navigation friction for the most common employee tasks without any setup.',
+    loomUrl: ''
+  },
+
+  'htc-facial-recognition': {
+    title: 'Hero Time Clock — Facial Recognition Kiosk',
+    tag: '⏰ Time & Attendance', tagClass: 'tag-time',
+    date: '11 May 2026', plan: 'All organisations using HTC Kiosk', region: '🌏 Global', users: 'HR Admins · Managers · Employees',
+    problem: 'Clocking in at the HTC kiosk required entering a PIN, and for large workforces employees first had to scroll a long list to find themselves — slow and error-prone at the busiest moments of the shift.',
+    features: [
+      'Employees enrol their face once in the EH Work app, then clock in/out hands-free at the kiosk with facial recognition',
+      'Kiosk PINs are now auto-generated and delivered to employees when access is granted — no manual setup',
+      'Optional photo capture can be enabled from kiosk settings',
+      'HTC now reflects the organisation\'s brand colour from HR org settings',
+      'Employees can leave notes when clocking out directly from HTC'
+    ],
+    audience: 'Hospitality, retail, healthcare, and any large-workforce partner using HTC — dramatically faster clock-in flow and a much better onboarding experience for kiosk access.',
+    loomUrl: 'https://www.loom.com/share/006a3c4c805d46bfa661398ec655e4c7'
+  },
+
+  'forms-approval-reversal': {
+    title: 'Custom Forms — Reverse Approval with Audit Trail',
+    tag: '⚡ Automations', tagClass: 'tag-automation',
+    date: '11 May 2026', plan: 'Forms users (Employment Plus · Platinum)', region: '🌏 Global', users: 'HR Admins · Approvers · Owners',
+    problem: 'Once a form submission was approved there was no way to correct a mistaken approval inside the platform — admins had to manage the cleanup manually outside the system, creating confusion and audit gaps.',
+    features: [
+      '"Reverse approval" action available on approved or partially approved submissions — restricted to HR Admins, Owners, and original approvers',
+      'A reason is required before any reversal, and the submission status automatically moves to Declined',
+      'Any remaining pending approvals are cancelled when a reversal happens',
+      'Full approval and reversal history visible — who approved, who reversed, and when',
+      'Submitter and original approver both notified, with reason included',
+      'Available on both web and mobile'
+    ],
+    audience: 'Any partner relying on Forms for compliance-sensitive workflows — closes the only-via-manual-cleanup loophole and adds the audit trail finance and legal teams have asked for.',
+    loomUrl: 'https://www.loom.com/share/ea5d6f67c52144f787527d08773b10ea'
+  },
+
+  'heroai-announcements-reading': {
+    title: 'Hero AI Reads Company Feed Announcements',
+    tag: '🤖 Hero AI', tagClass: 'tag-heroai',
+    date: '11 May 2026', plan: 'Premium · Platinum · Plus · Unlimited · Engage · Elite', region: '🌏 Global', users: 'All Employees',
+    problem: 'Important company announcements lived in the Company Feed, but employees still had to manually scroll to find them — easy to miss critical updates and outstanding acknowledgements.',
+    features: [
+      'Ask "Show me all announcements from this week" and Hero AI returns the list instantly',
+      '"Are there any announcements I need to acknowledge?" surfaces outstanding actions',
+      '"Can you summarise the recent company announcements?" generates a synthesis across recent posts',
+      'Still to come: Shoutouts, Recognition, and Posts reading'
+    ],
+    audience: 'Any partner running active internal comms — turns Hero AI into a comms triage assistant so employees never miss the announcements that actually need their attention.',
+    loomUrl: 'https://www.loom.com/share/c904ee15ac414862bcc520b3c595cfd1'
+  },
+
+  'vetted-admin-mfa-resets': {
+    title: 'Vetted Admin MFA Reset Dashboard',
+    tag: '🔒 Security', tagClass: 'tag-security',
+    date: '11 May 2026', plan: 'All plans (eligible admins only)', region: '🌏 Global', users: 'Vetted HR Admins · Employees',
+    problem: 'CX was being flooded with employee MFA reset requests every day, slowing down account recovery and creating a poor experience for the employees waiting on support. There was no safe way to delegate the simpler reviews to the admins who already knew their people.',
+    features: [
+      'New Vetted Admin dashboard — eligible admins (per InfoSec criteria) can review and action employee MFA reset requests',
+      'Approvals require acknowledgement of responsibility, ID verification, and a step-up MFA check if a remembered device hasn\'t verified in the last 48 hours',
+      'Approvals and declines require a minimum 10-character reason; everything is logged in the organisation audit trail and SAP audit trail',
+      'New employee account-recovery flow on HR Web and Work App — automatically routes to eligible admins, with org dropdown if multiple are available',
+      'Email, SMS, and in-app updates at each stage: submitted, approved, declined',
+      'Falls back to existing CX flow if no eligible admin actions the request within 7 days',
+      'SAP dashboard for monitoring eligible admins, with permanent-blacklist controls; phase 2 (18 May 2026) relaxes the criteria'
+    ],
+    audience: 'Partners with security-conscious admin populations — dramatically faster MFA recoveries for employees and removes a meaningful chunk of CX volume.',
+    loomUrl: ''
+  },
+
+  'roster-incremental-shift-loading': {
+    title: 'Roster Page — Incremental Shift Loading (2.75× Faster)',
+    tag: '⏰ Time & Attendance', tagClass: 'tag-time',
+    date: '11 May 2026', plan: 'All organisations using work sites and position rostering', region: '🌏 Global', users: 'HR Admins · Managers',
+    problem: 'Large rosters were rendering thousands of shifts at once on initial load, leading to slow page loads, frustrated managers, and churn threats from key customers.',
+    features: [
+      'Roster now fetches shifts in batches of 1,000 as you scroll',
+      'Up to 2.75× faster initial load on large rosters',
+      'Core rostering features are temporarily disabled until the full data set has loaded — prevents bulk actions on incomplete data',
+      'Seamless scrolling as remaining shift cards load in'
+    ],
+    audience: 'Any partner with large-roster clients (hospitality, retail, healthcare) — a tangible performance win you can lead with on churn-risk accounts.',
+    loomUrl: ''
+  },
+
+  'eh-work-reset-password-uplift': {
+    title: 'EH Work — Reset Password Terminology Refresh',
+    tag: '🧑‍💼 HR', tagClass: 'tag-hr',
+    date: '11 May 2026', plan: 'All EH Work users', region: '🌏 Global', users: 'All Employees',
+    problem: 'The EH Work reset-password flow offered "Employment Hero" and "Workzone" as options — confusing terminology meant users frequently picked the wrong path and ended up in the wrong workflow.',
+    features: [
+      '"Employment Hero" renamed to "HR Platform" and "Workzone" renamed to "Payroll Platform" for clarity',
+      'Users with only one platform account skip the selection step entirely — one-click reset',
+      'Reduces login confusion and the support tickets that come with it'
+    ],
+    audience: 'Any partner whose employees use both HR and Payroll EH Work flows — a small change that meaningfully reduces password-reset confusion.',
+    loomUrl: ''
+  },
+
+  'eh-work-payroll-passcode-change': {
+    title: 'EH Work — Payroll Users Can Change App Passcode',
+    tag: '💰 Payroll', tagClass: 'tag-payroll',
+    date: '11 May 2026', plan: 'All Payroll EH Work users', region: '🌏 Global', users: 'Payroll Users',
+    problem: 'Payroll users on the EH Work app had to fully log out and back in to change their app passcode — HR users could already update it from inside the app.',
+    features: [
+      'Payroll users can now change their app passcode directly from within EH Work — no log-out required',
+      'Brings Payroll EH Work in line with HR EH Work account management'
+    ],
+    audience: 'Any partner with payroll users on the EH Work app — a small but expected parity fix that removes friction from a common request.',
+    loomUrl: ''
+  },
+
+  'requisitions-mark-as-filled': {
+    title: 'Mark Requisitions as Filled',
+    tag: '🎯 Recruitment', tagClass: 'tag-recruitment',
+    date: '11 May 2026', plan: 'Platinum · Plus · Unlimited · Elite', region: '🌏 Global', users: 'HR Admins · Hiring Managers',
+    problem: 'Filled requisitions stayed on the active hiring list with all the open ones, making it hard to see at a glance what still needed action.',
+    features: [
+      'Mark any approved requisition as Filled from the actions menu — confirmation required, immediately removed from the default view',
+      'Re-open Filled requisitions to return them to Approved status',
+      'Auto-mark as Filled when a linked Onboarding Approval is approved, or a linked Vacant Position is filled',
+      'Filter by Filled to review historical hiring records anytime',
+      'Permission-controlled: Admins, Owners, and users with full Requisitions permission only'
+    ],
+    audience: 'Partners using Requisitions for headcount governance — keeps the hiring board focused on what\'s open without losing the historical record.',
+    loomUrl: 'https://www.loom.com/share/fa11d292b17a4882aec01c3592622a75'
+  },
 };
 
 /* ────────────────────────────
@@ -8700,7 +9054,7 @@ function getAreaCounts(tab) {
 const areaSubTabs = {
   heroai: [
     { label: 'All HeroAI',     keys: null },
-    { label: 'Chat & Widget',  keys: ['heroai-hr-agent','heroai-work-app','heroai-search-box','heroai-chat-optimisations','heroai-prompt-admin','heroai-chat-resume','heroai-chat-history','heroai-dashboard-widget','heroai-interface-refresh','heroai-icon-nav','heroai-ui-dec25','heroai-tools-public','heroai-payslip-salary','heroai-extended-memory','heroai-zendesk-ticket-visibility','heroai-speed-performance','heroai-experience-refresh','heroai-personalisation-topbar','heroai-setup-mode-access-control','heroai-delete-recent-chat','heroai-widget-personalisation','heroai-1on1-reading','heroai-checker-tle'] },
+    { label: 'Chat & Widget',  keys: ['heroai-hr-agent','heroai-work-app','heroai-search-box','heroai-chat-optimisations','heroai-prompt-admin','heroai-chat-resume','heroai-chat-history','heroai-dashboard-widget','heroai-interface-refresh','heroai-icon-nav','heroai-ui-dec25','heroai-tools-public','heroai-payslip-salary','heroai-extended-memory','heroai-zendesk-ticket-visibility','heroai-speed-performance','heroai-experience-refresh','heroai-personalisation-topbar','heroai-setup-mode-access-control','heroai-delete-recent-chat','heroai-widget-personalisation','heroai-1on1-reading','heroai-1on1-history','heroai-checker-tle','heroai-announcements-reading'] },
     { label: 'Mobile',         keys: ['heroai-hr-agent-mobile','heroai-hr-agent-expand'] },
     { label: 'Recruitment AI', keys: ['smartmatch','marketing-signup','hiring-criteria','hiring-stage-ui','ai-voice-interviewer','voice-agent-multiregion','ai-job-description-gen','ai-tailored-applications','ai-tailored-all-apps','ai-interviewer-default','recruitment-ai-billing','ai-sq-suggestions','recruitment-agent-employer','recruitment-shortlisting-agent'] },
     { label: 'Leave AI',       keys: ['heroai-leave-mgmt','heroai-leave-suggest','heroai-enhanced-chat-leave','leave-ai-autosuggest-type','heroai-hr-agent-leave-actions','heroai-my-leave-dynamic-messaging'] },
@@ -8710,41 +9064,41 @@ const areaSubTabs = {
     { label: 'Employment Details',       keys: ['employment-details','casual-conversion','contractors-as-managers','offer-multiple-signatories','offer-letter-reminders','legal-name-privacy','contractor-custom-fields-v2','vacant-positions-perms','employee-permissions-view','mandatory-fields-settings','wp-employee-profile','probation-end-date','contract-type-display','notice-periods-all','employee-contractor-codes','granular-employee-deletion-permissions','hr-permissions-expansion','permissions-renaming','vevo-check-api'] },
     { label: 'Leave',                    keys: ['leave-cancel-termination','compliance-leave-filter','leave-overlap-prevention','leave-employee-disambiguation','public-holiday-indicator','leave-compliance-edit','leave-table-uplift','leave-table-standardize','public-holiday-auto','partially-approved-leave-status','zero-unit-leave-validation','leave-taken-report-extended-filters','leave-calendar-save-filters','leave-precise-time-requests','leave-prevent-delete-approved','leave-calendar-public-holidays','leave-pending-negative-balance','leave-reports-migration','leave-approval-audit-trail','leave-balances-groups-filter'] },
     { label: 'Documents & Policies',     keys: ['doc-notifications','compliance-doc-purpose','uk-policy-owner','uk-passport-visa-expiry','doc-template-visa-vars','doc-multiple-signatories','doc-image-upload','policy-due-dates','doc-editor-new','email-notifications-ui','email-notifs-docs','email-notifs-leave','cert-due-dates','cert-notification-improvements','probation-report','doc-template-variable-library','bulk-issue-documents','bulk-issue-documents-public','medical-disclosure-audit-logging','streamline-policy-acknowledgement','compliance-document-descriptions','compliance-document-tagging','compliance-reports-on-leave-filter','hr-document-editor-optional-block','email-notifs-org-consistency','gt-bulk-reminders','gt-portal-hr-docs-report','fair-work-statement-update','doc-template-versioning'] },
-    { label: 'Platform & Engagement',    keys: ['positions-colour','settings-uplift','company-feed','eh-chat','banking-audit-trail','multi-owner-tasks','audit-trail-onboarding','compliance-report-filters','people-report-permissions','eh-work-mobile-public','manager-reassignment','multi-currency-expenses','bpay-aiop','personal-email-settings-ui-refresh','standardising-expense-management-ui','export-requisitions-onboarding-approvals','independent-contractor-work-types','onboarding-offboarding-multi-owner-tasks','audit-report-onboarding-pay-details','heroforce-onboarding-ctas','chat-addon-client-launch','hr-casual-conversion-precheck','recognition-report-csv-uplift','hr-custom-work-hours-standard','scalable-filters','eh-work-bottom-nav','policy-template-country-default','audit-trail-emergency-contacts','openapi-worksites-departments','expense-policies-allowance','openapi-timesheets-webhook','openapi-partner-docs','eh-work-todo-personal','custom-work-hours-au-uk-hr','openapi-dev-docs-ui','dashboard-declutter','addons-settings-uplift','settings-people-controls','settings-system-setup-branding','settings-org-emails-uplift','settings-company-details-rewards','settings-recognition-uplift','openapi-write-apis','openapi-rate-limit','openapi-app-flow-uplift','email-templates-unified','checklist-reordering','heroforce-roi-calculator-au'] },
+    { label: 'Platform & Engagement',    keys: ['positions-colour','settings-uplift','company-feed','eh-chat','banking-audit-trail','multi-owner-tasks','audit-trail-onboarding','compliance-report-filters','people-report-permissions','eh-work-mobile-public','manager-reassignment','multi-currency-expenses','bpay-aiop','personal-email-settings-ui-refresh','standardising-expense-management-ui','export-requisitions-onboarding-approvals','independent-contractor-work-types','onboarding-offboarding-multi-owner-tasks','audit-report-onboarding-pay-details','heroforce-onboarding-ctas','chat-addon-client-launch','hr-casual-conversion-precheck','recognition-report-csv-uplift','hr-custom-work-hours-standard','scalable-filters','eh-work-bottom-nav','policy-template-country-default','audit-trail-emergency-contacts','openapi-worksites-departments','expense-policies-allowance','openapi-timesheets-webhook','openapi-partner-docs','eh-work-todo-personal','custom-work-hours-au-uk-hr','openapi-dev-docs-ui','dashboard-declutter','addons-settings-uplift','settings-people-controls','settings-system-setup-branding','settings-org-emails-uplift','settings-company-details-rewards','settings-recognition-uplift','openapi-write-apis','openapi-rate-limit','openapi-app-flow-uplift','email-templates-unified','checklist-reordering','heroforce-roi-calculator-au','manager-temp-reassignment','audit-trail-permission-filtering','mobile-quicklinks-employee-pool','eh-work-reset-password-uplift'] },
   ],
   payroll: [
     { label: 'All Payroll', keys: null },
-    { label: 'Global',      keys: ['inactive-users','roster-timesheet-report-mar','pay-condition-api','payroll-hide-inactive-deductions','opening-balances-employee-id','timesheet-break-times','salary-version-db-split'] },
-    { label: 'Australia',   keys: ['contractor-codes','split-earnings-apac','au-pay-rate-template','heroclear-payment-rails','pay-rate-webhook','super-auto-import','heroclear-payment-approvals','payroll-award-preserve-customisation','au-award-update-batching','heroclear-onboarding-setup','super-edit-eh-work','super-default-mysuper'] },
-    { label: 'New Zealand', keys: ['nz-payroll-unpaid-leave','nz-esct-report','payroll-ask-community'] },
+    { label: 'Global',      keys: ['inactive-users','roster-timesheet-report-mar','pay-condition-api','payroll-hide-inactive-deductions','opening-balances-employee-id','timesheet-break-times','salary-version-db-split','eh-work-payroll-passcode-change'] },
+    { label: 'Australia',   keys: ['contractor-codes','split-earnings-apac','au-pay-rate-template','heroclear-payment-rails','pay-rate-webhook','super-auto-import','heroclear-payment-approvals','payroll-award-preserve-customisation','au-award-update-batching','heroclear-onboarding-setup','super-edit-eh-work','super-default-mysuper','leave-accrual-dimensions-export','leave-earnings-dimensions-payrun'] },
+    { label: 'New Zealand', keys: ['nz-payroll-unpaid-leave','nz-esct-report','payroll-ask-community','leave-accrual-dimensions-export','leave-earnings-dimensions-payrun'] },
     { label: 'UK',          keys: [] },
     { label: 'Canada',      keys: [] },
   ],
   recruitment: [
     { label: 'All Recruitment',      keys: null },
-    { label: 'ATS & Integrations',   keys: ['indeed','ats-assessments-codility','talent-search-refine','talent-saved-candidates','ats-advanced-filtering','indeed-direct','ats-applicant-mgmt','talent-search-ats','recruitment-career-page-widget','recruitment-talent-search-experience','recruitment-zinc-check-statuses','heroforce-candidate-screening','ats-kanban'] },
+    { label: 'ATS & Integrations',   keys: ['indeed','ats-assessments-codility','talent-search-refine','talent-saved-candidates','ats-advanced-filtering','indeed-direct','ats-applicant-mgmt','talent-search-ats','recruitment-career-page-widget','recruitment-talent-search-experience','recruitment-zinc-check-statuses','heroforce-candidate-screening','ats-kanban','recruitment-bulk-cv-upload-25'] },
     { label: 'Jobseeker Experience', keys: ['jobseeker-flow','hero-foundation','marketing-signup','eoi-jobs','smartmatch-ondemand','talent-digest-email','eh-jobs-microsoft-sso','recruitment-external-application-confirmation','recruitment-ai-job-summaries','recruitment-context-aware-auth','recruitment-linkedin-profile-import','recruitment-job-report-enhancement','notification-consent','jobs-search-quality','heroforce-company-search','heroforce-search-nlp','heroforce-job-preference','recruitment-job-abandonment-email','cv-profile-parsing','smartmatch-summary','jobs-homepage-nlp','jobs-google-signin','jobs-nlp-dashboard','jobseeker-dashboard-ai-summary'] },
     { label: 'Job Creation',         keys: ['offer-benefits','job-posting-improvements','job-posting-nlp','recruitment-position-templates','recruitment-job-editor-rich-text','heroforce-landing'] },
-    { label: 'Hiring Process',       keys: ['hiring-funnel-report','recruiter-activity-report','eoi-confirmation-email','recruitment-agent-preview','talent-job-search','requisition-conditional-approvals','recruitment-reference-fraud','recruitment-hiring-process-ui-ai-agent','recruitment-hiring-criteria','recruitment-reference-check-friction','recruitment-email-notifs','recruitment-agent-employer','recruitment-boy-scoring'] },
+    { label: 'Hiring Process',       keys: ['hiring-funnel-report','recruiter-activity-report','eoi-confirmation-email','recruitment-agent-preview','talent-job-search','requisition-conditional-approvals','recruitment-reference-fraud','recruitment-hiring-process-ui-ai-agent','recruitment-hiring-criteria','recruitment-reference-check-friction','recruitment-email-notifs','recruitment-agent-employer','recruitment-boy-scoring','requisitions-mark-as-filled'] },
     { label: 'Recruitment Reports',  keys: ['recruitment-candidate-source-conversion','recruitment-disqualification-withdrawal','recruitment-time-to-hire-uplift'] },
   ],
   time: [
     { label: 'All Time & Attendance', keys: null },
-    { label: 'Rostering',             keys: ['roster-perf','roster-unavailability-notifs','bulk-rota-management','roster-print-employee','square-pos-sales','roster-sales-forecast','roster-first-day-week','leave-rota-conflict','worksite-time-reports','roster-templates-wp','print-roster-wp','roster-shift-costing','edit-published-shifts','hero-time-clock-sso','roster-copy-paste-performance','roster-overtime-indicator','roster-bulk-actions-async','roster-advanced-copy-modal','roster-reports-worksite-position','roster-sales-csv-import','roster-lock-shifts','roster-qol-dec25','roster-group-assignments','roster-budget-copy-apply'] },
+    { label: 'Rostering',             keys: ['roster-perf','roster-unavailability-notifs','bulk-rota-management','roster-print-employee','square-pos-sales','roster-sales-forecast','roster-first-day-week','leave-rota-conflict','worksite-time-reports','roster-templates-wp','print-roster-wp','roster-shift-costing','edit-published-shifts','hero-time-clock-sso','roster-copy-paste-performance','roster-overtime-indicator','roster-bulk-actions-async','roster-advanced-copy-modal','roster-reports-worksite-position','roster-sales-csv-import','roster-lock-shifts','roster-qol-dec25','roster-group-assignments','roster-budget-copy-apply','roster-bulk-selection','roster-warnings-toolbar','roster-row-order-customise','roster-blackout-unavailability','htc-facial-recognition','roster-incremental-shift-loading'] },
     { label: 'Timesheets',            keys: ['geofencing','timesheet-redesign','overnight-timesheets-all','timesheet-reuse','nz-ph-timesheet-automation','email-notifs-timesheets','roster-leave-to-timesheet'] },
     { label: 'Scheduling',            keys: ['custom-work-hours','custom-work-hours-8w'] },
   ],
   security: [
     { label: 'All Security',          keys: null },
-    { label: '2FA & Auth',            keys: ['2fa','recovery-codes','2fa-mobile','mandatory-2fa-forgot-pw','org-2fa-device-memory','forgot-pw-company-email','payroll-2fa-multi','payroll-login-refresh','eh-jobs-microsoft-sso','security-recovery-codes-mobile','security-mandatory-2fa-mobile','payroll-2fa-setup-mobile'] },
-    { label: 'Account Recovery',      keys: ['acct-recovery','payroll-partner-account-recovery','payroll-passkey-adoption','account-recovery-decline','payroll-ssar-ux','partner-account-recovery-requested-date'] },
+    { label: '2FA & Auth',            keys: ['2fa','recovery-codes','2fa-mobile','mandatory-2fa-forgot-pw','org-2fa-device-memory','forgot-pw-company-email','payroll-2fa-multi','payroll-login-refresh','eh-jobs-microsoft-sso','security-recovery-codes-mobile','security-mandatory-2fa-mobile','payroll-2fa-setup-mobile','jobs-passkey-reauth'] },
+    { label: 'Account Recovery',      keys: ['acct-recovery','payroll-partner-account-recovery','payroll-passkey-adoption','account-recovery-decline','payroll-ssar-ux','partner-account-recovery-requested-date','vetted-admin-mfa-resets'] },
     { label: 'Threat Detection',      keys: ['breached-pw','threat-hunting','email-security','app-block','sso-cert-expiry-notifs','free-trial-scam-prevention'] },
-    { label: 'IT & Integrations',     keys: ['asset-register-custom-fields','m365-reporting-sync','mdm-jamf-intune','custom-webhook-headers','public-holiday-css','sso-dual-cert','sso-css-permission','jobs-unified-auth','openapi-certificates-webhooks-worktypes','employer-initiated-email-update','user-security-overview-enhancements','asset-register-csv-bulk-reassignment','openapi-permissions-alignment','security-asset-register-email-column','security-asset-management-filter','sso-self-service-recovery','eh-work-sso-passkeys','payroll-user-access-dashboards','payroll-mfa-ei-brands','payslip-management'] },
+    { label: 'IT & Integrations',     keys: ['asset-register-custom-fields','m365-reporting-sync','mdm-jamf-intune','custom-webhook-headers','public-holiday-css','sso-dual-cert','sso-css-permission','jobs-unified-auth','openapi-certificates-webhooks-worktypes','employer-initiated-email-update','user-security-overview-enhancements','asset-register-csv-bulk-reassignment','openapi-permissions-alignment','security-asset-register-email-column','security-asset-management-filter','sso-self-service-recovery','eh-work-sso-passkeys','payroll-user-access-dashboards','payroll-mfa-ei-brands','payslip-management','openapi-forms-webhooks','jobs-unified-signup-auth'] },
     { label: 'Permissions',           keys: ['granular-employee-deletion-permissions','security-permissions-terminology'] },
   ],
   automation: [
     { label: 'All Automations',  keys: null },
-    { label: 'Custom Forms',     keys: ['custom-forms-mobile','custom-forms-submissions','forms-bulk-delete','forms-approval-audit','forms-question-reorder','forms-assignment-status','proxy-form-submissions','forms-multi-layer-approvals','custom-forms-new-fields','forms-employee-file','forms-assign','forms-create-task','multi-level-duplicate-reviewer-approval','forms-conditional-logic','forms-checkbox-signature-fields','forms-edit-recipients-active','forms-bulk-delete-responses','forms-approval-csv-export','forms-approval-info-employee-file','forms-approval-history-view','forms-linked-workflows','forms-responses-tab','forms-my-submissions','forms-publish-modal'] },
+    { label: 'Custom Forms',     keys: ['custom-forms-mobile','custom-forms-submissions','forms-bulk-delete','forms-approval-audit','forms-question-reorder','forms-assignment-status','proxy-form-submissions','forms-multi-layer-approvals','custom-forms-new-fields','forms-employee-file','forms-assign','forms-create-task','multi-level-duplicate-reviewer-approval','forms-conditional-logic','forms-checkbox-signature-fields','forms-edit-recipients-active','forms-bulk-delete-responses','forms-approval-csv-export','forms-approval-info-employee-file','forms-approval-history-view','forms-linked-workflows','forms-responses-tab','forms-my-submissions','forms-publish-modal','forms-approval-reversal'] },
     { label: 'Workflows',        keys: ['workflow-api-action','is-admin-reports','workflow-simplified-edit','workflow-survey-action','workflow-email-uplift','workflow-templates-hub3','compliance-workflow-cert-action','compliance-workflow-policy-s1','compliance-workflow-policy-s2','workflow-docs','workflow-induction','workflow-efc-dynamic-approvers','unified-basic-view-rollout','automated-assign-expense-policy','automations-personal-detail-triggers','approval-history-labels','onboarding-workflow-triggers','requisitions-new-workflows','workflow-leave-cancellation','certification-expiry-triggers'] },
     { label: 'Custom Reports',   keys: ['leave-reports-byor','custom-reports-my-reports','termination-fields-report','salary-custom-reports','wgea-workforce-reports','reports-saved-filters','wgea-workplace-report','custom-report-ownership-transfer','duplicate-custom-reports','is-manager-field-accuracy-byor','reports-is-admin-field','automation-reports-dashboard-csv','custom-reports-sharing','turnover-report-enhancements'] },
   ],
@@ -8781,7 +9135,7 @@ const areaSubTabs = {
     { label: 'Reviews',         keys: ['performance-review-questions','review-question-roles','review-visibility-controls','happiness-survey-export','performance-reviews-uplift','360-custom-permissions','performance-review-ftu-templates','perf-review-start-date-visibility','performance-consolidate-notifications','performance-reorder-questions','performance-continuous-review-lockout','performance-360-review-extension','perf-review-no-override','happiness-survey-ftu','performance-tasks-email','settings-happiness-survey-uplift'] },
     { label: '1:1s',            keys: ['1on1-session-controls','1on1-report-permissions'] },
     { label: 'Disciplinary',    keys: [] },
-    { label: '9-Box Grid',      keys: ['9box-talent-grid','performance-9box-banner-accuracy'] },
+    { label: '9-Box Grid',      keys: ['9box-talent-grid','performance-9box-banner-accuracy','9box-talent-grid-dedicated-page'] },
     { label: 'Company Feed',    keys: ['company-feed-uplift','company-feed-post-insights','email-notifs-company-feed-milestones'] },
   ],
 };
