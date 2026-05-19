@@ -8869,6 +8869,116 @@ const releases = {
     audience: 'Any partner with managers responsible for busy or multi-site rosters — significantly reduces the time spent finding the right shifts, especially in hospitality, retail and aged care.',
     loomUrl: 'https://www.loom.com/share/eb31a1614e42411fbd61873ffa20e404'
   },
+
+  'openapi-leave-permissions-alignment': {
+    title: 'OpenAPI — Leave Requests Permissions Alignment',
+    tag: '🔒 Security', tagClass: 'tag-security',
+    date: '19 May 2026', plan: 'All organisations', region: '🌏 Global', users: 'Developers · Integration Partners · HR Admins',
+    problem: 'OpenAPI Leave Requests endpoints required admin or owner credentials, blocking HR staff who already had the right permissions in the platform from building the integrations they needed.',
+    features: [
+      'Leave Requests OpenAPI endpoints now honour the same permission model as the UI',
+      'HR users with the correct platform permissions can authenticate and call the endpoints without needing admin/owner credentials',
+      'Removes a long-standing friction point for partners building leave-related integrations and automations'
+    ],
+    audience: 'Partners and integration engineers building leave-related integrations — unlocks API access for non-admin HR users and removes a recurring blocker for OpenAPI adoption.',
+    loomUrl: ''
+  },
+
+  'openapi-forms-read-endpoints': {
+    title: 'OpenAPI — Custom Forms Read Endpoints',
+    tag: '🔒 Security', tagClass: 'tag-security',
+    date: '19 May 2026', plan: 'All organisations', region: '🌏 Global', users: 'Developers · Integration Partners',
+    problem: 'Custom Forms data was trapped inside Employment Hero — integration engineers could not pull form responses into tools like Jira, HR teams could not sync completion data to external compliance systems, and there was no programmatic way to trigger downstream workflows based on submissions. Manual CSV exports created delays and a fragmented integration experience.',
+    features: [
+      'New OpenAPI read endpoints under Custom Forms expose form definitions and response data programmatically via REST API',
+      'List Forms — paginated list of forms in the organisation, filterable by status and category',
+      'Get Form Detail — single form including sections, questions and answer options',
+      'List Form Responses — paginated list of submitted responses, filterable by status, member and date range',
+      'Get Form Response Detail — single response with full question-answer pairs'
+    ],
+    audience: 'Partners building integrations around Custom Forms — replaces manual CSV exports with a clean REST-based way to retrieve form structure and response data for downstream systems.',
+    loomUrl: ''
+  },
+
+  'heroai-tasks-data-lookup': {
+    title: 'HeroAI — Tasks & Onboarding Checklist Lookups',
+    tag: '🤖 Hero AI', tagClass: 'tag-heroai',
+    date: '19 May 2026', plan: 'All organisations', region: '🌏 Global', users: 'HR Admins · Managers · Employees · Contractors',
+    problem: 'Tasks and onboarding/offboarding checklist data was scattered across the platform, with no quick way for managers and admins to ask natural-language questions about what was due, overdue or still outstanding for their team.',
+    features: [
+      'HeroAI can now answer questions about tasks and onboarding/offboarding checklists for HR admins, managers, employees and contractors',
+      'Example prompts: "What tasks are due this week for my team?", "How many overdue tasks does John Smith have?", "Who hasn\'t completed the Medical Disclosure task?"',
+      'Pure data-lookup tool — HeroAI surfaces task and checklist information but cannot action or update tasks on the user\'s behalf',
+      'Falls back on the base Hero AI feature flag — no separate enablement required'
+    ],
+    audience: 'All partners using HR — gives managers and admins a faster way to surface task and onboarding status without navigating through reports or employee files.',
+    loomUrl: ''
+  },
+
+  'recruitment-ai-notetaker': {
+    title: 'Recruitment Agent — AI Notetaker (Closed Beta)',
+    tag: '🤖 Hero AI', tagClass: 'tag-heroai',
+    date: '20 May 2026', plan: 'Recruitment Agent (Closed Beta)', region: '🌏 Global', users: 'Hiring Managers · Recruiters · Interviewers',
+    problem: 'Interviewers had to choose between staying present in the conversation and capturing detailed notes — splitting attention, losing context and creating inconsistent candidate records across the hiring team.',
+    features: [
+      'AI Notetaker is the 3rd function of the Recruitment Agent — joins live interviews from the meeting waiting room and records once admitted',
+      'AI Summary & Q&A Notes — a candidate summary and per-question answer summaries surface on the Evaluation tab for the hiring team',
+      'Full timestamped transcript automatically saved to the candidate record after the call ends',
+      'Recording link available alongside the summary',
+      'Enable per-interview via the Schedule Event panel, or set as a default for a hiring stage in Hiring Process setup',
+      'Initial release covers the EH Talent Acquisition team plus 15 customer orgs in closed beta; broader rollout to all Recruitment Agent users coming soon'
+    ],
+    audience: 'Partners with high-volume hiring or structured interview processes — frees interviewers to focus on the candidate and gives hiring teams a consistent, searchable record of every conversation.',
+    loomUrl: 'https://www.loom.com/share/9e4d04e5428445a89df2046569ace70c'
+  },
+
+  'payroll-sender-name-registration': {
+    title: 'Payroll — SMS Sender Name Registration (ACMA Compliance)',
+    tag: '🔒 Security', tagClass: 'tag-security',
+    date: '19 May 2026', plan: 'AU Payroll partners/brands with custom Sender Names', region: '🇦🇺 Australia', users: 'Payroll Partner Users · Brand Admins',
+    problem: 'The Australian Communications and Media Authority (ACMA) has introduced a mandatory National SMS Sender ID Register. From 1 July 2026, any unregistered custom Alphanumeric Sender ID risks being blocked or flagged as "Unverified" by carriers — putting payroll SMS notifications at risk for partners using branded sender names.',
+    features: [
+      'Brands and partners can now register custom Sender Names directly through the Partner Dashboard',
+      'Registration flow requires uploading documentation that links the Sender Name to the business',
+      'Alternatively, partners can switch to one of EH\'s pre-registered sender names (PAYROLL, EHPayroll) — no documentation needed',
+      'Payroll Champions receive reminder emails 1 month and 14 days before the 1 July 2026 deadline; Partner Users are notified where no Payroll Champion is nominated',
+      'Helps partners stay compliant with ACMA rules and avoid SMS delivery interruptions to their clients'
+    ],
+    audience: 'Australian payroll partners and brands using custom sender names for SMS — flag this with affected clients now so registration is completed well before the 1 July 2026 cutoff.',
+    loomUrl: ''
+  },
+
+  'forms-dynamic-notification-recipients': {
+    title: 'Forms — Dynamic Notification Recipients (Roles, Groups, Work Locations)',
+    tag: '⚙️ Automations', tagClass: 'tag-automation',
+    date: '19 May 2026', plan: 'Global Forms users', region: '🌏 Global', users: 'HR Admins · Forms Builders',
+    problem: 'Admins had to manually maintain notification recipient lists, which quickly became outdated when managers, group leaders or team structures changed. Without dynamic routing, notification management did not scale and the wrong people were either notified or left out.',
+    features: [
+      'Add dynamic role-based notification recipients including: primary manager of submitter, secondary manager of submitter, group leader of submitter\'s group, group leader of a specific group, admins/owners, primary manager of affected employee, secondary manager of affected employee, group leader of affected employee\'s group',
+      'Notify all members of a selected group or work location automatically',
+      'Role recipients resolve dynamically at submission time, so notifications always reach the current manager or group leader — no manual updates needed when org structure changes',
+      'Invalid or empty recipients (where a role, group or work location cannot be resolved) are skipped without stopping notifications to the remaining valid recipients'
+    ],
+    audience: 'Any partner with Forms users running approval or notification workflows — dramatically reduces admin overhead and avoids missed or misrouted notifications as teams reorganise.',
+    loomUrl: 'https://www.loom.com/share/016e7fe6f0e54ef1a3703eb5a858d64b'
+  },
+
+  'talent-employee-referral-programme': {
+    title: 'Talent Marketplace — High-Volume Employee Referral Programme (Experiment)',
+    tag: '🎯 Recruitment', tagClass: 'tag-recruitment',
+    date: '18 May 2026', plan: 'Experiment — 20 high-hiring orgs globally', region: '🌏 Global', users: 'Employees (referrers) · Hiring Managers · Recruiters',
+    problem: 'Referrals are 20× more likely to result in a hire, yet fewer than 1 in 600 applications on the Employment Hero platform come through an intentional employee referral. There was no native, low-friction way for employees to refer candidates to open roles at their own organisation.',
+    features: [
+      'Employees can browse open roles at their organisation and refer candidates through a simplified form',
+      'Employees receive notifications when new jobs are published',
+      'Hiring managers can turn on notifications for new job postings (email and push)',
+      'Hiring managers can add monetary and Hero Point rewards to incentivise referrals',
+      'New ATS filter — surface candidates who came through referral for quick review',
+      'Initial experiment released to 20 high-hiring organisations globally; broader marketing-led adoption push planned for June 2026 after a 2-week observation and bug-fix window'
+    ],
+    audience: 'Partners with hiring-active clients — early signal: 16 referrals submitted within the first day. Strong fit for clients hiring high volumes of hourly or frontline roles.',
+    loomUrl: ''
+  },
 };
 
 /* ────────────────────────────
@@ -9500,9 +9610,9 @@ function getAreaCounts(tab) {
 const areaSubTabs = {
   heroai: [
     { label: 'All HeroAI',     keys: null },
-    { label: 'Chat & Widget',  keys: ['heroai-hr-agent','heroai-work-app','heroai-search-box','heroai-chat-optimisations','heroai-prompt-admin','heroai-chat-resume','heroai-chat-history','heroai-dashboard-widget','heroai-interface-refresh','heroai-icon-nav','heroai-ui-dec25','heroai-tools-public','heroai-payslip-salary','heroai-extended-memory','heroai-zendesk-ticket-visibility','heroai-speed-performance','heroai-experience-refresh','heroai-personalisation-topbar','heroai-setup-mode-access-control','heroai-delete-recent-chat','heroai-widget-personalisation','heroai-1on1-reading','heroai-1on1-history','heroai-checker-tle','heroai-announcements-reading','heroai-widget-freetext-first'] },
+    { label: 'Chat & Widget',  keys: ['heroai-hr-agent','heroai-work-app','heroai-search-box','heroai-chat-optimisations','heroai-prompt-admin','heroai-chat-resume','heroai-chat-history','heroai-dashboard-widget','heroai-interface-refresh','heroai-icon-nav','heroai-ui-dec25','heroai-tools-public','heroai-payslip-salary','heroai-extended-memory','heroai-zendesk-ticket-visibility','heroai-speed-performance','heroai-experience-refresh','heroai-personalisation-topbar','heroai-setup-mode-access-control','heroai-delete-recent-chat','heroai-widget-personalisation','heroai-1on1-reading','heroai-1on1-history','heroai-checker-tle','heroai-announcements-reading','heroai-widget-freetext-first','heroai-tasks-data-lookup'] },
     { label: 'Mobile',         keys: ['heroai-hr-agent-mobile','heroai-hr-agent-expand','heroai-voice-to-text'] },
-    { label: 'Recruitment AI', keys: ['smartmatch','marketing-signup','hiring-criteria','hiring-stage-ui','ai-voice-interviewer','voice-agent-multiregion','ai-job-description-gen','ai-tailored-applications','ai-tailored-all-apps','ai-interviewer-default','recruitment-ai-billing','ai-sq-suggestions','recruitment-agent-employer','recruitment-shortlisting-agent'] },
+    { label: 'Recruitment AI', keys: ['smartmatch','marketing-signup','hiring-criteria','hiring-stage-ui','ai-voice-interviewer','voice-agent-multiregion','ai-job-description-gen','ai-tailored-applications','ai-tailored-all-apps','ai-interviewer-default','recruitment-ai-billing','ai-sq-suggestions','recruitment-agent-employer','recruitment-shortlisting-agent','recruitment-ai-notetaker'] },
     { label: 'Leave AI',       keys: ['heroai-leave-mgmt','heroai-leave-suggest','heroai-enhanced-chat-leave','leave-ai-autosuggest-type','heroai-hr-agent-leave-actions','heroai-my-leave-dynamic-messaging'] },
   ],
   hr: [
@@ -9525,7 +9635,7 @@ const areaSubTabs = {
     { label: 'ATS & Integrations',   keys: ['indeed','ats-assessments-codility','talent-search-refine','talent-saved-candidates','ats-advanced-filtering','indeed-direct','ats-applicant-mgmt','talent-search-ats','recruitment-career-page-widget','recruitment-talent-search-experience','recruitment-zinc-check-statuses','heroforce-candidate-screening','ats-kanban','recruitment-bulk-cv-upload-25','ats-candidate-social-links','ats-search-match-context','ats-email-templates-branding','find-talent-matches-jobs-page','find-talent-personalised-messaging'] },
     { label: 'Jobseeker Experience', keys: ['jobseeker-flow','hero-foundation','marketing-signup','eoi-jobs','smartmatch-ondemand','talent-digest-email','eh-jobs-microsoft-sso','recruitment-external-application-confirmation','recruitment-ai-job-summaries','recruitment-context-aware-auth','recruitment-linkedin-profile-import','recruitment-job-report-enhancement','notification-consent','jobs-search-quality','heroforce-company-search','heroforce-search-nlp','heroforce-job-preference','recruitment-job-abandonment-email','cv-profile-parsing','smartmatch-summary','jobs-homepage-nlp','jobs-google-signin','jobs-nlp-dashboard','jobseeker-dashboard-ai-summary','hero-foundation-direct-signup'] },
     { label: 'Job Creation',         keys: ['offer-benefits','job-posting-improvements','job-posting-nlp','recruitment-position-templates','recruitment-job-editor-rich-text','heroforce-landing','ats-position-description'] },
-    { label: 'Hiring Process',       keys: ['hiring-funnel-report','recruiter-activity-report','eoi-confirmation-email','recruitment-agent-preview','talent-job-search','requisition-conditional-approvals','recruitment-reference-fraud','recruitment-hiring-process-ui-ai-agent','recruitment-hiring-criteria','recruitment-reference-check-friction','recruitment-email-notifs','recruitment-agent-employer','recruitment-boy-scoring','requisitions-mark-as-filled'] },
+    { label: 'Hiring Process',       keys: ['hiring-funnel-report','recruiter-activity-report','eoi-confirmation-email','recruitment-agent-preview','talent-job-search','requisition-conditional-approvals','recruitment-reference-fraud','recruitment-hiring-process-ui-ai-agent','recruitment-hiring-criteria','recruitment-reference-check-friction','recruitment-email-notifs','recruitment-agent-employer','recruitment-boy-scoring','requisitions-mark-as-filled','recruitment-ai-notetaker','talent-employee-referral-programme'] },
     { label: 'Recruitment Reports',  keys: ['recruitment-candidate-source-conversion','recruitment-disqualification-withdrawal','recruitment-time-to-hire-uplift'] },
   ],
   time: [
@@ -9539,12 +9649,12 @@ const areaSubTabs = {
     { label: '2FA & Auth',            keys: ['2fa','recovery-codes','2fa-mobile','mandatory-2fa-forgot-pw','org-2fa-device-memory','forgot-pw-company-email','payroll-2fa-multi','payroll-login-refresh','eh-jobs-microsoft-sso','security-recovery-codes-mobile','security-mandatory-2fa-mobile','payroll-2fa-setup-mobile','jobs-passkey-reauth'] },
     { label: 'Account Recovery',      keys: ['acct-recovery','payroll-partner-account-recovery','payroll-passkey-adoption','account-recovery-decline','payroll-ssar-ux','partner-account-recovery-requested-date','vetted-admin-mfa-resets','account-recovery-email-change'] },
     { label: 'Threat Detection',      keys: ['breached-pw','threat-hunting','email-security','app-block','sso-cert-expiry-notifs','free-trial-scam-prevention'] },
-    { label: 'IT & Integrations',     keys: ['asset-register-custom-fields','m365-reporting-sync','mdm-jamf-intune','custom-webhook-headers','public-holiday-css','sso-dual-cert','sso-css-permission','jobs-unified-auth','openapi-certificates-webhooks-worktypes','employer-initiated-email-update','user-security-overview-enhancements','asset-register-csv-bulk-reassignment','openapi-permissions-alignment','security-asset-register-email-column','security-asset-management-filter','sso-self-service-recovery','eh-work-sso-passkeys','payroll-user-access-dashboards','payroll-mfa-ei-brands','payslip-management','openapi-forms-webhooks','jobs-unified-signup-auth'] },
+    { label: 'IT & Integrations',     keys: ['asset-register-custom-fields','m365-reporting-sync','mdm-jamf-intune','custom-webhook-headers','public-holiday-css','sso-dual-cert','sso-css-permission','jobs-unified-auth','openapi-certificates-webhooks-worktypes','employer-initiated-email-update','user-security-overview-enhancements','asset-register-csv-bulk-reassignment','openapi-permissions-alignment','security-asset-register-email-column','security-asset-management-filter','sso-self-service-recovery','eh-work-sso-passkeys','payroll-user-access-dashboards','payroll-mfa-ei-brands','payslip-management','openapi-forms-webhooks','jobs-unified-signup-auth','openapi-leave-permissions-alignment','openapi-forms-read-endpoints','payroll-sender-name-registration'] },
     { label: 'Permissions',           keys: ['granular-employee-deletion-permissions','security-permissions-terminology','permissions-scope-exclusions'] },
   ],
   automation: [
     { label: 'All Automations',  keys: null },
-    { label: 'Custom Forms',     keys: ['custom-forms-mobile','custom-forms-submissions','forms-bulk-delete','forms-approval-audit','forms-question-reorder','forms-assignment-status','proxy-form-submissions','forms-multi-layer-approvals','custom-forms-new-fields','forms-employee-file','forms-assign','forms-create-task','multi-level-duplicate-reviewer-approval','forms-conditional-logic','forms-checkbox-signature-fields','forms-edit-recipients-active','forms-bulk-delete-responses','forms-approval-csv-export','forms-approval-info-employee-file','forms-approval-history-view','forms-linked-workflows','forms-responses-tab','forms-my-submissions','forms-publish-modal','forms-approval-reversal','forms-notification-recipients-timing','forms-bulk-export-selected'] },
+    { label: 'Custom Forms',     keys: ['custom-forms-mobile','custom-forms-submissions','forms-bulk-delete','forms-approval-audit','forms-question-reorder','forms-assignment-status','proxy-form-submissions','forms-multi-layer-approvals','custom-forms-new-fields','forms-employee-file','forms-assign','forms-create-task','multi-level-duplicate-reviewer-approval','forms-conditional-logic','forms-checkbox-signature-fields','forms-edit-recipients-active','forms-bulk-delete-responses','forms-approval-csv-export','forms-approval-info-employee-file','forms-approval-history-view','forms-linked-workflows','forms-responses-tab','forms-my-submissions','forms-publish-modal','forms-approval-reversal','forms-notification-recipients-timing','forms-bulk-export-selected','forms-dynamic-notification-recipients'] },
     { label: 'Workflows',        keys: ['workflow-api-action','is-admin-reports','workflow-simplified-edit','workflow-survey-action','workflow-email-uplift','workflow-templates-hub3','compliance-workflow-cert-action','compliance-workflow-policy-s1','compliance-workflow-policy-s2','workflow-docs','workflow-induction','workflow-efc-dynamic-approvers','unified-basic-view-rollout','automated-assign-expense-policy','automations-personal-detail-triggers','approval-history-labels','onboarding-workflow-triggers','requisitions-new-workflows','workflow-leave-cancellation','certification-expiry-triggers'] },
     { label: 'Custom Reports',   keys: ['leave-reports-byor','custom-reports-my-reports','termination-fields-report','salary-custom-reports','wgea-workforce-reports','reports-saved-filters','wgea-workplace-report','custom-report-ownership-transfer','duplicate-custom-reports','is-manager-field-accuracy-byor','reports-is-admin-field','automation-reports-dashboard-csv','custom-reports-sharing','turnover-report-enhancements'] },
   ],
