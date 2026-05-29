@@ -9607,6 +9607,34 @@ const releases = {
     audience: 'AU Payroll partners with clients on annualised wage arrangements under Modern Awards — removes the most manual, error-prone reconciliation task in the payroll cycle.',
     loomUrl: 'https://www.loom.com/share/1d2f34f3c14843bb84d50a6043d49726'
   },
+
+  'legal-name-privacy-api': {
+    title: 'Legal Name Privacy — Preferred Names at the API Layer',
+    tag: '👥 Core HR', tagClass: 'tag-hr',
+    date: '25 May 2026', plan: 'All organisations', region: '🇦🇺 Australia · NZ New Zealand', users: 'HR Admins · Integration Partners',
+    problem: 'Even when preferred name settings were applied across the platform, the underlying data returned by the API could still surface an employee\'s legal name — meaning anyone with the right access could see it regardless of the privacy settings.',
+    features: [
+      'API responses now return an employee\'s preferred name in all display-facing fields, consistent with how names appear in the UI, reports and emails',
+      'Legal name is only returned where it is legally required, such as payroll and compliance contexts',
+      'Closes the final gap (Slice 3) of the Legal Name Privacy initiative — privacy is now enforced all the way down to the data layer'
+    ],
+    audience: 'Partner orgs with employees who use preferred names, and any partner building integrations against the EH API — preferred-name privacy is now respected end-to-end, not just in the UI.',
+    loomUrl: ''
+  },
+
+  'jobs-password-migration': {
+    title: 'Unified Authentication for Job Seekers — Email & Password Migration',
+    tag: '🔒 Security', tagClass: 'tag-security',
+    date: '28 May 2026', plan: 'All organisations', region: '🌐 Global', users: 'Job Seekers · Candidates',
+    problem: 'Job seekers signed in via magic links, which didn\'t match the standard email-and-password pattern used across the rest of the EH ecosystem — limiting their awareness of the broader platform and blocking access to advanced security features available to other users.',
+    features: [
+      'On their next magic-link login, job seekers are prompted to set up a secure password — skippable up to 3 times before it becomes mandatory',
+      'Zero journey disruption — the prompt appears right after login and returns the user to their exact destination, whether that\'s a specific job application or onboarding link',
+      'Once set up, job seekers follow the same login process as all other EH users, unlocking account settings and advanced security tools like MFA and passkeys'
+    ],
+    audience: 'Recruitment and hiring partners whose candidates sign in to the EH Jobs platform — a more secure, consistent login that also surfaces the wider EH ecosystem.',
+    loomUrl: 'https://www.loom.com/share/6fbdf59ccdcd4218b4bc8f820c566123'
+  },
 };
 
 /* ────────────────────────────
@@ -10245,7 +10273,7 @@ const areaSubTabs = {
   ],
   hr: [
     { label: 'All HR',                  keys: null },
-    { label: 'Employment Details',       keys: ['employment-details','casual-conversion','contractors-as-managers','offer-multiple-signatories','offer-letter-reminders','legal-name-privacy','contractor-custom-fields-v2','vacant-positions-perms','employee-permissions-view','mandatory-fields-settings','wp-employee-profile','probation-end-date','contract-type-display','notice-periods-all','employee-contractor-codes','granular-employee-deletion-permissions','hr-permissions-expansion','permissions-renaming','vevo-check-api','preferred-name-privacy-reports','termination-report-contractors'] },
+    { label: 'Employment Details',       keys: ['employment-details','casual-conversion','contractors-as-managers','offer-multiple-signatories','offer-letter-reminders','legal-name-privacy','contractor-custom-fields-v2','vacant-positions-perms','employee-permissions-view','mandatory-fields-settings','wp-employee-profile','probation-end-date','contract-type-display','notice-periods-all','employee-contractor-codes','granular-employee-deletion-permissions','hr-permissions-expansion','permissions-renaming','vevo-check-api','preferred-name-privacy-reports','termination-report-contractors','legal-name-privacy-api'] },
     { label: 'Leave',                    keys: ['leave-cancel-termination','compliance-leave-filter','leave-overlap-prevention','leave-employee-disambiguation','public-holiday-indicator','leave-compliance-edit','leave-table-uplift','leave-table-standardize','public-holiday-auto','partially-approved-leave-status','zero-unit-leave-validation','leave-taken-report-extended-filters','leave-calendar-save-filters','leave-precise-time-requests','leave-prevent-delete-approved','leave-calendar-public-holidays','leave-pending-negative-balance','leave-reports-migration','leave-approval-audit-trail','leave-balances-groups-filter','contractor-unavailability-self-service','team-calendar-unified-view','smarter-leave-auto-approvals'] },
     { label: 'Documents & Policies',     keys: ['doc-notifications','compliance-doc-purpose','uk-policy-owner','uk-passport-visa-expiry','doc-template-visa-vars','doc-multiple-signatories','doc-image-upload','policy-due-dates','doc-editor-new','email-notifications-ui','email-notifs-docs','email-notifs-leave','cert-due-dates','cert-notification-improvements','probation-report','doc-template-variable-library','bulk-issue-documents','bulk-issue-documents-public','medical-disclosure-audit-logging','streamline-policy-acknowledgement','compliance-document-descriptions','compliance-document-tagging','compliance-reports-on-leave-filter','hr-document-editor-optional-block','email-notifs-org-consistency','gt-bulk-reminders','gt-portal-hr-docs-report','fair-work-statement-update','doc-template-versioning','doc-studio-migration-existing-orgs','my-documents-consolidation','doc-studio-policy-templates-standard','mm-uploaded-docs-manager-visibility'] },
     { label: 'Platform & Engagement',    keys: ['positions-colour','settings-uplift','company-feed','eh-chat','banking-audit-trail','multi-owner-tasks','audit-trail-onboarding','compliance-report-filters','people-report-permissions','eh-work-mobile-public','manager-reassignment','multi-currency-expenses','bpay-aiop','personal-email-settings-ui-refresh','standardising-expense-management-ui','export-requisitions-onboarding-approvals','independent-contractor-work-types','onboarding-offboarding-multi-owner-tasks','audit-report-onboarding-pay-details','heroforce-onboarding-ctas','chat-addon-client-launch','hr-casual-conversion-precheck','recognition-report-csv-uplift','hr-custom-work-hours-standard','scalable-filters','eh-work-bottom-nav','policy-template-country-default','audit-trail-emergency-contacts','openapi-worksites-departments','expense-policies-allowance','openapi-timesheets-webhook','openapi-partner-docs','eh-work-todo-personal','custom-work-hours-au-uk-hr','openapi-dev-docs-ui','dashboard-declutter','addons-settings-uplift','settings-people-controls','settings-system-setup-branding','settings-org-emails-uplift','settings-company-details-rewards','settings-recognition-uplift','openapi-write-apis','openapi-rate-limit','openapi-app-flow-uplift','email-templates-unified','checklist-reordering','heroforce-roi-calculator-au','manager-temp-reassignment','audit-trail-permission-filtering','mobile-quicklinks-employee-pool','eh-work-reset-password-uplift','eh-work-careers-pillar-move','mm-compensation-custom-columns','heroforce-roi-full-hiring-journey','expense-management-reporting-employees-scope','heroforce-nz-self-serve-onboarding','legacy-requisitions-onboarding-approvals-sunset','tasks-milestones-email-editor'] },
@@ -10277,7 +10305,7 @@ const areaSubTabs = {
     { label: '2FA & Auth',            keys: ['2fa','recovery-codes','2fa-mobile','mandatory-2fa-forgot-pw','org-2fa-device-memory','forgot-pw-company-email','payroll-2fa-multi','payroll-login-refresh','eh-jobs-microsoft-sso','security-recovery-codes-mobile','security-mandatory-2fa-mobile','payroll-2fa-setup-mobile','jobs-passkey-reauth','payroll-eh-work-2fa-account-recovery'] },
     { label: 'Account Recovery',      keys: ['acct-recovery','payroll-partner-account-recovery','payroll-passkey-adoption','account-recovery-decline','payroll-ssar-ux','partner-account-recovery-requested-date','vetted-admin-mfa-resets','account-recovery-email-change'] },
     { label: 'Threat Detection',      keys: ['breached-pw','threat-hunting','email-security','app-block','sso-cert-expiry-notifs','free-trial-scam-prevention'] },
-    { label: 'IT & Integrations',     keys: ['asset-register-custom-fields','m365-reporting-sync','mdm-jamf-intune','custom-webhook-headers','public-holiday-css','sso-dual-cert','sso-css-permission','jobs-unified-auth','openapi-certificates-webhooks-worktypes','employer-initiated-email-update','user-security-overview-enhancements','asset-register-csv-bulk-reassignment','openapi-permissions-alignment','security-asset-register-email-column','security-asset-management-filter','sso-self-service-recovery','eh-work-sso-passkeys','payroll-user-access-dashboards','payroll-mfa-ei-brands','payslip-management','openapi-forms-webhooks','jobs-unified-signup-auth','openapi-leave-permissions-alignment','openapi-forms-read-endpoints','payroll-sender-name-registration','openapi-forms-crud-endpoints','payroll-user-security-export','openapi-forms-responses-assignments','openapi-leave-balance'] },
+    { label: 'IT & Integrations',     keys: ['asset-register-custom-fields','m365-reporting-sync','mdm-jamf-intune','custom-webhook-headers','public-holiday-css','sso-dual-cert','sso-css-permission','jobs-unified-auth','openapi-certificates-webhooks-worktypes','employer-initiated-email-update','user-security-overview-enhancements','asset-register-csv-bulk-reassignment','openapi-permissions-alignment','security-asset-register-email-column','security-asset-management-filter','sso-self-service-recovery','eh-work-sso-passkeys','payroll-user-access-dashboards','payroll-mfa-ei-brands','payslip-management','openapi-forms-webhooks','jobs-unified-signup-auth','openapi-leave-permissions-alignment','openapi-forms-read-endpoints','payroll-sender-name-registration','openapi-forms-crud-endpoints','payroll-user-security-export','openapi-forms-responses-assignments','openapi-leave-balance','jobs-password-migration'] },
     { label: 'Permissions',           keys: ['granular-employee-deletion-permissions','security-permissions-terminology','permissions-scope-exclusions','security-goals-okrs-permissions'] },
   ],
   automation: [
