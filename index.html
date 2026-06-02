@@ -9760,6 +9760,22 @@ const releases = {
     audience: 'HeroForce Host Employers and the PEO team who need a native, trackable way to raise and process employment change requests without leaving the platform.',
     loomUrl: ''
   },
+
+  'timesheets-ftux': {
+    title: 'First Time Use Experience for Timesheets',
+    tag: '⏰ Time & Attendance', tagClass: 'tag-time',
+    date: '02 June 2026', plan: 'Advanced timesheets users with access to unified timesheets', region: '🌏 Global', users: 'Owners · Admins',
+    problem: 'Setting up timesheets meant jumping between each employee profile and separate org settings pages, making it slow and confusing for owners and admins to configure who could submit timesheets.',
+    features: [
+      'A guided First Time Use (FTUX) flow that walks owners and admins through timesheet setup',
+      'Employee timesheet settings and org timesheet settings are now centralised on the same page',
+      'A centralised list of employees with their corresponding timesheet settings, so admins can update settings in bulk',
+      'No longer need to visit each employee profile individually to change timesheet settings',
+      'A new timesheet settings UI that cleanly separates employee settings from org-level settings (slice 1, with more enhancements to come)'
+    ],
+    audience: 'Partner orgs on advanced timesheets with access to unified timesheets — especially new orgs and larger teams that need a faster, less error-prone way to configure timesheet access at scale.',
+    loomUrl: ''
+  },
 };
 
 /* ────────────────────────────
@@ -10422,7 +10438,7 @@ const areaSubTabs = {
   time: [
     { label: 'All Time & Attendance', keys: null },
     { label: 'Rostering',             keys: ['roster-perf','roster-unavailability-notifs','bulk-rota-management','roster-print-employee','square-pos-sales','roster-sales-forecast','roster-first-day-week','leave-rota-conflict','worksite-time-reports','roster-templates-wp','print-roster-wp','roster-shift-costing','edit-published-shifts','hero-time-clock-sso','roster-copy-paste-performance','roster-overtime-indicator','roster-bulk-actions-async','roster-advanced-copy-modal','roster-reports-worksite-position','roster-sales-csv-import','roster-lock-shifts','roster-qol-dec25','roster-group-assignments','roster-budget-copy-apply','roster-bulk-selection','roster-warnings-toolbar','roster-row-order-customise','roster-blackout-unavailability','htc-facial-recognition','roster-incremental-shift-loading','roster-work-types-open-shifts','roster-lightspeed-pos','roster-management-filters','heroforce-roster-shift-costs','roster-create-leave-from-shift','roster-timesheets-qol-may26'] },
-    { label: 'Timesheets',            keys: ['geofencing','timesheet-redesign','overnight-timesheets-all','timesheet-reuse','nz-ph-timesheet-automation','email-notifs-timesheets','roster-leave-to-timesheet','timesheets-block-future-dates','unify-timesheets','heroforce-timesheet-payroll-costs'] },
+    { label: 'Timesheets',            keys: ['geofencing','timesheet-redesign','overnight-timesheets-all','timesheet-reuse','nz-ph-timesheet-automation','email-notifs-timesheets','roster-leave-to-timesheet','timesheets-block-future-dates','unify-timesheets','heroforce-timesheet-payroll-costs','timesheets-ftux'] },
     { label: 'Scheduling',            keys: ['custom-work-hours','custom-work-hours-8w'] },
   ],
   security: [
