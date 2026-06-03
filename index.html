@@ -9776,6 +9776,51 @@ const releases = {
     audience: 'Partner orgs on advanced timesheets with access to unified timesheets — especially new orgs and larger teams that need a faster, less error-prone way to configure timesheet access at scale.',
     loomUrl: ''
   },
+
+  'offboarding-checklist-triggers': {
+    title: 'Offboarding Checklist Triggers',
+    tag: '🧑‍💼 HR', tagClass: 'tag-hr',
+    date: '3 June 2026', plan: 'All organisations', region: '🌏 Global', users: 'HR Admins · Managers',
+    problem: 'Offboarding checklists behaved differently from onboarding checklists, leaving admins unsure which checklists were available, which had already been triggered, and whether one could be triggered again.',
+    features: [
+      'Offboarding checklist triggers re-worked to behave like the onboarding checklist for a consistent experience',
+      'Updated UI clearly shows which checklists are available and which have already been triggered',
+      'Visibility over whether a checklist can be triggered again',
+      'No change to core offboarding functionality — purely a usability and clarity improvement'
+    ],
+    audience: 'Any partner org that offboards employees and wants a clearer, more predictable offboarding checklist experience that mirrors onboarding.',
+    loomUrl: ''
+  },
+
+  'heroclear-billing': {
+    title: 'HeroClear Billing for KeyPay AU',
+    tag: '🎁 Benefits', tagClass: 'tag-benefits',
+    date: '21 May 2026', plan: 'KeyPay AU organisations', region: '🇦🇺 Australia', users: 'Payroll Admins',
+    problem: 'With Payday Super landing on 1 July 2026 — requiring super to be paid within 7 business days of each pay run — HeroClear needed a billing model to monetise a high-demand, compliance-critical product at the right moment.',
+    features: [
+      'Billing for HeroClear is now live for KeyPay AU organisations',
+      'Charged at $0.20 per employee per batch, each time a super batch is processed through the platform',
+      'Early adopters who processed their first super batch before April 2026 receive their first 3 months of billing free'
+    ],
+    audience: 'KeyPay AU partner orgs processing super batches through HeroClear ahead of the Payday Super mandate.',
+    loomUrl: ''
+  },
+
+  'payroll-number-of-days-condition': {
+    title: 'New ‘Number of Days’ Pay Condition in Rules Engine',
+    tag: '💰 Payroll', tagClass: 'tag-payroll',
+    date: '3 June 2026', plan: 'Plus · Premium payroll plans', region: '🌏 Global', users: 'Awards Enablement · Payroll Admins',
+    problem: 'Some AU industrial agreements and Awards trigger entitlements based on the number of days worked. The closest existing rule, ‘number of shifts’, broke down when an employee worked more than one shift in a day — creating a compliance gap.',
+    features: [
+      'New ‘number of days’ pay condition that counts distinct calendar days worked within a period',
+      'Multiple shifts on the same day correctly count as a single day of work',
+      'Enforce consecutive day requirements for entitlements',
+      'Apply conditional filters to restrict which shifts qualify',
+      'Set the evaluation period to either a standard week or the rule set’s shift period'
+    ],
+    audience: 'Awards enablement teams and partner orgs using the pay conditions engine on Plus or Premium payroll plans to automate day-based entitlements.',
+    loomUrl: 'https://www.loom.com/share/3681b69b93794b4d896e8ea810fdbc0f'
+  },
 };
 
 /* ────────────────────────────
@@ -10417,11 +10462,11 @@ const areaSubTabs = {
     { label: 'Employment Details',       keys: ['employment-details','casual-conversion','contractors-as-managers','offer-multiple-signatories','offer-letter-reminders','legal-name-privacy','contractor-custom-fields-v2','vacant-positions-perms','employee-permissions-view','mandatory-fields-settings','wp-employee-profile','probation-end-date','contract-type-display','notice-periods-all','employee-contractor-codes','granular-employee-deletion-permissions','hr-permissions-expansion','permissions-renaming','vevo-check-api','preferred-name-privacy-reports','termination-report-contractors','legal-name-privacy-api'] },
     { label: 'Leave',                    keys: ['leave-cancel-termination','compliance-leave-filter','leave-overlap-prevention','leave-employee-disambiguation','public-holiday-indicator','leave-compliance-edit','leave-table-uplift','leave-table-standardize','public-holiday-auto','partially-approved-leave-status','zero-unit-leave-validation','leave-taken-report-extended-filters','leave-calendar-save-filters','leave-precise-time-requests','leave-prevent-delete-approved','leave-calendar-public-holidays','leave-pending-negative-balance','leave-reports-migration','leave-approval-audit-trail','leave-balances-groups-filter','contractor-unavailability-self-service','team-calendar-unified-view','smarter-leave-auto-approvals'] },
     { label: 'Documents & Policies',     keys: ['doc-notifications','compliance-doc-purpose','uk-policy-owner','uk-passport-visa-expiry','doc-template-visa-vars','doc-multiple-signatories','doc-image-upload','policy-due-dates','doc-editor-new','email-notifications-ui','email-notifs-docs','email-notifs-leave','cert-due-dates','cert-notification-improvements','probation-report','doc-template-variable-library','bulk-issue-documents','bulk-issue-documents-public','medical-disclosure-audit-logging','streamline-policy-acknowledgement','compliance-document-descriptions','compliance-document-tagging','compliance-reports-on-leave-filter','hr-document-editor-optional-block','email-notifs-org-consistency','gt-bulk-reminders','gt-portal-hr-docs-report','fair-work-statement-update','doc-template-versioning','doc-studio-migration-existing-orgs','my-documents-consolidation','doc-studio-policy-templates-standard','mm-uploaded-docs-manager-visibility'] },
-    { label: 'Platform & Engagement',    keys: ['positions-colour','settings-uplift','company-feed','eh-chat','banking-audit-trail','multi-owner-tasks','audit-trail-onboarding','compliance-report-filters','people-report-permissions','eh-work-mobile-public','manager-reassignment','multi-currency-expenses','bpay-aiop','personal-email-settings-ui-refresh','standardising-expense-management-ui','export-requisitions-onboarding-approvals','independent-contractor-work-types','onboarding-offboarding-multi-owner-tasks','audit-report-onboarding-pay-details','heroforce-onboarding-ctas','chat-addon-client-launch','hr-casual-conversion-precheck','recognition-report-csv-uplift','hr-custom-work-hours-standard','scalable-filters','eh-work-bottom-nav','policy-template-country-default','audit-trail-emergency-contacts','openapi-worksites-departments','expense-policies-allowance','openapi-timesheets-webhook','openapi-partner-docs','eh-work-todo-personal','custom-work-hours-au-uk-hr','openapi-dev-docs-ui','dashboard-declutter','addons-settings-uplift','settings-people-controls','settings-system-setup-branding','settings-org-emails-uplift','settings-company-details-rewards','settings-recognition-uplift','openapi-write-apis','openapi-rate-limit','openapi-app-flow-uplift','email-templates-unified','checklist-reordering','heroforce-roi-calculator-au','manager-temp-reassignment','audit-trail-permission-filtering','mobile-quicklinks-employee-pool','eh-work-reset-password-uplift','eh-work-careers-pillar-move','mm-compensation-custom-columns','heroforce-roi-full-hiring-journey','expense-management-reporting-employees-scope','heroforce-nz-self-serve-onboarding','legacy-requisitions-onboarding-approvals-sunset','tasks-milestones-email-editor'] },
+    { label: 'Platform & Engagement',    keys: ['positions-colour','settings-uplift','company-feed','eh-chat','banking-audit-trail','multi-owner-tasks','audit-trail-onboarding','compliance-report-filters','people-report-permissions','eh-work-mobile-public','manager-reassignment','multi-currency-expenses','bpay-aiop','personal-email-settings-ui-refresh','standardising-expense-management-ui','export-requisitions-onboarding-approvals','independent-contractor-work-types','onboarding-offboarding-multi-owner-tasks','audit-report-onboarding-pay-details','heroforce-onboarding-ctas','chat-addon-client-launch','hr-casual-conversion-precheck','recognition-report-csv-uplift','hr-custom-work-hours-standard','scalable-filters','eh-work-bottom-nav','policy-template-country-default','audit-trail-emergency-contacts','openapi-worksites-departments','expense-policies-allowance','openapi-timesheets-webhook','openapi-partner-docs','eh-work-todo-personal','custom-work-hours-au-uk-hr','openapi-dev-docs-ui','dashboard-declutter','addons-settings-uplift','settings-people-controls','settings-system-setup-branding','settings-org-emails-uplift','settings-company-details-rewards','settings-recognition-uplift','openapi-write-apis','openapi-rate-limit','openapi-app-flow-uplift','email-templates-unified','checklist-reordering','heroforce-roi-calculator-au','manager-temp-reassignment','audit-trail-permission-filtering','mobile-quicklinks-employee-pool','eh-work-reset-password-uplift','eh-work-careers-pillar-move','mm-compensation-custom-columns','heroforce-roi-full-hiring-journey','expense-management-reporting-employees-scope','heroforce-nz-self-serve-onboarding','legacy-requisitions-onboarding-approvals-sunset','tasks-milestones-email-editor','offboarding-checklist-triggers'] },
   ],
   payroll: [
     { label: 'All Payroll', keys: null },
-    { label: 'Global',      keys: ['inactive-users','roster-timesheet-report-mar','pay-condition-api','payroll-hide-inactive-deductions','opening-balances-employee-id','timesheet-break-times','salary-version-db-split','eh-work-payroll-passcode-change','heroforce-finance-ops-automation'] },
+    { label: 'Global',      keys: ['inactive-users','roster-timesheet-report-mar','pay-condition-api','payroll-hide-inactive-deductions','opening-balances-employee-id','timesheet-break-times','salary-version-db-split','eh-work-payroll-passcode-change','heroforce-finance-ops-automation','payroll-number-of-days-condition'] },
     { label: 'Australia',   keys: ['contractor-codes','split-earnings-apac','au-pay-rate-template','heroclear-payment-rails','pay-rate-webhook','super-auto-import','heroclear-payment-approvals','payroll-award-preserve-customisation','au-award-update-batching','heroclear-onboarding-setup','super-edit-eh-work','super-default-mysuper','leave-accrual-dimensions-export','leave-earnings-dimensions-payrun','payday-super-qe-mcb','payroll-tags-award-redesign','pcc-pay-conditions-comparison'] },
     { label: 'New Zealand', keys: ['nz-payroll-unpaid-leave','nz-esct-report','payroll-ask-community','leave-accrual-dimensions-export','leave-earnings-dimensions-payrun','nz-payroll-piece-rate-minimum-wage'] },
     { label: 'UK',          keys: [] },
@@ -10459,7 +10504,7 @@ const areaSubTabs = {
     { label: 'All Benefits',   keys: null },
     { label: 'Hero Points',    keys: ['heropoints-css-permissions'] },
     { label: 'Group Benefits', keys: ['billing-statement','offer-letter-benefits','benefits-mgmt-report-update','benefits-requisitions'] },
-    { label: 'Perks & Super',  keys: ['aus-ethical','super-auto-import','super-default-mysuper'] },
+    { label: 'Perks & Super',  keys: ['aus-ethical','super-auto-import','super-default-mysuper','heroclear-billing'] },
   ],
   learning: [
     { label: 'All Learning',    keys: null },
