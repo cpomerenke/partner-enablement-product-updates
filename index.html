@@ -10049,6 +10049,157 @@ const releases = {
     audience: 'All partner orgs on EH Work — a polished, consistent interface across every feature area with no retraining required since behaviour is unchanged.',
     loomUrl: 'https://www.loom.com/share/bf7326e7c02c416db6c127b46c746145'
   },
+
+  'salary-change-letter-variables': {
+    title: 'Salary Change Letters — Eight New Template Variables',
+    tag: '🧑‍💼 HR', tagClass: 'tag-hr',
+    date: '3 June 2026', plan: 'All organisations', region: '🌏 Global', users: 'HR Admins',
+    problem: 'Issuing pay change letters at scale meant manually editing each document to replace placeholder text with the correct effective date, new pay rate, hours and super details — a significant time cost and a source of error across compensation cycles.',
+    features: [
+      'Eight new document editor variables sourced directly from the employee\'s scheduled pay change record',
+      'Populates Next Pay Change Effective Date, Pay Variation Amount, Next Pay Category, Next Actual Weekly Hours and Next Pay Change Comments',
+      'Next Salary incl Super and Next Super Amount variables for Australian organisations',
+      'Works regardless of how the pay change was created — compensation cycle, manual entry or CSV import — and applies to employees and contractors',
+      'Where no pay change is scheduled, variables show their configured placeholder rather than an error'
+    ],
+    audience: 'Partners whose clients run compensation cycles at scale — automates salary change letters end-to-end, removing manual editing and the misstatement risk that comes with it.',
+    loomUrl: 'https://www.loom.com/share/9737b07040c5409e92b42012322f87ec'
+  },
+
+  'award-preserve-custom-rule-order': {
+    title: 'AU Awards — Preserve Custom Rule Order on Updates',
+    tag: '💰 Payroll', tagClass: 'tag-payroll',
+    date: '10 June 2026', plan: 'AU Awards users (Plus · Premium PY)', region: '🇦🇺 Australia', users: 'Payroll Admins',
+    problem: 'AU Award users who added custom rules to an Award ruleset found those rules moved to unexpected positions whenever they installed an Award update with new rules, forcing manual inspection and reordering afterwards.',
+    features: [
+      'When preserving custom rules during an Award update, the system remembers the standard rule each custom rule was anchored next to and keeps it correctly positioned',
+      'New standard rules inserted by an update no longer displace custom rules',
+      'If an adjacent standard rule is removed or renamed, the custom rule attaches before the next surviving standard rule (or moves to the end if none follow)',
+      'Multiple custom rules in the same gap maintain their relative order throughout the update'
+    ],
+    audience: 'Partners managing AU Award compliance for clients — removes the manual re-ordering and re-checking that previously followed every Award update.',
+    loomUrl: ''
+  },
+
+  'contractor-status-concluded': {
+    title: 'Contractor Status — Concluded & Eligible for Future Contract',
+    tag: '🧑‍💼 HR', tagClass: 'tag-hr',
+    date: '9 June 2026', plan: 'All organisations', region: '🌏 Global', users: 'HR Admins',
+    problem: 'When a contractor engagement ended, their status showed "Terminated" — the same label used for employees — which inaccurately described how contractor relationships actually work.',
+    features: [
+      '"Terminated" is replaced with "Concluded" for contractors across status filters and the contractor profile',
+      '"Eligible for Rehiring" is replaced with "Eligible for Future Contract" for contractors',
+      'Employee status terminology (Terminated, Eligible for Rehire) is completely unchanged',
+      'Frontend label change only — no change to underlying data or workflows'
+    ],
+    audience: 'Partners whose clients engage contractors — status language now reflects the nature of the engagement, reducing confusion for HR admins.',
+    loomUrl: 'https://www.loom.com/share/156b9d6d3bd347c8984df33d50449198'
+  },
+
+  'org-chart-all-worker-types': {
+    title: 'Org Chart — All Worker Types Visible',
+    tag: '🧑‍💼 HR', tagClass: 'tag-hr',
+    date: '9 June 2026', plan: 'All organisations', region: '🌏 Global', users: 'HR Admins · Managers',
+    problem: 'The org chart previously only reliably showed employees — contractors were not always visible, making it an incomplete picture of the organisation and workforce.',
+    features: [
+      'Employees, contractors and volunteers all appear in the org chart, each under their reporting manager',
+      'Worker type is visible on each card, removing ambiguity about how someone is engaged',
+      'Print and export include all worker types with full name and role details'
+    ],
+    audience: 'Partners standardising clients on the unified workforce model — gives a complete, accurate org chart spanning every worker type.',
+    loomUrl: 'https://www.loom.com/share/57147358cb6645df980f617fb79cd816'
+  },
+
+  'add-worker-classification-wizard': {
+    title: 'Add Worker Button & Classification Wizard',
+    tag: '🧑‍💼 HR', tagClass: 'tag-hr',
+    date: '9 June 2026', plan: 'All organisations', region: '🌏 Global', users: 'HR Admins',
+    problem: 'Separate onboarding entry points for employees and contractors, with no guidance on how to classify a new worker, left HR admins at risk of misclassification.',
+    features: [
+      'A single "Add Worker" button on the People List opens an Onboard modal with four tiles — Employee, Contractor, Volunteer and HeroForce — each routing to the correct flow',
+      'A "Not Sure?" classification wizard asks a short set of questions and recommends the right worker type',
+      'Find Talent for recruitment-sourced hires is unchanged and sits alongside the new entry point',
+      'The previous recruitment banner on the People page has been removed',
+      'Permission-gating applies — admins see only the worker types and actions their organisation permits'
+    ],
+    audience: 'Partners onboarding mixed workforces — a single, guided entry point that helps clients classify workers correctly from the start.',
+    loomUrl: 'https://www.loom.com/share/1414d4d4a46b4b78ae8e612a5f34f65f'
+  },
+
+  'people-list-direct-reports-filter': {
+    title: 'People List — Direct Reports Filter (Manager Team View)',
+    tag: '🧑‍💼 HR', tagClass: 'tag-hr',
+    date: '9 June 2026', plan: 'Unified Total Workforce List (Opt-in Beta)', region: '🌏 Global', users: 'Managers · HR Admins',
+    problem: 'Managers and admins viewing the people list found it hard to see who their direct reports were without opening the org chart.',
+    features: [
+      'New filter on the People List to show only the viewer\'s Direct Reports',
+      'Lets managers quickly focus on their own team without leaving the list view',
+      'Requires the Unified Total Workforce List (Volunteers & new People List) to be enabled — available as opt-in beta'
+    ],
+    audience: 'Partners enabling the new People List for clients — gives managers a faster path to their own team.',
+    loomUrl: ''
+  },
+
+  'unified-people-list': {
+    title: 'Unified People List — All Worker Types in One View',
+    tag: '🧑‍💼 HR', tagClass: 'tag-hr',
+    date: '9 June 2026', plan: 'All organisations (header: Elite+ only)', region: '🌏 Global', users: 'HR Admins',
+    problem: 'Employees and contractors lived in separate corners of the platform, making it impossible for HR admins to see their full workforce in one place, and volunteers were not a recognised worker type at all.',
+    features: [
+      'The "Employee List" is renamed "People List" across navigation and the platform',
+      'A new Worker Type column identifies each person as an employee, contractor or volunteer at a glance',
+      'Worker Type filters segment the list by type, independently or in combination',
+      'A new workforce header (HR Elite and Unlimited only) shows real-time totals across all worker types and responds to the active filter',
+      'Permission-scoped — admins see only the workers their permissions allow'
+    ],
+    audience: 'Partners consolidating workforce views for clients — one filterable list spanning employees, contractors and volunteers.',
+    loomUrl: 'https://www.loom.com/share/809ef5975ded43b68c00d8f4c9b8e545'
+  },
+
+  'contractor-uplift-people-list': {
+    title: 'Contractor Uplift & Move to People List',
+    tag: '🧑‍💼 HR', tagClass: 'tag-hr',
+    date: '9 June 2026', plan: 'Opt-in Beta (new orgs from 1 June)', region: '🌏 Global', users: 'HR Admins',
+    problem: 'Contractors lived separately from the new unified workforce experience and their profile design lagged behind the employee and volunteer profiles.',
+    features: [
+      'Contractors are moved into the new People List alongside employees and volunteers',
+      'The contractor profile and file get a facelift to match the employee and volunteer profile design',
+      'Maintains full feature parity with legacy contractors — no functionality removed',
+      'Opt-in beta at release, open to organisations created on or after 1 June, with all orgs and regions targeted by end of June'
+    ],
+    audience: 'Partners moving clients onto the unified workforce model — brings contractors into a single, consistent People List experience.',
+    loomUrl: ''
+  },
+
+  'volunteers-in-reports': {
+    title: 'Volunteers Included in HR Reports',
+    tag: '🧑‍💼 HR', tagClass: 'tag-hr',
+    date: '9 June 2026', plan: 'Opt-in Beta', region: '🌏 Global', users: 'HR Admins',
+    problem: 'With volunteers introduced as a new worker type, existing HR reports needed to recognise them so workforce reporting stayed complete.',
+    features: [
+      'Volunteers are now supported across the Headcount, Workforce Snapshot, Tenure, Termination, Turnover, HR Documents and Work Eligibility reports',
+      'Also included in the Audit Trail, Lateness, Sickness, Policies, Induction Content and Certification reports',
+      'Assigned Learning Report and Roster vs Timesheet Report support to follow as a fast follow due to technical limitations'
+    ],
+    audience: 'Partners adopting volunteers as a worker type — keeps workforce reporting accurate across the full headcount.',
+    loomUrl: ''
+  },
+
+  'unified-workforce-volunteers': {
+    title: 'Unified Workforce — Volunteers Foundation Release',
+    tag: '🧑‍💼 HR', tagClass: 'tag-hr',
+    date: '9 June 2026', plan: 'All plans (Beta)', region: '🌏 Global', users: 'HR Admins',
+    problem: 'Organisations could only record volunteers by creating them as $0 employees, creating serious wage-misclassification risk and forcing payroll fields onto people who should never be paid.',
+    features: [
+      'Volunteers can now be added as a recognised worker type alongside Employees and Contractors',
+      'Quick Add excludes payroll, bank and tax fields for volunteers',
+      'Volunteers are permanently blocked from payroll sync — they will never appear in a pay run regardless of settings',
+      'Volunteer profiles show only relevant HR sections; Pay Details, Bank Accounts, Tax Settings, Super and Payslips are removed',
+      'The unified workforce list and org chart display all three worker types, each clearly labelled'
+    ],
+    audience: 'Partners with not-for-profit or volunteer-based clients — removes the $0-employee workaround and the misclassification risk that came with it.',
+    loomUrl: 'https://www.loom.com/share/67fb3f1f40e74e5a97293ed6a110bf94'
+  },
 };
 
 /* ────────────────────────────
@@ -10687,15 +10838,15 @@ const areaSubTabs = {
   ],
   hr: [
     { label: 'All HR',                  keys: null },
-    { label: 'Employment Details',       keys: ['employment-details','casual-conversion','contractors-as-managers','offer-multiple-signatories','offer-letter-reminders','legal-name-privacy','contractor-custom-fields-v2','vacant-positions-perms','employee-permissions-view','mandatory-fields-settings','wp-employee-profile','probation-end-date','contract-type-display','notice-periods-all','employee-contractor-codes','granular-employee-deletion-permissions','hr-permissions-expansion','permissions-renaming','vevo-check-api','preferred-name-privacy-reports','termination-report-contractors','legal-name-privacy-api'] },
+    { label: 'Employment Details',       keys: ['employment-details','casual-conversion','contractors-as-managers','offer-multiple-signatories','offer-letter-reminders','legal-name-privacy','contractor-custom-fields-v2','vacant-positions-perms','employee-permissions-view','mandatory-fields-settings','wp-employee-profile','probation-end-date','contract-type-display','notice-periods-all','employee-contractor-codes','granular-employee-deletion-permissions','hr-permissions-expansion','permissions-renaming','vevo-check-api','preferred-name-privacy-reports','termination-report-contractors','legal-name-privacy-api','contractor-status-concluded','add-worker-classification-wizard','contractor-uplift-people-list','unified-workforce-volunteers'] },
     { label: 'Leave',                    keys: ['leave-cancel-termination','compliance-leave-filter','leave-overlap-prevention','leave-employee-disambiguation','public-holiday-indicator','leave-compliance-edit','leave-table-uplift','leave-table-standardize','public-holiday-auto','partially-approved-leave-status','zero-unit-leave-validation','leave-taken-report-extended-filters','leave-calendar-save-filters','leave-precise-time-requests','leave-prevent-delete-approved','leave-calendar-public-holidays','leave-pending-negative-balance','leave-reports-migration','leave-approval-audit-trail','leave-balances-groups-filter','contractor-unavailability-self-service','team-calendar-unified-view','smarter-leave-auto-approvals'] },
-    { label: 'Documents & Policies',     keys: ['doc-notifications','compliance-doc-purpose','uk-policy-owner','uk-passport-visa-expiry','doc-template-visa-vars','doc-multiple-signatories','doc-image-upload','policy-due-dates','doc-editor-new','email-notifications-ui','email-notifs-docs','email-notifs-leave','cert-due-dates','cert-notification-improvements','probation-report','doc-template-variable-library','bulk-issue-documents','bulk-issue-documents-public','medical-disclosure-audit-logging','streamline-policy-acknowledgement','compliance-document-descriptions','compliance-document-tagging','compliance-reports-on-leave-filter','hr-document-editor-optional-block','email-notifs-org-consistency','gt-bulk-reminders','gt-portal-hr-docs-report','fair-work-statement-update','doc-template-versioning','doc-studio-migration-existing-orgs','my-documents-consolidation','doc-studio-policy-templates-standard','mm-uploaded-docs-manager-visibility','hr-certification-status-optional','heroforce-peo-hr-document-visibility','contractor-uploaded-documents-sharing'] },
-    { label: 'Platform & Engagement',    keys: ['positions-colour','settings-uplift','company-feed','eh-chat','banking-audit-trail','multi-owner-tasks','audit-trail-onboarding','compliance-report-filters','people-report-permissions','eh-work-mobile-public','manager-reassignment','multi-currency-expenses','bpay-aiop','personal-email-settings-ui-refresh','standardising-expense-management-ui','export-requisitions-onboarding-approvals','independent-contractor-work-types','onboarding-offboarding-multi-owner-tasks','audit-report-onboarding-pay-details','heroforce-onboarding-ctas','chat-addon-client-launch','hr-casual-conversion-precheck','recognition-report-csv-uplift','hr-custom-work-hours-standard','scalable-filters','eh-work-bottom-nav','policy-template-country-default','audit-trail-emergency-contacts','openapi-worksites-departments','expense-policies-allowance','openapi-timesheets-webhook','openapi-partner-docs','eh-work-todo-personal','custom-work-hours-au-uk-hr','openapi-dev-docs-ui','dashboard-declutter','addons-settings-uplift','settings-people-controls','settings-system-setup-branding','settings-org-emails-uplift','settings-company-details-rewards','settings-recognition-uplift','openapi-write-apis','openapi-rate-limit','openapi-app-flow-uplift','email-templates-unified','checklist-reordering','heroforce-roi-calculator-au','manager-temp-reassignment','audit-trail-permission-filtering','mobile-quicklinks-employee-pool','eh-work-reset-password-uplift','eh-work-careers-pillar-move','mm-compensation-custom-columns','heroforce-roi-full-hiring-journey','expense-management-reporting-employees-scope','heroforce-nz-self-serve-onboarding','legacy-requisitions-onboarding-approvals-sunset','tasks-milestones-email-editor','offboarding-checklist-triggers','heroforce-employment-agreement-signatory-flow','eh-work-ui-consistency'] },
+    { label: 'Documents & Policies',     keys: ['doc-notifications','compliance-doc-purpose','uk-policy-owner','uk-passport-visa-expiry','doc-template-visa-vars','doc-multiple-signatories','doc-image-upload','policy-due-dates','doc-editor-new','email-notifications-ui','email-notifs-docs','email-notifs-leave','cert-due-dates','cert-notification-improvements','probation-report','doc-template-variable-library','bulk-issue-documents','bulk-issue-documents-public','medical-disclosure-audit-logging','streamline-policy-acknowledgement','compliance-document-descriptions','compliance-document-tagging','compliance-reports-on-leave-filter','hr-document-editor-optional-block','email-notifs-org-consistency','gt-bulk-reminders','gt-portal-hr-docs-report','fair-work-statement-update','doc-template-versioning','doc-studio-migration-existing-orgs','my-documents-consolidation','doc-studio-policy-templates-standard','mm-uploaded-docs-manager-visibility','hr-certification-status-optional','heroforce-peo-hr-document-visibility','contractor-uploaded-documents-sharing','salary-change-letter-variables'] },
+    { label: 'Platform & Engagement',    keys: ['positions-colour','settings-uplift','company-feed','eh-chat','banking-audit-trail','multi-owner-tasks','audit-trail-onboarding','compliance-report-filters','people-report-permissions','eh-work-mobile-public','manager-reassignment','multi-currency-expenses','bpay-aiop','personal-email-settings-ui-refresh','standardising-expense-management-ui','export-requisitions-onboarding-approvals','independent-contractor-work-types','onboarding-offboarding-multi-owner-tasks','audit-report-onboarding-pay-details','heroforce-onboarding-ctas','chat-addon-client-launch','hr-casual-conversion-precheck','recognition-report-csv-uplift','hr-custom-work-hours-standard','scalable-filters','eh-work-bottom-nav','policy-template-country-default','audit-trail-emergency-contacts','openapi-worksites-departments','expense-policies-allowance','openapi-timesheets-webhook','openapi-partner-docs','eh-work-todo-personal','custom-work-hours-au-uk-hr','openapi-dev-docs-ui','dashboard-declutter','addons-settings-uplift','settings-people-controls','settings-system-setup-branding','settings-org-emails-uplift','settings-company-details-rewards','settings-recognition-uplift','openapi-write-apis','openapi-rate-limit','openapi-app-flow-uplift','email-templates-unified','checklist-reordering','heroforce-roi-calculator-au','manager-temp-reassignment','audit-trail-permission-filtering','mobile-quicklinks-employee-pool','eh-work-reset-password-uplift','eh-work-careers-pillar-move','mm-compensation-custom-columns','heroforce-roi-full-hiring-journey','expense-management-reporting-employees-scope','heroforce-nz-self-serve-onboarding','legacy-requisitions-onboarding-approvals-sunset','tasks-milestones-email-editor','offboarding-checklist-triggers','heroforce-employment-agreement-signatory-flow','eh-work-ui-consistency','org-chart-all-worker-types','people-list-direct-reports-filter','unified-people-list','volunteers-in-reports'] },
   ],
   payroll: [
     { label: 'All Payroll', keys: null },
     { label: 'Global',      keys: ['inactive-users','roster-timesheet-report-mar','pay-condition-api','payroll-hide-inactive-deductions','opening-balances-employee-id','timesheet-break-times','salary-version-db-split','eh-work-payroll-passcode-change','heroforce-finance-ops-automation','payroll-number-of-days-condition','payroll-expiring-self-setup-links'] },
-    { label: 'Australia',   keys: ['contractor-codes','split-earnings-apac','au-pay-rate-template','heroclear-payment-rails','pay-rate-webhook','super-auto-import','heroclear-payment-approvals','payroll-award-preserve-customisation','au-award-update-batching','heroclear-onboarding-setup','super-edit-eh-work','super-default-mysuper','leave-accrual-dimensions-export','leave-earnings-dimensions-payrun','payday-super-qe-mcb','payroll-tags-award-redesign','pcc-pay-conditions-comparison'] },
+    { label: 'Australia',   keys: ['contractor-codes','split-earnings-apac','au-pay-rate-template','heroclear-payment-rails','pay-rate-webhook','super-auto-import','heroclear-payment-approvals','payroll-award-preserve-customisation','au-award-update-batching','heroclear-onboarding-setup','super-edit-eh-work','super-default-mysuper','leave-accrual-dimensions-export','leave-earnings-dimensions-payrun','payday-super-qe-mcb','payroll-tags-award-redesign','pcc-pay-conditions-comparison','award-preserve-custom-rule-order'] },
     { label: 'New Zealand', keys: ['nz-payroll-unpaid-leave','nz-esct-report','payroll-ask-community','leave-accrual-dimensions-export','leave-earnings-dimensions-payrun','nz-payroll-piece-rate-minimum-wage'] },
     { label: 'UK',          keys: [] },
     { label: 'Canada',      keys: [] },
