@@ -10405,6 +10405,104 @@ const releases = {
     audience: 'Partner orgs using recognition and the company feed who want employees to surface shoutouts conversationally.',
     loomUrl: 'https://www.loom.com/share/d782bde469c147899e8fe4fee95a0a98'
   },
+
+  'heroai-hr-documents': {
+    title: 'Hero AI — HR Documents',
+    tag: '🤖 Hero AI', tagClass: 'tag-heroai',
+    date: '15 June 2026', plan: 'All organisations', region: '🌏 Global', users: 'HR Admins',
+    problem: 'Checking which employees had outstanding HR documents meant manually digging through employee files — slow and easy to miss.',
+    features: [
+      'Hero AI can now answer questions about an employee\'s HR documents and their signing status',
+      'Ask things like "Which employees haven\'t signed their employment contract?" or "Has employee X signed their contract?"',
+      'Surfaces pending signatures for a specific employee instantly — a read-only data lookup (Hero AI cannot action documents on your behalf)'
+    ],
+    audience: 'Partner orgs managing contracts and policy sign-off who want document status answered conversationally.',
+    loomUrl: ''
+  },
+
+  'heroai-employee-profile-data': {
+    title: 'Hero AI — Employee Profile & File Data',
+    tag: '🤖 Hero AI', tagClass: 'tag-heroai',
+    date: '15 June 2026', plan: 'All organisations', region: '🌏 Global', users: 'HR Admins · Managers',
+    problem: 'Pulling simple people insights — tenure, probation status, upcoming birthdays — meant running reports or scrolling profiles one by one.',
+    features: [
+      'Hero AI can now answer questions about the employee profile and its data',
+      'Ask things like "Who are my longest tenured employees?", "Who is on probation?" or "Whose birthdays are coming up this week?"',
+      'A read-only data lookup across employee profile fields — Hero AI cannot action anything on your behalf'
+    ],
+    audience: 'Partner orgs that want quick people insights surfaced conversationally without building a report.',
+    loomUrl: ''
+  },
+
+  'early-access-beta-dashboard': {
+    title: 'Early Access (Beta) Dashboard',
+    tag: '🧑‍💼 HR', tagClass: 'tag-hr',
+    date: '16 June 2026', plan: 'All organisations', region: '🌏 Global', users: 'Platform Admins',
+    problem: 'Platform admins had no visibility into which beta features were enabled or how they changed the product — discovering new features meant contacting support or watching release notes.',
+    features: [
+      'A self-service Early Access page lets admins browse, understand and manage available and upcoming beta features in one place',
+      'Reach it via Settings > Security & Access Control > Beta Access, or a dedicated "Beta" button in the top nav (hidden from non-admins)',
+      'Toggle open beta features on or off instantly with card toggles, and register for "Notify me" alerts on coming-soon features'
+    ],
+    audience: 'Partner orgs that want clients to self-manage beta feature adoption without raising a support request.',
+    loomUrl: 'https://www.loom.com/share/9261a905eac948378eac7e6d1ebbbfca'
+  },
+
+  'performance-employee-file-feedback-goals': {
+    title: 'Employee File — Feedback & Goals Tabs',
+    tag: '📈 Performance', tagClass: 'tag-performance',
+    date: '15 June 2026', plan: 'All organisations', region: '🌏 Global', users: 'Managers · HR Admins',
+    problem: 'Managers had no single place in the employee file to see the feedback an employee had received or track their goals — following on from the earlier 1:1s and Learning tabs.',
+    features: [
+      'New Feedback tab (under Development) gives managers and authorised users visibility of feedback received, and lets them give feedback directly from the profile',
+      'New Goals tab (under Performance) tracks an employee\'s goals, OKR alignments, due dates and progress at a glance',
+      'Feedback set to recipient-only visibility stays private and is not shown to managers'
+    ],
+    audience: 'Partner orgs running structured performance processes who want feedback and goals consolidated in the employee file.',
+    loomUrl: ''
+  },
+
+  'salary-benchmarking-nz-ca': {
+    title: 'Salary Benchmarking for New Zealand',
+    tag: '🎯 Recruitment', tagClass: 'tag-recruitment',
+    date: '15 June 2026', plan: 'All organisations', region: 'NZ New Zealand', users: 'Recruiters · Hiring Managers',
+    problem: 'Salary Benchmarking was only available for a limited set of countries, leaving New Zealand recruiters without market salary data when creating roles and making offers.',
+    features: [
+      'Salary Benchmarking is now extended to New Zealand (alongside the existing Australia coverage)',
+      'Recruiters and hiring managers can benchmark roles against local market salary data',
+      'Supports more competitive, data-informed pay decisions during hiring'
+    ],
+    audience: 'NZ recruitment partners who want local market salary data built into the hiring workflow.',
+    loomUrl: ''
+  },
+
+  'probation-length-weeks-months': {
+    title: 'Probation Length — Weeks or Months',
+    tag: '🧑‍💼 HR', tagClass: 'tag-hr',
+    date: '12 June 2026', plan: 'All organisations', region: '🌏 Global', users: 'HR Admins',
+    problem: 'Probation periods could only be recorded in months, forcing admins to manually convert week-based terms or leave the field blank — leading to inaccurate contracts and unreliable end-date reminders.',
+    features: [
+      'Admins can now record a probation period in weeks or months',
+      'The system automatically calculates the correct probation end date based on the selected unit, and offer letters, contracts and HR documents support the same choice',
+      'The unit defaults to months for new employees, and all existing records are treated as months so no re-entry is needed'
+    ],
+    audience: 'Partner orgs whose clients use week-based probation terms and need accurate contract records and reminders.',
+    loomUrl: 'https://www.loom.com/share/67fb8c942670473a9dc83a39c17fdaef'
+  },
+
+  'ats-referrals-digest-iteration-2': {
+    title: 'Employee Referrals — Digest & Mobile Uplift (Iteration 2)',
+    tag: '🎯 Recruitment', tagClass: 'tag-recruitment',
+    date: '15 June 2026', plan: 'All organisations (gradual rollout)', region: '🌏 Global', users: 'Employers · Employees',
+    problem: 'After the referrals pilot, employees needed regular reminders of roles they could refer for, and the mobile referral experience needed to match the design system.',
+    features: [
+      'Employers can set referral email digest cadence (off / weekly / daily) per job posting, with timezone-aware delivery so members get their digest at a sensible local time',
+      'Redesigned mobile referral widget and form — single featured "Latest Opening" card, sticky CTA, collapsible job description, reward banner and auto-filled referrer details',
+      'Members can unsubscribe from digests via a public settings page; all digest features sit behind the ats_referral_job_digest flag for controlled rollout'
+    ],
+    audience: 'Recruitment partners running employee referral programmes who want higher participation through regular, well-designed prompts.',
+    loomUrl: ''
+  },
 };
 
 /* ────────────────────────────
@@ -11036,17 +11134,17 @@ function getAreaCounts(tab) {
 const areaSubTabs = {
   heroai: [
     { label: 'All HeroAI',     keys: null },
-    { label: 'Chat & Widget',  keys: ['heroai-hr-agent','heroai-work-app','heroai-search-box','heroai-chat-optimisations','heroai-prompt-admin','heroai-chat-resume','heroai-chat-history','heroai-dashboard-widget','heroai-interface-refresh','heroai-icon-nav','heroai-ui-dec25','heroai-tools-public','heroai-payslip-salary','heroai-extended-memory','heroai-zendesk-ticket-visibility','heroai-speed-performance','heroai-experience-refresh','heroai-personalisation-topbar','heroai-setup-mode-access-control','heroai-delete-recent-chat','heroai-widget-personalisation','heroai-1on1-reading','heroai-1on1-history','heroai-checker-tle','heroai-announcements-reading','heroai-widget-freetext-first','heroai-tasks-data-lookup','heroai-widget-inline-input','pre-payroll-checker-au-beta','heroai-ask-about-goals','heroai-9box-talent-grid','heroai-360-review-insights','heroai-company-feed-shoutouts'] },
+    { label: 'Chat & Widget',  keys: ['heroai-hr-agent','heroai-work-app','heroai-search-box','heroai-chat-optimisations','heroai-prompt-admin','heroai-chat-resume','heroai-chat-history','heroai-dashboard-widget','heroai-interface-refresh','heroai-icon-nav','heroai-ui-dec25','heroai-tools-public','heroai-payslip-salary','heroai-extended-memory','heroai-zendesk-ticket-visibility','heroai-speed-performance','heroai-experience-refresh','heroai-personalisation-topbar','heroai-setup-mode-access-control','heroai-delete-recent-chat','heroai-widget-personalisation','heroai-1on1-reading','heroai-1on1-history','heroai-checker-tle','heroai-announcements-reading','heroai-widget-freetext-first','heroai-tasks-data-lookup','heroai-widget-inline-input','pre-payroll-checker-au-beta','heroai-ask-about-goals','heroai-9box-talent-grid','heroai-360-review-insights','heroai-company-feed-shoutouts','heroai-hr-documents','heroai-employee-profile-data'] },
     { label: 'Mobile',         keys: ['heroai-hr-agent-mobile','heroai-hr-agent-expand','heroai-voice-to-text','heroai-eh-work-bottom-nav'] },
     { label: 'Recruitment AI', keys: ['smartmatch','marketing-signup','hiring-criteria','hiring-stage-ui','ai-voice-interviewer','voice-agent-multiregion','ai-job-description-gen','ai-tailored-applications','ai-tailored-all-apps','ai-interviewer-default','recruitment-ai-billing','ai-sq-suggestions','recruitment-agent-employer','recruitment-shortlisting-agent','recruitment-ai-notetaker'] },
     { label: 'Leave AI',       keys: ['heroai-leave-mgmt','heroai-leave-suggest','heroai-enhanced-chat-leave','leave-ai-autosuggest-type','heroai-hr-agent-leave-actions','heroai-my-leave-dynamic-messaging'] },
   ],
   hr: [
     { label: 'All HR',                  keys: null },
-    { label: 'Employment Details',       keys: ['employment-details','casual-conversion','contractors-as-managers','offer-multiple-signatories','offer-letter-reminders','legal-name-privacy','contractor-custom-fields-v2','vacant-positions-perms','employee-permissions-view','mandatory-fields-settings','wp-employee-profile','probation-end-date','contract-type-display','notice-periods-all','employee-contractor-codes','granular-employee-deletion-permissions','hr-permissions-expansion','permissions-renaming','vevo-check-api','preferred-name-privacy-reports','termination-report-contractors','legal-name-privacy-api','contractor-status-concluded','add-worker-classification-wizard','contractor-uplift-people-list','unified-workforce-volunteers','position-management'] },
+    { label: 'Employment Details',       keys: ['employment-details','casual-conversion','contractors-as-managers','offer-multiple-signatories','offer-letter-reminders','legal-name-privacy','contractor-custom-fields-v2','vacant-positions-perms','employee-permissions-view','mandatory-fields-settings','wp-employee-profile','probation-end-date','contract-type-display','notice-periods-all','employee-contractor-codes','granular-employee-deletion-permissions','hr-permissions-expansion','permissions-renaming','vevo-check-api','preferred-name-privacy-reports','termination-report-contractors','legal-name-privacy-api','contractor-status-concluded','add-worker-classification-wizard','contractor-uplift-people-list','unified-workforce-volunteers','position-management','probation-length-weeks-months'] },
     { label: 'Leave',                    keys: ['leave-cancel-termination','compliance-leave-filter','leave-overlap-prevention','leave-employee-disambiguation','public-holiday-indicator','leave-compliance-edit','leave-table-uplift','leave-table-standardize','public-holiday-auto','partially-approved-leave-status','zero-unit-leave-validation','leave-taken-report-extended-filters','leave-calendar-save-filters','leave-precise-time-requests','leave-prevent-delete-approved','leave-calendar-public-holidays','leave-pending-negative-balance','leave-reports-migration','leave-approval-audit-trail','leave-balances-groups-filter','contractor-unavailability-self-service','team-calendar-unified-view','smarter-leave-auto-approvals','unified-calendar-slice-2'] },
     { label: 'Documents & Policies',     keys: ['doc-notifications','compliance-doc-purpose','uk-policy-owner','uk-passport-visa-expiry','doc-template-visa-vars','doc-multiple-signatories','doc-image-upload','policy-due-dates','doc-editor-new','email-notifications-ui','email-notifs-docs','email-notifs-leave','cert-due-dates','cert-notification-improvements','probation-report','doc-template-variable-library','bulk-issue-documents','bulk-issue-documents-public','medical-disclosure-audit-logging','streamline-policy-acknowledgement','compliance-document-descriptions','compliance-document-tagging','compliance-reports-on-leave-filter','hr-document-editor-optional-block','email-notifs-org-consistency','gt-bulk-reminders','gt-portal-hr-docs-report','fair-work-statement-update','doc-template-versioning','doc-studio-migration-existing-orgs','my-documents-consolidation','doc-studio-policy-templates-standard','mm-uploaded-docs-manager-visibility','hr-certification-status-optional','heroforce-peo-hr-document-visibility','contractor-uploaded-documents-sharing','salary-change-letter-variables','doc-template-headers-footers'] },
-    { label: 'Platform & Engagement',    keys: ['positions-colour','settings-uplift','company-feed','eh-chat','banking-audit-trail','multi-owner-tasks','audit-trail-onboarding','compliance-report-filters','people-report-permissions','eh-work-mobile-public','manager-reassignment','multi-currency-expenses','bpay-aiop','personal-email-settings-ui-refresh','standardising-expense-management-ui','export-requisitions-onboarding-approvals','independent-contractor-work-types','onboarding-offboarding-multi-owner-tasks','audit-report-onboarding-pay-details','heroforce-onboarding-ctas','chat-addon-client-launch','hr-casual-conversion-precheck','recognition-report-csv-uplift','hr-custom-work-hours-standard','scalable-filters','eh-work-bottom-nav','policy-template-country-default','audit-trail-emergency-contacts','openapi-worksites-departments','expense-policies-allowance','openapi-timesheets-webhook','openapi-partner-docs','eh-work-todo-personal','custom-work-hours-au-uk-hr','openapi-dev-docs-ui','dashboard-declutter','addons-settings-uplift','settings-people-controls','settings-system-setup-branding','settings-org-emails-uplift','settings-company-details-rewards','settings-recognition-uplift','openapi-write-apis','openapi-rate-limit','openapi-app-flow-uplift','email-templates-unified','checklist-reordering','heroforce-roi-calculator-au','manager-temp-reassignment','audit-trail-permission-filtering','mobile-quicklinks-employee-pool','eh-work-reset-password-uplift','eh-work-careers-pillar-move','mm-compensation-custom-columns','heroforce-roi-full-hiring-journey','expense-management-reporting-employees-scope','heroforce-nz-self-serve-onboarding','legacy-requisitions-onboarding-approvals-sunset','tasks-milestones-email-editor','offboarding-checklist-triggers','heroforce-employment-agreement-signatory-flow','eh-work-ui-consistency','org-chart-all-worker-types','people-list-direct-reports-filter','unified-people-list','volunteers-in-reports'] },
+    { label: 'Platform & Engagement',    keys: ['positions-colour','settings-uplift','company-feed','eh-chat','banking-audit-trail','multi-owner-tasks','audit-trail-onboarding','compliance-report-filters','people-report-permissions','eh-work-mobile-public','manager-reassignment','multi-currency-expenses','bpay-aiop','personal-email-settings-ui-refresh','standardising-expense-management-ui','export-requisitions-onboarding-approvals','independent-contractor-work-types','onboarding-offboarding-multi-owner-tasks','audit-report-onboarding-pay-details','heroforce-onboarding-ctas','chat-addon-client-launch','hr-casual-conversion-precheck','recognition-report-csv-uplift','hr-custom-work-hours-standard','scalable-filters','eh-work-bottom-nav','policy-template-country-default','audit-trail-emergency-contacts','openapi-worksites-departments','expense-policies-allowance','openapi-timesheets-webhook','openapi-partner-docs','eh-work-todo-personal','custom-work-hours-au-uk-hr','openapi-dev-docs-ui','dashboard-declutter','addons-settings-uplift','settings-people-controls','settings-system-setup-branding','settings-org-emails-uplift','settings-company-details-rewards','settings-recognition-uplift','openapi-write-apis','openapi-rate-limit','openapi-app-flow-uplift','email-templates-unified','checklist-reordering','heroforce-roi-calculator-au','manager-temp-reassignment','audit-trail-permission-filtering','mobile-quicklinks-employee-pool','eh-work-reset-password-uplift','eh-work-careers-pillar-move','mm-compensation-custom-columns','heroforce-roi-full-hiring-journey','expense-management-reporting-employees-scope','heroforce-nz-self-serve-onboarding','legacy-requisitions-onboarding-approvals-sunset','tasks-milestones-email-editor','offboarding-checklist-triggers','heroforce-employment-agreement-signatory-flow','eh-work-ui-consistency','org-chart-all-worker-types','people-list-direct-reports-filter','unified-people-list','volunteers-in-reports','early-access-beta-dashboard'] },
   ],
   payroll: [
     { label: 'All Payroll', keys: null },
@@ -11061,7 +11159,7 @@ const areaSubTabs = {
     { label: 'ATS & Integrations',   keys: ['indeed','ats-assessments-codility','talent-search-refine','talent-saved-candidates','ats-advanced-filtering','indeed-direct','ats-applicant-mgmt','talent-search-ats','recruitment-career-page-widget','recruitment-talent-search-experience','recruitment-zinc-check-statuses','heroforce-candidate-screening','ats-kanban','recruitment-bulk-cv-upload-25','ats-candidate-social-links','ats-search-match-context','ats-email-templates-branding','find-talent-matches-jobs-page','find-talent-personalised-messaging','recruitment-talent-pool-search-tags','recruitment-google-calendar-ats-sync','recruitment-job-match-popover','recruitment-talent-pool-bulk-cv-25','candidate-matches-in-job'] },
     { label: 'Jobseeker Experience', keys: ['jobseeker-flow','hero-foundation','marketing-signup','eoi-jobs','smartmatch-ondemand','talent-digest-email','eh-jobs-microsoft-sso','recruitment-external-application-confirmation','recruitment-ai-job-summaries','recruitment-context-aware-auth','recruitment-linkedin-profile-import','recruitment-job-report-enhancement','notification-consent','jobs-search-quality','heroforce-company-search','heroforce-search-nlp','heroforce-job-preference','recruitment-job-abandonment-email','cv-profile-parsing','smartmatch-summary','jobs-homepage-nlp','jobs-google-signin','jobs-nlp-dashboard','jobseeker-dashboard-ai-summary','hero-foundation-direct-signup'] },
     { label: 'Job Creation',         keys: ['offer-benefits','job-posting-improvements','job-posting-nlp','recruitment-position-templates','recruitment-job-editor-rich-text','heroforce-landing','ats-position-description'] },
-    { label: 'Hiring Process',       keys: ['hiring-funnel-report','recruiter-activity-report','eoi-confirmation-email','recruitment-agent-preview','talent-job-search','requisition-conditional-approvals','recruitment-reference-fraud','recruitment-hiring-process-ui-ai-agent','recruitment-hiring-criteria','recruitment-reference-check-friction','recruitment-email-notifs','recruitment-agent-employer','recruitment-boy-scoring','requisitions-mark-as-filled','recruitment-ai-notetaker','talent-employee-referral-programme','recruitment-reference-check-improvements','sra-offer-letter','recruitment-pipeline-visibility'] },
+    { label: 'Hiring Process',       keys: ['hiring-funnel-report','recruiter-activity-report','eoi-confirmation-email','recruitment-agent-preview','talent-job-search','requisition-conditional-approvals','recruitment-reference-fraud','recruitment-hiring-process-ui-ai-agent','recruitment-hiring-criteria','recruitment-reference-check-friction','recruitment-email-notifs','recruitment-agent-employer','recruitment-boy-scoring','requisitions-mark-as-filled','recruitment-ai-notetaker','talent-employee-referral-programme','recruitment-reference-check-improvements','sra-offer-letter','recruitment-pipeline-visibility','salary-benchmarking-nz-ca','ats-referrals-digest-iteration-2'] },
     { label: 'Recruitment Reports',  keys: ['recruitment-candidate-source-conversion','recruitment-disqualification-withdrawal','recruitment-time-to-hire-uplift'] },
   ],
   time: [
@@ -11113,7 +11211,7 @@ const areaSubTabs = {
   ],
   performance: [
     { label: 'All Performance', keys: null },
-    { label: 'Goals',           keys: ['goals-bulk-archive','goals-clone','goals-detailed-report','performance-goals-bulk-archive','performance-goals-clone-bulk-issue','performance-goals-visibility-default'] },
+    { label: 'Goals',           keys: ['goals-bulk-archive','goals-clone','goals-detailed-report','performance-goals-bulk-archive','performance-goals-clone-bulk-issue','performance-goals-visibility-default','performance-employee-file-feedback-goals'] },
     { label: 'Reviews',         keys: ['performance-review-questions','review-question-roles','review-visibility-controls','happiness-survey-export','performance-reviews-uplift','360-custom-permissions','performance-review-ftu-templates','perf-review-start-date-visibility','performance-consolidate-notifications','performance-reorder-questions','performance-continuous-review-lockout','performance-360-review-extension','perf-review-no-override','happiness-survey-ftu','performance-tasks-email','settings-happiness-survey-uplift','360-reviews-email-settings','performance-recurring-review-cycles','performance-reviews-mobile','performance-compensation-award-employees'] },
     { label: '1:1s',            keys: ['1on1-session-controls','1on1-report-permissions','performance-employee-file-development-tabs'] },
     { label: 'Disciplinary',    keys: ['disciplinary-record-au-nz'] },
