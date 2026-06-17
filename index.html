@@ -10646,6 +10646,147 @@ const releases = {
     audience: 'NZ partners whose clients manage KiwiSaver — mitigates the operational and regulatory risk of stale KS2 forms.',
     loomUrl: ''
   },
+
+  'org-chart-staff-directory': {
+    title: 'New Org Chart & Revamped Staff Directory in EH Work',
+    tag: '🧑‍💼 HR', tagClass: 'tag-hr',
+    date: '17 June 2026', plan: 'All organisations', region: '🌏 Global', users: 'All Employees',
+    problem: 'Employees had no easy way to understand team structures or quickly find a colleague\'s key contact details, making collaboration across the business harder than it needed to be.',
+    features: [
+      'New Org Chart in the EH Work app gives employees a richer, more connected view of their organisation',
+      'Three-level org chart view, optimised for mobile',
+      'Revamped Staff Directory with a new profile card showing team structure (visible to all employees)',
+      'Emergency contacts on the profile card are restricted to owners, admins, and employees granted access via Custom Security Settings',
+      'Fast follow planned: send a shout out or message directly from the profile card, and long-press to view a profile'
+    ],
+    audience: 'Any partner org that wants employees to navigate team structures and find colleagues from their mobile — especially distributed and frontline workforces.',
+    loomUrl: ''
+  },
+
+  'group-member-transparency': {
+    title: 'Group Member Transparency',
+    tag: '🧑‍💼 HR', tagClass: 'tag-hr',
+    date: '17 June 2026', plan: 'All organisations', region: '🌏 Global', users: 'HR Admins',
+    problem: 'Checking who was in a group required navigating to the People list and filtering by group — tedious when verifying composition before sending surveys or confirming compliance.',
+    features: [
+      'New "View all members" option in the actions menu on each group row in Groups settings',
+      'Opens a read-only panel showing the name and photo of every member in that group',
+      'No risk of accidentally editing group settings — the panel is view-only',
+      'Empty groups display a clear message rather than a blank panel'
+    ],
+    audience: 'HR admins who manage groups for surveys, compliance or communications and need to verify membership at a glance.',
+    loomUrl: 'https://www.loom.com/share/d3a55d53e7ed411fa99456c66f500bc0'
+  },
+
+  'expense-policy-assignment-notice': {
+    title: 'Expenses — Unassigned Policy Notice for Admins',
+    tag: '🧑‍💼 HR', tagClass: 'tag-hr',
+    date: '17 June 2026', plan: 'Expense management users', region: '🌏 Global', users: 'Admins · Owners',
+    problem: 'Employees must be assigned to an expense policy before they can select any expense category — but admins had no way to know who was unassigned, only discovering it when employees reported they couldn\'t submit expenses and contacted support.',
+    features: [
+      'A clear, dismissible notice now appears on the Expenses Management page whenever active employees have not been assigned to an expense policy',
+      'The notice links admins directly to the policy configuration page to fix it',
+      'Reduces support contacts caused by employees being silently blocked from submitting claims',
+      'Coming next: rule-based assignment for new joiners and a one-click fix for legacy "Default policy – All employees" policies'
+    ],
+    audience: 'Partner orgs using Expense Management — closes the discoverability gap that caused expense submission support tickets.',
+    loomUrl: ''
+  },
+
+  'g2n-pay-category-units': {
+    title: 'G2N Report — Show Pay Category Units',
+    tag: '💰 Payroll', tagClass: 'tag-payroll',
+    date: '17 June 2026', plan: 'All organisations', region: '🇦🇺 Australia · NZ New Zealand', users: 'Payroll Admins · RAU',
+    problem: 'The Gross-to-Net report only showed amounts for each pay category with no way to view the related units applied, making it harder to see how many units a payment covered.',
+    features: [
+      'Units columns now appear alongside pay category amounts by default — richer report view with no action needed',
+      'New "Show pay category units" checkbox in the G2N report filter panel (AU/NZ) for full control over output',
+      'Untick before running to produce a cleaner output without units columns — amounts are unaffected',
+      'CSV and Excel exports respect the checkbox state',
+      'Choice only affects the current run (resets to ticked next visit); report packs support a per-pack units toggle'
+    ],
+    audience: 'AU and NZ payroll partners and RAUs who want clearer Gross-to-Net reporting showing both amounts and the units behind them.',
+    loomUrl: ''
+  },
+
+  'heropoints-nz-launch': {
+    title: 'HeroPoints — Now Live in New Zealand',
+    tag: '🎁 Benefits', tagClass: 'tag-benefits',
+    date: '15 June 2026', plan: 'All paid plans', region: 'NZ New Zealand', users: 'Admins · Employees',
+    problem: 'NZ employers and employees had no access to the HeroPoints rewards and recognition program, creating an inconsistent experience versus AU, UK and CA markets.',
+    features: [
+      'NZ admins can purchase HeroPoints in NZD using a built-in conversion calculator and view organisation balance and full transaction history',
+      'Manually distribute points to individuals or groups, schedule future distributions, and configure automated reward and recognition settings',
+      'Purchase history can be downloaded as a PDF for accounting and compliance',
+      'NZ employees can view their HeroPoints balance and full transaction history in the EH Work mobile app',
+      'EH admins can view and distribute points on behalf of NZ orgs, fully auditable, with custom security settings controlling access',
+      'Coming next: allowing AU orgs to purchase and distribute HeroPoints for NZ employees'
+    ],
+    audience: 'NZ partner orgs that want the same rewards and recognition experience already available to AU, UK and CA customers.',
+    loomUrl: ''
+  },
+
+  'heropoints-anniversary-rewards': {
+    title: 'HeroPoints — Tenure-Based Anniversary Rewards',
+    tag: '🎁 Benefits', tagClass: 'tag-benefits',
+    date: '1 June 2026', plan: 'HeroPoints customers', region: '🇦🇺 Australia · NZ New Zealand', users: 'Employer Admins · HR Managers',
+    problem: 'HeroPoints anniversary rewards used a one-size-fits-all flat amount, with no way to reward employee loyalty differently as tenure increased.',
+    features: [
+      'Baseline with Tenure Tiers — set a default baseline for all anniversaries, then define higher tiers for years-of-service thresholds (highest matching tier auto-applied)',
+      'Baseline with Milestone Overrides — set a default reward, then layer higher amounts on significant milestones (e.g. Year 5, Year 10)',
+      'HeroPoints automatically calculates and distributes the correct reward to each employee on their anniversary based on tenure at that time',
+      'Admins can preview upcoming anniversary reward amounts before distribution to confirm everything is configured correctly'
+    ],
+    audience: 'Partner orgs running recognition programs that want to reward long-tenured employees at scale — beta in AU/NZ ahead of global rollout.',
+    loomUrl: ''
+  },
+
+  'csrf-token-validation': {
+    title: 'CSRF Token Validation — Full Global Release',
+    tag: '🔒 Security', tagClass: 'tag-security',
+    date: '17 June 2026', plan: 'All organisations', region: '🌏 Global Payroll', users: 'All Payroll Users',
+    problem: 'Without CSRF protection, users could be tricked into submitting unauthorised requests to the payroll platform from a third-party site, with those requests being processed as if intentional.',
+    features: [
+      'Cross Site Request Forgery (CSRF) token validation ensures only intentional requests from within the Payroll platform are processed',
+      'Gradually enforced across major Employment Hero Payroll brands over the last three months before full release',
+      'Already blocked multiple CSRF attempts by pentesters during the staged rollout',
+      'Now released globally across the payroll platform, with all partners informed'
+    ],
+    audience: 'All payroll partners — a platform-wide security hardening that requires no action but materially reduces unauthorised-request risk.',
+    loomUrl: ''
+  },
+
+  'openapi-goals-key-results': {
+    title: 'OpenAPI — Goals Key Results Read Endpoints',
+    tag: '🔒 Security', tagClass: 'tag-security',
+    date: '17 June 2026', plan: 'OpenAPI users', region: '🌏 Global', users: 'Integration Engineers · Developers',
+    problem: 'Customers using Employment Hero Goals had no programmatic way to read goals\' key results outside the platform, limiting integration and reporting options.',
+    features: [
+      'Two new OpenAPI read endpoints for Goals Key Results',
+      'List Key Results — retrieve key results within a goal in the organisation, with filtering support',
+      'Get Key Result — retrieve information for a single key result',
+      'Gives integration engineers a programmatic way to retrieve key results data'
+    ],
+    audience: 'Partner orgs and integration teams building reporting or workflows on top of Employment Hero Goals via the OpenAPI.',
+    loomUrl: ''
+  },
+
+  'performance-reviews-mobile-fixes': {
+    title: 'Performance Reviews Mobile — Bug Fixes & Filter UI',
+    tag: '📈 Performance', tagClass: 'tag-performance',
+    date: '17 June 2026', plan: 'Premium · Platinum · Plus · Unlimited · Engage · Elite', region: '🌏 Global', users: 'Managers · Employees · Admins',
+    problem: 'Since launching Performance Reviews on mobile, feedback surfaced a number of bugs, status inaccuracies and UI inconsistencies that made reviews harder to navigate on the go.',
+    features: [
+      'Cleaner mobile focus — reviews that haven\'t started are hidden; past periods correctly show "Ended"',
+      'Admin visibility fixed — admins see all employee review periods on mobile, matching desktop; non-reviewer admins see "View Only" instead of a misleading "0/0 completed"',
+      'Overall rating now appears in the Details section, and "In Progress" badge counts sync correctly for managers and employees',
+      'Search bar added to "My Reviews" and "Review Periods" to quickly find a specific review',
+      'Active filters now display as removable chips; filter icon aligned with view chips and consistent results counts',
+      'Android toast messages now display correctly above the system toolbar across all screen sizes'
+    ],
+    audience: 'Partner orgs whose managers and employees complete Performance Reviews on mobile — a quality-of-life and accuracy uplift across the mobile review experience.',
+    loomUrl: 'https://www.loom.com/share/4252de87517e4955af5639d5c8b435a9'
+  },
 };
 
 /* ────────────────────────────
@@ -11287,13 +11428,13 @@ const areaSubTabs = {
     { label: 'Employment Details',       keys: ['employment-details','casual-conversion','contractors-as-managers','offer-multiple-signatories','offer-letter-reminders','legal-name-privacy','contractor-custom-fields-v2','vacant-positions-perms','employee-permissions-view','mandatory-fields-settings','wp-employee-profile','probation-end-date','contract-type-display','notice-periods-all','employee-contractor-codes','granular-employee-deletion-permissions','hr-permissions-expansion','permissions-renaming','vevo-check-api','preferred-name-privacy-reports','termination-report-contractors','legal-name-privacy-api','contractor-status-concluded','add-worker-classification-wizard','contractor-uplift-people-list','unified-workforce-volunteers','position-management','probation-length-weeks-months'] },
     { label: 'Leave',                    keys: ['leave-cancel-termination','compliance-leave-filter','leave-overlap-prevention','leave-employee-disambiguation','public-holiday-indicator','leave-compliance-edit','leave-table-uplift','leave-table-standardize','public-holiday-auto','partially-approved-leave-status','zero-unit-leave-validation','leave-taken-report-extended-filters','leave-calendar-save-filters','leave-precise-time-requests','leave-prevent-delete-approved','leave-calendar-public-holidays','leave-pending-negative-balance','leave-reports-migration','leave-approval-audit-trail','leave-balances-groups-filter','contractor-unavailability-self-service','team-calendar-unified-view','smarter-leave-auto-approvals','unified-calendar-slice-2'] },
     { label: 'Documents & Policies',     keys: ['doc-notifications','compliance-doc-purpose','uk-policy-owner','uk-passport-visa-expiry','doc-template-visa-vars','doc-multiple-signatories','doc-image-upload','policy-due-dates','doc-editor-new','email-notifications-ui','email-notifs-docs','email-notifs-leave','cert-due-dates','cert-notification-improvements','probation-report','doc-template-variable-library','bulk-issue-documents','bulk-issue-documents-public','medical-disclosure-audit-logging','streamline-policy-acknowledgement','compliance-document-descriptions','compliance-document-tagging','compliance-reports-on-leave-filter','hr-document-editor-optional-block','email-notifs-org-consistency','gt-bulk-reminders','gt-portal-hr-docs-report','fair-work-statement-update','doc-template-versioning','doc-studio-migration-existing-orgs','my-documents-consolidation','doc-studio-policy-templates-standard','mm-uploaded-docs-manager-visibility','hr-certification-status-optional','heroforce-peo-hr-document-visibility','contractor-uploaded-documents-sharing','salary-change-letter-variables','doc-template-headers-footers'] },
-    { label: 'Platform & Engagement',    keys: ['positions-colour','settings-uplift','company-feed','eh-chat','banking-audit-trail','multi-owner-tasks','audit-trail-onboarding','compliance-report-filters','people-report-permissions','eh-work-mobile-public','manager-reassignment','multi-currency-expenses','bpay-aiop','personal-email-settings-ui-refresh','standardising-expense-management-ui','export-requisitions-onboarding-approvals','independent-contractor-work-types','onboarding-offboarding-multi-owner-tasks','audit-report-onboarding-pay-details','heroforce-onboarding-ctas','chat-addon-client-launch','hr-casual-conversion-precheck','recognition-report-csv-uplift','hr-custom-work-hours-standard','scalable-filters','eh-work-bottom-nav','policy-template-country-default','audit-trail-emergency-contacts','openapi-worksites-departments','expense-policies-allowance','openapi-timesheets-webhook','openapi-partner-docs','eh-work-todo-personal','custom-work-hours-au-uk-hr','openapi-dev-docs-ui','dashboard-declutter','addons-settings-uplift','settings-people-controls','settings-system-setup-branding','settings-org-emails-uplift','settings-company-details-rewards','settings-recognition-uplift','openapi-write-apis','openapi-rate-limit','openapi-app-flow-uplift','email-templates-unified','checklist-reordering','heroforce-roi-calculator-au','manager-temp-reassignment','audit-trail-permission-filtering','mobile-quicklinks-employee-pool','eh-work-reset-password-uplift','eh-work-careers-pillar-move','mm-compensation-custom-columns','heroforce-roi-full-hiring-journey','expense-management-reporting-employees-scope','heroforce-nz-self-serve-onboarding','legacy-requisitions-onboarding-approvals-sunset','tasks-milestones-email-editor','offboarding-checklist-triggers','heroforce-employment-agreement-signatory-flow','eh-work-ui-consistency','org-chart-all-worker-types','people-list-direct-reports-filter','unified-people-list','volunteers-in-reports','early-access-beta-dashboard','expenses-on-behalf'] },
+    { label: 'Platform & Engagement',    keys: ['positions-colour','settings-uplift','company-feed','eh-chat','banking-audit-trail','multi-owner-tasks','audit-trail-onboarding','compliance-report-filters','people-report-permissions','eh-work-mobile-public','manager-reassignment','multi-currency-expenses','bpay-aiop','personal-email-settings-ui-refresh','standardising-expense-management-ui','export-requisitions-onboarding-approvals','independent-contractor-work-types','onboarding-offboarding-multi-owner-tasks','audit-report-onboarding-pay-details','heroforce-onboarding-ctas','chat-addon-client-launch','hr-casual-conversion-precheck','recognition-report-csv-uplift','hr-custom-work-hours-standard','scalable-filters','eh-work-bottom-nav','policy-template-country-default','audit-trail-emergency-contacts','openapi-worksites-departments','expense-policies-allowance','openapi-timesheets-webhook','openapi-partner-docs','eh-work-todo-personal','custom-work-hours-au-uk-hr','openapi-dev-docs-ui','dashboard-declutter','addons-settings-uplift','settings-people-controls','settings-system-setup-branding','settings-org-emails-uplift','settings-company-details-rewards','settings-recognition-uplift','openapi-write-apis','openapi-rate-limit','openapi-app-flow-uplift','email-templates-unified','checklist-reordering','heroforce-roi-calculator-au','manager-temp-reassignment','audit-trail-permission-filtering','mobile-quicklinks-employee-pool','eh-work-reset-password-uplift','eh-work-careers-pillar-move','mm-compensation-custom-columns','heroforce-roi-full-hiring-journey','expense-management-reporting-employees-scope','heroforce-nz-self-serve-onboarding','legacy-requisitions-onboarding-approvals-sunset','tasks-milestones-email-editor','offboarding-checklist-triggers','heroforce-employment-agreement-signatory-flow','eh-work-ui-consistency','org-chart-all-worker-types','people-list-direct-reports-filter','unified-people-list','volunteers-in-reports','early-access-beta-dashboard','expenses-on-behalf','org-chart-staff-directory','group-member-transparency','expense-policy-assignment-notice'] },
   ],
   payroll: [
     { label: 'All Payroll', keys: null },
     { label: 'Global',      keys: ['inactive-users','roster-timesheet-report-mar','pay-condition-api','payroll-hide-inactive-deductions','opening-balances-employee-id','timesheet-break-times','salary-version-db-split','eh-work-payroll-passcode-change','heroforce-finance-ops-automation','payroll-number-of-days-condition','payroll-expiring-self-setup-links'] },
-    { label: 'Australia',   keys: ['contractor-codes','split-earnings-apac','au-pay-rate-template','heroclear-payment-rails','pay-rate-webhook','super-auto-import','heroclear-payment-approvals','payroll-award-preserve-customisation','au-award-update-batching','heroclear-onboarding-setup','super-edit-eh-work','super-default-mysuper','leave-accrual-dimensions-export','leave-earnings-dimensions-payrun','payday-super-qe-mcb','payroll-tags-award-redesign','pcc-pay-conditions-comparison','award-preserve-custom-rule-order','au-py-multi-period-rule-sets','apa-stp-classification'] },
-    { label: 'New Zealand', keys: ['nz-payroll-unpaid-leave','nz-esct-report','payroll-ask-community','leave-accrual-dimensions-export','leave-earnings-dimensions-payrun','nz-payroll-piece-rate-minimum-wage'] },
+    { label: 'Australia',   keys: ['contractor-codes','split-earnings-apac','au-pay-rate-template','heroclear-payment-rails','pay-rate-webhook','super-auto-import','heroclear-payment-approvals','payroll-award-preserve-customisation','au-award-update-batching','heroclear-onboarding-setup','super-edit-eh-work','super-default-mysuper','leave-accrual-dimensions-export','leave-earnings-dimensions-payrun','payday-super-qe-mcb','payroll-tags-award-redesign','pcc-pay-conditions-comparison','award-preserve-custom-rule-order','au-py-multi-period-rule-sets','apa-stp-classification','g2n-pay-category-units'] },
+    { label: 'New Zealand', keys: ['nz-payroll-unpaid-leave','nz-esct-report','payroll-ask-community','leave-accrual-dimensions-export','leave-earnings-dimensions-payrun','nz-payroll-piece-rate-minimum-wage','g2n-pay-category-units'] },
     { label: 'UK',          keys: [] },
     { label: 'Canada',      keys: [] },
   ],
@@ -11316,7 +11457,7 @@ const areaSubTabs = {
     { label: '2FA & Auth',            keys: ['2fa','recovery-codes','2fa-mobile','mandatory-2fa-forgot-pw','org-2fa-device-memory','forgot-pw-company-email','payroll-2fa-multi','payroll-login-refresh','eh-jobs-microsoft-sso','security-recovery-codes-mobile','security-mandatory-2fa-mobile','payroll-2fa-setup-mobile','jobs-passkey-reauth','payroll-eh-work-2fa-account-recovery','jobs-site-session-timeout','payroll-security-checklist'] },
     { label: 'Account Recovery',      keys: ['acct-recovery','payroll-partner-account-recovery','payroll-passkey-adoption','account-recovery-decline','payroll-ssar-ux','partner-account-recovery-requested-date','vetted-admin-mfa-resets','account-recovery-email-change'] },
     { label: 'Threat Detection',      keys: ['breached-pw','threat-hunting','email-security','app-block','sso-cert-expiry-notifs','free-trial-scam-prevention','payroll-risk-scoring-sensitive-actions'] },
-    { label: 'IT & Integrations',     keys: ['asset-register-custom-fields','m365-reporting-sync','mdm-jamf-intune','custom-webhook-headers','public-holiday-css','sso-dual-cert','sso-css-permission','jobs-unified-auth','openapi-certificates-webhooks-worktypes','employer-initiated-email-update','user-security-overview-enhancements','asset-register-csv-bulk-reassignment','openapi-permissions-alignment','security-asset-register-email-column','security-asset-management-filter','sso-self-service-recovery','eh-work-sso-passkeys','payroll-user-access-dashboards','payroll-mfa-ei-brands','payslip-management','openapi-forms-webhooks','jobs-unified-signup-auth','openapi-leave-permissions-alignment','openapi-forms-read-endpoints','payroll-sender-name-registration','openapi-forms-crud-endpoints','payroll-user-security-export','openapi-forms-responses-assignments','openapi-leave-balance','jobs-password-migration','openapi-worksites-permissions','payroll-saml-sso','openapi-forms-categories','security-asset-register-bulk-assignment','openapi-goals-read'] },
+    { label: 'IT & Integrations',     keys: ['asset-register-custom-fields','m365-reporting-sync','mdm-jamf-intune','custom-webhook-headers','public-holiday-css','sso-dual-cert','sso-css-permission','jobs-unified-auth','openapi-certificates-webhooks-worktypes','employer-initiated-email-update','user-security-overview-enhancements','asset-register-csv-bulk-reassignment','openapi-permissions-alignment','security-asset-register-email-column','security-asset-management-filter','sso-self-service-recovery','eh-work-sso-passkeys','payroll-user-access-dashboards','payroll-mfa-ei-brands','payslip-management','openapi-forms-webhooks','jobs-unified-signup-auth','openapi-leave-permissions-alignment','openapi-forms-read-endpoints','payroll-sender-name-registration','openapi-forms-crud-endpoints','payroll-user-security-export','openapi-forms-responses-assignments','openapi-leave-balance','jobs-password-migration','openapi-worksites-permissions','payroll-saml-sso','openapi-forms-categories','security-asset-register-bulk-assignment','openapi-goals-read','openapi-goals-key-results','csrf-token-validation'] },
     { label: 'Permissions',           keys: ['granular-employee-deletion-permissions','security-permissions-terminology','permissions-scope-exclusions','security-goals-okrs-permissions'] },
   ],
   automation: [
@@ -11327,7 +11468,7 @@ const areaSubTabs = {
   ],
   benefits: [
     { label: 'All Benefits',   keys: null },
-    { label: 'Hero Points',    keys: ['heropoints-css-permissions'] },
+    { label: 'Hero Points',    keys: ['heropoints-css-permissions','heropoints-nz-launch','heropoints-anniversary-rewards'] },
     { label: 'Group Benefits', keys: ['billing-statement','offer-letter-benefits','benefits-mgmt-report-update','benefits-requisitions'] },
     { label: 'Perks & Super',  keys: ['aus-ethical','super-auto-import','super-default-mysuper','heroclear-billing','hr-ato-integration','ks2-form-management'] },
   ],
@@ -11355,7 +11496,7 @@ const areaSubTabs = {
   performance: [
     { label: 'All Performance', keys: null },
     { label: 'Goals',           keys: ['goals-bulk-archive','goals-clone','goals-detailed-report','performance-goals-bulk-archive','performance-goals-clone-bulk-issue','performance-goals-visibility-default','performance-employee-file-feedback-goals'] },
-    { label: 'Reviews',         keys: ['performance-review-questions','review-question-roles','review-visibility-controls','happiness-survey-export','performance-reviews-uplift','360-custom-permissions','performance-review-ftu-templates','perf-review-start-date-visibility','performance-consolidate-notifications','performance-reorder-questions','performance-continuous-review-lockout','performance-360-review-extension','perf-review-no-override','happiness-survey-ftu','performance-tasks-email','settings-happiness-survey-uplift','360-reviews-email-settings','performance-recurring-review-cycles','performance-reviews-mobile','performance-compensation-award-employees','editable-review-questions'] },
+    { label: 'Reviews',         keys: ['performance-review-questions','review-question-roles','review-visibility-controls','happiness-survey-export','performance-reviews-uplift','360-custom-permissions','performance-review-ftu-templates','perf-review-start-date-visibility','performance-consolidate-notifications','performance-reorder-questions','performance-continuous-review-lockout','performance-360-review-extension','perf-review-no-override','happiness-survey-ftu','performance-tasks-email','settings-happiness-survey-uplift','360-reviews-email-settings','performance-recurring-review-cycles','performance-reviews-mobile','performance-compensation-award-employees','editable-review-questions','performance-reviews-mobile-fixes'] },
     { label: '1:1s',            keys: ['1on1-session-controls','1on1-report-permissions','performance-employee-file-development-tabs'] },
     { label: 'Disciplinary',    keys: ['disciplinary-record-au-nz'] },
     { label: '9-Box Grid',      keys: ['9box-talent-grid','performance-9box-banner-accuracy','9box-talent-grid-dedicated-page'] },
